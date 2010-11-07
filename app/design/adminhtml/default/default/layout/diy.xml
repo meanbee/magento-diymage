@@ -14,30 +14,35 @@
     <diy_design_index>
         <reference name="content">
             <block type="diy/admin_design_global" name="diy.admin.design.global" template="diy/design/global.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_index>
     
     <diy_design_listing>
         <reference name="content">
             <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_listing>
     
     <diy_design_product>
         <reference name="content">
             <block type="diy/admin_design_product" name="diy.admin.design.product" template="diy/design/product.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_product>
     
     <diy_design_checkout>
         <reference name="content">
             <block type="diy/admin_design_checkout" name="diy.admin.design.checkout" template="diy/design/checkout.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_checkout>
     
     <diy_design_cart>
         <reference name="content">
             <block type="diy/admin_design_cart" name="diy.admin.design.cart" template="diy/design/cart.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_cart>
     
