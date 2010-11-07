@@ -35,7 +35,7 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
                 $data->save();
             }
             
-            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('diy')->__('Attributes updated'));
+            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('diy')->__('Your design changes have been saved and applied successfully'));
         }
         
         if ($return_url) {

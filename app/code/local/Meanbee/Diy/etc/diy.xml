@@ -4,28 +4,34 @@
         <attributes>
             <global>
                 <font_colour>
-                    <label>Font Colour (Global)</label>
-                    <help>This is the help text for the font colour</help>
+                    <label>Font Colour</label>
+                    <help>This is the default colour of the text on your store.</help>
                     <value>#eee</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </font_colour>
                 <link_colour>
                     <label>Link Colour</label>
-                    <help>This is the help text for the link colour</help>
+                    <help>This is the colour of the links on your site.</help>
                     <value>ffcc00</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </link_colour>
                 <link_hover_colour>
                     <label>Link Hover Colour</label>
-                    <help>This is the help text for the hover colour</help>
+                    <help>This is the colour that the links go when you hover.</help>
                     <value>555555</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </link_hover_colour>
+                <font_size>
+                    <label>Font Size</label>
+                    <help>This value will be the size of the default text around the site.  It's not common to change this from 10-11px.</help>
+                    <value>10</value>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                </font_size>
             </global>
             <product>
                 <layout>
                     <label>Page Layout</label>
-                    <help>This is the layout of the page</help>
+                    <help>This is the main structural layout of the page.</help>
                     <value>page/2columns-right.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
@@ -40,7 +46,7 @@
             <listing>
                 <layout>
                     <label>Page Layout</label>
-                    <help>This is the layout of the page</help>
+                    <help>This is the main structural layout of the page.</help>
                     <value>page/3columns.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
@@ -49,7 +55,7 @@
             <cart>
                 <layout>
                     <label>Page Layout</label>
-                    <help>This is the layout of the page</help>
+                    <help>This is the main structural layout of the page.</help>
                     <value>page/1column.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
@@ -58,7 +64,7 @@
             <checkout>
                 <layout>
                     <label>Page Layout</label>
-                    <help>This is the layout of the page</help>
+                    <help>This is the main structural layout of the page.</help>
                     <value>page/1column.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>

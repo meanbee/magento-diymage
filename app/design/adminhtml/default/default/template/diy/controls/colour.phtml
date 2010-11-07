@@ -4,10 +4,10 @@
  * @author Nicholas Jones
  */
 ?>
-<p>
+<p class="diy control colour">
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-    #<input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><br />
-    <i><?php echo $this->getHelpText() ?></i>
+    <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" />
+    <span class="help"><?php echo $this->getHelpText() ?></span>
 </p>
 
 <script type="text/javascript" charset="utf-8">

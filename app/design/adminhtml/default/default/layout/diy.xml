@@ -7,7 +7,7 @@
             <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
             
             <action method="addItem"><type>skin_css</type><name>diy/css/colorpicker.css</name><params /></action>
-            
+            <action method="addItem"><type>skin_css</type><name>diy/css/controls.css</name><params /></action>
         </reference>
     </default>
     
