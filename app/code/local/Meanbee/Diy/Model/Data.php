@@ -58,19 +58,11 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     /**
      * Return an array of the values we consider valid
      *
-     * @TODO: Read the array from _getGroupsMap() instead of defining it again..
-     *
      * @return array
      * @author Nicholas Jones
      */
     protected function _allowedGroups() {
-        return array(
-            self::GROUP_GLOBAL,
-            self::GROUP_PRODUCT,
-            self::GROUP_LISTING,
-            self::GROUP_CHECKOUT,
-            self::GROUP_CART
-        );
+        return array_values($this->_getGroupsMap());
     }
     
     protected function _getGroupsMap() {
@@ -79,7 +71,7 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
             "product"   => self::GROUP_PRODUCT,
             "listing"   => self::GROUP_LISTING,
             "checkout"  => self::GROUP_CHECKOUT,
-            "cart"  => self::GROUP_CART
+            "cart"      => self::GROUP_CART
         );
     }
     

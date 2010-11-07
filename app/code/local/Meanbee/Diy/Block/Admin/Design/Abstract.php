@@ -8,6 +8,12 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         return $this;
     }
     
+    /**
+     * @TODO: Remove the hard coded store id
+     *
+     * @return void
+     * @author Nicholas Jones
+     */
     protected function getDataCollection() {
         $data = Mage::getModel('diy/data');
         
