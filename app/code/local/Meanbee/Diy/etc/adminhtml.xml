@@ -22,10 +22,15 @@
                     <sort_order>30</sort_order>
                 </product>
                 <checkout translate="title" module="diy">
-                    <title>Cart / Checkout</title>
+                    <title>Checkout</title>
                     <action>diy/design/checkout</action>
                     <sort_order>40</sort_order>
                 </checkout>
+                <cart translate="title" module="diy">
+                    <title>Cart</title>
+                    <action>diy/design/cart</action>
+                    <sort_order>50</sort_order>
+                </cart>
             </children>
         </diy>
     </menu>
@@ -51,9 +56,13 @@
                                 <sort_order>10</sort_order>
                             </product>
                             <checkout translate="title" module="diy">
-                                <title>Cart / Checkout Design Settings</title>
+                                <title>Checkout Design Settings</title>
                                 <sort_order>10</sort_order>
                             </checkout>
+                            <cart translate="title" module="diy">
+                                <title>Cart Design Settings</title>
+                                <sort_order>10</sort_order>
+                            </cart>
                         </children>
                     </diy>
                 </children>

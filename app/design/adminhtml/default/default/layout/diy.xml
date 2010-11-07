@@ -35,4 +35,10 @@
         </reference>
     </diy_design_checkout>
     
+    <diy_design_cart>
+        <reference name="content">
+            <block type="diy/admin_design_cart" name="diy.admin.design.cart" template="diy/design/cart.phtml" />
+        </reference>
+    </diy_design_cart>
+    
 </layout>

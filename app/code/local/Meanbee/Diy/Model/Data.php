@@ -18,6 +18,7 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     const GROUP_PRODUCT     = 2;
     const GROUP_LISTING     = 3;
     const GROUP_CHECKOUT    = 4;
+    const GROUP_CART        = 5;
     
     protected function _construct() {
         $this->_init('diy/data');
@@ -57,7 +58,7 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     /**
      * Return an array of the values we consider valid
      *
-     * @OPTIMIZE: Investigate the over heads involved in using reflection to work out which groups we have defined..
+     * @TODO: Read the array from _getGroupsMap() instead of defining it again..
      *
      * @return array
      * @author Nicholas Jones
@@ -67,7 +68,8 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
             self::GROUP_GLOBAL,
             self::GROUP_PRODUCT,
             self::GROUP_LISTING,
-            self::GROUP_CHECKOUT
+            self::GROUP_CHECKOUT,
+            self::GROUP_CART
         );
     }
     
@@ -76,7 +78,8 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
             "global"    => self::GROUP_GLOBAL,
             "product"   => self::GROUP_PRODUCT,
             "listing"   => self::GROUP_LISTING,
-            "checkout"  => self::GROUP_CHECKOUT
+            "checkout"  => self::GROUP_CHECKOUT,
+            "cart"  => self::GROUP_CART
         );
     }
     

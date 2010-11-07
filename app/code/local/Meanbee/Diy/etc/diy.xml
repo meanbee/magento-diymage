@@ -12,13 +12,13 @@
                 <link_colour>
                     <label>Link Colour</label>
                     <help>This is the help text for the link colour</help>
-                    <value>#eee</value>
+                    <value>ffcc00</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </link_colour>
                 <link_hover_colour>
                     <label>Link Hover Colour</label>
                     <help>This is the help text for the hover colour</help>
-                    <value>#eee</value>
+                    <value>555555</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </link_hover_colour>
             </global>
@@ -26,22 +26,43 @@
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the layout of the page</help>
-                    <value>1column</value>
+                    <value>page/2columns-right.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                 </layout>
                 <font_colour>
                     <label>Font Colour (Product)</label>
                     <help>This is the help text for the font colour</help>
-                    <value>#eee</value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </font_colour>
             </product>
             <listing>
-                
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the layout of the page</help>
+                    <value>page/3columns.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                </layout>
             </listing>
+            <cart>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the layout of the page</help>
+                    <value>page/1column.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                </layout>
+            </cart>
             <checkout>
-                
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the layout of the page</help>
+                    <value>page/1column.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                </layout>
             </checkout>
         </attributes>
     </diy>
