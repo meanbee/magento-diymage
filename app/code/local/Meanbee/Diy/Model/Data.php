@@ -55,9 +55,9 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     }
     
     /**
-     * Return the 
+     * Return an array of the values we consider valid
      *
-     * @todo Investigate the over heads involved in using reflection to work out which groups we have defined..
+     * @OPTIMIZE: Investigate the over heads involved in using reflection to work out which groups we have defined..
      *
      * @return array
      * @author Nicholas Jones
