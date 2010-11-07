@@ -24,6 +24,7 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     public function saveAction() {
         if ($data = $this->getRequest()->getPost("diy")) {
             $return_url = $this->getRequest()->getPost("return_url");
+            $publish = (bool) $this->getRequest()->getPost("publish");
             
             foreach ($data as $id => $value) {
                 if (!is_integer($id)) {
@@ -35,7 +36,16 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
                 $data->save();
             }
             
-            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('diy')->__('Your design changes have been saved and applied successfully'));
+            if ($publish) {
+                try {
+                    Mage::getSingleton('diy/stylesheet')->publish();
+                    Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('diy')->__('Your design changes have been saved and published successfully'));
+                } catch (Exception $e) {
+                    Mage::getSingleton('adminhtml/session')->addError(Mage::helper('diy')->__('There was an error publishing your changes, but your data has been saved (' . $e->getMessage() . ')'));                    
+                }
+            } else {
+                Mage::getSingleton('adminhtml/session')->addNotice(Mage::helper('diy')->__('Your design changes have been saved successfully, but have not yet been published so will not yet be live on your site'));
+            }
         }
         
         if ($return_url) {

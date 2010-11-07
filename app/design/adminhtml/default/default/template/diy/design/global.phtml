@@ -9,13 +9,16 @@
     <input type="hidden" name="form_key" value="<?php echo $this->getFormKey() ?>" />
     <input type="hidden" name="return_url" value="<?php echo $this->getUrl("*/*/*") ?>" />
     
+    <input type="hidden" id="diy_publish" name="publish" value="0" />
+    
     <div class="content-header skip-header" id="content_header">
         <table cellspacing="0">
             <tr>
                 <td><h3 id="content_header_text"><?php echo $this->__('Global Design Settings') ?></h3></td>
                 <td class="form-buttons">
                     <button style="" onclick="" class="scalable back" type="button" id="diy_back"><span>Back</span></button>
-                    <button style="" onclick="$('diy_form').submit()" class="scalable save" type="button" id="diy_save"><span>Save Changes</span></button>
+                    <button style="" onclick="$('diy_form').submit()" class="scalable save" type="button" id="diy_save"><span>Save</span></button>
+                    <button style="" onclick="$('diy_publish').value = 1; $('diy_form').submit()" class="scalable save" type="button" id="diy_save"><span>Save &amp; Publish</span></button>
                 </td>
             </tr>
         </table>
