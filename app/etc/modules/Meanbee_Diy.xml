@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_Diy>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Meanbee_Diy>
+    </modules>
+</config>

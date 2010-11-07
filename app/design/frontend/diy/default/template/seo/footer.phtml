@@ -1,0 +1,10 @@
+<script>
+window.onload = function() {
+var cssNode = document.createElement('link');
+cssNode.type = 'text/css';
+cssNode.rel = 'stylesheet';
+cssNode.href = '<?php echo $this->getSkinUrl('css/print.css');?>';
+cssNode.media = 'print';
+document.getElementsByTagName("head")[0].appendChild(cssNode);
+}
+</script>

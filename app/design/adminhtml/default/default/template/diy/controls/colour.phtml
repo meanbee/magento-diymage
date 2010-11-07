@@ -1,0 +1,19 @@
+<?php
+/**
+ * @see Meanbee_Diy_Block_Admin_Control_Colour
+ * @author Nicholas Jones
+ */
+?>
+<p>
+    <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
+    #<input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><br />
+    <i><?php echo $this->getHelpText() ?></i>
+</p>
+
+<script type="text/javascript" charset="utf-8">
+<!--
+new Control.ColorPicker('<?php echo $this->getFieldId() ?>', {
+    IMAGE_BASE: "<?php echo $this->getSkinUrl('diy/images/') ?>"
+});
+-->
+</script>

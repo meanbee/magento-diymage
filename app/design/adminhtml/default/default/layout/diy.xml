@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>diy/js/yahoo.color.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
+            
+            <action method="addItem"><type>skin_css</type><name>diy/css/colorpicker.css</name><params /></action>
+            
+        </reference>
+    </default>
+    
+    <diy_design_index>
+        <reference name="content">
+            <block type="diy/admin_design_global" name="diy.admin.design.global" template="diy/design/global.phtml" />
+        </reference>
+    </diy_design_index>
+    
+    <diy_design_listing>
+        <reference name="content">
+            <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml" />
+        </reference>
+    </diy_design_listing>
+    
+    <diy_design_product>
+        <reference name="content">
+            <block type="diy/admin_design_product" name="diy.admin.design.product" template="diy/design/product.phtml" />
+        </reference>
+    </diy_design_product>
+    
+    <diy_design_checkout>
+        <reference name="content">
+            <block type="diy/admin_design_checkout" name="diy.admin.design.checkout" template="diy/design/checkout.phtml" />
+        </reference>
+    </diy_design_checkout>
+    
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <diy translate="title" module="diy">
+            <title>Site Design</title>
+            <sort_order>900</sort_order>
+            <action>diy/design</action>
+            <children>
+                <global translate="title" module="diy">
+                    <title>Global</title>
+                    <action>diy/design</action>
+                    <sort_order>10</sort_order>
+                </global>
+                <listing translate="title" module="diy">
+                    <title>Product Listing</title>
+                    <action>diy/design/listing</action>
+                    <sort_order>20</sort_order>
+                </listing>
+                <product translate="title" module="diy">
+                    <title>Product Page</title>
+                    <action>diy/design/product</action>
+                    <sort_order>30</sort_order>
+                </product>
+                <checkout translate="title" module="diy">
+                    <title>Cart / Checkout</title>
+                    <action>diy/design/checkout</action>
+                    <sort_order>40</sort_order>
+                </checkout>
+            </children>
+        </diy>
+    </menu>
+    
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <diy translate="title" module="diy">
+                        <title>Site Design Settings</title>
+                        <sort_order>900</sort_order>
+                        <children>
+                            <global translate="title" module="diy">
+                                <title>Global Design Settings</title>
+                                <sort_order>10</sort_order>
+                            </global>
+                            <listing translate="title" module="diy">
+                                <title>Product Listing Design Settings</title>
+                                <sort_order>10</sort_order>
+                            </listing>
+                            <product translate="title" module="diy">
+                                <title>Product Design Settings</title>
+                                <sort_order>10</sort_order>
+                            </product>
+                            <checkout translate="title" module="diy">
+                                <title>Cart / Checkout Design Settings</title>
+                                <sort_order>10</sort_order>
+                            </checkout>
+                        </children>
+                    </diy>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,6 @@
+<layout version="0.1.0">
+    <default>
+        <remove name="right.permanent.callout" />
+        <remove name="left.permanent.callout" />
+    </default>
+</layout>

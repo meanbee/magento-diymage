@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <diy>
+        <attributes>
+            <global>
+                <font_colour>
+                    <label>Font Colour (Global)</label>
+                    <help>This is the help text for the font colour</help>
+                    <value>#eee</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                </font_colour>
+                <link_colour>
+                    <label>Link Colour</label>
+                    <help>This is the help text for the link colour</help>
+                    <value>#eee</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                </link_colour>
+                <link_hover_colour>
+                    <label>Link Hover Colour</label>
+                    <help>This is the help text for the hover colour</help>
+                    <value>#eee</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                </link_hover_colour>
+            </global>
+            <product>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the layout of the page</help>
+                    <value>1column</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                </layout>
+                <font_colour>
+                    <label>Font Colour (Product)</label>
+                    <help>This is the help text for the font colour</help>
+                    <value>#eee</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                </font_colour>
+            </product>
+            <listing>
+                
+            </listing>
+            <checkout>
+                
+            </checkout>
+        </attributes>
+    </diy>
+</config>
