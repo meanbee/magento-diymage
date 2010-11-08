@@ -8,30 +8,35 @@
                     <help>This is the default colour of the text on your store.</help>
                     <value>666666</value>
                     <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
                 </font_colour>
                 <link_colour>
                     <label>Link Colour</label>
                     <help>This is the colour of the links on your site.</help>
                     <value>ffcc00</value>
                     <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
                 </link_colour>
                 <link_hover_colour>
                     <label>Link Hover Colour</label>
                     <help>This is the colour that the links go when you hover.</help>
                     <value>555555</value>
                     <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
                 </link_hover_colour>
                 <font_size>
                     <label>Font Size</label>
                     <help>This value will be the size of the default text around the site.  It's not common to change this from 10-11px.</help>
                     <value>10</value>
                     <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>40</sort_order>
                 </font_size>
                 <show_categories>
                     <label>Show Categories?</label>
                     <help>This control decides whether to show the categories along the top of the page, or not.</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>50</sort_order>
                 </show_categories>
             </global>
             <catalog_product_view>
@@ -75,6 +80,7 @@
                     <value>page/1column.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
                 </layout>
             </checkout_cart>
             <checkout_onepage>
@@ -84,6 +90,7 @@
                     <value>page/1column.phtml</value>
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
                 </layout>
             </checkout_onepage>
         </attributes>
