@@ -1,0 +1,15 @@
+<?php
+/**
+ * @TODO: Use a checkbox instead of a dropdown..
+ *
+ * @see Meanbee_Diy_Block_Admin_Control_Boolean
+ */
+?>
+<p class="diy control boolean">
+    <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
+    <select name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>">
+        <option value="1"<?php if ($this->getValue() == "1"):?> selected="selected"<?php endif ?>>Yes</option>
+        <option value="0"<?php if ($this->getValue() == "0"):?> selected="selected"<?php endif ?>>No</option>
+    </select>
+    <span class="help"><?php echo $this->getHelpText() ?></span>
+</p>

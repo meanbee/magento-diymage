@@ -27,6 +27,12 @@
                     <value>10</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                 </font_size>
+                <show_categories>
+                    <label>Show Categories?</label>
+                    <help>This control decides whether to show the categories along the top of the page, or not.</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                </show_categories>
             </global>
             <product>
                 <layout>
@@ -36,12 +42,6 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                 </layout>
-                <font_colour>
-                    <label>Font Colour (Product)</label>
-                    <help>This is the help text for the font colour</help>
-                    <value>000000</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                </font_colour>
             </product>
             <listing>
                 <layout>
@@ -51,6 +51,18 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                 </layout>
+                <pager_border>
+                    <label>Show Pager Border?</label>
+                    <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                </pager_border>
+                <pager_background>
+                    <label>Pager Background Colour</label>
+                    <help>This control decides what the background colour of the pager toolbar containing the page numbers, etc, should be.</help>
+                    <value>EEEEEE</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                </pager_background>
             </listing>
             <cart>
                 <layout>

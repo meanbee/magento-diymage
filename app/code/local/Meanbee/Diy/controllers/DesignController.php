@@ -44,7 +44,7 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
                     Mage::getSingleton('adminhtml/session')->addError(Mage::helper('diy')->__('There was an error publishing your changes, but your data has been saved (' . $e->getMessage() . ')'));                    
                 }
             } else {
-                Mage::getSingleton('adminhtml/session')->addNotice(Mage::helper('diy')->__('Your design changes have been saved successfully, but have not yet been published so will not yet be live on your site'));
+                Mage::getSingleton('adminhtml/session')->addNotice(Mage::helper('diy')->__('Your design changes have been saved successfully, but have not yet been published so may not yet be live'));
             }
         }
         

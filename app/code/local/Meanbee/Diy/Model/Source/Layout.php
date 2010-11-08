@@ -1,8 +1,6 @@
 <?php
 class Meanbee_Diy_Model_Source_Layout implements Meanbee_Diy_Model_Source_Interface {
     public function asArray() {
-        print_r();
-        
         $layouts = Mage::getSingleton('page/config')->getPageLayouts();
         $result = array();
         

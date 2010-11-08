@@ -1,3 +1,22 @@
 body {
-    background-color: #<?php echo "000000"; ?>;
+    font-size: <?php echo Mage::helper('diy')->getValue("global", "font_size"); ?>px;
+    color: #<?php echo Mage::helper('diy')->getValue("global", "font_colour")?>;
+}
+
+a {
+    color: #<?php echo Mage::helper('diy')->getValue("global", "link_colour") ?>;
+}
+
+a:hover {
+    color: #<?php Mage::helper('diy')->getValue("global", "link_hover_colour") ?>;
+}
+
+<?php if (Mage::helper('diy')->getValue("listing", "pager_border") != 1): ?>
+    .pager, .sorter {
+        border: none;
+    }
+<?php endif ?>
+
+.pager, .sorter {
+    background: #<?php echo Mage::helper('diy')->getValue("listing", "pager_background") ?>;
 }
