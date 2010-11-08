@@ -6,7 +6,7 @@
                 <font_colour>
                     <label>Font Colour</label>
                     <help>This is the default colour of the text on your store.</help>
-                    <value>#eee</value>
+                    <value>666666</value>
                     <input_control>diy/admin_control_colour</input_control>
                 </font_colour>
                 <link_colour>
@@ -34,7 +34,7 @@
                     <input_control>diy/admin_control_boolean</input_control>
                 </show_categories>
             </global>
-            <product>
+            <catalog_product_view>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -43,8 +43,8 @@
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
                 </layout>
-            </product>
-            <listing>
+            </catalog_product_view>
+            <catalog_category>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -67,8 +67,8 @@
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>30</sort_order>
                 </pager_background>
-            </listing>
-            <cart>
+            </catalog_category>
+            <checkout_cart>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -76,8 +76,8 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                 </layout>
-            </cart>
-            <checkout>
+            </checkout_cart>
+            <checkout_onepage>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -85,7 +85,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                 </layout>
-            </checkout>
+            </checkout_onepage>
         </attributes>
     </diy>
 </config>

@@ -9,6 +9,12 @@ class Meanbee_Diy_Helper_Data extends Mage_Core_Helper_Abstract {
      * @author Nicholas Jones
      */
     public function getValue($group, $name) {
-        return Mage::getModel('diy/data')->findByName($name, Mage::getModel('diy/data')->identifyGroupId($group), 1)->getValue();
+        $item = Mage::getModel('diy/data')->findByName($name, $group, 1);
+        
+        if ($item !== false) {
+            return $item->getValue();
+        } else {
+            //throw new Exception("Unable to load value for $group/$name -- it does not exist");
+        }
     }
 }

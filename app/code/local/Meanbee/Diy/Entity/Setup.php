@@ -9,7 +9,7 @@ class Meanbee_Diy_Entity_Setup extends Mage_Eav_Model_Entity_Setup {
                 'attributes'        => array(
                     "name"          => $this->__addVarcharAttribute("Name"),
                     "label"         => $this->__addVarcharAttribute("Label"),
-                    "group"         => $this->__addIntAttribute("Group"),
+                    "group"         => $this->__addVarcharAttribute("Group"),
                     "input_control" => $this->__addVarcharAttribute("Input Control"),
                     "help"          => $this->__addTextAttribute("Help Text"),
                     "value"         => $this->__addTextAttribute("Value"),
@@ -72,12 +72,12 @@ class Meanbee_Diy_Entity_Setup extends Mage_Eav_Model_Entity_Setup {
             $store_id = $store['store_id'];
             
             foreach($groups as $group => $attributes) {
-                $group_id = Mage::getModel('diy/data')->identifyGroupId($group);
+                
                 foreach ($attributes as $name => $attribute) {
                     $collection = Mage::getModel('diy/data')->getCollection();
                     $data = Mage::getModel('diy/data');
                     
-                    if ($result = $data->findByName($name, $group_id, $store_id)) {
+                    if ($result = $data->findByName($name, $group, $store_id)) {
                         $result->delete();
                         $values["value"] = $result->getValue();
                     } else {

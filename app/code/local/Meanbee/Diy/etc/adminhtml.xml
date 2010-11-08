@@ -11,26 +11,26 @@
                     <action>diy/design</action>
                     <sort_order>10</sort_order>
                 </global>
-                <listing translate="title" module="diy">
+                <catalog_category translate="title" module="diy">
                     <title>Product Listing</title>
                     <action>diy/design/listing</action>
                     <sort_order>20</sort_order>
-                </listing>
-                <product translate="title" module="diy">
+                </catalog_category>
+                <catalog_product_view translate="title" module="diy">
                     <title>Product Page</title>
                     <action>diy/design/product</action>
                     <sort_order>30</sort_order>
-                </product>
-                <checkout translate="title" module="diy">
+                </catalog_product_view>
+                <checkout_onepage translate="title" module="diy">
                     <title>Checkout</title>
                     <action>diy/design/checkout</action>
                     <sort_order>40</sort_order>
-                </checkout>
-                <cart translate="title" module="diy">
+                </checkout_onepage>
+                <checkout_cart translate="title" module="diy">
                     <title>Cart</title>
                     <action>diy/design/cart</action>
                     <sort_order>50</sort_order>
-                </cart>
+                </checkout_cart>
             </children>
         </diy>
     </menu>
@@ -47,22 +47,22 @@
                                 <title>Global Design Settings</title>
                                 <sort_order>10</sort_order>
                             </global>
-                            <listing translate="title" module="diy">
+                            <catalog_category translate="title" module="diy">
                                 <title>Product Listing Design Settings</title>
-                                <sort_order>10</sort_order>
-                            </listing>
-                            <product translate="title" module="diy">
+                                <sort_order>20</sort_order>
+                            </catalog_category>
+                            <catalog_product_view translate="title" module="diy">
                                 <title>Product Design Settings</title>
-                                <sort_order>10</sort_order>
-                            </product>
-                            <checkout translate="title" module="diy">
+                                <sort_order>30</sort_order>
+                            </catalog_product_view>
+                            <checkout_onepage translate="title" module="diy">
                                 <title>Checkout Design Settings</title>
-                                <sort_order>10</sort_order>
-                            </checkout>
-                            <cart translate="title" module="diy">
+                                <sort_order>40</sort_order>
+                            </checkout_onepage>
+                            <checkout_cart translate="title" module="diy">
                                 <title>Cart Design Settings</title>
-                                <sort_order>10</sort_order>
-                            </cart>
+                                <sort_order>50</sort_order>
+                            </checkout_cart>
                         </children>
                     </diy>
                 </children>
