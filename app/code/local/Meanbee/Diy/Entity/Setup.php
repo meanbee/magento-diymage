@@ -14,6 +14,7 @@ class Meanbee_Diy_Entity_Setup extends Mage_Eav_Model_Entity_Setup {
                     "help"          => $this->__addTextAttribute("Help Text"),
                     "value"         => $this->__addTextAttribute("Value"),
                     "source_model"  => $this->__addVarcharAttribute("Source Model"),
+                    "sort_order"    => $this->__addIntAttribute("Sort Order"),
                     
                     // Ideally, we'd use the store_id that forms part of the entity.. but Magento isn't playing nice..
                     "store_id"      => $this->__addIntAttribute("Store Id")
@@ -84,12 +85,13 @@ class Meanbee_Diy_Entity_Setup extends Mage_Eav_Model_Entity_Setup {
                     }
                     
                     $values["name"]             = $name;
-                    $values["group"]            = $group_id;
+                    $values["group"]            = $group;
                     $values["store_id"]         = $store_id;
                     $values["label"]            = $attribute['label'];
                     $values["help"]             = $attribute['help'];
                     $values["input_control"]    = $attribute['input_control'];
                     $values["source_model"]     = $attribute['source_model'];
+                    $values["sort_order"]       = ($attribute['sort_order']) ? $attribute['sort_order'] : 0;
 
                     $data->setData($values);
                     $data->save();

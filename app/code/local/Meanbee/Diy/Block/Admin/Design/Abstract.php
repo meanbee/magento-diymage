@@ -20,7 +20,8 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         $collection = $data->getCollection()
                             ->addAttributeToSelect('*')
                             ->addAttributeToFilter('group', $this->getDataGroup())
-                            ->addAttributeToFilter('store_id', 1);
+                            ->addAttributeToFilter('store_id', 1)
+                            ->setOrder('sort_order', 'asc');
         
         return $collection;
     }
