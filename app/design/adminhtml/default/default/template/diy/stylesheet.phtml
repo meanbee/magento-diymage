@@ -8,7 +8,7 @@ a {
 }
 
 a:hover {
-    color: #<?php Mage::helper('diy')->getValue("global", "link_hover_colour") ?>;
+    color: #<?php echo Mage::helper('diy')->getValue("global", "link_hover_colour") ?>;
 }
 
 <?php if (Mage::helper('diy')->getValue("listing", "pager_border") != 1): ?>
