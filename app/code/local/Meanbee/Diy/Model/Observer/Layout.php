@@ -6,26 +6,44 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $update = $layout->getUpdate();
         $request = $action_obj->getRequest();
         
+        $module = $request->getModuleName();
         $action = $request->getActionName();
         $controller = $request->getControllerName();
         
+        $identifiers = array(
+            "{$module}",
+            "{$module}_{$controller}",
+            "{$module}_{$controller}_{$action}"
+        );
+        
         $store_id = Mage::app()->getStore()->getStoreId();
         
-        $data = false; // This will become true if we match something in the next set of conditionals
+        $layout_file = false; // This will become true if we match something in the next set of conditionals
+        
+        /*
+        @TODO: Use this for displaying the layout, not the nested if-else
+        foreach ($identifiers as $identifier) {
+            $update = Mage::helper('diy')->getValue($identifier, "layout")
+            
+            if ($update !== false) {
+                $layout_file = $update;
+            }
+        }
+        */
         
         /* Per Section Template Changes */
         if ($controller == "category" && $action == "view") {
-            $data = Mage::helper('diy')->getValue("listing", "layout");
+            $layout_file = Mage::helper('diy')->getValue("listing", "layout");
         } else if ($controller == "product" && $action == "view") {
-            $data = Mage::helper('diy')->getValue("product", "layout");
+            $layout_file = Mage::helper('diy')->getValue("product", "layout");
         } else if ($controller == "cart") {
-            $data = Mage::helper('diy')->getValue("cart", "layout");
+            $layout_file = Mage::helper('diy')->getValue("cart", "layout");
         } else if ($controller == "onepage") {
-            $data = Mage::helper('diy')->getValue("checkout", "layout");
+            $layout_file = Mage::helper('diy')->getValue("checkout", "layout");
         }
         
-        if ($data) {
-            $this->_setTemplate($layout, $data->getValue());
+        if ($layout_file) {
+            $this->_setTemplate($layout, $layout_file);
         }
         
         if (!Mage::helper('diy')->getValue("global", "show_categories")) {
