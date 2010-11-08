@@ -10,37 +10,26 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $action = $request->getActionName();
         $controller = $request->getControllerName();
         
+        $full_identifier = "{$module}_{$controller}_{$action}";
+        
         $identifiers = array(
             "{$module}",
             "{$module}_{$controller}",
-            "{$module}_{$controller}_{$action}"
+            $full_identifier
         );
         
         $store_id = Mage::app()->getStore()->getStoreId();
         
         $layout_file = false; // This will become true if we match something in the next set of conditionals
         
-        /*
-        @TODO: Use this for displaying the layout, not the nested if-else
+        // Attempt to load the desired layout, working increasing precision with each step
         foreach ($identifiers as $identifier) {
-            $update = Mage::helper('diy')->getValue($identifier, "layout")
+            $update = Mage::helper('diy')->getValue($identifier, "layout");
             
-            if ($update !== false) {
+            if ($update !== null) {
                 $layout_file = $update;
             }
-        }
-        */
-        
-        /* Per Section Template Changes */
-        if ($controller == "category" && $action == "view") {
-            $layout_file = Mage::helper('diy')->getValue("listing", "layout");
-        } else if ($controller == "product" && $action == "view") {
-            $layout_file = Mage::helper('diy')->getValue("product", "layout");
-        } else if ($controller == "cart") {
-            $layout_file = Mage::helper('diy')->getValue("cart", "layout");
-        } else if ($controller == "onepage") {
-            $layout_file = Mage::helper('diy')->getValue("checkout", "layout");
-        }
+        }        
         
         if ($layout_file) {
             $this->_setTemplate($layout, $layout_file);

@@ -4,7 +4,7 @@ p.diy.control {
     background: #f6f6f6;
     border:1px solid #eee;
     margin-bottom: 10px;
-    width: 30%;
+    width: 250px;
     float: left;
     margin-right: 10px;
 }
@@ -50,4 +50,23 @@ p.diy.control.unit input {
 p.diy.control.unit span.unit {
     font-size: 18px;
     padding-left: 3px;
+}
+
+/** BUILDER SPECIFIC STYLES ****************************************/
+p.diy.control.builder {
+    float: right;
+    width: 450px;
+    height: 500px;
+}
+
+p.diy.control.builder span.help {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+p.diy.control.builder .container {
+    background-color: #fcfcfc;
+    margin-bottom: 10px;
+    padding: 10px;
+    border:1px solid #ccc;
 }

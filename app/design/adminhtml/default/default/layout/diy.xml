@@ -20,7 +20,9 @@
     
     <diy_design_listing>
         <reference name="content">
-            <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml" />
+            <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml">
+                <block type="diy/admin_control_builder" name="diy.admin.design.builder" template="diy/controls/builder.phtml" />
+            </block>
             <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_listing>

@@ -1,0 +1,58 @@
+<p class="diy control builder">
+    <label>Builder</label>
+    <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?</span>
+    <span id="builder_canvas"></span>
+</p>
+
+<script type="text/javascript" charset="utf-8">
+<!--
+    document.observe("dom:loaded", function () {
+        updateLayoutBuilder();
+
+        $('layout').observe('change', function (e) {
+            updateLayoutBuilder();
+        });
+    });
+    
+    function updateLayoutBuilder() {
+        var layout = $('layout').getValue();
+        var columns = 1;
+        
+        var labels = new Array();
+        
+        labels[0] = "Main";
+        
+        if (layout.match(/2/)) {
+            columns = 2;
+        } else if (layout.match(/3/)) {
+            columns = 3;
+            
+            labels[0] = "Left";
+            labels[1] = "Main";
+            labels[2] = "Right";
+        }
+        
+        if (layout.match(/left/)) {
+            labels[1] = "Left Sidebar";
+        } else if (layout.match(/right/)) {
+            labels[1] = "Right Sidebar";
+        }    
+        
+        drawLayoutBuilder(columns, labels);
+    }
+    
+    function drawLayoutBuilder(columns, labels) {
+        var container = $('builder_canvas');
+        var html = "";
+        
+        for( var i = 0; i < labels.length; i++ ) {
+            html += "<div class='container'>";
+                html += "<b>" + labels[i] + "</b>";
+                html += "<div class='container_canvas' id='container_" + i + "'>Populate</div>";
+            html += "</div>";
+        }
+        
+        container.update(html);
+    }
+-->
+</script>
