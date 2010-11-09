@@ -1,4 +1,5 @@
 <p class="diy control builder">
+    <input type="hidden" name="<?php echo $this->getFieldName() ?>" value="<?php echo $this->getValue() ?>" />
     <label>Builder</label>
     <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?</span>
     <span id="builder_canvas"></span>
@@ -96,12 +97,18 @@
         }
         
         container.update(html);
+        
+        $j(".block").bind("dblclick", function (e) {
+            console.log("Block double click");
+            $j(this).toggleClass("deleted");
+        });
     }
     
+    var block_id = 0;
     function drawLayoutBlock(name) {
         var html = "";
         
-        html += "<li class='block'>";
+        html += "<li class='block' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         

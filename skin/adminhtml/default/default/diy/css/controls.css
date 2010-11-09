@@ -81,3 +81,7 @@ p.diy.control.builder .container .block {
 p.diy.control.builder .container .container_canvas li {
     cursor: move;
 }
+
+p.diy.control.builder .container .container_canvas li.deleted {
+    opacity: 0.3;
+}
