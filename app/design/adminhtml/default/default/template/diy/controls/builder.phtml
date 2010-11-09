@@ -91,6 +91,8 @@
                 
                 html += "</ul>";
             html += "</div>";
+            
+            $j("#container_" + configuration[i].key).sortable();
         }
         
         container.update(html);
