@@ -4,7 +4,11 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
     
     public function _beforeToHtml() {
         parent::_beforeToHtml();
+        
+        Mage::register('diy_current_template', $this->getDataGroup());
+        
         $this->createBlocks();
+        
         return $this;
     }
     

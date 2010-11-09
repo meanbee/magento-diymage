@@ -29,21 +29,27 @@
     
     <diy_design_product>
         <reference name="content">
-            <block type="diy/admin_design_product" name="diy.admin.design.product" template="diy/design/product.phtml" />
+            <block type="diy/admin_design_product" name="diy.admin.design.product" template="diy/design/product.phtml">
+                <block type="diy/admin_control_builder" name="diy.admin.design.builder" template="diy/controls/builder.phtml" />
+            </block>
             <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_product>
     
     <diy_design_checkout>
         <reference name="content">
-            <block type="diy/admin_design_checkout" name="diy.admin.design.checkout" template="diy/design/checkout.phtml" />
+            <block type="diy/admin_design_checkout" name="diy.admin.design.checkout" template="diy/design/checkout.phtml">
+                <block type="diy/admin_control_builder" name="diy.admin.design.builder" template="diy/controls/builder.phtml" />
+            </block>
             <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_checkout>
     
     <diy_design_cart>
         <reference name="content">
-            <block type="diy/admin_design_cart" name="diy.admin.design.cart" template="diy/design/cart.phtml" />
+            <block type="diy/admin_design_cart" name="diy.admin.design.cart" template="diy/design/cart.phtml">
+                <block type="diy/admin_control_builder" name="diy.admin.design.builder" template="diy/controls/builder.phtml" />
+            </block>
             <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design_cart>

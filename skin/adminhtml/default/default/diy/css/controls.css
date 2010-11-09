@@ -70,3 +70,10 @@ p.diy.control.builder .container {
     padding: 10px;
     border:1px solid #ccc;
 }
+
+p.diy.control.builder .container .block {
+    border: 1px solid #566D7E;
+    padding: 3px;
+    margin-top: 3px;
+    background: #A0CFEC;
+}

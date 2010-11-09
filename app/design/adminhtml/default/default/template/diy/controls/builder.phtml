@@ -6,6 +6,12 @@
 
 <script type="text/javascript" charset="utf-8">
 <!--
+    var references = {
+        "left": <?php echo $this->getLayoutReferenceJson('left') ?>,
+        "right": <?php echo $this->getLayoutReferenceJson('right') ?>,
+        "content": <?php echo $this->getLayoutReferenceJson('content') ?>
+    };
+
     document.observe("dom:loaded", function () {
         updateLayoutBuilder();
 
@@ -16,43 +22,85 @@
     
     function updateLayoutBuilder() {
         var layout = $('layout').getValue();
-        var columns = 1;
+        var configuration = [];
         
-        var labels = new Array();
-        
-        labels[0] = "Main";
-        
-        if (layout.match(/2/)) {
-            columns = 2;
+        if (layout.match(/2/) && layout.match(/left/)) {
+            configuration.push(
+                {
+                    key: "left",
+                    label: "Left Column"
+                },
+                {
+                    key: "content",
+                    label: "Main"
+                }
+            );
+        } else if (layout.match(/2/) && layout.match(/right/)) {
+                configuration.push(
+                    {
+                        key: "content",
+                        label: "Main"
+                    },
+                    {
+                        key: "right",
+                        label: "Right Column"
+                    }
+                );
         } else if (layout.match(/3/)) {
-            columns = 3;
-            
-            labels[0] = "Left";
-            labels[1] = "Main";
-            labels[2] = "Right";
+            configuration.push(
+                {
+                    key: "left",
+                    label: "Left Column"
+                },
+                {
+                    key: "content",
+                    label: "Main"
+                },
+                {
+                    key: "right",
+                    label: "Right Column"
+                }
+            );
+        } else {
+            configuration.push(
+                {
+                    key: "content",
+                    label: "Main"
+                }
+            );
         }
         
-        if (layout.match(/left/)) {
-            labels[1] = "Left Sidebar";
-        } else if (layout.match(/right/)) {
-            labels[1] = "Right Sidebar";
-        }    
-        
-        drawLayoutBuilder(columns, labels);
+        drawLayoutBuilder(configuration);
     }
     
-    function drawLayoutBuilder(columns, labels) {
+    function drawLayoutBuilder(configuration) {
         var container = $('builder_canvas');
         var html = "";
         
-        for( var i = 0; i < labels.length; i++ ) {
+        for ( var i = 0; i < configuration.length; i++ ) {
             html += "<div class='container'>";
-                html += "<b>" + labels[i] + "</b>";
-                html += "<div class='container_canvas' id='container_" + i + "'>Populate</div>";
+                html += "<b>" + configuration[i].label + "</b>";
+                html += "<div class='container_canvas' id='container_" + configuration[i].key + "'>";
+                
+                    for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
+                        html += drawLayoutBlock(references[configuration[i].key][j].name);
+                    }
+                
+                html += "</div>";
             html += "</div>";
         }
         
         container.update(html);
+    }
+    
+    function drawLayoutBlock(name) {
+        var html = "";
+        
+        html += "<div class='block'>";
+            html += name;
+        html += "</div>";
+        
+        return html;
     }
 -->
 </script>

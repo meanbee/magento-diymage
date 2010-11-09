@@ -20,7 +20,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         $store_id = Mage::app()->getStore()->getStoreId();
         
-        $layout_file = false; // This will become true if we match something in the next set of conditionals
+        // This will become true if we match something in the next set of conditionals
+        $layout_file = false;
         
         // Attempt to load the desired layout, working increasing precision with each step
         foreach ($identifiers as $identifier) {
