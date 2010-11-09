@@ -40,6 +40,13 @@
                 </show_categories>
             </global>
             <catalog_product_view>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>0</sort_order>
+                </builder>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
