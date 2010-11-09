@@ -57,6 +57,13 @@
                 </layout>
             </catalog_product_view>
             <catalog_category>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>0</sort_order>
+                </builder>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -81,6 +88,13 @@
                 </pager_background>
             </catalog_category>
             <checkout_cart>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>0</sort_order>
+                </builder>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
@@ -91,6 +105,13 @@
                 </layout>
             </checkout_cart>
             <checkout_onepage>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>0</sort_order>
+                </builder>
                 <layout>
                     <label>Page Layout</label>
                     <help>This is the main structural layout of the page.</help>
