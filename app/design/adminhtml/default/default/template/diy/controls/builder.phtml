@@ -1,26 +1,39 @@
 <p class="diy control builder">
-    <input type="hidden" name="<?php echo $this->getFieldName() ?>" value="<?php echo $this->getValue() ?>" />
+    <input type="hidden" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value='<?php echo $this->getValue() ?>' />
     <label>Builder</label>
-    <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?</span>
+    <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
     <span id="builder_canvas"></span>
 </p>
 
 <script type="text/javascript" charset="utf-8">
 <!--
+    // @TODO: Make the elements appear in the sort order that we have stored.
+    
+    // This is the layout of the builder that we're getting from the block
     var references = {
         "left": <?php echo $this->getLayoutReferenceJson('left') ?>,
         "right": <?php echo $this->getLayoutReferenceJson('right') ?>,
         "content": <?php echo $this->getLayoutReferenceJson('content') ?>
     };
+    
+    // This is the json object containing the layout updates that we have previously saved
+    // for this page.
+    var updates = extractPresetLayoutUpdates();
 
     document.observe("dom:loaded", function () {
+        // When the document loads, build our builder on the right hand side of the page
         updateLayoutBuilder();
 
+        // Every time we change the layout of the page, update the builder layout
         $('layout').observe('change', function (e) {
             updateLayoutBuilder();
         });
     });
     
+    // Update layout builder extracts the data we need to pass to drawLayoutBuilder()
+    // which actually performs the rendering of the builder control.  The argument we'll
+    // pass will be an array of objects, the objects have two properties, "key" and "label".
+    // The key is the unique name identifying the section, and label is the descriptive name.
     function updateLayoutBuilder() {
         var layout = $('layout').getValue();
         var configuration = [];
@@ -74,12 +87,14 @@
         drawLayoutBuilder(configuration);
     }
     
-
+    // This function actually builds the HTML elements that make up the control, using the
+    // configuration passed from updateLayoutBuilder(), and renders the control on the page.
     function drawLayoutBuilder(configuration) {
-        var container = $('builder_canvas');
+        var container = $j('#builder_canvas');
         var html = "";
         
         for ( var i = 0; i < configuration.length; i++ ) {
+            var html = "";
             var container_id = "<?php echo $this->getFieldId() ?>_" + i;
                     
             html += "<div class='container' id='" + container_id + "'>";
@@ -92,27 +107,90 @@
                 
                 html += "</ul>";
             html += "</div>";
+            container.append(html);
             
-            $j("#container_" + configuration[i].key).sortable();
+            // Once we let go of the element, and have an updated structure, then we fire
+            // of a command to update the hidden element.
+            $j("#container_" + configuration[i].key).sortable({
+                stop: function(event, ui) {
+                    buildLayoutUpdate("");
+                }
+            });
+            
+            // When a user double clicks on an element, we fire off a command to update the hidden
+            // element, and we add a visual indicator that the block has been deleted through the
+            // css class.
+            $j("#container_" + configuration[i].key + " .block").bind("dblclick", function (e) {
+                $j(this).toggleClass("deleted");
+                buildLayoutUpdate("");
+            });
         }
-        
-        container.update(html);
-        
-        $j(".block").bind("dblclick", function (e) {
-            console.log("Block double click");
-            $j(this).toggleClass("deleted");
-        });
     }
     
+    // This function draws the individual block blocks within the control
     var block_id = 0;
     function drawLayoutBlock(name) {
         var html = "";
+        var css_class = "";
         
-        html += "<li class='block' id='block_" + ++block_id + "'>";
+        if ($j.inArray(name, updates.right.remove) != -1) {
+            css_class = "deleted";
+        }
+        
+        html += "<li class='block " + css_class + "' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         
         return html;
+    }
+    
+    // This function updates the hidden input field with a stringified JSON object
+    // that represents the state of the builder control.
+    function buildLayoutUpdate(section) {
+        var section = "right"; // @TODO: Remove this, pass in as argument..
+        var new_update = {"remove": [], "sort_order": []};
+        
+        // Didn't use remove = .map() as I wasn't getting a proper result.
+        $j(".block.deleted").each(function() {
+            new_update.remove.push(this.innerHTML);
+        });
+
+        var previous_block = "-";
+        $j(".block").each(function () {
+            
+            if (!$j(this).hasClass("deleted")) {
+                new_update.sort_order.push({
+                    "after": previous_block,
+                    "name": this.innerHTML
+                });
+            
+                previous_block = this.innerHTML;
+            }
+        });
+        
+        var new_object = $j.parseJSON($j("#<?php echo $this->getFieldId() ?>").val());
+        
+        if (new_object == null) {
+            new_object = {};
+        }
+        
+        new_object[section] = new_update;
+
+        $j("#<?php echo $this->getFieldId() ?>").val(JSON.stringify(new_object));
+    }
+    
+    // This function gets around the problem that we appear to have where the
+    // stringified object does not encode arrays properly, but keeps them as 
+    // strings which is useless.
+    function extractPresetLayoutUpdates() {
+        var object = $j.parseJSON($j("#builder").val());
+
+        for (key in object) {
+            object[key].remove = $j.parseJSON(object[key].remove);
+            object[key].sort_order = $j.parseJSON(object[key].sort_order);
+        }
+
+        return object;
     }
 -->
 </script>
