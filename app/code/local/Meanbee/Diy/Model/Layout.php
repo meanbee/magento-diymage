@@ -35,6 +35,14 @@ class Meanbee_Diy_Model_Layout {
         return $update->asSimplexml()->xpath($xpath);
     }
     
+    /**
+     * @TODO: Make sure we're getting everything from the layout file
+     * @TODO: Need to factor in the removes
+     *
+     * @param string $name 
+     * @return void
+     * @author Nicholas Jones
+     */
     public function getReference($name) {
         $xpath = "reference[@name='{$name}']/block";
         $elements = $this->searchXpath($xpath);

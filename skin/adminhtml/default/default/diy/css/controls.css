@@ -77,3 +77,7 @@ p.diy.control.builder .container .block {
     margin-top: 3px;
     background: #A0CFEC;
 }
+
+p.diy.control.builder .container .container_canvas li {
+    cursor: move;
+}

@@ -73,20 +73,23 @@
         drawLayoutBuilder(configuration);
     }
     
+
     function drawLayoutBuilder(configuration) {
         var container = $('builder_canvas');
         var html = "";
         
         for ( var i = 0; i < configuration.length; i++ ) {
-            html += "<div class='container'>";
+            var container_id = "<?php echo $this->getFieldId() ?>_" + i;
+                    
+            html += "<div class='container' id='" + container_id + "'>";
                 html += "<b>" + configuration[i].label + "</b>";
-                html += "<div class='container_canvas' id='container_" + configuration[i].key + "'>";
+                html += "<ul class='container_canvas' id='container_" + configuration[i].key + "'>";
                 
                     for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
                         html += drawLayoutBlock(references[configuration[i].key][j].name);
                     }
                 
-                html += "</div>";
+                html += "</ul>";
             html += "</div>";
         }
         
@@ -96,9 +99,9 @@
     function drawLayoutBlock(name) {
         var html = "";
         
-        html += "<div class='block'>";
+        html += "<li class='block'>";
             html += name;
-        html += "</div>";
+        html += "</li>";
         
         return html;
     }
