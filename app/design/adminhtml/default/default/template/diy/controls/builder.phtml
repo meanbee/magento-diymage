@@ -93,6 +93,9 @@
         var container = $j('#builder_canvas');
         var html = "";
         
+        // Reset the content so we can append later
+        container.html('');
+        
         for ( var i = 0; i < configuration.length; i++ ) {
             var html = "";
             var container_id = "<?php echo $this->getFieldId() ?>_" + i;
@@ -102,7 +105,7 @@
                 html += "<ul class='container_canvas' id='container_" + configuration[i].key + "'>";
                 
                     for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
-                        html += drawLayoutBlock(references[configuration[i].key][j].name);
+                        html += drawLayoutBlock(references[configuration[i].key][j].name, configuration[i].key);
                     }
                 
                 html += "</ul>";
@@ -112,8 +115,9 @@
             // Once we let go of the element, and have an updated structure, then we fire
             // of a command to update the hidden element.
             $j("#container_" + configuration[i].key).sortable({
-                stop: function(event, ui) {
-                    buildLayoutUpdate("");
+                stop: function(e, ui) {
+                    var ref = ui.item[0].getAttribute('reference');
+                    buildLayoutUpdate(ref);
                 }
             });
             
@@ -122,22 +126,23 @@
             // css class.
             $j("#container_" + configuration[i].key + " .block").bind("dblclick", function (e) {
                 $j(this).toggleClass("deleted");
-                buildLayoutUpdate("");
+                buildLayoutUpdate(this.getAttribute('reference'));
             });
         }
     }
     
     // This function draws the individual block blocks within the control
     var block_id = 0;
-    function drawLayoutBlock(name) {
+    function drawLayoutBlock(name, reference) {
         var html = "";
         var css_class = "";
         
-        if ($j.inArray(name, updates.right.remove) != -1) {
+        if ($j.inArray(name, updates[reference].remove) != -1) {
             css_class = "deleted";
         }
         
-        html += "<li class='block " + css_class + "' id='block_" + ++block_id + "'>";
+        // We add the reference so we know what the layout click event is for, and we can compile the update code.
+        html += "<li class='block " + css_class + "' reference='" + reference + "' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         
@@ -147,7 +152,6 @@
     // This function updates the hidden input field with a stringified JSON object
     // that represents the state of the builder control.
     function buildLayoutUpdate(section) {
-        var section = "right"; // @TODO: Remove this, pass in as argument..
         var new_update = {"remove": [], "sort_order": []};
         
         // Didn't use remove = .map() as I wasn't getting a proper result.
@@ -184,11 +188,6 @@
     // strings which is useless.
     function extractPresetLayoutUpdates() {
         var object = $j.parseJSON($j("#builder").val());
-
-        for (key in object) {
-            object[key].remove = $j.parseJSON(object[key].remove);
-            object[key].sort_order = $j.parseJSON(object[key].sort_order);
-        }
 
         return object;
     }
