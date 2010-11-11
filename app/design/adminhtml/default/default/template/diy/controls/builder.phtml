@@ -19,6 +19,8 @@
     // This is the json object containing the layout updates that we have previously saved
     // for this page.
     var updates = extractPresetLayoutUpdates();
+    
+    var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
     document.observe("dom:loaded", function () {
         // When the document loads, build our builder on the right hand side of the page
@@ -145,8 +147,12 @@
             css_class = "deleted";
         }
         
+        if (name_map[name]) {
+            name = name_map[name];
+        }
+        
         // We add the reference so we know what the layout click event is for, and we can compile the update code.
-        html += "<li class='block " + css_class + "' reference='" + reference + "' id='block_" + ++block_id + "'>";
+        html += "<li class='block " + css_class + "' reference='" + reference + "' block_name='" + name + "' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         
@@ -160,7 +166,7 @@
         
         // Didn't use remove = .map() as I wasn't getting a proper result.
         $j("#container_" + section + " .block.deleted").each(function() {
-            new_update.remove.push(this.innerHTML);
+            new_update.remove.push(this.getAttribute("block_name"));
         });
 
         var previous_block = "-";
@@ -168,7 +174,7 @@
             
             if (!$j(this).hasClass("deleted")) {
                 new_update.sort_order.push({
-                    "name": this.innerHTML,
+                    "name": this.getAttribute("block_name"),
                     "after": previous_block
                 });
                 
