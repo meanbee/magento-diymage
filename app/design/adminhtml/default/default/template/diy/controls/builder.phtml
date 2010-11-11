@@ -99,6 +99,7 @@
         for ( var i = 0; i < configuration.length; i++ ) {
             var html = "";
             var container_id = "<?php echo $this->getFieldId() ?>_" + i;
+            var refs = [];
                     
             html += "<div class='container' id='" + container_id + "'>";
                 html += "<b>" + configuration[i].label + "</b>";
@@ -111,6 +112,9 @@
                 html += "</ul>";
             html += "</div>";
             container.append(html);
+            
+            // Build the input value once, just so we know it's in the correct format.
+            buildLayoutUpdate(configuration[i].key);
             
             // Once we let go of the element, and have an updated structure, then we fire
             // of a command to update the hidden element.
@@ -155,18 +159,24 @@
         var new_update = {"remove": [], "sort_order": []};
         
         // Didn't use remove = .map() as I wasn't getting a proper result.
-        $j(".block.deleted").each(function() {
+        $j("#container_" + section + " .block.deleted").each(function() {
             new_update.remove.push(this.innerHTML);
         });
 
         var previous_block = "-";
-        $j(".block").each(function () {
+        $j("#container_" + section + " .block").each(function () {
             
             if (!$j(this).hasClass("deleted")) {
                 new_update.sort_order.push({
-                    "after": previous_block,
-                    "name": this.innerHTML
+                    "name": this.innerHTML,
+                    "after": previous_block
                 });
+                
+                // Update the last block's before block..
+                var sort_order_length = new_update.sort_order.length;
+                if (sort_order_length > 1) {
+                    new_update.sort_order[sort_order_length - 2].before = this.innerHTML;
+                }
             
                 previous_block = this.innerHTML;
             }
