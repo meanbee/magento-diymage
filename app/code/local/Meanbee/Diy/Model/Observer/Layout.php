@@ -23,8 +23,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $store_id = Mage::app()->getStore()->getStoreId();
         
         $this->_modifyPageLayout($identifiers, $layout);
-        $this->_removeBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
+        $this->_removeBlocks($identifiers, $layout);
         
         if (!Mage::helper('diy')->getValue("global", "show_categories")) {
             $this->_removeBlock($layout, "catalog.topnav");
@@ -93,6 +93,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $this->_removedBlocks = $to_remove;
             
             foreach ($to_remove as $block_name) {
+                array_push($this->_removedBlocks, $block_name);
                 $this->_removeBlock($layout, $block_name);
             }
         }
@@ -110,62 +111,65 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $simple_xml = $layout->getUpdate()->asSimpleXml();
         
         foreach ($identifiers as $identifier) {
-            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            $update_xml = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
             
-            if (count($update) > 0) {
-                foreach ($update as $group => $data) {
+            if (count($update_xml) > 0) {
+                // An array of xml snippets
+                $modified_updates = array();
+                $updates = $layout->getUpdate()->asArray();
+                
+                foreach ($update_xml as $group => $data) {
                     $blocks = Zend_Json::decode($data['sort_order']);
+                    $block_found = array();
                     
-                    foreach ($blocks as $key => $block_data) {
-                        
-                        // We need to establish the type of the block
-                        $element = $this->_identifyBlockType($identifiers, $layout, $block_data['name']);
-                        
-                        $type = $element->getAttribute('type');
-                        $before = $element->getAttribute('before');
-                        $template = $element->getAttribute('template');
-                        $as = $element->getAttribute('as');
-                        
-                        // An array of xml snippets
-                        $updates = $layout->getUpdate()->asArray();
-                        
-                        $block_found = array();
-                        $modified_updates = array();
-                        
-                        foreach ($updates as $update_number => &$update) {
-                            $lines = explode("\n", $update);
-                            foreach ($lines as $line_number => &$line) {
-                                $line = trim($line);
-                                if (substr($line, 0, 6) == "<block") {
-                                    $parts = explode(" ", $line);
+                    foreach ($updates as $update_number => &$update) {
+                        $lines = explode("\n", $update);
+                        foreach ($lines as $line_number => &$line) {
+                            $line = trim($line);
+                            if (substr($line, 0, 6) == "<block") {
+                                $parts = explode(" ", $line);
+                                    
+                                foreach ($blocks as $key => $block_data) {
+                                    // We need to establish the type of the block
+                                    $element = $this->_identifyBlockType($identifiers, $layout, $block_data['name']);
+
+                                    $type = $element->getAttribute('type');
+                                    $before = $element->getAttribute('before');
+                                    $template = $element->getAttribute('template');
+                                    $as = $element->getAttribute('as');
+                                    
+                                    if (!isset($block_found[$block_data['name']])) {
+                                        $block_found[$block_data['name']] = 0;
+                                    }
+                                    
                                     foreach ($parts as $part) {
                                         $subparts = explode("=", $part);
-                                        
+
                                         if (count($subparts) != 2) {
                                             continue;
                                         }
-                                        
+
                                         $key = $subparts[0];
                                         $value = str_replace(">", "", $subparts[1]);
                                         
-                                        if (!isset($block_found[$block_data['name']])) {
-                                            $block_found[$block_data['name']] = 0;                                            
-                                        }
-
                                         if ($key == "name" && $value == '"' . $block_data['name'] . '"') {
                                             $block_found[$block_data['name']] = 1;
-                                            
-                                            $after_string = 'diymage="1" after="' . $block_data['after'] . '"';
+
+                                            $after_string = 'after="' . $block_data['after'] . '"';
                                             $before_string = 'before="' . $block_data['before'] . '"';
                                             
+                                            if (!$block_data['before']) {
+                                                $before_string = '';
+                                            }
+
                                             $pattern_b = '/before=["\'].*?["\']/i';
                                             $line = preg_replace($pattern_b, $before_string, $line, -1, $count_b);
-                                            
+
                                             // If the line contains an after="", then we replace it..
                                             $count_a = 0;
                                             $pattern_a = '/after=["\'].*?["\']/i';
                                             $updated_line = preg_replace($pattern_a, $after_string, $line, -1, $count_a);
-                                            
+
                                             if ($count_a == 0) {
                                                 // .. otherwise, just add it in
                                                 if (substr($line, strlen($line) - 2) == "/>") {
@@ -174,7 +178,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                                     $updated_line = substr($line, 0, -1) . " " . $after_string . ">";
                                                 }
                                             }
-                                            
+
                                             if ($count_b == 0) {
                                                 if (substr($updated_line, strlen($updated_line) - 2) == "/>") {
                                                     $updated_line = substr($updated_line, 0, -2) . " " . $before_string . " />";
@@ -184,58 +188,28 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                             }
                                             
                                             $line = $updated_line;
-                                            
+
                                             $modified_updates[] = $update_number; 
                                         }
-                                    }                       
-                                }
-                            }
-                            
-                            $update = implode("\n", $lines);
-                        }
-                        
-                        // Put the modified updates at the end.
-                        if (count($modified_updates) > 0) {
-                            foreach ($modified_updates as $idx) {
-                                $updates[] = $updates[$idx];
-                                unset($updates[$idx]);
+                                    }
+                                }                    
                             }
                         }
                         
-                        echo count($updates);
-                        
-                        // print_r($block_found);
-                        // print_r($updates);
-                        
-                        // Substitution seems to be happening above, but not taking effect in the
-                        // updates when reapplied below..
-                        
-                        $layout->getUpdate()->resetUpdates();
-                        foreach ($updates as $update) {
-                            $layout->getUpdate()->addUpdate($update);
-                        }
-                        
-                        echo "<pre>";
-                        //print_r($updates);
-                        echo "</pre>";
-                        
-                        
-                        // $this->_addBlock(
-                        //     $layout,
-                        //     $group,
-                        //     $block_data['name'],
-                        //     $type, // type
-                        //     $block_data['after'],
-                        //     $before,
-                        //     $template,
-                        //     $as
-                        // );
-                        
-                    }
+                        $update = implode("\n", $lines);
+                    } // foreach
+                } // foreach
+                
+                // Substitution seems to be happening above, but not taking effect in the
+                // updates when reapplied below..
+                
+                $layout->getUpdate()->resetUpdates();
+                foreach ($updates as $update) {
+                    $layout->getUpdate()->addUpdate($update);
                 }
-            }
-        }
-    }
+            } // if
+        } // foreach
+    } // function
     
     /**
      * Utility method to generate the XML to set the template
