@@ -123,4 +123,23 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
             "wishlist_sidebar"          => "Wishlist"
         ));
     }
+    
+    /**
+     * Return a json array of the active static blocks
+     *
+     * @return string (json)
+     * @author Nicholas Jones
+     */
+    public function getStaticBlocks() {
+        $collection = Mage::getModel('cms/block')->getCollection();
+        $blocks = array();
+        
+        foreach ($collection as $block) {
+            if ($block->getIsActive()) {
+                $blocks[$block->getIdentifier()] = $block->getTitle();
+            }
+        }
+        
+        return Zend_Json::encode($blocks);
+    }
 }

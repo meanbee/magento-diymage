@@ -56,17 +56,16 @@ p.diy.control.unit span.unit {
 p.diy.control.builder {
     float: right;
     width: 450px;
-    height: 500px;
 }
 
 p.diy.control.builder span.help {
     margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 p.diy.control.builder .container {
     background-color: #fcfcfc;
-    margin-bottom: 10px;
+    margin-top: 10px;
     padding: 10px;
     border:1px solid #ccc;
 }
@@ -78,10 +77,25 @@ p.diy.control.builder .container .block {
     background: #A0CFEC;
 }
 
+p.diy.control.builder .container .block.static {
+    background: #FFFECD;
+    border: 1px solid #968A61;
+}
+
+
 p.diy.control.builder .container .container_canvas li {
     cursor: move;
 }
 
 p.diy.control.builder .container .container_canvas li.deleted {
     opacity: 0.3;
+}
+
+p.diy.control.builder .container .add-block {
+    margin-top: 10px;
+}
+
+/** FONT SPECIFIC STYLES *******************************************/
+p.diy.control.font option, p.diy.control.font select {
+    font-size: 24px;
 }

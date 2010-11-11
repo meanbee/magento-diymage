@@ -19,7 +19,7 @@
     // This is the json object containing the layout updates that we have previously saved
     // for this page.
     var updates = extractPresetLayoutUpdates();
-    
+    var static_blocks = <?php echo $this->getStaticBlocks() ?>;
     var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
     document.observe("dom:loaded", function () {
