@@ -14,7 +14,11 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
      * @author Nicholas Jones
      */
     public function getLayoutReferenceJson($name) {
-        $layout = Mage::getModel('diy/layout')->addHandle(Mage::registry('diy_current_template'));
+        $template = Mage::registry('diy_current_template');
+        $layout = Mage::getModel('diy/layout')->addHandle($template);
+        
+        // @TODO: Split the template on _, and add all of the handle varients.
+        
         $reference = $layout->getReference($name);
         $data = $this->_getValueAsArray(); 
         $sort_order = $data[$name]['sort_order'];
