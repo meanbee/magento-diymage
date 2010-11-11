@@ -80,7 +80,11 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         
         foreach ($value as $group => $data) {
             foreach ($keys as $key) {
-                $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
+                if ($value[$group][$key] == "[]") {
+                    $value[$group][$key] = array();
+                } else {
+                    $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
+                }
             }
         }
         

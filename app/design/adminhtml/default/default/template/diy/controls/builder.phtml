@@ -141,7 +141,7 @@
         var html = "";
         var css_class = "";
         
-        if ($j.inArray(name, updates[reference].remove) != -1) {
+        if (updates[reference] && $j.inArray(name, updates[reference].remove) != -1) {
             css_class = "deleted";
         }
         
@@ -197,7 +197,11 @@
     // stringified object does not encode arrays properly, but keeps them as 
     // strings which is useless.
     function extractPresetLayoutUpdates() {
-        var object = $j.parseJSON($j("#builder").val());
+        var object = $j.parseJSON($j("#<?php echo $this->getFieldId() ?>").val());
+        
+        if (!object) {
+            object = {};
+        }
 
         return object;
     }
