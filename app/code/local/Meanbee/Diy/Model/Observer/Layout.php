@@ -200,8 +200,10 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                     } // foreach
                 } // foreach
                 
-                // Substitution seems to be happening above, but not taking effect in the
-                // updates when reapplied below..
+                foreach ($modified_updates as $idx) {
+                    $updates[] = $updates[$idx];
+                    unset($updates[$idx]); 
+                }
                 
                 $layout->getUpdate()->resetUpdates();
                 foreach ($updates as $update) {

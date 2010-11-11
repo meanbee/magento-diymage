@@ -18,6 +18,13 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         $layout = Mage::getModel('diy/layout')->addHandle($template);
         
         // @TODO: Split the template on _, and add all of the handle varients.
+        $template_parts = explode("_", $template);
+        
+        if ($template_parts > 1) {
+            $layout->addHandle($template_parts[0]);
+            $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
+            $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
+        }
         
         $reference = $layout->getReference($name);
         $data = $this->_getValueAsArray(); 
