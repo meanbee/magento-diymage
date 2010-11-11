@@ -142,6 +142,7 @@
     function drawLayoutBlock(name, reference) {
         var html = "";
         var css_class = "";
+        var key = name;
         
         if (updates[reference] && $j.inArray(name, updates[reference].remove) != -1) {
             css_class = "deleted";
@@ -152,7 +153,7 @@
         }
         
         // We add the reference so we know what the layout click event is for, and we can compile the update code.
-        html += "<li class='block " + css_class + "' reference='" + reference + "' block_name='" + name + "' id='block_" + ++block_id + "'>";
+        html += "<li class='block " + css_class + "' reference='" + reference + "' block_name='" + key + "' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         
