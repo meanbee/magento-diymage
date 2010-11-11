@@ -22,7 +22,7 @@
     var static_blocks = <?php echo $this->getStaticBlocks() ?>;
     var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
-    document.observe("dom:loaded", function () {
+    document.observe("dom:loaded", function () {        
         // When the document loads, build our builder on the right hand side of the page
         updateLayoutBuilder();
 
@@ -108,10 +108,20 @@
                 html += "<ul class='container_canvas' id='container_" + configuration[i].key + "'>";
                 
                     for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
-                        html += drawLayoutBlock(references[configuration[i].key][j].name, configuration[i].key);
+                        var is_static_block = !(references[configuration[i].key][j].static == undefined);
+                        
+                        if (is_static_block) {
+                            console.log("Found a static block");
+                            html += drawStaticBlock(references[configuration[i].key][j].static, references[configuration[i].key][j].id, configuration[i].key);
+                        } else {
+                            html += drawLayoutBlock(references[configuration[i].key][j].name, configuration[i].key);
+                        }
                     }
                 
                 html += "</ul>";
+                
+                html += drawStaticBlockAddControl(configuration[i].key);
+            
             html += "</div>";
             container.append(html);
             
@@ -153,7 +163,7 @@
         }
         
         // We add the reference so we know what the layout click event is for, and we can compile the update code.
-        html += "<li class='block " + css_class + "' reference='" + reference + "' block_name='" + key + "' id='block_" + ++block_id + "'>";
+        html += "<li class='block layout " + css_class + "' reference='" + reference + "' block_name='" + key + "' id='block_" + ++block_id + "'>";
             html += name;
         html += "</li>";
         
@@ -174,18 +184,27 @@
         $j("#container_" + section + " .block").each(function () {
             
             if (!$j(this).hasClass("deleted")) {
-                new_update.sort_order.push({
-                    "name": this.getAttribute("block_name"),
-                    "after": previous_block
-                });
+                
+                if ($j(this).hasClass("layout")) {
+                    new_update.sort_order.push({
+                        "name": this.getAttribute("block_name"),
+                        "after": previous_block
+                    });
+                } else {
+                    new_update.sort_order.push({
+                        "name": this.getAttribute("block_name"),
+                        "static": this.getAttribute("static_name"),
+                        "after": previous_block
+                    });
+                }
                 
                 // Update the last block's before block..
                 var sort_order_length = new_update.sort_order.length;
                 if (sort_order_length > 1) {
-                    new_update.sort_order[sort_order_length - 2].before = this.innerHTML;
+                    new_update.sort_order[sort_order_length - 2].before = this.getAttribute("block_name");
                 }
             
-                previous_block = this.innerHTML;
+                previous_block = this.getAttribute("block_name");
             }
         });
         
@@ -211,6 +230,60 @@
         }
 
         return object;
+    }
+    
+    function drawStaticBlockAddControl(section) {
+        var select_id = "static_block_add_" + section;
+        var html = "<div class='static_block_add'><select id='" + select_id +  "'>";
+        
+        for (var name in static_blocks) {
+            var label = static_blocks[name];
+            html += "<option value='" + name + "'>" + label + "</option>";
+        }
+        
+        html += "</select>";
+        
+        html += "<span onclick='addStaticBlock(\"" + select_id + "\", \"" + section + "\")'>Add Static Block</span>";
+        
+        html += "</div>";
+        
+        return html;
+    }
+    
+    function addStaticBlock(select_id, section) {
+        var block_name = $j("#" + select_id).val();
+        references[section].push({
+            "name": static_blocks[block_name],
+            "id": ++block_id,
+            "static": block_name
+        });
+        
+        updateLayoutBuilder();
+    }
+    
+    var static_block_ids = {};
+    function drawStaticBlock(block_name, id, section) {
+        var html = "";
+        var css_class = "";
+        
+        if (updates[section] && $j.inArray(name, updates[section].remove) != -1) {
+            css_class = "deleted";
+        }
+        
+        if (!static_block_ids[name]) {
+            static_block_ids[name] = 0;
+        }
+        
+        static_block_ids[name]++;
+        
+        var static_block_id = "static_block_" + static_block_ids[name]++;
+        
+        // We add the reference so we know what the layout click event is for, and we can compile the update code.
+        html += "<li class='block static " + css_class + "' reference='" + section + "' static_name='" + block_name + "' block_name='" + static_block_id + "' id='block_" + ++block_id + "'>";
+            html += static_blocks[block_name];
+        html += "</li>";
+        
+        return html;
     }
 -->
 </script>

@@ -45,6 +45,12 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
             foreach ($sort_order as $idx => $sort_data) {
                 $name = $sort_data['name'];
                 
+                // Add in any static blocks we find
+                if ($sort_data['static']) {
+                    $return[] = $sort_data;
+                    continue;
+                }
+                
                 if ($reference_index_map[$name] !== null) {
                     $return[] = $reference[$reference_index_map[$name]];
 

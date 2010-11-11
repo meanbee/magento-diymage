@@ -25,6 +25,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $this->_modifyPageLayout($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
+        $this->_addStaticBlocks($identifiers, $layout);
         
         if (!Mage::helper('diy')->getValue("global", "show_categories")) {
             $this->_removeBlock($layout, "catalog.topnav");
@@ -130,6 +131,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                 $parts = explode(" ", $line);
                                     
                                 foreach ($blocks as $key => $block_data) {
+                                    // We don't want to think about static blocks here at the moment.
+                                    if ($block_data['static']) {
+                                        continue;
+                                    }
+                                    
                                     // We need to establish the type of the block
                                     $element = $this->_identifyBlockType($identifiers, $layout, $block_data['name']);
                                     
@@ -306,6 +312,35 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $layout->getUpdate()->addUpdate($xml);
     }
     
+    /**
+     * undocumented function
+     *
+     * @param string $layout 
+     * @param string $block_id The id of the static block in the database
+     * @param string $block_name The name we need to use in the before/after statements of other layout references
+     * @return void
+     * @author Nicholas Jones
+     */
+    protected function _addStaticBlock($layout, $reference, $block_id, $block_name, $after = null, $before = null) {
+        $xml = "<reference name='$reference'>";
+            $xml .= '<block type="cms/block" name="' . $block_name . '"';
+            
+            if ($after) {
+                $xml .= " after='$after' ";
+            }
+            
+            if ($before) {
+                $xml .= " before='$before' ";
+            }
+            
+            $xml .= '>';
+                $xml .= '<action method="setBlockId"><block_id>' . $block_id . '</block_id></action>';
+            $xml .= '</block>';
+        $xml .= '</reference>';
+        
+        $layout->getUpdate()->addUpdate($xml);
+    }
+    
     protected $_compiledEarlyLayout = null;
     protected function _identifyBlockType($identifiers, $layout, $name) {
         if ($this->_compiledEarlyLayout == null) {
@@ -318,6 +353,24 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         if (count($result) > 0) {
             return $result[0];
+        }
+    }
+    
+    public function _addStaticBlocks($identifiers, $layout) {
+        foreach ($identifiers as $identifier) {
+            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+
+            if (count($update) > 0) {
+                foreach ($update as $group => $data) {
+                    $blocks = Zend_Json::decode($data['sort_order']);
+                    
+                    foreach ($blocks as $block) {
+                        if ($block['static']) {
+                            $this->_addStaticBlock($layout, $group, $block['static'], $block['name'], $block['after'], $block['before']);
+                        }
+                    }
+                }
+            }
         }
     }
 }
