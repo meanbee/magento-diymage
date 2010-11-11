@@ -132,6 +132,10 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                 foreach ($blocks as $key => $block_data) {
                                     // We need to establish the type of the block
                                     $element = $this->_identifyBlockType($identifiers, $layout, $block_data['name']);
+                                    
+                                    if ($element === null) {
+                                        throw new Exception("Could not identify block: " . $block_data['name']);
+                                    }
 
                                     $type = $element->getAttribute('type');
                                     $before = $element->getAttribute('before');
