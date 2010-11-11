@@ -31,12 +31,19 @@
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>40</sort_order>
                 </font_size>
+                <font_family>
+                    <label>Font Family</label>
+                    <help>This font will be the default font on all elements</help>
+                    <value>arial</value>
+                    <input_control>diy/admin_control_font</input_control>
+                    <sort_order>50</sort_order>
+                </font_family>
                 <show_categories>
                     <label>Show Categories?</label>
                     <help>This control decides whether to show the categories along the top of the page, or not.</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>60</sort_order>
                 </show_categories>
             </global>
             <catalog_product_view>

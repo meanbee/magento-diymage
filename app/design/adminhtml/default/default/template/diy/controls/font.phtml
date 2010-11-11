@@ -1,0 +1,15 @@
+<?php
+/**
+ * @see Meanbee_Diy_Block_Admin_Control_Font
+ * @author Nicholas Jones
+ */
+?>
+<p class="diy control dropdown font">
+    <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
+    <select name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>">
+        <?php foreach ($this->getOptions() as $key => $value): ?>
+            <option style="font-family: <?php echo $value ?>;" value="<?php echo $value ?>"<?php if ($this->getValue() == $key):?> selected="selected"<?php endif ?>><?php echo $value ?></option>
+        <?php endforeach ?>
+    </select>
+    <span class="help"><?php echo $this->getHelpText() ?></span>
+</p>
