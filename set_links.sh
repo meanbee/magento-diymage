@@ -1,6 +1,7 @@
 #!/bin/bash -o xtrace
 
 cd ../
+mkdir app/code/local/Meanbee
 cd app/code/local/Meanbee
 ln -s ../../../../diymage/app/code/local/Meanbee/Diy/ Diy
 
