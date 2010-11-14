@@ -124,6 +124,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                     $block_found = array();
                     
                     foreach ($updates as $update_number => &$update) {
+                        
+                        // We aren't clever enough to deal with anything that isn't enclosed in a reference as it is not encapsulated
+                        if (substr($update, 0, 4)  != "<ref")
+                            continue;
+                        
                         $lines = explode("\n", $update);
                         foreach ($lines as $line_number => &$line) {
                             $line = trim($line);
