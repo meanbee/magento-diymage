@@ -11,12 +11,12 @@ a:hover {
     color: #<?php echo Mage::helper('diy')->getValue("global", "link_hover_colour") ?>;
 }
 
-<?php if (Mage::helper('diy')->getValue("listing", "pager_border") != 1): ?>
+<?php if (Mage::helper('diy')->getValue("catalog_category_view", "pager_border") != 1): ?>
     .pager, .sorter {
         border: none;
     }
 <?php endif ?>
 
 .pager, .sorter {
-    background: #<?php echo Mage::helper('diy')->getValue("listing", "pager_background") ?>;
+    background: #<?php echo Mage::helper('diy')->getValue("catalog_category_view", "pager_background") ?>;
 }
