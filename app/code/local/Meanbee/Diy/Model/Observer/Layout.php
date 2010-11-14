@@ -12,6 +12,13 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $action = $request->getActionName();
         $controller = $request->getControllerName();
         
+        $design = Mage::getDesign();
+        $area = $design->getArea();
+        
+        if ($area == "adminhtml") {
+            return;
+        }
+        
         $full_identifier = "{$module}_{$controller}_{$action}";
         
         $identifiers = array(
