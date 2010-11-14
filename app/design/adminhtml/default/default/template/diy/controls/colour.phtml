@@ -3,16 +3,19 @@
  * @see Meanbee_Diy_Block_Admin_Control_Colour
  * @author Nicholas Jones
  */
+ 
+$js_var = "colour_". $this->getUniqueId();
 ?>
 <p class="diy control colour">
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
     <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" />
     <span class="help"><?php echo $this->getHelpText() ?></span>
+    <a href="javascript:void;" onclick="resetValue('<?php echo $this->getFieldId() ?>', '<?php echo $this->getDefaultValue() ?>'); <?php echo $js_var ?>.updateSwatch(); return false">Reset to default</a>
 </p>
 
 <script type="text/javascript" charset="utf-8">
 <!--
-new Control.ColorPicker('<?php echo $this->getFieldId() ?>', {
+var <?php echo $js_var ?> = new Control.ColorPicker('<?php echo $this->getFieldId() ?>', {
     IMAGE_BASE: "<?php echo $this->getSkinUrl('diy/images/') ?>"
 });
 -->

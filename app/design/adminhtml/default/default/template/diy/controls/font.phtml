@@ -12,4 +12,5 @@
         <?php endforeach ?>
     </select>
     <span class="help"><?php echo $this->getHelpText() ?></span>
+    <a href="javascript:void;" onclick="resetValue('<?php echo $this->getFieldId() ?>', '<?php echo $this->getDefaultValue() ?>'); return false">Reset to default</a>
 </p>

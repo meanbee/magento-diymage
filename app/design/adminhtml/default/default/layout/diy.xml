@@ -5,6 +5,7 @@
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/yahoo.color.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
 
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.4.3.min.js</name><if /></action>
