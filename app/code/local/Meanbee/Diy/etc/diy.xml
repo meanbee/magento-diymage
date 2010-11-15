@@ -38,6 +38,13 @@
                     <input_control>diy/admin_control_font</input_control>
                     <sort_order>50</sort_order>
                 </font_family>
+				<header_link_colour>
+					<label>Header Link Colour</label>
+					<help>This is the colour of links in the header</help>
+					<value>ffcc00</value>
+					<input_control>diy/admin_control_colour</input_control>
+					<sort_order>70</sort_order>
+				</header_link_colour>
                 <show_categories>
                     <label>Show Categories?</label>
                     <help>This control decides whether to show the categories along the top of the page, or not.</help>

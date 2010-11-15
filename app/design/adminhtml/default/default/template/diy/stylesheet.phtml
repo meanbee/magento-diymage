@@ -1,22 +1,30 @@
+<?php
+    $d = Mage::helper('diy');
+?>
+
 body {
-    font-size: <?php echo Mage::helper('diy')->getValue("global", "font_size"); ?>px;
-    color: #<?php echo Mage::helper('diy')->getValue("global", "font_colour")?>;
+    font-size: <?php echo $d->getValue("global", "font_size"); ?>px;
+    color: #<?php echo $d->getValue("global", "font_colour")?>;
 }
 
 a {
-    color: #<?php echo Mage::helper('diy')->getValue("global", "link_colour") ?>;
+    color: #<?php echo $d->getValue("global", "link_colour") ?>;
 }
 
 a:hover {
-    color: #<?php echo Mage::helper('diy')->getValue("global", "link_hover_colour") ?>;
+    color: #<?php echo $d->getValue("global", "link_hover_colour") ?>;
 }
 
-<?php if (Mage::helper('diy')->getValue("catalog_category_view", "pager_border") != 1): ?>
+.header .links a {
+	color: #<?php echo $d->getValue("global", "header_link_colour")?>;
+}
+
+<?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
     .pager, .sorter {
         border: none;
     }
 <?php endif ?>
 
 .pager, .sorter {
-    background: #<?php echo Mage::helper('diy')->getValue("catalog_category_view", "pager_background") ?>;
+    background: #<?php echo $d->getValue("catalog_category_view", "pager_background") ?>;
 }
