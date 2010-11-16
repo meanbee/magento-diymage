@@ -1,4 +1,5 @@
 <?php
+    // Put this in a variable to make typing quicker.
     $d = Mage::helper('diy');
 ?>
 
@@ -16,7 +17,43 @@ a:hover {
 }
 
 .header .links a {
-	color: #<?php echo $d->getValue("global", "header_link_colour")?>;
+    color: #<?php echo $d->getValue("global", "header_link_colour")?>;
+}
+
+#nav {
+    background-color: #<?php echo $d->getValue("global", "nav_bar_background")?>;
+}
+
+#nav li {
+    background-color: #<?php echo $d->getValue("global", "nav_item_background")?>;
+}
+
+#nav li a {
+    color: #<?php echo $d->getValue("global", "nav_item_link_colour")?>;
+}
+
+#nav li.active a {
+    color: #<?php echo $d->getValue("global", "nav_item_active_link_colour")?>;
+}
+
+#nav li a:hover {
+    color: #<?php echo $d->getValue("global", "nav_item_link_hover_colour")?>;
+}
+
+#nav ul li a {
+    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_colour")?>;
+    color: #<?php echo $d->getValue("global", "nav_sub_item_link_colour")?>;
+}
+
+#nav ul li a:hover {
+    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_colour")?>;
+}
+
+#nav ul, #nav div {
+    <?php if ($d->getValue("global", "nav_sub_list_border" ) != 1): ?>
+        border: none;
+    <?php endif; ?>
+    border-color: #<?php echo $d->getValue("global", "nav_sub_list_border_colour")?>;
 }
 
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
