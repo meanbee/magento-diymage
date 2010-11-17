@@ -60,7 +60,8 @@ input.input-text, textarea {
 }
 
 #nav ul li a:hover {
-    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_colour")?>;
+    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_hover_colour")?>;
+    color: #<?php echo $d->getValue("global", "nav_sub_item_link_hover_colour")?>;
 }
 
 #nav ul, #nav div {

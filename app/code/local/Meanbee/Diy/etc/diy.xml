@@ -151,7 +151,7 @@
                     <sort_order>210</sort_order>
                 </nav_sub_item_background_hover_colour>
                 <nav_sub_item_link_hover_colour>
-                    <label>Navigation Sub-menu Item Hover Colour</label>
+                    <label>Navigation Sub-menu Item Link Hover Colour</label>
                     <help>Set the colour of a sub-menu link when hovered over.</help>
                     <value>2F2F2F</value>
                     <input_control>diy/admin_control_colour</input_control>
