@@ -52,4 +52,11 @@
         </reference>
     </diy_design_cart>
     
+    <diy_design_contacts>
+        <reference name="content">
+            <block type="diy/admin_design_contacts" name="diy.admin.design.contacts" template="diy/design/contacts.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_design_contacts>
+    
 </layout>
