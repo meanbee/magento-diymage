@@ -16,6 +16,20 @@ a:hover {
     color: #<?php echo $d->getValue("global", "link_hover_colour") ?>;
 }
 
+input, select, textarea, button {
+    color: #<?php echo $d->getValue("global", "input_colour") ?>;
+    font-family: <?php echo $d->getValue("global", "input_font_family") ?>;
+    font-size: <?php echo $d->getValue("global", "input_font_size") ?>px;
+}
+
+input.input-text, select, textarea {
+    background-color: #<?php echo $d->getValue("global", "input_background_colour") ?>;
+    border-colour: #<?php echo $d->getValue("global", "input_border_colour") ?>;
+}
+
+input.input-text, textarea {
+    padding: <?php echo $d->getValue("global", "input_text_padding"); ?>px;
+}
 .header .links a {
     color: #<?php echo $d->getValue("global", "header_link_colour")?>;
 }
