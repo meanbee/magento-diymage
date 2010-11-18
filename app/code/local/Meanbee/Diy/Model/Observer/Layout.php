@@ -1,6 +1,11 @@
 <?php
 class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_Interface {
     protected $_removedBlocks = array();
+    protected $_log;
+    
+    public function __construct() {
+        $this->_log = Mage::getModel('diy/log');
+    }
     
     public function observe($observer) {
         $action_obj = $observer->getAction();
@@ -20,6 +25,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }
         
         $full_identifier = "{$module}_{$controller}_{$action}";
+        
+        $this->_log->debug("--- Observing layout for $full_identifier");
         
         $identifiers = array(
             "{$module}",
@@ -118,9 +125,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _sortBlocks($identifiers, $layout) {
+        $this->_log->debug("Sorting blocks")->indent();
         $simple_xml = $layout->getUpdate()->asSimpleXml();
         
         foreach ($identifiers as $identifier) {
+            $this->_log->debug("Searching for identifier $identifier")->indent();
             $update_xml = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
             
             if (count($update_xml) > 0) {
@@ -129,6 +138,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 $updates = $layout->getUpdate()->asArray();
                 
                 foreach ($update_xml as $group => $data) {
+                    $this->_log->debug("Searching for group $group")->indent();
                     $blocks = Zend_Json::decode($data['sort_order']);
                     $block_found = array();
                     
@@ -177,6 +187,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                         $value = str_replace(">", "", $subparts[1]);
                                         
                                         if ($key == "name" && $value == '"' . $block_data['name'] . '"') {
+                                            $this->_log->debug("Modifying " . $block_data['name']);
+                                                                                
                                             $block_found[$block_data['name']] = 1;
 
                                             $after_string = 'after="' . $block_data['after'] . '"';
@@ -211,7 +223,10 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                                                 }
                                             }
                                             
+                                            
+                                            $this->_log->debug("From: " . $line);
                                             $line = $updated_line;
+                                            $this->_log->debug("To:   " . $line);
 
                                             $modified_updates[] = $update_number; 
                                         }
@@ -222,6 +237,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                         
                         $update = implode("\n", $lines);
                     } // foreach
+                    
+                    $this->_log->unindent();
                 } // foreach
                 
                 foreach ($modified_updates as $idx) {
@@ -234,7 +251,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                     $layout->getUpdate()->addUpdate($update);
                 }
             } // if
+            
+            $this->_log->unindent();
         } // foreach
+        
+        $this->_log->unindent();
     } // function
     
     /**
@@ -246,6 +267,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _setTemplate($layout, $template) {
+        $this->_log->debug("Setting template to $template");
         $layout->getUpdate()->addUpdate(
             '<reference name="root">
                 <action method="setTemplate"><template>' . $template . '</template></action>
@@ -262,6 +284,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _addStylesheet($layout, $stylesheet) {
+        $this->_log->debug("Adding stylesheet $stylesheet");
         $layout->getUpdate()->addUpdate(
             '<reference name="head">
                 <action method="addItem"><type>skin_css</type><name>' . $stylesheet . '</name><params/><if /></action>
@@ -278,6 +301,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _removeBlock($layout, $name) {
+        $this->_log->debug("Removing block $name");
         $layout->getUpdate()->addUpdate(
             '<remove name="' . $name . '" />'
         );
@@ -298,6 +322,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _addBlock($layout, $reference, $name, $type, $after = null, $before = null, $template = null, $as = null) {
+        $this->_log->debug("Adding block $name of type $type to reference $reference");
         $arguments = array(
             "after", "before", "template", "as"
         );
@@ -336,6 +361,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _addStaticBlock($layout, $reference, $block_id, $block_name, $after = null, $before = null) {
+        $this->_log->debug("Adding static block $block_id as $block_name");
         $xml = "<reference name='$reference'>";
             $xml .= '<block type="cms/block" name="' . $block_name . '"';
             
