@@ -71,6 +71,18 @@ input.input-text, textarea {
     border-color: #<?php echo $d->getValue("global", "nav_sub_list_border_colour")?>;
 }
 
+.breadcrumbs {
+    color: #<?php echo $d->getValue("global", "breadcrumb_text_colour")?>;
+}
+
+.breadcrumbs a {
+    color: #<?php echo $d->getValue("global", "breadcrumb_link_colour")?>;
+}
+
+.breadcrumbs a:hover {
+    color: #<?php echo $d->getValue("global", "breadcrumb_link_hover_colour")?>;
+}
+
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
     .pager, .sorter {
         border: none;
