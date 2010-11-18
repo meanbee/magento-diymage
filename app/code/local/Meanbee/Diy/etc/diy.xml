@@ -194,7 +194,7 @@
                 </breadcrumb_link_hover_colour>
                 <breadcrumb_divider_colour>
                     <label>Breadcrumb Divider Colour</label>
-                    <help>This is the colour of the divider between breadcrumbs</help>
+                    <help>This is the colour of the divider between breadcrumbs.</help>
                     <value></value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>280</sort_order>
@@ -206,6 +206,48 @@
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>290</sort_order>
                 </breadcrumb_size>
+                <footer_font_size>
+                    <label>Footer Font Size</label>
+                    <help>This is the size of text in the footer.</help>
+                    <value>10</value>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>300</sort_order>
+                </footer_font_size>
+                <footer_text_colour>
+                    <label>Footer Text Colour</label>
+                    <help>Set the colour of text in the footer.</help>
+                    <value></value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>310</sort_order>
+                </footer_text_colour>
+                <footer_link_colour>
+                    <label>Footer Link Colour</label>
+                    <help>This is the colour of links in the footer.</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>320</sort_order>
+                </footer_link_colour>
+                <footer_link_hover_colour>
+                    <label>Footer Link Hover Colour</label>
+                    <help>This is the colour of links in the footer when hovered over.</help>
+                    <value>000000</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>330</sort_order>
+                </footer_link_hover_colour>
+                <footer_link_background_colour>
+                    <label>Footer Link Background Colour</label>
+                    <help>This is the background colour of links in the footer.</help>
+                    <value></value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>340</sort_order>
+                </footer_link_background_colour>
+                <footer_list_display>
+                    <label>Display Footer List Items Inline?</label>
+                    <help>Display the footer list items inline?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>350</sort_order>
+                </footer_list_display>
             </global>
             <catalog_product_view>
                 <builder>

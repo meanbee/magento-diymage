@@ -73,6 +73,7 @@ input.input-text, textarea {
 
 .breadcrumbs {
     color: #<?php echo $d->getValue("global", "breadcrumb_text_colour")?>;
+    
 }
 
 .breadcrumbs a {
@@ -84,7 +85,29 @@ input.input-text, textarea {
 }
 
 .breadcrumbs span {
-    color #<?php echo $d->getValue("global", "breadcrumb_divider_colour")?>;
+    color: #<?php echo $d->getValue("global", "breadcrumb_divider_colour")?>;
+}
+
+.footer {
+    color: #<?php echo $d->getValue("global", "footer_text_colour")?>;
+    font-size: <?php echo $d->getValue("global", "footer_font_size")?>px;
+}
+
+.footer a {
+    background-color: #<?php echo $d->getValue("global", "footer_link_background_colour")?>;
+    color: #<?php echo $d->getValue("global", "footer_link_colour")?>;
+}
+
+.footer a:hover {
+    color: #<?php echo $d->getValue("global", "footer_link_hover_colour")?>;
+}
+
+.footer li {
+<?php if ($d->getValue("global", "footer_list_display") == 1): ?>
+    display: inline;
+<?php else: ?>
+    display: block;
+<?php endif; ?>
 }
 
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
