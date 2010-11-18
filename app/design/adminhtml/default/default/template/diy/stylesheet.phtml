@@ -83,6 +83,10 @@ input.input-text, textarea {
     color: #<?php echo $d->getValue("global", "breadcrumb_link_hover_colour")?>;
 }
 
+.breadcrumbs span {
+    color #<?php echo $d->getValue("global", "breadcrumb_divider_colour")?>;
+}
+
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
     .pager, .sorter {
         border: none;

@@ -192,6 +192,20 @@
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>270</sort_order>
                 </breadcrumb_link_hover_colour>
+                <breadcrumb_divider_colour>
+                    <label>Breadcrumb Divider Colour</label>
+                    <help>This is the colour of the divider between breadcrumbs</help>
+                    <value></value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>280</sort_order>
+                </breadcrumb_divider_colour>
+                <breadcrumb_size>
+                    <label>Breadcrumb Size</label>
+                    <help>Size of breadcrumbs</help>
+                    <value>11</value>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>290</sort_order>
+                </breadcrumb_size>
             </global>
             <catalog_product_view>
                 <builder>
