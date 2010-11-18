@@ -7,6 +7,7 @@ p.diy.control {
     width: 250px;
     float: left;
     margin-right: 10px;
+	height: 125px;
 }
 
 p.diy.control label {
@@ -97,5 +98,5 @@ p.diy.control.builder .container .add-block {
 
 /** FONT SPECIFIC STYLES *******************************************/
 p.diy.control.font option, p.diy.control.font select {
-    font-size: 24px;
+    font-size: 18px;
 }

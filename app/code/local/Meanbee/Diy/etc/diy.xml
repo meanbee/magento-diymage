@@ -26,7 +26,7 @@
                 </link_hover_colour>
                 <font_size>
                     <label>Font Size</label>
-                    <help>This value will be the size of the default text around the site.  It's not common to change this from 10-12px.</help>
+                    <help>This is the size of the default text around the site.  Usually 10-12px.</help>
                     <value>10</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>40</sort_order>
@@ -159,7 +159,7 @@
                 </nav_sub_item_link_hover_colour>
                 <nav_sub_list_border>
                     <label>Show Nav Sub-menu Border?</label>
-                    <help>This control decides whether to draw, or not to draw, the border around the sub menus in the navigation bar.</help>
+                    <help>Choose to show the border around the sub menus in the navigation bar.</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>230</sort_order>                 
