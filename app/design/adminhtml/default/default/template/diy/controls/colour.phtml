@@ -8,7 +8,7 @@ $js_var = "colour_". $this->getUniqueId();
 ?>
 <p class="diy control colour">
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-    <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" />
+    <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo strtoupper($this->getValue()) ?>" />
     <span class="help"><?php echo $this->getHelpText() ?></span>
     <a href="javascript:void;" onclick="resetValue('<?php echo $this->getFieldId() ?>', '<?php echo $this->getDefaultValue() ?>'); <?php echo $js_var ?>.updateSwatch(); return false">Reset to default</a>
 </p>
