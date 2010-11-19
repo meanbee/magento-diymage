@@ -57,6 +57,7 @@ p.diy.control.unit span.unit {
 p.diy.control.builder {
     float: right;
     width: 450px;
+    height: auto;
 }
 
 p.diy.control.builder span.help {
