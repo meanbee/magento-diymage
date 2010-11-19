@@ -7,6 +7,13 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $this->_log = Mage::getModel('diy/log');
     }
     
+    /**
+     * @TODO: Add event listeners for adding custom stylesheets
+     *
+     * @param string $observer 
+     * @return void
+     * @author Nicholas Jones
+     */
     public function observe($observer) {
         $action_obj = $observer->getAction();
         $layout = $observer->getLayout();
