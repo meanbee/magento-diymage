@@ -59,6 +59,13 @@
         </reference>
     </diy_design_catalogsearch>
     
+    <diy_design_advancedsearch>
+        <reference name="content">
+            <block type="diy/admin_design_advancedsearch" name="diy.admin.design.advancedsearch" template="diy/design/advancedsearch.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_design_advancedsearch>
+    
     <diy_design_contacts>
         <reference name="content">
             <block type="diy/admin_design_contacts" name="diy.admin.design.contacts" template="diy/design/contacts.phtml" />

@@ -36,10 +36,15 @@
                     <action>diy/design/catalogsearch</action>
                     <sort_order>60</sort_order>
                 </catalogsearch>
+                <catalogsearch_advanced translate="title" module="diy">
+                    <title>Advanced Search</title>
+                    <action>diy/design/advancedsearch</action>
+                    <sort_order>70</sort_order>                    
+                </catalogsearch_advanced>
                 <contacts translate="title" module="diy">
                     <title>Contacts</title>
                     <action>diy/design/contacts</action>
-                    <sort_order>70</sort_order>
+                    <sort_order>80</sort_order>
                 </contacts>
                 <settings translate="title" module="diy">
                     <title>Settings</title>
@@ -82,9 +87,13 @@
                                 <title>Search Settings</title>
                                 <sort_order>60</sort_order>
                             </catalogsearch>
+                            <catalogsearch_advanced translate="title" module="diy">
+                                <title>Advanced Search Settings</title>
+                                <sort_order>70</sort_order>
+                            </catalogsearch_advanced>
                             <contacts translate="title" module="diy">
                                 <title>Contact Page Design Settings</title>
-                                <sort_order>70</sort_order>
+                                <sort_order>80</sort_order>
                             </contacts>
                         </children>
                     </diy>
