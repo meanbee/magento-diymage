@@ -31,10 +31,15 @@
                     <action>diy/design/cart</action>
                     <sort_order>50</sort_order>
                 </checkout_cart>
+                <catalogsearch translate="title" module="diy">
+                    <title>Search</title>
+                    <action>diy/design/catalogsearch</action>
+                    <sort_order>60</sort_order>
+                </catalogsearch>
                 <contacts translate="title" module="diy">
                     <title>Contacts</title>
                     <action>diy/design/contacts</action>
-                    <sort_order>60</sort_order>
+                    <sort_order>70</sort_order>
                 </contacts>
                 <settings translate="title" module="diy">
                     <title>Settings</title>
@@ -73,9 +78,13 @@
                                 <title>Cart Design Settings</title>
                                 <sort_order>50</sort_order>
                             </checkout_cart>
+                            <catalogsearch translate="title" module="diy">
+                                <title>Search Settings</title>
+                                <sort_order>60</sort_order>
+                            </catalogsearch>
                             <contacts translate="title" module="diy">
                                 <title>Contact Page Design Settings</title>
-                                <sort_order>60</sort_order>
+                                <sort_order>70</sort_order>
                             </contacts>
                         </children>
                     </diy>
