@@ -24,6 +24,13 @@
         </reference>
     </diy_design_index>
     
+    <diy_design_homepage>
+        <reference name="content">
+            <block type="diy/admin_design_homepage" name="diy.admin.design.homepage" template="diy/design/homepage.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_design_homepage>
+    
     <diy_design_listing>
         <reference name="content">
             <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml" />

@@ -31,6 +31,10 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
+    public function homepageAction() {
+        $this->__render();
+    }
+    
     public function listingAction() {
         $this->__render();
     }
