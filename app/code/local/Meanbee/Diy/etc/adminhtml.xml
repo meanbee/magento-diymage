@@ -51,6 +51,11 @@
                     <action>diy/design/contacts</action>
                     <sort_order>90</sort_order>
                 </contacts>
+                <noroute translate="title" module="diy">
+                    <title>404 Page</title>
+                    <action>diy/design/noroute</action>
+                    <sort_order>100</sort_order>
+                </noroute>
                 <settings translate="title" module="diy">
                     <title>Settings</title>
                     <action>adminhtml/system_config/edit/section/diy</action>
@@ -104,6 +109,10 @@
                                 <title>Contact Page Design Settings</title>
                                 <sort_order>90</sort_order>
                             </contacts>
+                            <noroute translate="title" module="diy">
+                                <title>404 Page Design Settings</title>
+                                <sort_order>100</sort_order>
+                            </noroute>
                         </children>
                     </diy>
                     <system>

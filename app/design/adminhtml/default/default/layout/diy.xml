@@ -80,4 +80,11 @@
         </reference>
     </diy_design_contacts>
     
+    <diy_design_noroute>
+        <reference name="content">
+            <block type="diy/admin_design_noroute" name="diy.admin.design.noroute" template="diy/design/noroute.phtml" />
+            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_design_noroute>
+    
 </layout>

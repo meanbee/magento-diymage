@@ -51,10 +51,6 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
-    public function contactsAction() {
-        $this->__render();
-    }
-    
     public function catalogsearchAction() {
         $this->__render();
     }
@@ -62,6 +58,16 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     public function advancedsearchAction() {
         $this->__render();
     }
+    
+    public function contactsAction() {
+        $this->__render();
+    }
+    
+    public function norouteAction() {
+        $this->__render();
+    }
+    
+
     
     public function saveAction() {
         if ($data = $this->getRequest()->getPost("diy")) {
