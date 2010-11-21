@@ -74,6 +74,17 @@
                             </contacts>
                         </children>
                     </diy>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <diy translate="title" module="diy">
+                                        <title>DIY Mage Settings Section</title>
+                                    </diy>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
                 </children>
             </admin>
         </resources>
