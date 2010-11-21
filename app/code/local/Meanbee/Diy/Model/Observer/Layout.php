@@ -15,6 +15,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     public function observe($observer) {
+        
+        if (!Mage::getSingleton('diy/settings')->isEnabled()) {
+            return;
+        }
+        
         $action_obj = $observer->getAction();
         $layout = $observer->getLayout();
         $update = $layout->getUpdate();

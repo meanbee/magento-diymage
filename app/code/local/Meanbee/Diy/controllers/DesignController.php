@@ -1,6 +1,32 @@
 <?php
 class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     
+    // public function _construct() {
+    //     parent::_construct();
+    //     
+    //     $settings = Mage::getSingleton('diy/settings');
+    //     
+    //     if (!$settings->isEnabled()) {
+    //         Mage::getSingleton('adminhtml/session')->addNotice(
+    //             Mage::helper('diy')->__('DIY Mage is not currently enabled in your Magento configuration.  No changes will appear on the front end until the module is enabled.')
+    //         );
+    //     }
+    // }
+    
+    public function preDispatch() {
+        parent::preDispatch();
+        
+        $settings = Mage::getSingleton('diy/settings');
+        
+        if (!$settings->isEnabled()) {
+            Mage::getSingleton('adminhtml/session')->addNotice(
+                Mage::helper('diy')->__('DIY Mage is not currently enabled in your Magento configuration.  No changes will appear on the front end until the module is enabled.')
+            );
+        }
+        
+        return $this;
+    }
+    
     public function indexAction() {
         $this->__render();
     }
