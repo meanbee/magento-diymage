@@ -36,6 +36,11 @@
                     <action>diy/design/contacts</action>
                     <sort_order>60</sort_order>
                 </contacts>
+                <settings translate="title" module="diy">
+                    <title>Settings</title>
+                    <action>adminhtml/system_config/edit/section/diy</action>
+                    <sort_order>1000</sort_order>
+                </settings>
             </children>
         </diy>
     </menu>
