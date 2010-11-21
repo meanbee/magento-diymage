@@ -97,6 +97,14 @@ p.diy.control.builder .container .add-block {
     margin-top: 10px;
 }
 
+p.diy.control.builder .static_block_add {
+    padding-top: 10px;
+}
+
+p.diy.control.builder .static_block_add select {
+    margin-right: 10px;
+}
+
 /** FONT SPECIFIC STYLES *******************************************/
 p.diy.control.font option, p.diy.control.font select {
     font-size: 18px;
