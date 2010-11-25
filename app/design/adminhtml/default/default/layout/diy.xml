@@ -3,19 +3,25 @@
     
     <default>
         <reference name="head">
-            <action method="addItem"><type>skin_js</type><name>diy/js/yahoo.color.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
-
-            <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.4.3.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-ui-1.8.6.custom.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery.json-2.2.min.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
+            
+            <action method="addItem"><type>skin_js</type><name>diy/js/yahoo.color.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
             
             <action method="addItem"><type>skin_css</type><name>diy/css/colorpicker.css</name><params /></action>
             <action method="addItem"><type>skin_css</type><name>diy/css/controls.css</name><params /></action>
         </reference>
     </default>
+    
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>diy/js/settings_screen.js</name><if /></action>
+        </reference>
+    </adminhtml_system_config_edit>
     
     <diy_design_index>
         <reference name="content">
