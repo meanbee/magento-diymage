@@ -11,4 +11,8 @@ class Meanbee_Diy_Model_Config {
     public function isDeveloperMode() {
         return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_enabled');
     }
+    
+    public function getLogName() {
+        return "diymage.log";
+    }
 }
