@@ -4,15 +4,15 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     public function preDispatch() {
         parent::preDispatch();
         
-        $settings = Mage::getSingleton('diy/settings');
+        $config = Mage::getSingleton('diy/config');
         
-        if (!$settings->isEnabled()) {
+        if (!$config->isEnabled()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
                 Mage::helper('diy')->__('DIY Mage is not currently enabled in your Magento configuration.  No changes will appear on the front end until the module is enabled.')
             );
         }
         
-        if ($settings->isDeveloperMode()) {
+        if ($config->isDeveloperMode()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
                 Mage::helper('diy')->__('Developer mode is currently enabled, meaning we\'re repopulating the attributes from the diy.xml files on each page load -- if you don\'t know what this means, <a href="' . $this->getUrl('adminhtml/system_config/edit/section/diy') . '">switch it off</a>.')
             );

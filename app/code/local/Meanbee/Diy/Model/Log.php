@@ -6,7 +6,7 @@ class Meanbee_Diy_Model_Log {
     
     public function __construct() {
         $this->_fileName = "diymage.log";
-        $this->_enabled = Mage::getSingleton('diy/settings')->isLoggingEnabled();
+        $this->_enabled = Mage::getSingleton('diy/config')->isLoggingEnabled();
     }
     
     protected function _writeLog($message, $level) {
