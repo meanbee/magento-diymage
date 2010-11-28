@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Eav_Data extends Mage_Eav_Model_Entity_Abstract {
     public function _construct() {
         $resource = Mage::getSingleton('core/resource');

@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Block_Admin_Control_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
     public function getFieldName() {
         $id = $this->getUniqueId();

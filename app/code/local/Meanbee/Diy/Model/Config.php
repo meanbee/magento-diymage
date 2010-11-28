@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Config {
     public function isEnabled() {
         return Mage::getStoreConfig('diy/general/enabled');

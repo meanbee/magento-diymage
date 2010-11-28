@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Log {
     protected $_fileName;
     protected $_indent = 0;

@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
     abstract protected function getDataGroup();
     

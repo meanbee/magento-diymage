@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Xml {
     protected function getXml() {
         return Mage::getConfig()->loadModulesConfiguration('diy.xml');

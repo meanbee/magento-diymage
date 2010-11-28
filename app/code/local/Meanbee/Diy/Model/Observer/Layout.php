@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_Interface {
     protected $_removedBlocks = array();
     protected $_log;

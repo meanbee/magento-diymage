@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Helper_Data extends Mage_Core_Helper_Abstract {
     /**
      * @TODO: Don't hardcode the store id

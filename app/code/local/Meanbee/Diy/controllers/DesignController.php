@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     
     public function preDispatch() {

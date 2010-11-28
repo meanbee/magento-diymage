@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 $installer = $this;
 
 $installer->addEntityType('diy_data', array(

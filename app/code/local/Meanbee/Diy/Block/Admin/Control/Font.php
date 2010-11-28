@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Block_Admin_Control_Font extends Meanbee_Diy_Block_Admin_Control_Dropdown {
     public function __construct() {
         parent::__construct();

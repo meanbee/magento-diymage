@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Stylesheet {
     public function publish() {
         $block = Mage::getBlockSingleton('diy/stylesheet');
