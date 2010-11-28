@@ -38,7 +38,7 @@ class Meanbee_Diy_Block_Admin_Control_Abstract extends Meanbee_Diy_Block_Admin_A
      * @author Nicholas Jones
      */
     public function getDefaultValue() {
-        $xml = Mage::getModel("diy/config")->getAttributes();
+        $xml = Mage::getModel("diy/xml")->getAttributes();
         
         $name = $this->getName();
         $group = Mage::registry('diy_current_template');
