@@ -28,7 +28,7 @@
     
     <diy_design>
         <reference name="content">
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
         </reference>
     </diy_design>
     
