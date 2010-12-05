@@ -8,6 +8,9 @@ ln -s ../../../../diymage/app/code/local/Meanbee/Diy/ Diy
 cd ../../../etc/modules
 ln -s ../../../diymage/app/etc/modules/Meanbee_Diy.xml .
 
+cd ../../locale/en_US/
+ln -s ../../../diymage/app/locale/en_US/Meanbee_Diy.csv .
+
 cd ../../design/adminhtml/default/default/layout
 ln -s ../../../../../../diymage/app/design/adminhtml/default/default/layout/diy.xml .
 cd ../template/
