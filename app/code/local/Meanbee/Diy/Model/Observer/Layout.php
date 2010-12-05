@@ -34,6 +34,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $area = $design->getArea();
         
         if ($area == "adminhtml") {
+            $this->_checkLicenseValid();
             return;
         }
         
@@ -459,5 +460,69 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }   
         $xml = implode("\n", $pretty);   
         return ($html_output) ? htmlentities($xml) : $xml;
+    }
+    
+    /**
+     * Contact the license server to determine whether a license is valid or not.
+     *
+     * @return bool
+     * @author Nicholas Jones
+     */
+    protected function _checkLicenseValid() {
+        $cache = Mage::getSingleton('diy/cache');
+        $config = Mage::getSingleton('diy/config');
+        $client = new Varien_Http_Client($config->getPingUrl());
+        
+        if ($cache->getLicenseStatus()) {
+            $this->_log->debug("Cache hit, license valid");
+            return true;
+        }
+        
+        if (!$config->hasCompletedLicenseFields()) {
+            Mage::getSingleton('adminhtml/session')->addNotice(
+                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+            );
+            
+            $this->_log->warn("License fields are not complete");
+            
+            return false;
+        }
+        
+        $post_data = array(
+            "date"          => date("c"),
+            "locale"        => Mage::getStoreConfig('general/locale/code'),
+            "base_url"      => Mage::getStoreConfig('web/unsecure/base_url'),
+            "license_key"   => $config->getLicenseKey(),
+            "license_email" => $config->getLicenseEmail()
+        );
+        
+        $client->setParameterPost('payload', $post_data);
+        
+        $this->_log->debug("Contacting server for license status");
+        $response = $client->request(Zend_Http_Client::POST);
+        
+        if ($response->isSuccessful()) {
+            if ($response->getHeader('Content-type') == "application/json") {
+                $result = json_decode($response->getBody(), true); // Convert to assoc array 
+                
+                if ($result['valid']) {
+                    // We're good!
+                    $cache->setLicenseStatus(true);
+                    return true;
+                } else {
+                    Mage::getSingleton('adminhtml/session')->addError(
+                        Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
+                    );
+                    
+                    $this->_log->warn("Using an invalid license");
+                }
+            } else {
+                $this->_log->critical("Incorrect content-type from the license server");
+            }
+        } else {
+            $this->_log->alert("Unable to contact license server");
+        }
+        
+        return false;
     }
 }

@@ -13,6 +13,23 @@ class Meanbee_Diy_Model_Config {
         return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_enabled');
     }
     
+    public function getLicenseKey() {
+        return Mage::getStoreConfig('diy/license/key');
+    }
+    
+    public function getLicenseEmail() {
+        return Mage::getStoreConfig('diy/license/email');
+    }
+    
+    public function hasCompletedLicenseFields() {
+        return $this->getLicenseKey() && $this->getLicenseEmail();
+    }
+    
+    public function getPingUrl() {
+        //return "http://bartley.local:8080/diymage_ping/check.php";
+        return "http://ping.diymage.com/check";
+    }
+    
     public function getLogName() {
         return "diymage.log";
     }
