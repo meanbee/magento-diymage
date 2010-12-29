@@ -374,7 +374,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $client = new Varien_Http_Client($config->getPingUrl());
         
         if ($cache->getLicenseStatus()) {
-            $this->_log->debug("Cache hit, license valid");
+            $this->_log->debug("License valid, cache hit");
             return true;
         }
         
@@ -399,27 +399,31 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $client->setParameterPost('payload', $post_data);
         
         $this->_log->debug("Contacting server for license status");
-        $response = $client->request(Zend_Http_Client::POST);
-        
-        if ($response->isSuccessful()) {
-            if ($response->getHeader('Content-type') == "application/json") {
-                $result = json_decode($response->getBody(), true); // Convert to assoc array 
-                
-                if ($result['valid']) {
-                    // We're good!
-                    $cache->setLicenseStatus(true);
-                    return true;
+        try {
+            $response = $client->request(Zend_Http_Client::POST);
+
+            if ($response->isSuccessful()) {
+                if ($response->getHeader('Content-type') == "application/json") {
+                    $result = json_decode($response->getBody(), true); // Convert to assoc array 
+
+                    if ($result['valid']) {
+                        $this->_log->debug("License is valid, confirmed by server");
+                        $cache->setLicenseStatus(true);
+                        return true;
+                    } else {
+                        Mage::getSingleton('adminhtml/session')->addError(
+                            Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
+                        );
+
+                        $this->_log->warn("Using an invalid license");
+                    }
                 } else {
-                    Mage::getSingleton('adminhtml/session')->addError(
-                        Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
-                    );
-                    
-                    $this->_log->warn("Using an invalid license");
+                    $this->_log->critical("Incorrect content-type from the license server");
                 }
             } else {
-                $this->_log->critical("Incorrect content-type from the license server");
+                throw new Exception();
             }
-        } else {
+        } catch (Exception $e) {
             $this->_log->alert("Unable to contact license server");
         }
         

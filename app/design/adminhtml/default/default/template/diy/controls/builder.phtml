@@ -111,7 +111,6 @@
                         var is_static_block = !(references[configuration[i].key][j].static == undefined);
                         
                         if (is_static_block) {
-                            console.log("Found a static block");
                             html += drawStaticBlock(references[configuration[i].key][j].static, references[configuration[i].key][j].id, configuration[i].key);
                         } else {
                             html += drawLayoutBlock(references[configuration[i].key][j].name, configuration[i].key);
