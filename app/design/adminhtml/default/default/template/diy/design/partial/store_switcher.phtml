@@ -1,0 +1,23 @@
+<?php $options = $this->getStoreAsOptionArray() ?>
+<?php $store_change_url = $this->getUrl("admin/diy/design/homepage/store/") ?>
+
+<div class="diy store_switcher">
+    <select name="store" id="store_switcher">
+        <?php foreach ($options as $value => $name): ?>
+            <?php $active = ($this->getActiveStore() == $value) ?>
+            <option value="<?php echo $value ?>"<?php if($active): ?> selected="selected"<?php endif ?>><?php echo $name?></option>
+        <?php endforeach ?>
+    </select>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+<!--
+$j("#store_switcher").change(function () {
+    var store_id = this.value;
+    
+    if (confirm("Are you sure you want to switch store?  You'll lose all your unsaved changes.")) {
+        document.location = "<?php echo $this->getStoreChangeUrl() ?>store_id/" + store_id;
+    }
+})
+-->
+</script>

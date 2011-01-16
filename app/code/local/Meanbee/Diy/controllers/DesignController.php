@@ -21,6 +21,10 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
             Mage::getSingleton('diy/xml')->repopulateData();
         }
         
+        if ($store_id = $this->getRequest()->getParam('store_id')) {
+             Mage::getSingleton('diy/session')->setActiveStoreId($store_id);
+        }
+        
         return $this;
     }
     
@@ -63,8 +67,6 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     public function norouteAction() {
         $this->__render();
     }
-    
-
     
     public function saveAction() {
         if ($data = $this->getRequest()->getPost("diy")) {
