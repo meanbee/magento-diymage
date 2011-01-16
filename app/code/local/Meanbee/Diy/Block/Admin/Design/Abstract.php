@@ -14,8 +14,6 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
     }
     
     /**
-     * @TODO: Remove the hard coded store id
-     *
      * @return void
      * @author Nicholas Jones
      */
@@ -25,10 +23,20 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         $collection = $data->getCollection()
                             ->addAttributeToSelect('*')
                             ->addAttributeToFilter('group', $this->getDataGroup())
-                            ->addAttributeToFilter('store_id', 1)
+                            ->addAttributeToFilter('store_id', $this->getStoreId())
                             ->setOrder('sort_order', 'asc');
         
         return $collection;
+    }
+    
+    /**
+     * Return the currently active store.  If none set, return 1.
+     *
+     * @return int
+     * @author Nicholas Jones
+     */
+    public function getStoreId() {
+        return (Mage::getSingleton('diy/session')->getActiveStoreId()) ? Mage::getSingleton('diy/session')->getActiveStoreId() : 1;
     }
     
     /**

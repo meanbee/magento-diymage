@@ -16,4 +16,12 @@ class Meanbee_Diy_Block_Admin_Switcher extends Meanbee_Diy_Block_Admin_Abstract 
 
         return $options;
     }
+    
+    public function getStoreChangeUrl() {
+        return $this->getUrl("*/*/*");
+    }
+    
+    public function getActiveStore() {
+        return Mage::getSingleton('diy/session')->getActiveStoreId();
+    }
 }
