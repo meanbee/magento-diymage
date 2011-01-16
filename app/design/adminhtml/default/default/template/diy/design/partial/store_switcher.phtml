@@ -1,0 +1,8 @@
+<?php $options = $this->getStoreAsOptionArray() ?>
+<div class="diy store_switcher">
+    <select name="store">
+        <?php foreach ($options as $value => $name): ?>
+            <option value="<?php echo $value ?>"><?php echo $name?></option>
+        <?php endforeach ?>
+    </select>
+</div>
