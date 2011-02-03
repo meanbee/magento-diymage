@@ -29,8 +29,7 @@
     <diy_design>
         <reference name="content">
             <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
-        </reference>
-        <reference name="diy">
+            <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
         </reference>
     </diy_design>
     
@@ -42,12 +41,10 @@
     </diy_design_index>
     
     <diy_design_homepage>
-        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_homepage" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml">
-                <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
-            </block>
+            <block type="diy/admin_design_homepage" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml"></block>
         </reference>
+        <update handle="diy_design" />
     </diy_design_homepage>
     
     <diy_design_listing>
