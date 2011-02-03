@@ -389,11 +389,12 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }
         
         $post_data = array(
-            "date"          => date("c"),
-            "locale"        => Mage::getStoreConfig('general/locale/code'),
-            "base_url"      => Mage::getStoreConfig('web/unsecure/base_url'),
-            "license_key"   => $config->getLicenseKey(),
-            "license_email" => $config->getLicenseEmail()
+            "date"            => date("c"),
+            "locale"          => Mage::getStoreConfig('general/locale/code'),
+            "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
+            "license_key"     => $config->getLicenseKey(),
+            "license_email"   => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion()
         );
         
         $client->setParameterPost('payload', $post_data);

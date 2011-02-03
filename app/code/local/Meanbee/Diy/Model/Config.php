@@ -26,7 +26,6 @@ class Meanbee_Diy_Model_Config {
     }
     
     public function getPingUrl() {
-        //return "http://bartley.local:8080/diymage_ping/check.php";
         return "http://ping.diymage.com/check";
     }
     
