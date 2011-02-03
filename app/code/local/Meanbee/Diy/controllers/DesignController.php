@@ -85,7 +85,7 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
             
             if ($publish) {
                 try {
-                    Mage::getSingleton('diy/stylesheet')->publish();
+                    Mage::getSingleton('diy/stylesheet')->publish(Mage::getSingleton('diy/session')->getActiveStoreId());
                     Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('diy')->__('Your design changes have been saved and published successfully'));
                 } catch (Exception $e) {
                     Mage::getSingleton('adminhtml/session')->addError(Mage::helper('diy')->__('There was an error publishing your changes, but your data has been saved (' . $e->getMessage() . ')'));                    
