@@ -12,7 +12,7 @@ class Meanbee_Diy_Model_Cache {
         return $this->_getCache()->load($this->__key_license);
     }
     
-    public function setLicenseStatus($status, $expiry = 60*60*24*7) {
+    public function setLicenseStatus($status, $expiry = 604800 /* 60*60*24*7 */) {
         $this->_getCache()->save($status, $this->__key_license, $this->__tags, $expiry);
     }
 }

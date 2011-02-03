@@ -373,6 +373,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $config = Mage::getSingleton('diy/config');
         $client = new Varien_Http_Client($config->getPingUrl());
         
+        // An indication of wether all fields were complete, or not.
+        $incomplete = false;
+        
         if ($cache->getLicenseStatus()) {
             $this->_log->debug("License valid, cache hit");
             return true;
@@ -384,8 +387,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             );
             
             $this->_log->warn("License fields are not complete");
-            
-            return false;
+            $incomplete = true;
         }
         
         $post_data = array(
@@ -412,11 +414,14 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                         $cache->setLicenseStatus(true);
                         return true;
                     } else {
-                        Mage::getSingleton('adminhtml/session')->addError(
-                            Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
-                        );
+                        // Only display the error to the customer if we know that all fields were complete
+                        if (!$incomplete) {
+                            Mage::getSingleton('adminhtml/session')->addError(
+                                Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
+                            );
 
-                        $this->_log->warn("Using an invalid license");
+                            $this->_log->warn("Using an invalid license");
+                        }
                     }
                 } else {
                     $this->_log->critical("Incorrect content-type from the license server");
