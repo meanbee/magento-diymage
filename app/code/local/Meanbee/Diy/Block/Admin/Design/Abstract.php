@@ -1,6 +1,8 @@
 <?php
 // {{license}}
 abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
+    protected $_title = "No title set";
+    
     abstract protected function getDataGroup();
     
     public function _beforeToHtml() {
@@ -84,5 +86,9 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
                 '_current' => true
             )
         );
+    }
+    
+    public function getTitle() {
+        return $this->_title;
     }
 }
