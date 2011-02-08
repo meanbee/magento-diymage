@@ -24,20 +24,12 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="header-container">
-    <div class="header">
-        <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-        <?php else:?>
-        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-        <?php endif?>
-        <div class="quick-access">
-            <?php echo $this->getChildHtml('topLinks') ?>
-            <?php echo $this->getChildHtml('topSearch') ?>
-            <p class="welcome-msg"><?php echo $this->getWelcome()?></p>
-            <?php echo $this->getChildHtml('store_language') ?>
-        </div>
-        <?php echo $this->getChildHtml('topContainer'); ?>
-    </div>
-</div>
-<?php echo $this->getChildHtml('topMenu') ?>
+<header> 
+    <a href="<?php echo $this->getUrl() ?>" id="branding"> 
+        <h2>Default Magento Theme</h2> 
+        <img src="<?php echo $this->getSkinUrl('images/default-logo.gif') ?>" alt="Default Magento Theme"/> 
+    </a>
+    <?php echo $this->getChildHtml('minicart') ?>
+    <?php echo $this->getChildHtml('minisearch') ?>
+    <?php echo $this->getChildHtml('customer.navigation') ?>
+</header>

@@ -2,5 +2,18 @@
     <default>
         <remove name="right.permanent.callout" />
         <remove name="left.permanent.callout" />
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/colours.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/fonts.css</stylesheet></action>
+        </reference>
+        <reference name="root">
+            <block type="catalog/navigation" name="catalog.navigation" as="catalog.navigation" template="page/html/catalog.navigation.phtml" />
+            <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
+        </reference>
+        <reference name="header">
+            <block type="page/html" name="minisearch" as="minisearch" template="catalogsearch/minisearch.phtml" />
+            <block type="page/html" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
+            <block type="page/html" name="customer.navigation" as="customer.navigation" template="page/html/customer.navigation.phtml" />
+        </reference>
     </default>
 </layout>
