@@ -1,0 +1,332 @@
+/* ALLER FONT FAMILY */
+
+/* Bold */
+@font-face {
+    font-family: 'Aller';
+    src: url('../fonts/aller/aller_bd-webfont.eot');
+    src: local('☺'), url('../fonts/aller/aller_bd-webfont.woff') format('woff'), url('../fonts/aller/aller_bd-webfont.ttf') format('truetype'), url('../fonts/aller/aller_bd-webfont.svg#webfontxG8GSQij') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: 'Aller';
+    src: url('../fonts/aller/aller_bdit-webfont.eot');
+    src: local('☺'), url('../fonts/aller/aller_bdit-webfont.woff') format('woff'), url('../fonts/aller/aller_bdit-webfont.ttf') format('truetype'), url('../fonts/aller/aller_bdit-webfont.svg#webfontOMP0x7zQ') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Italic */
+@font-face {
+    font-family: 'Aller';
+    src: url('../fonts/aller/aller_it-webfont.eot');
+    src: local('☺'), url('../fonts/aller/aller_it-webfont.woff') format('woff'), url('../fonts/aller/aller_it-webfont.ttf') format('truetype'), url('../fonts/aller/aller_it-webfont.svg#webfontGJddapE9') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Regular */
+@font-face {
+    font-family: 'Aller';
+    src: url('../fonts/aller/aller_rg-webfont.eot');
+    src: local('☺'), url('../fonts/aller/aller_rg-webfont.woff') format('woff'), url('../fonts/aller/aller_rg-webfont.ttf') format('truetype'), url('../fonts/aller/aller_rg-webfont.svg#webfont0BtdFek5') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ----------------------------- GENERAL */
+
+body, input, textarea, button {
+    font-family: 'Aller', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+/* Notes/Asides */
+
+p.note {
+    font-style: italic;
+}
+
+/* Default Magento block styles */
+
+div.block div.block-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.block div.block-title h2 {
+    font-size: 14px;
+}
+
+div.block div.block-content p.block-subtitle {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ----------------------------- HEADERS */
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+/* ----------------------------- SHOP LOGO AND IMAGE */
+
+a#branding h2 { 
+    line-height: 160px;
+}
+
+/* ----------------------------- CART */
+
+section.cart h2 {
+    font-size: 14px;
+}
+
+/* ----------------------------- NAVIGATION */
+
+nav ul a {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ----------------------------- FORMS */
+
+form input[type=text],
+form input[type=search],
+form input.text,
+form input.search,
+form textarea {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+p.required {
+    font-style: italic;
+}
+
+/* ----------------------------- BUTTONS */
+
+a.button,
+input.button,
+button {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 14px;
+    text-align: center;
+}
+
+/* ----------------------------- LAYERED NAVIGATION */
+
+div.block-layered-nav dl dt {
+    font-weight: bold;
+}
+
+/* ----------------------------- POLL */
+
+div.block-poll form div p.block-subtitle {
+    font-size: 13px;
+}
+
+/* ----------------------------- PRODUCTS GRID */
+
+ul.products-grid li h2 {
+    text-align: center;
+}
+
+ul.products-grid li h2 a {
+    font-weight: bold;
+}
+
+ul.products-grid li h3.current-price {
+    font-size: 18px;
+}
+
+h2.current-price {
+    font-size: 20px;
+}
+
+/* Product options */
+
+aside.product-options dl dt label {
+    font-weight: bold;
+}
+
+/* Out of stock */
+
+section.hproduct div.out-of-stock p.out-of-stock {
+    font-weight: bold;
+}
+
+
+/* ----------------------------- PRODUCTS LIST */
+/* (does inherit from products grid) */
+
+ul.list-products li h2 {
+    text-align: left;
+}
+
+ul.list-products li ul.add-to-links li {
+    text-align: left;
+}
+
+ul.list-products li h3.current-price, 
+ul.list-products li h4.original-price,
+ul.list-products li h3.current-price, 
+ul.list-products li h4.original-price,
+ul.products-grid li h4.original-price + h3.current-price {
+    text-align: right;
+}
+
+/* ----------------------------- ADDITIONAL INFORMATION */
+
+aside#additional-information dl dt {
+    font-weight: bold;
+}
+
+/* ----------------------------- PRODUCT REVIEWS */
+
+/* List of reviews */
+
+ul#reviews-list li h4.summary {
+    font-weight: bold;
+}
+
+/* ----------------------------- PRODUCT TAGS */
+
+aside#product-tags h3 {
+    font-weight: normal;
+}
+
+aside#product-tags ul li {
+    line-height: 17px;
+}
+
+aside#product-tags ul li a {
+    text-decoration: none;
+}
+
+aside#product-tags form label {
+    line-height: 29px;
+}
+
+aside#product-tags p.note {
+    text-align: right;
+}
+
+/* ----------------------------- CART PAGE */
+
+/* Cart contents table */
+
+table#cart tr td {
+    vertical-align: top;
+}
+
+table#cart thead {
+    text-align: left;
+}
+
+table#cart tbody tr td.product-name h3 {
+    font-size: 13px;
+}
+
+ol#checkout-steps li table#cart tfoot tr.subtotal td,
+ol#checkout-steps li table#cart tfoot tr.grand-total td,
+ol#checkout-steps li table#cart tfoot tr.shipping td {
+    text-align: right;
+}
+
+ol#checkout-steps li table#cart tfoot tr.subtotal td.price,
+ol#checkout-steps li table#cart tfoot tr.grand-total td.price,
+ol#checkout-steps li table#cart tfoot tr.shipping td.price {
+    text-align: left;
+}
+
+ol#checkout-steps li table#cart tfoot tr.grand-total td.price {
+    font-weight: bold;
+}
+
+/* Related products */
+
+div.block-related ol li.hproduct div.actions ul li {
+    text-align: center;
+}
+
+/* Shipping form */
+
+aside.shipping form label {
+    font-weight: bold;
+}
+
+/* Totals */
+
+aside.totals h3 {
+    font-size: 14px;
+}
+
+aside.totals h2,
+aside.totals h3,
+aside.totals h4,
+aside.totals ul li {
+    text-align: right;
+}
+
+/* CART SIDEBAR */
+
+div.block-cart div.summary h3 {
+    font-weight: normal;
+}
+
+div.notes dl dt {
+    font-weight: bold;
+}
+
+/* ----------------------------- CHECKOUT */
+
+ol#checkout-steps li h2 em.step-number {
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+}
+
+ol#checkout-steps li h3 {
+    font-size: 14px;
+}
+
+ol#checkout-steps li h4 {
+    font-weight: bold;
+}
+
+ol#checkout-steps li div.buttons-set p.required,
+div.account div.col-main form div.buttons-set p.required {
+    text-align: right;
+}
+
+ol#checkout-steps li#checkout-method div.buttons-set p.required {
+    text-align: left;
+}
+
+form#shipping-method-form div dl dt {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ----------------------------- FOOTER */
+
+footer section h2 {
+    font-weight: normal;
+}
+
+footer small {
+    font-size: 13px;
+    text-align: center;
+}

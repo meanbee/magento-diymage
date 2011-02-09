@@ -1,0 +1,108 @@
+/* Header h2 appearing in the middle of the page, rather than hidden behind the header image */
+
+body a#branding h2 {
+    margin-left: -480px;
+}
+
+/* Site navigation was wrapping into a small space on the right of the page */
+
+body ul.site-navigation {
+    max-width: 500px;
+    min-width: 330px;
+}
+
+/* Header cart checkout button was too wide, breaking the layout */
+
+body section.cart button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* No breadcrumb separators */
+
+ul.breadcrumbs li a {
+    background: url(../images/icon-arrow-right.gif) center right no-repeat;
+    padding-right: 20px;
+}
+
+/* Search form was too narrow and search button was too wide, breaking the layout */
+
+body form#search-form {
+    max-width: 400px;
+    min-width: 265px;
+}
+
+body form#search-form button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Photo navigation was appearing too far up in the wrong place */
+
+body section.hproduct div#photos div.hoverscroll {
+    padding-top: 350px;
+}
+
+/* Product description and product options were hidden behind product image */
+
+body section.hproduct div.quick,
+body section.hproduct aside.product-options {
+    float: none;
+    margin-left: 358px;
+}
+
+/* Reviewer name was indented */
+
+body ul#reviews-list li h5.reviewer {
+    margin-left: 0;
+}
+
+/* Product list prices were all over the place */
+
+body ul.list-products li h3.current-price, 
+body ul.list-products li h4.original-price, 
+body ul.list-products li h3.current-price, 
+body ul.list-products li h4.original-price {
+    clear: both;
+    float: left;
+    margin-left: 230px;
+}
+
+body ul.list-products li h4.original-price,
+body ul.list-products li h3.current-price {
+    margin-top: 0;
+    width: 300px;
+}
+
+body ul.products-grid li h4.original-price + h3.current-price {
+    margin-top: 0;
+    width: 300px;
+}
+
+body ul.list-products li div.actions {
+    clear: both;
+    float: none;
+    margin-left: 230px;
+}
+
+/* Footer social icons were stacking instead of floating 
+Following lis need to be unfloated after this rule is applied */
+
+body footer section.vcard ul li {
+    float: left;
+}
+
+body footer section.vcard ul li.fn,
+body footer section.vcard ul li.street-address,
+body footer section.vcard ul li.locality,
+body footer section.vcard ul li.postal-code,
+body footer section.vcard ul li.country-name,
+body footer section.vcard ul li.tel {
+    float: none;
+}
+
+/* There was no gap between the social icons and address in the footer */
+
+body footer section.vcard ul li.fn {
+    padding-top: 5px;
+}

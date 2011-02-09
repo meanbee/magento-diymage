@@ -49,8 +49,12 @@ div.col2-right-layout {
 div.col-main,
 div.sidebar {
     float: left;
-    margin-top: 10px;
+    margin-top: 20px;
     overflow: hidden;
+}
+
+div.col-main div.sidebar {
+    margin-top: 0;
 }
 
 /* 1 column layout */
@@ -85,6 +89,36 @@ div.col2-right-layout div.sidebar {
 }
 
 div.col2-right-layout div.sidebar div.block {
+    margin-left: 20px;
+}
+
+/* 3 column layout */
+
+div.col3-layout div.col-main {
+    float: left;
+    width: 75%;
+}
+
+div.col3-layout div.sidebar {
+    width: 25%;
+}
+
+div.col3-layout div.col-main div.col-middle {
+    float: left;
+    margin-top: 10px;
+    margin-left: 2.5%;
+    width: 67%;
+}
+
+div.col3-layout div.col-main div.sidebar {
+    width: 30.5%;
+}
+
+div.col3-layout div.col-main div.sidebar div.block {
+    margin-left: 0;
+}
+
+div.col3-layout div.sidebar div.block {
     margin-left: 20px;
 }
 
@@ -256,6 +290,10 @@ input[type=search] {
     -webkit-appearance: textfield;
 }
 
+label {
+    display: block;
+}
+
 form ul li {
     list-style-type: none;
 }
@@ -378,6 +416,10 @@ div.block-poll form div p.block-subtitle {
     margin-bottom: 10px;
 }
 
+div.block-poll form label {
+    display: inline;
+}
+
 div.block-poll form div.actions {
     margin-top: 10px;
     overflow: hidden;
@@ -453,6 +495,10 @@ ul.product-sorter li.pagination {
 
 ul.product-sorter li.pagination strong {
     float: left;
+}
+
+ul.product-sorter li label {
+    display: inline;
 }
 
 ul.product-sorter li.pagination ol li {
@@ -535,6 +581,7 @@ ul.products-grid li h3.current-price {
 
 ul.products-grid li h4.original-price + h3.current-price {
     margin-top: 0;
+    width: 110px;
 }
 
 ul.products-grid li h3.current-price,
@@ -972,10 +1019,6 @@ ul.products-grid li a.link-review {
 
 /* Review form */
 
-form#write-review label {
-    display: block;
-}
-
 form#write-review input.text,
 form#write-review input[type=text],
 form#write-review textarea {
@@ -1262,6 +1305,7 @@ div.cart h1 {
 }
 
 ul.checkout-types {
+    list-style-type: none;
     overflow: hidden;
 }
 
@@ -1497,10 +1541,6 @@ ol#checkout-steps {
     margin-left: 20px;
 }
 
-div.checkout h1 {
-    margin-top: 10px;
-}
-
 ol#checkout-steps {
     border: 1px solid;
     border-top: none;
@@ -1573,7 +1613,8 @@ ol#checkout-steps li div.buttons-set {
     overflow: hidden;
 }
 
-ol#checkout-steps li div.buttons-set p.back-link {
+ol#checkout-steps li div.buttons-set p.back-link,
+div.account div.col-main form div.buttons-set p.back-link {
     float: left;
 }
 
@@ -1583,7 +1624,8 @@ ol#checkout-steps li div.buttons-set p.required {
     width: 50%;
 }
 
-ol#checkout-steps li#checkout-method div.buttons-set p.required {
+ol#checkout-steps li#checkout-method div.buttons-set p.required,
+div.account div.col-main form div.buttons-set p.required {
     margin: 0 0 10px 0;
     width: 100%;
 }
@@ -1593,7 +1635,7 @@ ol#checkout-steps li div.buttons-set button {
     margin-right: 20px;
 }
 
-/* Checkout forms */
+/* Checkout forms and Account forms */
 
 form#billing-form fieldset ul,
 form#shipping-form fieldset ul,
@@ -1621,16 +1663,16 @@ ol#checkout-steps li#checkout-method section form fieldset {
     padding-bottom: 0;
 }
 
-ol#checkout-steps li section form label {
-    display: block;
-}
-
-ol#checkout-steps li section form ul.radio-list label {
+ol#checkout-steps li section form ul.radio-list label,
+div.account div.col-main ul.radio-list label,
+div.col-main ul.radio-list label {
     display: inline;
 }
 
 ol#checkout-steps li section form input[type="text"], 
-ol#checkout-steps li section form input.text {
+ol#checkout-steps li section form input.text,
+div.account div.col-main form input[type="text"],
+div.account div.col-main form input.text {
     border: 1px solid;
 }
 
@@ -1661,7 +1703,8 @@ ol#checkout-steps li section form input.checkbox + label {
     margin-top: -2px;
 }
 
-ol#checkout-steps li section form ul li {
+ol#checkout-steps li section form ul li,
+div.account div.col-main form ul li  {
     list-style-type: none;
     margin-bottom: 10px;
 }
@@ -1724,10 +1767,6 @@ div.block-progress div.block-content ul li.error {
 
 /* ----------------------------- MY ACCOUNT */
 
-div.account {   
-    padding-top: 10px;
-}
-
 div.dashboard {
     padding-top: 10px;
 }
@@ -1746,8 +1785,58 @@ div.dashboard div.box-account {
     padding: 10px;
 }
 
+div.dashboard div.box-account div.box-head h2 {
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+
+div.dashboard div.box-account div.box-title {
+    border-bottom: 1px dotted;
+    margin-bottom: 10px;
+}
+
+div.dashboard div.box-account div.box-title a {
+    float: right;
+    margin-top: -35px;
+}
+
 div.dashboard div.box-account div.col2-set {
-    padding-bottom: 20px;
+    margin-bottom: 25px;
+    width: 700px;
+}
+
+div.dashboard div.box-account div.col-1 div.box {
+    padding-right: 40px;
+}
+
+div.dashboard div.box-account div.col-2 div.box {
+    padding-right: 20px;
+}
+
+div.account div.col-main form {
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+}
+
+div.account div.col-main form fieldset {
+    border-bottom: 1px dotted;
+    margin-bottom: 10px;
+}
+
+div.account div.col-main form fieldset input.text,
+div.account div.col-main form fieldset input[type="text"],
+div.account div.col-main form fieldset textarea,
+div.account div.col-main form fieldset select {
+    width: 100%;
+}
+
+div.account div.col-main form div.buttons-set {
+    overflow: hidden;
+}
+
+div.account div.col-main form div.buttons-set button {
+    float: right;
 }
 
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
@@ -1779,7 +1868,7 @@ section#promo div.block {
 section#promo div.block-promo-text {
     float: left;
     line-height: 30px;
-    width: 380px;
+    width: 370px;
 }
 
 /* ----------------------------- NEWSLETTER SUBSCRIPTION */
