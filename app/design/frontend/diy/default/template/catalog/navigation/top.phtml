@@ -1,12 +1,12 @@
 <?php
-function renderCategoryChildren($category) {
+function renderCategoryChildren($category, $block) {
     ?>
     <li>
-        <a href=""><?php echo $category->getName() ?></a>
+        <a href="<?php echo $block->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a>
         <?php if ($category->getChildren()->count() > 0): ?>
             <?php foreach ($category->getChildren() as $child): ?>
                 <ul>
-                    <?php renderCategoryChildren($child) ?>
+                    <?php renderCategoryChildren($child, $block) ?>
                 </ul>
             <?php endforeach ?>
         <?php endif ?>
@@ -19,7 +19,7 @@ function renderCategoryChildren($category) {
     <ul>
         <?php foreach ($this->getStoreCategories() as $child): ?>
             <?php if ($child->getIsActive()): ?>
-                <?php renderCategoryChildren($child) ?>
+                <?php renderCategoryChildren($child, $this) ?>
             <?php endif ?>
         <?php endforeach ?>
         ?> 

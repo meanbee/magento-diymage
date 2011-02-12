@@ -1,15 +1,14 @@
 <?php if($crumbs && is_array($crumbs)): ?>
 <!-- BREADCRUMBS --> 
 <ul class="breadcrumbs">
-    <li class="home"><a href="<?php echo $this->getUrl() ?>" title="Go to Home Page">Home</a></li> 
     <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
-		<li<?php ($_crumbInfo['last']) ? ' class="current-page"' : '' ?>>
-		<?php if($_crumbInfo['link']): ?>
-		    <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->htmlEscape($_crumbInfo['title']) ?>"><?php echo $this->htmlEscape($_crumbInfo['label']) ?></a>
-		<?php else: ?>
-		    <?php echo $this->htmlEscape($_crumbInfo['label']) ?>
-		<?php endif ?>
-		</li>
+        <li<?php echo ($_crumbInfo['last']) ? ' class="current-page"' : '' ?>>
+        <?php if($_crumbInfo['link']): ?>
+            <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->htmlEscape($_crumbInfo['title']) ?>"><?php echo $this->htmlEscape($_crumbInfo['label']) ?></a>
+        <?php else: ?>
+            <?php echo $this->htmlEscape($_crumbInfo['label']) ?>
+        <?php endif ?>
+        </li>
     <?php endforeach ?>
 </ul> 
 <!-- END BREADCRUMBS -->

@@ -31,4 +31,13 @@
             <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
         </reference>
     </default>
+    <catalog_category_default>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="product_list">
+            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml" />
+            <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
+        </reference>
+    </catalog_category_default>
 </layout>

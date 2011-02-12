@@ -1,0 +1,69 @@
+<!-- PRODUCT SORTER AND LIMITER --> 
+<ul class="product-sorter"> 
+    <li class="amount"> 
+        <?php if($this->getLastPageNum()>1): ?>
+            <strong><?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?></strong>
+        <?php else: ?>
+            <strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
+        <?php endif; ?>
+    </li> 
+    <li class="limiter"> 
+        <label for="limiter">Show</label> 
+        <select id="limiter" onchange="document.location = this.value"> 
+            <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                    <?php echo $_limit ?>
+                </option>
+            <?php endforeach; ?>
+        </select> <em>per page</em> 
+    </li>
+    <?php if( $this->isEnabledViewSwitcher() ): ?>
+        <li class="view-mode">
+            <?php $_modes = $this->getModes(); ?>
+            <?php if($_modes && count($_modes)>1): ?>
+                <label><?php echo $this->__('View as') ?>:</label>
+                <?php foreach ($this->getModes() as $_code=>$_label): ?>
+                    <?php if($this->isModeActive($_code)): ?>
+                        <strong title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></strong>&nbsp;
+                    <?php else: ?>
+                        <a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>" class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></a>&nbsp;
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </li>
+    <?php endif; ?> 
+    <li class="pagination"> 
+        <strong>Page:</strong> 
+        <ol> 
+            <li class="current">1</li> 
+            <li><a href="#">2</a></li> 
+            <li><a href="#">3</a></li> 
+            <li> 
+                <a class="next" href="#" title="Next"> 
+                    <img src="<?php echo $this->getSkinUrl('images/icon-arrow-right.gif') ?>" alt="Next" /> 
+                </a> 
+            </li> 
+        </ol>
+        
+        <?php echo $this->getPagerHtml() ?>
+    </li> 
+    <li class="sort-by"> 
+        <label>Sort By</label> 
+        <select onchange="document.location = this.value">
+            <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+                <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>><?php echo $_order ?></option>
+            <?php endforeach; ?>
+        </select>
+        <?php if($this->getCurrentDirection() == 'desc'): ?>
+            <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>" title="<?php echo $this->__('Set Ascending Direction') ?>">
+                <img src="<?php echo $this->getSkinUrl('images/icon-arrow-down.gif') ?>" alt="<?php echo $this->__('Set Ascending Direction') ?>" class="v-middle" />
+            </a>
+        <?php else: ?>
+            <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" title="<?php echo $this->__('Set Descending Direction') ?>">
+                <img src="<?php echo $this->getSkinUrl('images/icon-arrow-up.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" />
+            </a>
+        <?php endif; ?>
+    </li> 
+</ul> 
+<!-- END PRODUCT SORTER AND LIMITER -->
+
