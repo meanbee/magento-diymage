@@ -1,120 +1,333 @@
 <?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
-/**
- * Product view template
- *
- * @see Mage_Catalog_Block_Product_View
- * @see Mage_Review_Block_Product_View
- */
-?>
-<?php
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
 ?>
-<script type="text/javascript">
-    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
-</script>
-<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
-<div class="product-view hproduct">
-    <div class="product-essential">
-    <form action="<?php echo $this->getAddToCartUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-        <div class="no-display">
-            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
-            <input type="hidden" name="related_product" id="related-products-field" value="" />
-        </div>
-
-        <div class="product-shop hreview-aggregate">
-            <div class="product-name">
-                <h1 class="item name fn"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-            </div>
-
-            <?php if ($this->canEmailToFriend()): ?>
-                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
-            <?php endif; ?>
-
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
-            <?php echo $this->getChildHtml('alert_urls') ?>
-            <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php echo $this->getTierPriceHtml() ?>
-
-            <?php if (!$this->hasOptions()):?>
-                <div class="add-to-box">
-                    <?php if($_product->isSaleable()): ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
-                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                            <span class="or"><?php echo $this->__('OR') ?></span>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php else:?>
-                <?php echo $this->getChildHtml('addto') ?>
-            <?php endif; ?>
-
-            <?php if ($_product->getShortDescription()):?>
-                <div class="short-description">
-                    <h2><?php echo $_product->getName() ?> <?php echo $this->__('Quick Overview') ?></h2>
-                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-                </div>
-            <?php endif;?>
-
-            <?php echo $this->getChildHtml('other');?>
-
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-            <?php endif;?>
-
-        </div>
-
-        <div class="product-img-box">
-            <?php echo $this->getChildHtml('media') ?>
-        </div>
-
-        <div class="clearer"></div>
-        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-        <?php endif;?>
-    </form>
-    <script type="text/javascript">
-    //<![CDATA[
-            var productAddToCartForm = new VarienForm('product_addtocart_form');
-            productAddToCartForm.submit = function(){
-                    if (this.validator.validate()) {
-                            this.form.submit();
-                    }
-            }.bind(productAddToCartForm);
-    //]]>
-    </script>
-    </div>
-
-    <div class="product-collateral">
-        <?php echo $this->getChildHtml('description') ?>
-        <?php echo $this->getChildHtml('additional') ?>
-        <?php echo $this->getChildHtml('upsell_products') ?>
-        <?php echo $this->getChildHtml('product_additional_data') ?>
-    </div>
-</div>
+<!-- PRODUCT -->
+<section class="hproduct hreview"> 
+    <div id="photos"> 
+        <?php echo $this->getChildHtml('media') ?>
+    </div> 
+    <h1 class="product-name item"> 
+        <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
+    </h1> 
+    <h3 class="original-price">Was <del>&pound; 75.00</del></h3> 
+    <h2 class="current-price"><strong class="price">&pound; 500.00</strong></h2> 
+    <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+    <a href="#reviews-list" class="review-amount">8 Review(s)</a>                   
+    <a href="#write-review" class="link-review">Write a review</a> 
+    <div class="description quick"> 
+        <p>A technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom.</p> 
+    </div> 
+    <!-- PRODUCT OPTIONS --> 
+    <aside class="product-options"> 
+        <dl> 
+            <dt><label>Gender <em class="required">*</em></label></dt> 
+            <dd> 
+                <select name="gender" id="gender" class="required" required> 
+                    <option>Select</option> 
+                    <option id="gender-male">Male</option> 
+                    <option id="gender-female">Female</option> 
+                </select> 
+            </dd> 
+            <dt><label>Shoe Size <em class="required">*</em></label></dt> 
+            <dd class="last"> 
+                <select name="shoe-size" id="shoe-size" class="required" required> 
+                    <option>Select</option> 
+                    <option id="shoe-size-3">3</option> 
+                    <option id="shoe-size-4">4</option> 
+                    <option id="shoe-size-4-5">4.5</option> 
+                    <option id="shoe-size-5">5</option> 
+                    <option id="shoe-size-5-5">5.5</option> 
+                    <option id="shoe-size-6">6</option> 
+                </select> 
+            </dd> 
+        </dl> 
+        <p class="required">* Required Fields</p> 
+    </aside> 
+    <!-- END PRODUCT OPTIONS --> 
+    <!-- TIERED PRICING --> 
+    <aside class="tiered-pricing"> 
+        <ul> 
+            <li>Buy 2 for &pound;15.99 and <strong>save 6%</strong></li> 
+            <li>Buy 3 for &pound;14.49 and <strong>save 15%</strong></li> 
+            <li>Buy 4 for &pound;12.49 and <strong>save 27%</strong></li> 
+            <li>Buy 4 for &pound;9.99 and <strong>save 42%</strong></li> 
+        </ul> 
+    </aside> 
+    <!-- END TIERED PRICING --> 
+    <div class="actions out-of-stock"> 
+        <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
+        <fieldset class="quantity"> 
+            <label for="qty"><abbr title="Quantity">Qty</abbr>:</label> 
+            <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
+        </fieldset> 
+        <button type="button" title="Add to Cart" class="button disabled">Add to Cart</button> 
+        <ul class="add-to-links"> 
+            <li><a href="#" class="link-wishlist">Add to Wishlist</a></li> 
+            <li><a href="" class="link-compare">Add to Compare</a></li> 
+       </ul> 
+    </div> 
+    <!-- SOCIAL STUFF --> 
+   <ul class="social-buttons"> 
+        <li class="facebook"> 
+            <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
+            <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
+        </li> 
+        <li class="twitter"> 
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="laurakalbag">Tweet</a> 
+            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+        </li> 
+        <li class="retweet"> 
+            <script type="text/javascript"> 
+                tweetmeme_url = 'http://yoururl.com';
+            </script> 
+            <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script> 
+        </li> 
+        <li class="email"> 
+            <a href="#">E-mail to a friend</a> 
+        </li> 
+    </ul> 
+    <!-- END SOCIAL STUFF --> 
+    <aside class="description"> 
+        <p>Olympus continues to innovate with the launch of the Stylus 750 digital camera, a technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom that tucks away into a streamlined metal, all-weather body design.</p> 
+        <p>The camera is distinguished by a number of premium features, including: * An advanced combination of the mechanical CCD-shift Image Stabilization and Digital Image Stabilization work together to ensure the clearest pictures possible in any situation; * A 5x optical zoom lens with a newly developed lens element to maintain a small compact size; * A 2.5-inch LCD and Bright Capture Technology dramatically improve composition, capture and review of images in low-light situations; * Olympus' exclusive TruePic Turbo Image Processing engine is coupled with a 7.1-megapixel image sensor to produce crisp, high-quality p</p> 
+    </aside> 
+    <!-- ADDITIONAL INFORMATION --> 
+        <aside id="additional-information"> 
+            <h2>Additional Information</h2> 
+            <dl> 
+                <dt>Model</dt> 
+                <dd>B000JI2N0I</dd> 
+                <dt>In depth</dt> 
+                <dd> 
+                    <ul> 
+                        <li>Made of EVA foam</li> 
+                        <li>Heel strap keeps shoe on foot</li> 
+                        <li>Non-marking, slip-resistant outsole</li> 
+                        <li>Weigh just 6-10 ounces</li> 
+                    </ul> 
+                </dd> 
+                <dt>Model 2</dt> 
+                <dd>B000JI2N0I</dd> 
+                <dt>Details</dt> 
+                <dd> 
+                    <p>Comfortable and fun to wear these clogs are the latest trend in fashion footwear. Wear them either at the beach, in your garden, at the mall or just about anywhere you would want to be comfortable.</p> 
+                </dd> 
+            </dl> 
+        </aside> 
+    <!-- END ADDITIONAL INFORMATION --> 
+    <!-- REVIEWS IN FULL --> 
+    <aside id="reviews"> 
+        <h2>Customer Reviews</h2> 
+        <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+        <a href="#reviews-list" class="review-amount">8 Review(s)</a> 
+        <a href="#write-review" class="link-review">Write a review</a> 
+        <form id="write-review" action="#"> 
+            <h3>Write Your Own Review</h3> 
+            <ul class="form-list"> 
+                <li> 
+                    <label for="nickname_field" class="required">Nickname <em class="required">*</em></label> 
+                    <input type="text" name="nickname" id="nickname_field" class="text required-entry" required aria-required value="" /> 
+                </li> 
+                <li> 
+                    <label for="summary_field" class="required">Summary of Your Review <em class="required">*</em></label> 
+                    <input type="text" name="title" id="summary_field" class="text required-entry" required aria-required value="" /> 
+                </li> 
+                <li> 
+                    <label for="review_field" class="required">Review <em class="required">*</em></label> 
+                    <textarea name="detail" id="review_field" cols="15" rows="10" class="required-entry" required aria-required></textarea> 
+                </li> 
+            </ul> 
+            <h4>How do you rate this product? <em class="required">*</em></h4> 
+            <ul class="radio-list"> 
+                <li> 
+                    <input type="radio" id="1-star" value="1" /> 
+                    <label for="1-star">1 star</label> 
+                </li> 
+                <li> 
+                    <input type="radio" id="2-star" value="2" /> 
+                    <label for="2-star">2 stars</label> 
+                </li> 
+                <li> 
+                    <input type="radio" id="3-star" value="3" /> 
+                    <label for="1-star">3 stars</label> 
+                </li> 
+                <li> 
+                    <input type="radio" id="4-star" value="4" /> 
+                    <label for="1-star">4 stars</label> 
+                </li> 
+                <li> 
+                    <input type="radio" id="5-star" value="5" /> 
+                    <label for="1-star">5 stars</label> 
+                </li> 
+            </ul> 
+            <p class="required">* Required Fields</p> 
+            <input type="submit" class="button" value="Submit Review"/> 
+        </form> 
+        <ul id="reviews-list"> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description absolutely blown away by the remastering job</h4> 
+                <h5 class="reviewer">by <strong class="fn">username12</strong></h5> 
+                <abbr class="rating stars-5-0" title="5 out of 5 stars"><span>5</span></abbr> 
+                <div class="description"> 
+                    <p>Bought this and GH2 yesterday and am absolutely blown away by the remastering job. Bob Ludwig has 'done a Beatles' and subtly brought out clarity and opened up the soundscape and not turned everything up to 10 (thank all that is good and mighty). Really looking forward to the remastered versions of the albums-UNiversal do a good job with their deluxe editions so hopefully a treat of bonus tracks etc. Hope they don't tag them on to the original album but do them as a second disc. Particularly crossing fingers that the BBC Christmas 1977 interview to accompany News of the World can be sourced and included; oh and that 'Live Killers' is included in the release schedule.</p> 
+                    <p>Buy it, even if like me you have done so a number of times before, you won't regret it.</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description remastered version it brings it into the 21st century</h4> 
+                <h5 class="reviewer">by <strong class="fn">fluffy_clouds</strong></h5> 
+                <abbr class="rating stars-4-0" title="4 out of 5 stars"><span>4</span></abbr> 
+                <div class="description"> 
+                    <p>I knew this album was already a great album but with the 2011 remastered version it brings it into the 21st century. This is the best I have ever heard this album sound. well done Bob Ludwig.</p> 
+                </div> 
+            </li> 
+            <li id="view-all-reviews"><a href="#view-all-reviews">View all reviews</a></li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description certainly worth buying</h4> 
+                <h5 class="reviewer">by <strong class="fn">CRumPETS</strong></h5> 
+                <abbr class="rating stars-5-0" title="5 out of 5 stars"><span>5</span></abbr> 
+                <div class="description"> 
+                    <p>Bob Ludwig has done an amazing job remastering this. This is certainly worth buying as you will have never heard these superb songs sound any better than this. What a truly masterful album this really is. Pure brilliance.</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description already been re-released at least 20 times</h4> 
+                <h5 class="reviewer">by <strong class="fn">guitarhero56</strong></h5> 
+                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
+                <div class="description"> 
+                    <p>This greatest hit compilation has already been re-released at least 20 times (including remastered editions), not to talk about other "best of" like Absolute Greatest. The only difference here is that the Parlophone pound sterling logo has been replaced by the Island palm tree logo as indeed Queen moved from EMI to Universal. This re-release brings nothing new, no B-side, no extended version, no rare track, while Queen has a lot of unreleased material (e.g Hyde Park 76) in the vaults.</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description may never get the wider audience they deserve</h4> 
+                <h5 class="reviewer">by <strong class="fn">Bob Jones</strong></h5> 
+                <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+                <div class="description"> 
+                    <p>Why an unreleased version of "Show Must Go On" by Elton John appeared on this album with a remix of "Under Pressure" when the original had already appeared on Hits II is a mystery, as is the inclusion of the non-single version of Freddie's "Living On My Own". Oh and don't mention Wyclef John!!!
+All but one of the later Queen singles (picking up where Hits II left off) are here but they only make up 6 out of the 17 tracks, although the album does redeem itself slightly by retrospectively including "Thank God its Christmas" and the superb "Las Palabras de Amor" which had for some reason been left off Hits II.</p> 
+                    <p>But despite the success of the solo tracks and the collaborations this should have been the opportunity to mop up the hits/tracks omitted from the previous two albums and as a result of failing to do so, songs including "Spread Your Wings", "Tie Your Mother Down", "Scandal" and "A Winter's Tale" may never get the wider audience they deserve. Shame!</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description did not live up to my expectations</h4> 
+                <h5 class="reviewer">by <strong class="fn">xoEox</strong></h5> 
+                <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+                <div class="description"> 
+                    <p>I must admit to having been quite excited about this compiliation but, alas, it did not live up to my expectations. The Queen + idea was a big mistake. The tracks featuring other atrists are, on the whole, a waste of time. The solo tracks seem to have been chosen at random and without any sort of criteria. Why, for instance does 'Living On My Own' feature, considering there are probably half a dozen songs at least in Freddie Mercury's back catolouge that are better and why does Roger Taylor not get a solo track on there whilst Brian May does? There are some admirable selections (such as 'Words of Love' and 'Days of Our Lives') but, ultimately, Greatest Hits III is patchy at best. This disc could have been a genuine Hits album - including unfairly neglected songs such as Tie Your Mother Down, Keep Yourself Alive etc. - but it isn't. A great shame.</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description cheap money making tool</h4> 
+                <h5 class="reviewer">by <strong class="fn">Jenny Smith</strong></h5> 
+                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
+                <div class="description"> 
+                    <p>Following the tragic and untimely demise of the wonderful Freddie Mercury in 1991, Queen the band adored by myself and millions ended. Anything else following on from that fateful day going by the name of Queen but devoid of Freddie's dazzling input is a cheap money making tool and an insult to the great man's memory. Greatest Hits III fits the bill superbly. Queen was always the musical mainstay of the four individuals concerned, their solo works were fantastic (especially Freddie's 'Barcelona' album) but always completely separate, compiling them under the Queen umbrella is just a cheap cash in. They were never meant to be Queen singles thats why they were done outside the band. Adding to this Elton John's appaling 'several keys lower' version of The Show Must Go On, the dispicable 'Rah mix' of Under Pressure (the original was perfect so why do it ?) and of coarse the deplorable Another One Bites The Dust with Wyclef Jean. It despairs me to think how the remaining members of Queen thought this album to be a good idea. If we want Queen it's all there readily available on disc as it always has been. If we want more Queen then let Parlophone dig out something from the vaults and put together a package like The Beatles Anthologies. Let's not drag Queen past it's foregone conclusion with new tours and recordings and desperate compilations done to attract a younger audience for a few extra bucks in the coffers, it won't work. Instead let's look at Queen in retrospect and revel in what it WAS, not what it IS. Don't buy this album, if you like Queen start with the original album 'Queen' and work you're way up, you won't be dissapointed. Enjoy the solo work seperately as it was intended and you won't go far wrong. The artwork with the album is expertly done and the quality of much of the music is excellent, it just should not have been compiled as a Queen album, the concept is wrong. For this reason I give the album 1 star</p> 
+                </div> 
+            </li> 
+            <li class="hreview"> 
+                <h3 class="item">A review of <strong class="fn">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></h3> 
+                <h4 class="summary">Summary description absolutely blown away by the remastering job</h4> 
+                <h5 class="reviewer">by <strong class="fn">grrrrrl4</strong></h5> 
+                <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+                <div class="description"> 
+                    <p>Bought this and GH2 yesterday and am absolutely blown away by the remastering job. Bob Ludwig has 'done a Beatles' and subtly brought out clarity and opened up the soundscape and not turned everything up to 10 (thank all that is good and mighty). Really looking forward to the remastered versions of the albums-UNiversal do a good job with their deluxe editions so hopefully a treat of bonus tracks etc. Hope they don't tag them on to the original album but do them as a second disc. Particularly crossing fingers that the BBC Christmas 1977 interview to accompany News of the World can be sourced and included; oh and that 'Live Killers' is included in the release schedule.</p> 
+                    <p>Buy it, even if like me you have done so a number of times before, you won't regret it.</p> 
+                </div> 
+            </li> 
+        </ul>   
+    </aside> 
+    <!-- END REVIEWS IN FULL --> 
+    <!-- RELATED PRODUCTS --> 
+    <aside id="related-products"> 
+        <h2>Related Products</h2> 
+        <ul class="products-grid"> 
+            <li class="hproduct hreview"> 
+                <a href="#" title="Fujifilm FinePix A180 Digital Camera" class="product-image"> 
+                    <img class="photo" src="placeholders/product3.jpg" width="140" height="140" alt="Fujifilm FinePix A180 Digital Camera" /> 
+                </a> 
+                <h3 class="product-name item"> 
+                    <a href="#" class="fn" title="Fujifilm FinePix A180 Digital Camera">Fujifilm FinePix A180 Digital Camera</a> 
+                </h3> 
+                <h5 class="original-price">Was <del>&pound; 3.00</del></h5> 
+                <h4 class="current-price">Now <strong class="price">&pound; 2.75</strong></h4> 
+                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
+                <a href="#" class="review-amount">4 Review(s)</a>                   
+            </li> 
+            <li class="hproduct hreview"> 
+                <a href="#" title="GE J1250 Black Digital Camera" class="product-image"> 
+                    <img class="photo" src="placeholders/product4.jpg" width="140" height="140" alt="GE J1250 Black Digital Camera" /> 
+                </a> 
+                <h3 class="product-name item"> 
+                    <a href="#" class="fn" title="GE J1250 Black Digital Camera">GE J1250 Black Digital Camera</a> 
+                </h3> 
+                <h4 class="current-price"><strong class="price">&pound; 5000.00</strong></h4> 
+                <abbr class="rating stars-3-5" title="3.5 out of 5 stars"><span>3.5</span></abbr> 
+                <a href="#" class="review-amount">13 Review(s)</a>                  
+            </li> 
+            <li class="hproduct hreview"> 
+                <a href="#" title="Samsung ST5000 (Black) Digital Camera" class="product-image"> 
+                    <img class="photo" src="placeholders/product6.jpg" width="140" height="140" alt="Samsung ST5000 (Black) Digital Camera" /> 
+                </a> 
+                <h3 class="product-name item"> 
+                    <a href="#" class="fn" title="Samsung ST5000 (Black) Digital Camera">Samsung ST5000 (Black) Digital Camera</a> 
+                </h3> 
+                <h5 class="original-price">Was <del>&pound; 14.00</del></h5> 
+                <h4 class="current-price">Now <strong class="price">&pound; 12.75</strong></h4> 
+                <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
+                <a href="#" class="review-amount">1 Review(s)</a>                   
+            </li> 
+            <li class="hproduct hreview"> 
+                <a href="#" title="Fujifilm FinePix A180 Digital Camera" class="product-image"> 
+                    <img class="photo" src="placeholders/product3.jpg" width="140" height="140" alt="Fujifilm FinePix A180 Digital Camera" /> 
+                </a> 
+                <h3 class="product-name item"> 
+                    <a href="#" class="fn" title="Fujifilm FinePix A180 Digital Camera">Fujifilm FinePix A180 Digital Camera</a> 
+                </h3> 
+                <h5 class="original-price">Was <del>&pound; 3.00</del></h5> 
+                <h4 class="current-price">Now <strong class="price">&pound; 2.75</strong></h4> 
+                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
+                <a href="#" class="review-amount">4 Review(s)</a>                   
+            </li> 
+        </ul> 
+    </aside> 
+    <!-- END RELATED PRODUCTS --> 
+    <!-- PRODUCT TAGS --> 
+    <aside id="product-tags"> 
+        <h2>Product Tags</h2> 
+        <h3>Other people marked this product with these tags:</h3> 
+        <ul class="product-tags"> 
+            <li><a href="#">camera <span class="amount">(7)</span></a></li> 
+            <li><a href="#">very <span class="amount">(5)</span></a></li> 
+            <li><a href="#">good <span class="amount">(8)</span></a></li> 
+            <li><a href="#">favorite <span class="amount">(13)</span></a></li> 
+            <li><a href="#">nice <span class="amount">(2)</span></a></li> 
+            <li><a href="#">bla <span class="amount">(1)</span></a></li> 
+            <li><a href="#">buenisimo <span class="amount">(4)</span></a></li> 
+            <li><a href="#">one <span class="amount">(2)</span></a></li> 
+            <li><a href="#">quick <span class="amount">(7)</span></a></li> 
+            <li><a href="#">fox <span class="amount">(9)</span></a></li> 
+            <li><a href="#">jumped <span class="amount">(7)</span></a></li> 
+            <li><a href="#">over <span class="amount">(6)</span></a></li> 
+            <li><a href="#">lazy <span class="amount">(8)</span></a></li> 
+            <li><a href="#">dog <span class="amount">(1)</span></a></li> 
+            <li><a href="#">jugs <span class="amount">(2)</span></a></li> 
+            <li><a href="#">clay <span class="amount">(1)</span></a></li> 
+        </ul> 
+        <form id="add-tags" action="#"> 
+            <label for="product-tag-name">Add Your Tags:</label> 
+            <input type="text" class="text required-entry" name="product-tag-name" id="product-tag-name" /> 
+            <input type="submit" title="Add Tags" class="button" value="Add Tags" /> 
+        </form> 
+        <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p> 
+    </aside> 
+    <!-- END PRODUCT TAGS --> 
+</section> 
+<!-- END PRODUCT -->-
