@@ -8,15 +8,8 @@ $js_var = "colour_". $this->getUniqueId();
 ?>
 <p class="diy control colour">
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-    <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo strtoupper($this->getValue()) ?>" />
+    <input type="colour" id="colour_<?php echo $this->getUniqueId() ?>" value="#<?php echo strtoupper($this->getValue()) ?>" data-hex="true">
+    <span style="cursor:pointer;" id="icp_colour_<?php echo $this->getUniqueId() ?>" class="mColorPickerTrigger"><img src="<?php echo $this->getSkinUrl('diy/images/color.png') ?>" style="border:0;margin:0 0 0 3px" align="absmiddle"></span>
     <span class="help"><?php echo $this->getHelpText() ?></span>
     <a href="javascript:void;" onclick="resetValue('<?php echo $this->getFieldId() ?>', '<?php echo $this->getDefaultValue() ?>'); <?php echo $js_var ?>.updateSwatch(); return false">Reset to default</a>
 </p>
-
-<script type="text/javascript" charset="utf-8">
-<!--
-var <?php echo $js_var ?> = new Control.ColorPicker('<?php echo $this->getFieldId() ?>', {
-    IMAGE_BASE: "<?php echo $this->getSkinUrl('diy/images/') ?>"
-});
--->
-</script>

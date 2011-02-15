@@ -1,182 +1,482 @@
+/*
+  mColorPicker
+  Version: 1.0 r33
+  
+  Copyright (c) 2010 Meta100 LLC.
+  http://www.meta100.com/
+  
+  Licensed under the MIT license 
+  http://www.opensource.org/licenses/mit-license.php 
+*/
 
-/* 
-   colorPicker for script.aculo.us, version 0.9
-   REQUIRES prototype.js, yahoo.color.js and script.aculo.us
-   written by Matthias Platzer AT knallgrau.at
-   for a detailled documentation go to http://www.knallgrau.at/code/colorpicker 
- */
+// After this script loads set:
+// $.fn.mColorPicker.init.replace = '.myclass'
+// to have this script apply to input.myclass,
+// instead of the default input[type=color]
+// To turn of automatic operation and run manually set:
+// $.fn.mColorPicker.init.replace = false
+// To use manually call like any other jQuery plugin
+// $('input.foo').mColorPicker({options})
+// options:
+// imageFolder - Change to move image location.
+// swatches - Initial colors in the swatch, must an array of 10 colors.
+// init:
+// $.fn.mColorPicker.init.enhancedSwatches - Turn off saving and loading of swatch to cookies.
+// $.fn.mColorPicker.init.allowTransparency - Turn off transperancy as a color option.
+// $.fn.mColorPicker.init.showLogo - Turn on/off the meta100 logo (You don't really want to turn it off, do you?).
 
-if(!Control) var Control = {};
-Control.colorPickers = [];
-Control.ColorPicker = Class.create();
-Control.ColorPicker.activeColorPicker;
-Control.ColorPicker.CONTROL;
-/**
- * ColorPicker Control allows you to open a little inline popUp HSV color chooser.
- * This control is bound to an input field, that holds a hex value.
- */
-Control.ColorPicker.prototype = {
-  initialize : function(field, options) {
-    var colorPicker = this;
-    Control.colorPickers.push(colorPicker);
-    this.field = $(field);
-    this.fieldName = this.field.name || this.field.id;
-    this.options = Object.extend({
-       IMAGE_BASE : "img/"
-    }, options || {});
-    this.swatch = $(this.options.swatch) || this.field;
-    this.rgb = {};
-    this.hsv = {};
-    this.isOpen = false;
 
-    // create control (popUp) if not already existing
-    // all colorPickers on a page share the same control (popUp)
-    if (!Control.ColorPicker.CONTROL) {
-      Control.ColorPicker.CONTROL = {};
-      if (!$("colorpicker")) {
-        var control = Builder.node('div', {id: 'colorpicker'});
-        control.innerHTML = 
-          '<div id="colorpicker-div">' + (
-            // apply png fix for ie 5.5 and 6.0
-            (/MSIE ((6)|(5\.5))/gi.test(navigator.userAgent) && /windows/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent)) ?
-              '<img id="colorpicker-bg" src="' + this.options.IMAGE_BASE + 'blank.gif" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + this.options.IMAGE_BASE + 'pickerbg.png\', sizingMethod=\'scale\')" alt="">' :
-              '<img id="colorpicker-bg" src="' + this.options.IMAGE_BASE + 'pickerbg.png" alt="">'
-             ) +
-          '<div id="colorpicker-bg-overlay" style="z-index: 1002;"></div>' +
-          '<div id="colorpicker-selector"><img src="' + this.options.IMAGE_BASE + 'select.gif" width="11" height="11" alt="" /></div></div>' +
-          '<div id="colorpicker-hue-container"><img src="' + this.options.IMAGE_BASE + 'hue.png" id="colorpicker-hue-bg-img"><div id="colorpicker-hue-slider"><div id="colorpicker-hue-thumb"><img src="' + this.options.IMAGE_BASE + 'hline.png"></div></div></div>' + 
-          '<div id="colorpicker-footer"><span id="colorpicker-value">#<input type="text" onclick="this.select()" id="colorpicker-value-input" name="colorpicker-value" value=""></input></span><button id="colorpicker-okbutton">OK</button></div>'
-        document.body.appendChild(control);
-      }
-      Control.ColorPicker.CONTROL = {
-        popUp : $("colorpicker"),
-        pickerArea : $('colorpicker-div'),
-        selector : $('colorpicker-selector'),
-        okButton : $("colorpicker-okbutton"),
-        value : $("colorpicker-value"),
-        input : $("colorpicker-value-input"),
-        picker : new Draggable($('colorpicker-selector'), {
-          snap: function(x, y) {
-            return [
-              Math.min(Math.max(x, 0), Control.ColorPicker.activeColorPicker.control.pickerArea.offsetWidth), 
-              Math.min(Math.max(y, 0), Control.ColorPicker.activeColorPicker.control.pickerArea.offsetHeight)
-            ];
-          },
-          zindex: 1009,
-          change: function(draggable) {
-            var pos = draggable.currentDelta();
-            Control.ColorPicker.activeColorPicker.update(pos[0], pos[1]);
-          }
-        }),
-        hueSlider: new Control.Slider('colorpicker-hue-thumb', 'colorpicker-hue-slider', {
-          axis: 'vertical',
-          onChange: function(v) {
-            Control.ColorPicker.activeColorPicker.updateHue(v);
-          }
-        })
-      };
-      Element.hide($("colorpicker"));
-    }
-    this.control = Control.ColorPicker.CONTROL;
+(function($){
 
-    // bind event listener to properties, so we can use them savely with Event[observe|stopObserving]
-    this.toggleOnClickListener = this.toggle.bindAsEventListener(this);
-    this.updateOnChangeListener = this.updateFromFieldValue.bindAsEventListener(this);
-    this.closeOnClickOkListener = this.close.bindAsEventListener(this);
-    this.updateOnClickPickerListener = this.updateSelector.bindAsEventListener(this);
+  $.fn.mColorPicker = function(options) {
 
-    Event.observe(this.swatch, "click", this.toggleOnClickListener);
-    Event.observe(this.field, "change", this.updateOnChangeListener);
-    Event.observe(this.control.input, "change", this.updateOnChangeListener);
+    if ($.browser.msie) $.fn.mColorPicker.attributeChangedEvent = 'propertychange';
+    else if ($.browser.webkit) $.fn.mColorPicker.attributeChangedEvent = 'DOMSubtreeModified';
+     
+    $o = $.extend($.fn.mColorPicker.defaults, options);  
 
-    this.updateSwatch();
-  },
-  toggle : function(event) {
-    this[(this.isOpen) ? "close" : "open"](event);
-    Event.stop(event);    
-  },
-  open : function(event) {
-    Control.colorPickers.each(function(colorPicker) {
-      colorPicker.close();
+    if ($o.swatches.length < 10) $o.swatches = $.fn.mColorPicker.defaults.swatches
+    if ($("div#mColorPicker").length < 1) $.fn.mColorPicker.drawPicker();
+
+    if ($('#css_disabled_color_picker').length < 1) $('head').prepend('<style id="css_disabled_color_picker" type="text/css">.mColorPicker[disabled] + span, .mColorPicker[disabled="disabled"] + span, .mColorPicker[disabled="true"] + span {filter:alpha(opacity=50);-moz-opacity:0.5;-webkit-opacity:0.5;-khtml-opacity: 0.5;opacity: 0.5;}</style>');
+
+    $('.mColorPicker').live('keyup', function () {
+
+      try {
+  
+        $(this).css({
+          'background-color': $(this).val()
+        }).css({
+          'color': $.fn.mColorPicker.textColor($(this).css('background-color'))
+        }).trigger('change');
+      } catch (r) {}
     });
-    Control.ColorPicker.activeColorPicker = this;
-    this.isOpen = true;
-    Element.show(this.control.popUp);
-    if (this.options.getPopUpPosition) {
-      var pos = this.options.getPopUpPosition.bind(this)(event);
-    } else {
-      var pos = Position.cumulativeOffset(this.swatch || this.field);
-      pos[0] = (pos[0] + (this.swatch || this.field).offsetWidth + 10);
-    }
-    this.control.popUp.style.left = (pos[0]) + "px";
-    this.control.popUp.style.top = (pos[1]) + "px";
-    this.updateFromFieldValue();
-    Event.observe(this.control.okButton, "click", this.closeOnClickOkListener);
-    Event.observe(this.control.pickerArea, "mousedown", this.updateOnClickPickerListener);
-    if (this.options.onOpen) this.options.onOpen.bind(this)(event);
-  },
-  close : function(event) {
-    if (Control.ColorPicker.activeColorPicker == this) Control.ColorPicker.activeColorPicker = null;
-    this.isOpen = false;
-    Element.hide(this.control.popUp);
-    Event.stopObserving(this.control.okButton, "click", this.closeOnClickOkListener);
-    Event.stopObserving(this.control.pickerArea, "mousedown", this.updateOnClickPickerListener);
-    if (this.options.onClose) this.options.onClose.bind(this)();
-  },
-  updateHue : function(v) {
-    var h = (this.control.pickerArea.offsetHeight - v * 100) / this.control.pickerArea.offsetHeight;
-    if (h == 1) h = 0;
-    var rgb = YAHOO.util.Color.hsv2rgb( h, 1, 1 );
-    if (!YAHOO.util.Color.isValidRGB(rgb)) return;
-    this.control.pickerArea.style.backgroundColor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
-    this.update();
-  },
-  updateFromFieldValue : function(event) {
-    if (!this.isOpen) return;
-    var field = (event && Event.findElement(event, "input")) || this.field;
-    var rgb = YAHOO.util.Color.hex2rgb( field.value );
-    if (!YAHOO.util.Color.isValidRGB(rgb)) return;
-    var hsv = YAHOO.util.Color.rgb2hsv( rgb[0], rgb[1], rgb[2] );
-    this.control.selector.style.left = Math.round(hsv[1] * this.control.pickerArea.offsetWidth) + "px";
-    this.control.selector.style.top = Math.round((1 - hsv[2]) * this.control.pickerArea.offsetWidth) + "px";
-    this.control.hueSlider.setValue((1 - hsv[0]));
-  },
-  updateSelector : function(event) {
-    var xPos = Event.pointerX(event);
-    var yPos = Event.pointerY(event);
-    var pos = Position.cumulativeOffset($("colorpicker-bg"));
-    this.control.selector.style.left = (xPos - pos[0] - 6) + "px";
-    this.control.selector.style.top = (yPos - pos[1] - 6) + "px";
-    this.update((xPos - pos[0]), (yPos - pos[1]));
-    this.control.picker.initDrag(event);
-  },
-  updateSwatch : function() {
-    var rgb = YAHOO.util.Color.hex2rgb( this.field.value );
-    if (!YAHOO.util.Color.isValidRGB(rgb)) return;
-    this.swatch.style.backgroundColor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
-    var hsv = YAHOO.util.Color.rgb2hsv( rgb[0], rgb[1], rgb[2] );
-    this.swatch.style.color = (hsv[2] > 0.65) ? "#000000" : "#FFFFFF";
-  },
-  update : function(x, y) {
-    if (!x) x = this.control.picker.currentDelta()[0];
-    if (!y) y = this.control.picker.currentDelta()[1];
 
-    var h = (this.control.pickerArea.offsetHeight - this.control.hueSlider.value * 100) / this.control.pickerArea.offsetHeight;
-    if (h == 1) { h = 0; };
-    this.hsv = {
-      hue: 1 - this.control.hueSlider.value,
-      saturation: x / this.control.pickerArea.offsetWidth,
-      brightness: (this.control.pickerArea.offsetHeight - y) / this.control.pickerArea.offsetHeight
-    };
-    var rgb = YAHOO.util.Color.hsv2rgb( this.hsv.hue, this.hsv.saturation, this.hsv.brightness );
-    this.rgb = {
-      red: rgb[0],
-      green: rgb[1],
-      blue: rgb[2]
-    };
-    this.field.value = YAHOO.util.Color.rgb2hex(rgb[0], rgb[1], rgb[2]);
-    this.control.input.value = this.field.value;
-    this.updateSwatch();
-    if (this.options.onUpdate) this.options.onUpdate.bind(this)(this.field.value);
-  }
-}
+    $('.mColorPickerTrigger').live('click', function () {
+
+      $.fn.mColorPicker.colorShow($(this).attr('id').replace('icp_', ''));
+    });
+
+    return this.each(function (index) {
+
+      $.fn.mColorPicker.drawPickerTriggers($(this), index);
+    });
+  };
+
+  $.fn.mColorPicker.currentColor = false;
+  $.fn.mColorPicker.currentValue = false;
+  $.fn.mColorPicker.color = false;
+  $.fn.mColorPicker.attributeChangedEvent = 'DOMAttrModified';
+
+  $.fn.mColorPicker.init = {
+    replace: '[type=colour]',
+    enhancedSwatches: true,
+    allowTransparency: true,
+    showLogo: false
+  };
+
+  $.fn.mColorPicker.defaults = {
+    imageFolder: '../images/',
+    swatches: [
+      "#ffffff",
+      "#ffff00",
+      "#00ff00",
+      "#00ffff",
+      "#0000ff",
+      "#ff00ff",
+      "#ff0000",
+      "#4c2b11",
+      "#3b3b3b",
+      "#000000"
+    ]
+  };
+
+  $.fn.mColorPicker.drawPickerTriggers = function ($t, index) {
+
+    if ($t[0].nodeName.toLowerCase() != 'input') return false;
+    if ($t.data('mColorPicker') == 'true') return false;
+
+    var id = $t.attr('id') || 'color_' + index,
+        hidden = false;
+
+    $t.attr('id', id);
+  
+    if ($t.attr('text') == 'hidden' || $t.attr('data-text') == 'hidden') hidden = true;
+
+    var color = $t.val(),
+        width = ($t.width() > 0)? $t.width(): parseInt($t.css('width'), 10),
+        height = ($t.height())? $t.height(): parseInt($t.css('height'), 10),
+        flt = $t.css('float'),
+        image = (color == 'transparent')? "url('" + $o.imageFolder + "/grid.gif')": '',
+        colorPicker = '';
+
+    $('body').append('<span id="color_work_area"></span>');
+    $('span#color_work_area').append($t.clone(true));
+    colorPicker = $('span#color_work_area').html().replace(/type=[^a-z]*color[^a-z]*/gi, (hidden)? 'type="hidden"': 'type="text"');
+    $('span#color_work_area').html('').remove();
+    $t.after(
+      (hidden)? '<span style="cursor:pointer;border:1px solid black;float:' + flt + ';width:' + width + 'px;height:' + height + 'px;" id="icp_' + id + '">&nbsp;</span>': ''
+    ).after(colorPicker).remove();   
+
+    if (hidden) {
+
+      $('#icp_' + id).css({
+        'background-color': color,
+        'background-image': image,
+        'display': 'inline-block'
+      }).attr(
+        'class', $('#' + id).attr('class')
+      ).addClass(
+        'mColorPickerTrigger'
+      );
+    } else {
+
+      $('#' + id).css({
+        'background-color': color,
+        'background-image': image
+      }).css({
+        'color': $.fn.mColorPicker.textColor($('#' + id).css('background-color'))
+      }).addClass('mColorPickerInput');
+    }
+
+    $('#icp_' + id).data('mColorPicker', 'true');
+
+    $('#' + id).addClass('mColorPicker');
+
+    return $('#' + id);
+  };
+
+  $.fn.mColorPicker.drawPicker = function () {
+
+    $(document.createElement("div")).attr(
+      "id","mColorPicker"
+    ).css(
+      'display','none'
+    ).html(
+      '<div id="mColorPickerWrapper"><div id="mColorPickerImg" class="mColor"></div><div id="mColorPickerImgGray" class="mColor"></div><div id="mColorPickerSwatches"><div class="mClear"></div></div><div id="mColorPickerFooter"><input type="text" size="8" id="mColorPickerInput"/></div></div>'
+    ).appendTo("body");
+
+    $(document.createElement("div")).attr("id","mColorPickerBg").css({
+      'display': 'none'
+    }).appendTo("body");
+
+    for (n = 9; n > -1; n--) {
+
+      $(document.createElement("div")).attr({
+        'id': 'cell' + n,
+        'class': "mPastColor" + ((n > 0)? ' mNoLeftBorder': '')
+      }).html(
+        '&nbsp;'
+      ).prependTo("#mColorPickerSwatches");
+    }
+
+    if ($.fn.mColorPicker.init.allowTransparency) $('#mColorPickerFooter').prepend('<span id="mColorPickerTransparent" class="mColor" style="font-size:16px;color:#000;padding-right:30px;padding-top:3px;cursor:pointer;overflow:hidden;float:right;">transparent</span>');
+    if ($.fn.mColorPicker.init.showLogo) $('#mColorPickerFooter').prepend('<a href="http://meta100.com/" title="Meta100 - Designing Fun" alt="Meta100 - Designing Fun" style="float:right;" target="_blank"><img src="' +  $o.imageFolder + 'meta100.png" title="Meta100 - Designing Fun" alt="Meta100 - Designing Fun" style="border:0;border-left:1px solid #aaa;right:0;position:absolute;"/></a>');
+
+    $("#mColorPickerBg").click($.fn.mColorPicker.closePicker);
+  
+    var swatch = $.fn.mColorPicker.getCookie('swatches'),
+        i = 0;
+
+    if (typeof swatch == 'string') swatch = swatch.split('||');
+    if (swatch == null || $.fn.mColorPicker.init.enhancedSwatches || swatch.length < 10) swatch = $o.swatches;
+
+    $(".mPastColor").each(function() {
+
+      $(this).css('background-color', swatch[i++].toLowerCase());
+    });
+  };
+
+  $.fn.mColorPicker.closePicker = function () {
+
+    $(".mColor, .mPastColor, #mColorPickerInput, #mColorPickerWrapper").unbind();
+    $("#mColorPickerBg").hide();
+    $("#mColorPicker").fadeOut()
+  };
+
+  $.fn.mColorPicker.colorShow = function (id) {
+
+    var $e = $("#icp_" + id);
+        pos = $e.offset(),
+        $i = $("#" + id);
+        hex = $i.attr('data-hex') || $i.attr('hex'),
+        pickerTop = pos.top + $e.outerHeight(),
+        pickerLeft = pos.left,
+        $d = $(document),
+        $m = $("#mColorPicker");
+
+    if ($i.attr('disabled')) return false;
+
+                // KEEP COLOR PICKER IN VIEWPORT
+                if (pickerTop + $m.height() > $d.height()) pickerTop = pos.top - $m.height();
+                if (pickerLeft + $m.width() > $d.width()) pickerLeft = pos.left - $m.width() + $e.outerWidth();
+  
+    $m.css({
+      'top':(pickerTop) + "px",
+      'left':(pickerLeft) + "px",
+      'position':'absolute'
+    }).fadeIn("fast");
+  
+    $("#mColorPickerBg").css({
+      'z-index':999990,
+      'background':'black',
+      'opacity': .01,
+      'position':'absolute',
+      'top':0,
+      'left':0,
+      'width': parseInt($d.width(), 10) + 'px',
+      'height': parseInt($d.height(), 10) + 'px'
+    }).show();
+  
+    var def = $i.val();
+  
+    $('#colorPreview span').text(def);
+    $('#colorPreview').css('background', def);
+    $('#color').val(def);
+  
+    if ($('#' + id).attr('data-text')) $.fn.mColorPicker.currentColor = $e.css('background-color');
+    else $.fn.mColorPicker.currentColor = $i.css('background-color');
+
+    if (hex == 'true') $.fn.mColorPicker.currentColor = $.fn.mColorPicker.RGBtoHex($.fn.mColorPicker.currentColor);
+
+    $("#mColorPickerInput").val($.fn.mColorPicker.currentColor);
+  
+    $('.mColor, .mPastColor').bind('mousemove', function(e) {
+  
+      var offset = $(this).offset();
+
+      $.fn.mColorPicker.color = $(this).css("background-color");
+
+      if ($(this).hasClass('mPastColor') && hex == 'true') $.fn.mColorPicker.color = $.fn.mColorPicker.RGBtoHex($.fn.mColorPicker.color);
+      else if ($(this).hasClass('mPastColor') && hex != 'true') $.fn.mColorPicker.color = $.fn.mColorPicker.hexToRGB($.fn.mColorPicker.color);
+      else if ($(this).attr('id') == 'mColorPickerTransparent') $.fn.mColorPicker.color = 'transparent';
+      else if (!$(this).hasClass('mPastColor')) $.fn.mColorPicker.color = $.fn.mColorPicker.whichColor(e.pageX - offset.left, e.pageY - offset.top + (($(this).attr('id') == 'mColorPickerImgGray')? 128: 0), hex);
+
+      $.fn.mColorPicker.setInputColor(id, $.fn.mColorPicker.color);
+    }).click(function() {
+  
+      $.fn.mColorPicker.colorPicked(id);
+    });
+  
+    $('#mColorPickerInput').bind('keyup', function (e) {
+  
+      try {
+  
+        $.fn.mColorPicker.color = $('#mColorPickerInput').val();
+        $.fn.mColorPicker.setInputColor(id, $.fn.mColorPicker.color);
+    
+        if (e.which == 13) $.fn.mColorPicker.colorPicked(id);
+      } catch (r) {}
+    }).bind('blur', function () {
+  
+      $.fn.mColorPicker.setInputColor(id, $.fn.mColorPicker.currentColor);
+    });
+  
+    $('#mColorPickerWrapper').bind('mouseleave', function () {
+  
+      $.fn.mColorPicker.setInputColor(id, $.fn.mColorPicker.currentColor);
+    });
+  };
+
+  $.fn.mColorPicker.setInputColor = function (id, color) {
+  
+    var image = (color == 'transparent')? "url('" + $o.imageFolder + "grid.gif')": '',
+        textColor = $.fn.mColorPicker.textColor(color);
+  
+    if ($('#' + id).attr('data-text') || $('#' + id).attr('text')) $("#icp_" + id).css({'background-color': color, 'background-image': image});
+    $("#" + id).val(color).css({'background-color': color, 'background-image': image, 'color' : textColor}).trigger('change');
+    $("#mColorPickerInput").val(color);
+  };
+
+  $.fn.mColorPicker.textColor = function (val) {
+  
+    if (typeof val == 'undefined' || val == 'transparent') return "black";
+    val = $.fn.mColorPicker.RGBtoHex(val);
+    return (parseInt(val.substr(1, 2), 16) + parseInt(val.substr(3, 2), 16) + parseInt(val.substr(5, 2), 16) < 400)? 'white': 'black';
+  };
+
+  $.fn.mColorPicker.setCookie = function (name, value, days) {
+  
+    var cookie_string = name + "=" + escape(value),
+      expires = new Date();
+      expires.setDate(expires.getDate() + days);
+    cookie_string += "; expires=" + expires.toGMTString();
+   
+    document.cookie = cookie_string;
+  };
+
+  $.fn.mColorPicker.getCookie = function (name) {
+  
+    var results = document.cookie.match ( '(^|;) ?' + name + '=([^;]*)(;|$)' );
+  
+    if (results) return (unescape(results[2]));
+    else return null;
+  };
+
+  $.fn.mColorPicker.colorPicked = function (id) {
+  
+    $.fn.mColorPicker.closePicker();
+  
+    if ($.fn.mColorPicker.init.enhancedSwatches) $.fn.mColorPicker.addToSwatch();
+  
+    $("#" + id).trigger('colorpicked');
+  };
+
+  $.fn.mColorPicker.addToSwatch = function (color) {
+  
+    var swatch = []
+        i = 0;
+ 
+    if (typeof color == 'string') $.fn.mColorPicker.color = color.toLowerCase();
+  
+    $.fn.mColorPicker.currentValue = $.fn.mColorPicker.currentColor = $.fn.mColorPicker.color;
+  
+    if ($.fn.mColorPicker.color != 'transparent') swatch[0] = $.fn.mColorPicker.color.toLowerCase();
+  
+    $('.mPastColor').each(function() {
+  
+      $.fn.mColorPicker.color = $(this).css('background-color').toLowerCase();
+
+      if ($.fn.mColorPicker.color != swatch[0] && $.fn.mColorPicker.RGBtoHex($.fn.mColorPicker.color) != swatch[0] && $.fn.mColorPicker.hexToRGB($.fn.mColorPicker.color) != swatch[0] && swatch.length < 10) swatch[swatch.length] = $.fn.mColorPicker.color;
+  
+      $(this).css('background-color', swatch[i++])
+    });
+
+    if ($.fn.mColorPicker.init.enhancedSwatches) $.fn.mColorPicker.setCookie('swatches', swatch.join('||'), 365);
+  };
+
+  $.fn.mColorPicker.whichColor = function (x, y, hex) {
+  
+    var colorR = colorG = colorB = 255;
+    
+    if (x < 32) {
+  
+      colorG = x * 8;
+      colorB = 0;
+    } else if (x < 64) {
+  
+      colorR = 256 - (x - 32 ) * 8;
+      colorB = 0;
+    } else if (x < 96) {
+  
+      colorR = 0;
+      colorB = (x - 64) * 8;
+    } else if (x < 128) {
+  
+      colorR = 0;
+      colorG = 256 - (x - 96) * 8;
+    } else if (x < 160) {
+  
+      colorR = (x - 128) * 8;
+      colorG = 0;
+    } else {
+  
+      colorG = 0;
+      colorB = 256 - (x - 160) * 8;
+    }
+  
+    if (y < 64) {
+  
+      colorR += (256 - colorR) * (64 - y) / 64;
+      colorG += (256 - colorG) * (64 - y) / 64;
+      colorB += (256 - colorB) * (64 - y) / 64;
+    } else if (y <= 128) {
+  
+      colorR -= colorR * (y - 64) / 64;
+      colorG -= colorG * (y - 64) / 64;
+      colorB -= colorB * (y - 64) / 64;
+    } else if (y > 128) {
+  
+      colorR = colorG = colorB = 256 - ( x / 192 * 256 );
+    }
+
+    colorR = Math.round(Math.min(colorR, 255));
+    colorG = Math.round(Math.min(colorG, 255));
+    colorB = Math.round(Math.min(colorB, 255));
+
+    if (hex == 'true') {
+
+      colorR = colorR.toString(16);
+      colorG = colorG.toString(16);
+      colorB = colorB.toString(16);
+      
+      if (colorR.length < 2) colorR = 0 + colorR;
+      if (colorG.length < 2) colorG = 0 + colorG;
+      if (colorB.length < 2) colorB = 0 + colorB;
+
+      return "#" + colorR + colorG + colorB;
+    }
+    
+    return "rgb(" + colorR + ', ' + colorG + ', ' + colorB + ')';
+  };
+
+  $.fn.mColorPicker.RGBtoHex = function (color) {
+
+    color = color.toLowerCase();
+
+    if (typeof color == 'undefined') return '';
+    if (color.indexOf('#') > -1 && color.length > 6) return color;
+    if (color.indexOf('rgb') < 0) return color;
+
+    if (color.indexOf('#') > -1) {
+
+      return '#' + color.substr(1, 1) + color.substr(1, 1) + color.substr(2, 1) + color.substr(2, 1) + color.substr(3, 1) + color.substr(3, 1);
+    }
+
+    var hexArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"],
+        decToHex = "#",
+        code1 = 0;
+  
+    color = color.replace(/[^0-9,]/g, '').split(",");
+
+    for (var n = 0; n < color.length; n++) {
+
+      code1 = Math.floor(color[n] / 16);
+      decToHex += hexArray[code1] + hexArray[color[n] - code1 * 16];
+    }
+  
+    return decToHex;
+  };
+
+  $.fn.mColorPicker.hexToRGB = function (color) {
+
+    color = color.toLowerCase();
+  
+    if (typeof color == 'undefined') return '';
+    if (color.indexOf('rgb') > -1) return color;
+    if (color.indexOf('#') < 0) return color;
+
+    var c = color.replace('#', '');
+
+    if (c.length < 6) c = c.substr(0, 1) + c.substr(0, 1) + c.substr(1, 1) + c.substr(1, 1) + c.substr(2, 1) + c.substr(2, 1);
+
+    return 'rgb(' + parseInt(c.substr(0, 2), 16) + ', ' + parseInt(c.substr(2, 2), 16) + ', ' + parseInt(c.substr(4, 2), 16) + ')';
+  };
+
+  $(document).ready(function () {
+
+    if ($.fn.mColorPicker.init.replace == '[type=color]') {
+
+      $('input').filter(function(index) {
+    
+        return this.getAttribute('type') == 'color';
+      }).mColorPicker();
+    
+      $(document).bind('ajaxSuccess', function () {
+      
+        $('input').filter(function(index) {
+      
+          return this.getAttribute('type') == 'color';
+        }).mColorPicker();
+      });
+    } else if ($.fn.mColorPicker.init.replace) {
+
+      $('input' + $.fn.mColorPicker.init.replace).mColorPicker();
+    
+      $(document).bind('ajaxSuccess', function () {
+      
+        $('input' + $.fn.mColorPicker.init.replace).mColorPicker();
+      });
+    }
+  });
+})(jQuery);
