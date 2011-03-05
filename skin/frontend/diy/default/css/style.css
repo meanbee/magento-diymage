@@ -326,7 +326,10 @@ a.btn-remove:hover {
 
 a.simple-button,
 input.simple-button,
-button.simple-button {
+button.simple-button,
+div.sidebar div.block a,
+div.sidebar div.block input,
+div.sidebar div.block button {
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 5px 10px;

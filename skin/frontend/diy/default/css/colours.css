@@ -136,7 +136,8 @@ button.disabled {
 
 a.simple-button,
 input.simple-button,
-button.simple-button {
+button.simple-button,
+div.sidebar div.block button {
     background-color: #4a4a4a;
     border: 1px solid #333; /* Dark grey for browsers that don't support rgba */
     border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
