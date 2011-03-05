@@ -1165,6 +1165,10 @@ div.block-cart div.actions button {
 
 /* ----------------------------- VIEWED PRODUCTS */
 
+div.sidebar div.block-viewed div.block-title { 
+	border-bottom: 0;
+}
+
 div.block-viewed ol li {
     border-top: 1px solid;
     clear: both;
