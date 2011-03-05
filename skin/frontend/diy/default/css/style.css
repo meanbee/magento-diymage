@@ -94,24 +94,15 @@ div.col2-right-layout div.sidebar div.block {
 
 /* 3 column layout */
 
-div.col3-layout div.col-main {
-    float: left;
-    width: 75%;
-}
-
 div.col3-layout div.sidebar {
-    width: 25%;
+    width: 23.5%;
 }
 
-div.col3-layout div.col-main div.col-middle {
+div.col3-layout div.col-main {
     float: left;
     margin-top: 10px;
     margin-left: 2.5%;
-    width: 67%;
-}
-
-div.col3-layout div.col-main div.sidebar {
-    width: 30.5%;
+    width: 50%;
 }
 
 div.col3-layout div.col-main div.sidebar div.block {
@@ -351,11 +342,21 @@ div.sidebar div.block {
     margin-bottom: 20px;
 }
 
-/* ----------------------------- LAYERED NAVIGATION */
-
-div.block-layered-nav div.block-title {
-    display: none;
+div.sidebar div.block div.block-title {
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
 }
+
+div.sidebar div.block form div.actions {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+div.sidebar div.block form div.actions button {
+    float: right;
+}
+
+/* ----------------------------- LAYERED NAVIGATION */
 
 div.block-layered-nav p.block-subtitle {
     border-bottom: 1px solid;
@@ -407,11 +408,6 @@ div.block-layered-nav ol {
 
 /* ----------------------------- POLL */
 
-div.block-poll div.block-title {
-    border-bottom: 1px solid;
-    margin-bottom: 10px;
-}
-
 div.block-poll form div p.block-subtitle {
     margin-bottom: 10px;
 }
@@ -420,19 +416,18 @@ div.block-poll form label {
     display: inline;
 }
 
-div.block-poll form div.actions {
-    margin-top: 10px;
-    overflow: hidden;
-}
+/* ----------------------------- PAYPAL LOGO SIDEBAR */
 
-div.block-poll form div.actions button {
-    float: right;
+div.sidebar div.paypal-logo {
+	margin-left:20px;
 }
 
 /* ----------------------------- BREADCRUMBS */
 
 ul.breadcrumbs {
-    padding: 10px;
+    padding: 10px 10px 0 10px;
+	overflow: hidden;
+	clear:both;
 }
 
 ul.breadcrumbs li {
@@ -1873,22 +1868,22 @@ section#promo div.block-promo-text {
 
 /* ----------------------------- NEWSLETTER SUBSCRIPTION */
 
-div.block-subscribe {
+footer div.block-subscribe {
     float: right;
 }
 
-div.block-subscribe form label {
+footer div.block-subscribe form label {
     float: left;
     line-height: 30px;
     margin-left: 10px;
 }
 
-div.block-subscribe form input {
+footer div.block-subscribe form input {
     float: left;
     margin-left: 10px;
 }
 
-div.block-subscribe form button {
+footer div.block-subscribe form button {
     float: left;
     margin-left: 10px;
 }
