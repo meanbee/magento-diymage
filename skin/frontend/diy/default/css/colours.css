@@ -151,6 +151,10 @@ div.col2-set div.block {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
 }
 
+div.sidebar div.block div.block-title {
+    border-color: #d6d6d6;
+}
+
 /* ----------------------------- LAYERED NAVIGATION */
 
 div.block-layered-nav p.block-subtitle {
@@ -163,12 +167,6 @@ div.block-layered-nav div.actions {
 
 div.block-layered-nav dl#narrow-by-list dt {
     border-top-color: #d6d6d6;
-}
-
-/* ----------------------------- POLL */
-
-div.block-poll div.block-title {
-    border-color: #d6d6d6;
 }
 
 /* ----------------------------- PRODUCT SORTER*/
