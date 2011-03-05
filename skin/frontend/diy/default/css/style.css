@@ -113,6 +113,18 @@ div.col3-layout div.sidebar div.block {
     margin-left: 20px;
 }
 
+div.col3-layout ul.list-products li div.description {
+    width: 200px;
+}
+
+div.col3-layout ul.list-products li abbr.rating {
+    width: 150px;
+}
+
+div.col3-layout ul.list-products a.review-amount {
+    margin-left: 0;
+}
+
 /* ----------------------------- HEADER */
 
 header {
