@@ -347,6 +347,7 @@ div.sidebar div.block {
 div.sidebar div.block div.block-title {
     border-bottom: 1px solid;
     margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 div.sidebar div.block form div.actions {
@@ -421,15 +422,15 @@ div.block-poll form label {
 /* ----------------------------- PAYPAL LOGO SIDEBAR */
 
 div.sidebar div.paypal-logo {
-	margin-left:20px;
+    margin-left:20px;
 }
 
 /* ----------------------------- BREADCRUMBS */
 
 ul.breadcrumbs {
     padding: 10px 10px 0 10px;
-	overflow: hidden;
-	clear:both;
+    overflow: hidden;
+    clear:both;
 }
 
 ul.breadcrumbs li {
@@ -1168,7 +1169,7 @@ div.block-cart div.actions button {
 /* ----------------------------- VIEWED PRODUCTS */
 
 div.sidebar div.block-viewed div.block-title { 
-	border-bottom: 0;
+    border-bottom: 0;
 }
 
 div.block-viewed ol li {
