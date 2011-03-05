@@ -44,16 +44,7 @@
         <p class="required">* Required Fields</p> 
     </aside> 
     <!-- END PRODUCT OPTIONS --> 
-    <!-- TIERED PRICING --> 
-    <aside class="tiered-pricing"> 
-        <ul> 
-            <li>Buy 2 for &pound;15.99 and <strong>save 6%</strong></li> 
-            <li>Buy 3 for &pound;14.49 and <strong>save 15%</strong></li> 
-            <li>Buy 4 for &pound;12.49 and <strong>save 27%</strong></li> 
-            <li>Buy 4 for &pound;9.99 and <strong>save 42%</strong></li> 
-        </ul> 
-    </aside> 
-    <!-- END TIERED PRICING --> 
+    <?php echo $this->getTierPriceHtml() ?>
     <div class="actions out-of-stock"> 
         <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
         <fieldset class="quantity"> 
