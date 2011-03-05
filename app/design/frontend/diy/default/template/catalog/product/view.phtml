@@ -10,8 +10,7 @@
     <h1 class="product-name item"> 
         <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
     </h1> 
-    <h3 class="original-price">Was <del>&pound; 75.00</del></h3> 
-    <h2 class="current-price"><strong class="price">&pound; 500.00</strong></h2> 
+    <?php echo $this->getPriceHtml($_product) ?>
     <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
     <a href="#reviews-list" class="review-amount">8 Review(s)</a>                   
     <a href="#write-review" class="link-review">Write a review</a> 
