@@ -29,7 +29,7 @@
 <?php endif; ?>
 <meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
 <?php if (($this->getDescription() != "Default Description") && ($this->getDescription() != NULL )):?>
-<meta name="description" content="<?php echo strip_tags($this->getDescription()) ?>" />
+<meta name="description" content="<?php echo htmlspecialchars(strip_tags($this->getDescription())) ?>" />
 <?php endif; ?>
 <?php if (($this->getKeywords() != "Magento, Varien, E-commerce" ) && ($this->getKeywords() != NULL )):?>
 <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />

@@ -10,13 +10,12 @@
     <h1 class="product-name item"> 
         <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
     </h1> 
-    <h3 class="original-price">Was <del>&pound; 75.00</del></h3> 
-    <h2 class="current-price"><strong class="price">&pound; 500.00</strong></h2> 
+    <?php echo $this->getPriceHtml($_product) ?>
     <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
     <a href="#reviews-list" class="review-amount">8 Review(s)</a>                   
     <a href="#write-review" class="link-review">Write a review</a> 
     <div class="description quick"> 
-        <p>A technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom.</p> 
+        <?php echo $_product->getShortDescription() ?>
     </div> 
     <!-- PRODUCT OPTIONS --> 
     <aside class="product-options"> 
@@ -45,16 +44,7 @@
         <p class="required">* Required Fields</p> 
     </aside> 
     <!-- END PRODUCT OPTIONS --> 
-    <!-- TIERED PRICING --> 
-    <aside class="tiered-pricing"> 
-        <ul> 
-            <li>Buy 2 for &pound;15.99 and <strong>save 6%</strong></li> 
-            <li>Buy 3 for &pound;14.49 and <strong>save 15%</strong></li> 
-            <li>Buy 4 for &pound;12.49 and <strong>save 27%</strong></li> 
-            <li>Buy 4 for &pound;9.99 and <strong>save 42%</strong></li> 
-        </ul> 
-    </aside> 
-    <!-- END TIERED PRICING --> 
+    <?php echo $this->getTierPriceHtml() ?>
     <div class="actions out-of-stock"> 
         <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
         <fieldset class="quantity"> 
@@ -74,23 +64,18 @@
             <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
         </li> 
         <li class="twitter"> 
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="laurakalbag">Tweet</a> 
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
             <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
         </li> 
-        <li class="retweet"> 
-            <script type="text/javascript"> 
-                tweetmeme_url = 'http://yoururl.com';
-            </script> 
-            <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script> 
-        </li> 
-        <li class="email"> 
-            <a href="#">E-mail to a friend</a> 
-        </li> 
+        <?php if ($this->canEmailToFriend()): ?>
+            <li class="email"> 
+                <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
+            </li>
+        <?php endif; ?>
     </ul> 
     <!-- END SOCIAL STUFF --> 
     <aside class="description"> 
-        <p>Olympus continues to innovate with the launch of the Stylus 750 digital camera, a technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom that tucks away into a streamlined metal, all-weather body design.</p> 
-        <p>The camera is distinguished by a number of premium features, including: * An advanced combination of the mechanical CCD-shift Image Stabilization and Digital Image Stabilization work together to ensure the clearest pictures possible in any situation; * A 5x optical zoom lens with a newly developed lens element to maintain a small compact size; * A 2.5-inch LCD and Bright Capture Technology dramatically improve composition, capture and review of images in low-light situations; * Olympus' exclusive TruePic Turbo Image Processing engine is coupled with a 7.1-megapixel image sensor to produce crisp, high-quality p</p> 
+        <?php echo nl2br($_product->getDescription()) ?>
     </aside> 
     <!-- ADDITIONAL INFORMATION --> 
         <aside id="additional-information"> 
