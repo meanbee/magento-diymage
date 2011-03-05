@@ -1,0 +1,28 @@
+<?php
+function renderCategoryChildren($category, $block) {
+    ?>
+    <li>
+        <a href="<?php echo $block->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a>
+        <?php if ($category->getChildren()->count() > 0): ?>
+            <?php foreach ($category->getChildren() as $child): ?>
+                <ul>
+                    <?php renderCategoryChildren($child, $block) ?>
+                </ul>
+            <?php endforeach ?>
+        <?php endif ?>
+    </li>
+    <?php
+}
+?>
+<!-- SHOP NAVIGATION --> 
+<nav> 
+    <ul>
+        <?php foreach ($this->getStoreCategories() as $child): ?>
+            <?php if ($child->getIsActive()): ?>
+                <?php renderCategoryChildren($child, $this) ?>
+            <?php endif ?>
+        <?php endforeach ?>
+        ?> 
+    </ul> 
+</nav> 
+<!-- END SHOP NAVIGATION -->

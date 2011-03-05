@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Observer {
     /**
      * The function listens out for controller_action_layout_generate_xml_before

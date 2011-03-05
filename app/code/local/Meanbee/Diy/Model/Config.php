@@ -1,16 +1,35 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Config {
-    protected function getXml() {
-        return Mage::getConfig()->loadModulesConfiguration('diy.xml');
+    public function isEnabled() {
+        return Mage::getStoreConfig('diy/general/enabled');
     }
     
-    public function getAttributes() {
-        $attributes = $this->getXml()->getXpath('diy/attributes');
-        
-        if (count($attributes) == 1) {
-            return $attributes[0]->asArray();
-        } else {
-            throw new Exception("The number of attributes xml tags exceeded one.. I wasn't expecting that!");
-        }
+    public function isLoggingEnabled() {
+        return $this->isEnabled() && Mage::getStoreConfig('diy/general/log_enabled');
+    }
+    
+    public function isDeveloperMode() {
+        return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_enabled');
+    }
+    
+    public function getLicenseKey() {
+        return Mage::getStoreConfig('diy/license/key');
+    }
+    
+    public function getLicenseEmail() {
+        return Mage::getStoreConfig('diy/license/email');
+    }
+    
+    public function hasCompletedLicenseFields() {
+        return $this->getLicenseKey() && $this->getLicenseEmail();
+    }
+    
+    public function getPingUrl() {
+        return "http://ping.diymage.com/check";
+    }
+    
+    public function getLogName() {
+        return "diymage.log";
     }
 }

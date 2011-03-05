@@ -1,0 +1,45 @@
+<h1>Create an Account</h1> 
+<form id="create-account" method="post" action="<?php echo $this->getPostActionUrl() ?>"> 
+    <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
+    <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
+    <fieldset> 
+        <h2>Account Information</h2> 
+        <ul> 
+            <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->toHtml() ?>
+            <li> 
+                <label class="required" for="email"><em class="required">*</em> Email Address</label> 
+                <input type="text" class="text required-entry validate-email" title="Email Address" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" id="email" name="email"> 
+            </li>
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php if ($_dob->isEnabled()): ?>
+                <?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?>
+            <?php endif ?>
+            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+            <?php if ($_taxvat->isEnabled()): ?>
+                <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
+            <?php endif ?>
+            <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+            <?php if ($_gender->isEnabled()): ?>
+                <li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>
+            <?php endif ?>
+        </ul> 
+    </fieldset> 
+    <fieldset> 
+        <h3>Login Information</h3> 
+        <ul> 
+            <li> 
+                <label class="required" for="password"><em class="required">*</em> Password</label> 
+                <input type="password" id="password" name="password" class="text validate-password" title="Password"> 
+            </li> 
+            <li> 
+                <label class="required" for="confirmation"><em class="required">*</em> Confirm Password</label> 
+                <input type="password" id="confirmation" name="confirmation" class="text validate-cpassword" title="Confirm Password"> 
+            </li> 
+        </ul> 
+    </fieldset> 
+    <div class="buttons-set"> 
+        <p class="required">* Required Fields</p> 
+        <p class="back-link"><a href="#">Back</a></p> 
+        <button class="button" title="Create Account" type="submit">Create Account</button> 
+    </div> 
+</form>

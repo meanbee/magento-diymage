@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+// {{license}}
+-->
 <config>
     <diy>
         <attributes>
@@ -97,14 +100,14 @@
                 <nav_bar_background>
                     <label>Navigation Bar Background Colour</label>
                     <help>This is the background colour of the navigation bar.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>140</sort_order>
                 </nav_bar_background>
                 <nav_item_background>
                     <label>Navigation Item Background Colour</label>
                     <help>This is the background colour of an item in the navigation bar.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>150</sort_order>
                 </nav_item_background>
@@ -174,28 +177,28 @@
                 <breadcrumb_text_colour>
                     <label>Breadcrumb Current Page Colour</label>
                     <help>This is the colour of the current page in the breadcrumbs.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>250</sort_order>
                 </breadcrumb_text_colour>
                 <breadcrumb_link_colour>
                     <label>Breadcrumb Link Colour</label>
                     <help>This is the colour of breadcrumb links.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>260</sort_order>
                 </breadcrumb_link_colour>
                 <breadcrumb_link_hover_colour>
                     <label>Breadcrumb Link Hover Colour</label>
                     <help>This is the colour of breadcrumb links when hovered over.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>270</sort_order>
                 </breadcrumb_link_hover_colour>
                 <breadcrumb_divider_colour>
                     <label>Breadcrumb Divider Colour</label>
                     <help>This is the colour of the divider between breadcrumbs.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>280</sort_order>
                 </breadcrumb_divider_colour>
@@ -216,7 +219,7 @@
                 <footer_text_colour>
                     <label>Footer Text Colour</label>
                     <help>Set the colour of text in the footer.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>310</sort_order>
                 </footer_text_colour>
@@ -237,7 +240,7 @@
                 <footer_link_background_colour>
                     <label>Footer Link Background Colour</label>
                     <help>This is the background colour of links in the footer.</help>
-                    <value></value>
+                    <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>340</sort_order>
                 </footer_link_background_colour>

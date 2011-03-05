@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="<?php echo $this->getLang() ?>"> 
+<head> 
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass() ? ' class="'.$this->getBodyClass().'"' : '' ?>>
+    <?php echo $this->getChildHtml('header') ?>
+    <?php echo $this->getChildHtml('catalog.navigation') ?>
+    <!-- LAYOUT (2 COLUMN LEFT) -->
+    <div class="main-container col2-left-layout">
+        <?php echo $this->getChildHtml('global_messages') ?>
+        <div class="main">
+            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            <div class="col-main">
+                <?php echo $this->getChildHtml('content') ?>
+            </div>
+            <div class="col-left sidebar">
+                <?php echo $this->getChildHtml('left') ?>
+            </div>
+        </div>
+    </div>
+    <!-- END LAYOUT (2 COLUMN LEFT) -->
+    <?php echo $this->getChildHtml('footer') ?>
+</body>
+</html>

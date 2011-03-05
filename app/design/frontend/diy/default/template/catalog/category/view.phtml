@@ -1,0 +1,23 @@
+<?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+<?php if ($_image = $_category->getImageUrl()): ?>
+    <img src="<?php echo $_image ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" />
+<?php endif ?>
+<?php if ($_description = $this->getCurrentCategory()->getDescription()): ?>
+    <p><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+<?php endif; ?>
+
+<?php if($this->isContentMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+<?php elseif($this->isMixedMode()): ?>
+    <?php echo $this->getCmsBlockHtml() ?>
+    <?php echo $this->getProductListHtml() ?>
+<?php else: ?>
+    <?php echo $this->getProductListHtml() ?>
+<?php endif; ?>

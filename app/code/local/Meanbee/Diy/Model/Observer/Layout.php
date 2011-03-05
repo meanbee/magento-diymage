@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_Interface {
     protected $_removedBlocks = array();
     protected $_log;
@@ -16,7 +17,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      */
     public function observe($observer) {
         
-        if (!Mage::getSingleton('diy/settings')->isEnabled()) {
+        if (!Mage::getSingleton('diy/config')->isEnabled()) {
             return;
         }
         
@@ -33,6 +34,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $area = $design->getArea();
         
         if ($area == "adminhtml") {
+            $this->_checkLicenseValid();
             return;
         }
         
@@ -131,6 +133,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     /**
      * Sort the blocks in the references.
      *
+     * @see http://stackoverflow.com/questions/4410206/change-order-of-blocks-via-local-xml-file-in-magento
      * @param string $identifiers 
      * @param string $layout 
      * @return void
@@ -154,120 +157,19 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                     $blocks = Zend_Json::decode($data['sort_order']);
                     $block_found = array();
                     
-                    foreach ($updates as $update_number => &$update) {
+                    foreach ($blocks as $key => $block_data) {
+                        $xml = "
+                            <reference name='$group'>
+                                <action method='unsetChild'><alias>{$block_data['name']}</alias></action>
+                                <action method='insert'><blockName>{$block_data['name']}</blockName><siblingName>{$block_data['after']}</siblingName><after>1</after></action>
+                            </reference>
+                        ";
                         
-                        // We aren't clever enough to deal with anything that isn't enclosed in a reference as it is not encapsulated
-                        if (substr($update, 0, 4)  != "<ref")
-                            continue;
-                        
-                        $lines = explode("\n", $update);
-                        foreach ($lines as $line_number => &$line) {
-                            $line = trim($line);
-                            if (substr($line, 0, 6) == "<block") {
-                                $parts = explode(" ", $line);
-                                    
-                                foreach ($blocks as $key => $block_data) {
-                                    // We don't want to think about static blocks here at the moment.
-                                    if ($block_data['static']) {
-                                        continue;
-                                    }
-                                    
-                                    // We need to establish the type of the block
-                                    $element = $this->_identifyBlockType($identifiers, $layout, $block_data['name']);
-                                    
-                                    if ($element === null) {
-                                        throw new Exception("Could not identify block: " . $block_data['name']);
-                                    }
-
-                                    $type = $element->getAttribute('type');
-                                    $before = $element->getAttribute('before');
-                                    $template = $element->getAttribute('template');
-                                    $as = $element->getAttribute('as');
-                                    
-                                    if (!isset($block_found[$block_data['name']])) {
-                                        $block_found[$block_data['name']] = 0;
-                                    }
-                                    
-                                    foreach ($parts as $part) {
-                                        $subparts = explode("=", $part);
-
-                                        if (count($subparts) != 2) {
-                                            continue;
-                                        }
-
-                                        $key = $subparts[0];
-                                        $value = str_replace(">", "", $subparts[1]);
-                                        
-                                        if ($key == "name" && $value == '"' . $block_data['name'] . '"') {
-                                            $this->_log->debug("Modifying " . $block_data['name']);
-                                                                                
-                                            $block_found[$block_data['name']] = 1;
-
-                                            $after_string = 'after="' . $block_data['after'] . '"';
-                                            $before_string = 'before="' . $block_data['before'] . '"';
-                                            
-                                            if (!$block_data['before']) {
-                                                $before_string = '';
-                                            }
-
-                                            $pattern_b = '/before=["\'].*?["\']/i';
-                                            $line = preg_replace($pattern_b, $before_string, $line, -1, $count_b);
-
-                                            // If the line contains an after="", then we replace it..
-                                            $count_a = 0;
-                                            $pattern_a = '/after=["\'].*?["\']/i';
-                                            $updated_line = preg_replace($pattern_a, $after_string, $line, -1, $count_a);
-
-                                            if ($count_a == 0) {
-                                                // .. otherwise, just add it in
-                                                if (substr($line, strlen($line) - 2) == "/>") {
-                                                    $updated_line = substr($line, 0, -2) . " " . $after_string . " />";
-                                                } else {
-                                                    $updated_line = substr($line, 0, -1) . " " . $after_string . ">";
-                                                }
-                                            }
-
-                                            if ($count_b == 0) {
-                                                if (substr($updated_line, strlen($updated_line) - 2) == "/>") {
-                                                    $updated_line = substr($updated_line, 0, -2) . " " . $before_string . " />";
-                                                } else {
-                                                    $updated_line = substr($updated_line, 0, -1) . " " . $before_string . ">";
-                                                }
-                                            }
-                                            
-                                            
-                                            $this->_log->debug("From: " . $line);
-                                            $line = $updated_line;
-                                            $this->_log->debug("To:   " . $line);
-
-                                            $modified_updates[] = $update_number; 
-                                        }
-                                    }
-                                }                    
-                            }
-                        }
-                        
-                        $update = implode("\n", $lines);
-                    } // foreach
-                    
-                    $this->_log->unindent();
-                } // foreach
-                
-                foreach ($modified_updates as $idx) {
-                    $updates[] = $updates[$idx];
-                    unset($updates[$idx]); 
+                        $layout->getUpdate()->addUpdate($xml);
+                    }
                 }
-                
-                $layout->getUpdate()->resetUpdates();
-                foreach ($updates as $update) {
-                    $layout->getUpdate()->addUpdate($update);
-                }
-            } // if
-            
-            $this->_log->unindent();
-        } // foreach
-        
-        $this->_log->unindent();
+            }
+        }
     } // function
     
     /**
@@ -458,5 +360,79 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }   
         $xml = implode("\n", $pretty);   
         return ($html_output) ? htmlentities($xml) : $xml;
+    }
+    
+    /**
+     * Contact the license server to determine whether a license is valid or not.
+     *
+     * @return bool
+     * @author Nicholas Jones
+     */
+    protected function _checkLicenseValid() {
+        $cache = Mage::getSingleton('diy/cache');
+        $config = Mage::getSingleton('diy/config');
+        $client = new Varien_Http_Client($config->getPingUrl());
+        
+        // An indication of wether all fields were complete, or not.
+        $incomplete = false;
+        
+        if ($cache->getLicenseStatus()) {
+            $this->_log->debug("License valid, cache hit");
+            return true;
+        }
+        
+        if (!$config->hasCompletedLicenseFields()) {
+            Mage::getSingleton('adminhtml/session')->addNotice(
+                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+            );
+            
+            $this->_log->warn("License fields are not complete");
+            $incomplete = true;
+        }
+        
+        $post_data = array(
+            "date"            => date("c"),
+            "locale"          => Mage::getStoreConfig('general/locale/code'),
+            "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
+            "license_key"     => $config->getLicenseKey(),
+            "license_email"   => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion()
+        );
+        
+        $client->setParameterPost('payload', $post_data);
+        
+        $this->_log->debug("Contacting server for license status");
+        try {
+            $response = $client->request(Zend_Http_Client::POST);
+
+            if ($response->isSuccessful()) {
+                if ($response->getHeader('Content-type') == "application/json") {
+                    $result = json_decode($response->getBody(), true); // Convert to assoc array 
+
+                    if ($result['valid']) {
+                        $this->_log->debug("License is valid, confirmed by server");
+                        $cache->setLicenseStatus(true);
+                        return true;
+                    } else {
+                        // Only display the error to the customer if we know that all fields were complete
+                        if (!$incomplete) {
+                            Mage::getSingleton('adminhtml/session')->addError(
+                                Mage::helper('diy')->__('Your license settings for DIY Mage are currently not valid.  Please contact support@diymage.com as soon as possible to resolve this issue.')
+                            );
+
+                            $this->_log->warn("Using an invalid license");
+                        }
+                    }
+                } else {
+                    $this->_log->critical("Incorrect content-type from the license server");
+                }
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception $e) {
+            $this->_log->alert("Unable to contact license server");
+        }
+        
+        return false;
     }
 }

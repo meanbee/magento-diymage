@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+// {{license}}
+-->
 <layout>
     
     <default>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
-
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.4.3.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-ui-1.8.6.custom.min.js</name><if /></action>
@@ -15,74 +17,86 @@
         </reference>
     </default>
     
-    <diy_design_index>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>diy/js/settings_screen.js</name><if /></action>
+        </reference>
+    </adminhtml_system_config_edit>
+    
+    <diy_design>
         <reference name="content">
-            <block type="diy/admin_design_global" name="diy.admin.design.global" template="diy/design/global.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
+        </reference>
+    </diy_design>
+    
+    <diy_design_index>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_global" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml" />
         </reference>
     </diy_design_index>
     
     <diy_design_homepage>
         <reference name="content">
-            <block type="diy/admin_design_homepage" name="diy.admin.design.homepage" template="diy/design/homepage.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_homepage" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml"></block>
         </reference>
+        <update handle="diy_design" />
     </diy_design_homepage>
     
     <diy_design_listing>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_listing" name="diy.admin.design.listing" template="diy/design/listing.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_listing" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_listing>
     
     <diy_design_product>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_product" name="diy.admin.design.product" template="diy/design/product.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_product" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_product>
     
     <diy_design_checkout>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_checkout" name="diy.admin.design.checkout" template="diy/design/checkout.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_checkout" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_checkout>
     
     <diy_design_cart>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_cart" name="diy.admin.design.cart" template="diy/design/cart.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_cart" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_cart>
     
     <diy_design_catalogsearch>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_catalogsearch" name="diy.admin.design.catalogsearch" template="diy/design/catalogsearch.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_catalogsearch" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_catalogsearch>
     
     <diy_design_advancedsearch>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_advancedsearch" name="diy.admin.design.advancedsearch" template="diy/design/advancedsearch.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_advancedsearch" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_advancedsearch>
     
     <diy_design_contacts>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_contacts" name="diy.admin.design.contacts" template="diy/design/contacts.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_contacts" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_contacts>
     
     <diy_design_noroute>
+        <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_noroute" name="diy.admin.design.noroute" template="diy/design/noroute.phtml" />
-            <block type="page/html" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+            <block type="diy/admin_design_noroute" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_noroute>
-    
 </layout>

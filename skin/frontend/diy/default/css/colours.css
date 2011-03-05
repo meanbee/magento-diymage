@@ -1,0 +1,532 @@
+body {
+    color: #333; /* dark grey */
+}
+
+a {
+    color: #cf5100; /* orange */
+}
+
+/* Clear all link */
+
+a.clear-all {
+    color: #b90101;
+}
+
+/* Notes/Asides */
+
+p.note {
+    color: #767676;
+}
+
+/* ----------------------------- CART */
+
+section.cart {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+}
+
+/* ----------------------------- NAVIGATION */
+
+nav {
+    background: #313131; /* dark grey */
+}
+
+nav ul a {
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.1); /* White */
+}
+
+nav ul ul {
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+}
+
+nav ul ul a {
+    background: #333; /* dark grey */
+}
+
+nav li:hover > a,
+nav ul ul :hover > a,
+* html nav ul li a:hover {
+    background: #d45600; /* orange */
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.1), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.2); /* White */
+}
+
+nav ul li.active > a {
+    background: #5d5d5d; /* mid grey */
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.4), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.1); /* White */
+}
+
+* html nav ul li.active a {
+    color: #fff; /* white */
+}
+
+/* ----------------------------- FORMS */
+
+input[type=text],
+input[type=search],
+input.text,
+input.search,
+textarea {
+    background: #fff;
+    border-color: #ffb553;
+    color: #767676;
+}
+
+input[type=text]:focus,
+input[type=search]:focus,
+input.text:focus,
+input.search:focus,
+textarea:focus {
+    border-color: #eb6302; /* Orange */
+}
+
+em.required,
+p.required {
+    color: #b90101; /* Red */
+}
+
+/* ----------------------------- BUTTONS */
+
+a.button,
+input.button,
+button {
+    background: #e26500 url(../images/button-bg.png) top left repeat-x; /* orange */
+    border: 1px solid #e26500; /* Orange for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.2), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.3); /* White */
+}
+
+a.button:hover,
+input.button:hover,
+button:hover {
+    background-position: bottom left;
+}
+
+a.cart,
+input.cart,
+button.cart {
+    background-color: #409a40;
+    border: 1px solid #409a40; /* Green for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
+}
+
+/* disabled button */
+
+a.disabled,
+input.disabled,
+button.disabled {
+    background: #ccc; /* Grey */
+    border: 1px solid #ccc; /* Grey for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Black */
+    color: #8e8e8e; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1), /* Black */
+                0px -1px 1px rgba(255, 255, 255, 0.3); /* White */
+}
+
+/* Simplified buttons to ensure they don't draw too much focus from the main buttons */
+
+a.simple-button,
+input.simple-button,
+button.simple-button {
+    background-color: #4a4a4a;
+    border: 1px solid #333; /* Dark grey for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
+}
+
+/* ----------------------------- SIDEBAR BLOCKS */
+
+div.sidebar div.block,
+div.col2-set div.block {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* ----------------------------- LAYERED NAVIGATION */
+
+div.block-layered-nav p.block-subtitle {
+    border-color: #d6d6d6;
+}
+
+div.block-layered-nav div.actions {
+    border-bottom-color: #d6d6d6;
+}
+
+div.block-layered-nav dl#narrow-by-list dt {
+    border-top-color: #d6d6d6;
+}
+
+/* ----------------------------- POLL */
+
+div.block-poll div.block-title {
+    border-color: #d6d6d6;
+}
+
+/* ----------------------------- PRODUCT SORTER*/
+
+ul.product-sorter {
+    background: #e1e1e1 url(../images/sort-background-border.gif) 10px 30px no-repeat;
+    border-color: #ccc;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5),
+                0px -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+ul.product-sorter li.view-mode a {
+    color: #333;
+}
+
+/* ----------------------------- PRODUCTS GRID */
+
+ul.products-grid li {
+    border-color: #ccc;
+}
+
+ul.products-grid li h4.original-price + h3.current-price {
+    color: #c80202;
+}
+
+section.hproduct div#photos ul li a img {
+    border-color: #e8e8e8;
+}
+
+/* Out of stock */
+
+section.hproduct div.out-of-stock fieldset input.text {
+    border-color: #ccc;
+}
+
+section.hproduct div.out-of-stock fieldset label {
+    color: #8e8e8e; /* Light grey */
+}
+
+section.hproduct div.out-of-stock p.out-of-stock {
+    color: #b90101; /* Red */
+}
+
+/* ----------------------------- PRODUCTS LIST */
+/* (does inherit from products grid) */
+
+div.col2-left-layout div.col-main ul.list-products li:nth-child(n+7),
+div.col2-right-layout div.col-main ul.list-products li:nth-child(n+7) {
+    border-color: #ccc;
+}
+
+/* Product options */
+
+aside.product-options {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* ----------------------------- TIERED PRICING */
+
+aside.tiered-pricing {
+    border-color: #ccc;
+}
+
+/* ----------------------------- ADDITIONAL INFORMATION */
+
+aside#additional-information {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+aside#additional-information dt,
+aside#additional-information dd {
+    border-color: #e8e8e8;;
+}
+
+/* ----------------------------- PRODUCT REVIEWS */
+
+aside#reviews {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+aside#reviews h3 {
+    border-color: #e8e8e8; /* Light grey */
+}
+
+/* List of reviews */
+
+ul#reviews-list li {
+    border-color: #e8e8e8; /* Light grey */
+}
+
+/* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
+
+div.block-compare ol li,
+div.block-compare div.actions,
+div.block-cart ol li,
+div.block-cart div.actions {
+    border-color: #ccc;
+}
+
+div.block-compare ol li img.photo,
+div.block-cart ol li img.photo {
+    border-color: #e8e8e8;
+}
+
+/* CART SIDEBAR */
+
+div.view-notes {
+    border-color: #e8e8e8;
+}
+
+div.block-cart div.summary h3,
+div.block-cart p.block-subtitle {
+    border-color: #ccc;
+}
+
+/* ----------------------------- VIEWED PRODUCTS */
+
+div.block-viewed ol li,
+div.block-viewed ol li:last-child {
+    border-color: #ccc;
+}
+
+div.block-viewed ol li img.photo {
+    border-color: #e8e8e8;
+}
+
+/* ----------------------------- RELATED PRODUCTS */
+
+aside#related-products,
+aside#related-products h2 {
+    border-color: #ccc;
+}
+
+aside#related-products ul.products-grid li:nth-child(3n) {
+    border-color: #ccc;
+}
+
+h5.original-price + h4.current-price,
+h4.original-price + h3.current-price,
+h3.original-price + h2.current-price {
+    color: #c80202;
+}
+
+/* ----------------------------- PRODUCT TAGS */
+
+aside#product-tags {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+aside#product-tags ul li a {
+    background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat;
+    border-color: #e8e8e8; /* Light grey */
+    -webkit-box-shadow: inset 0px -5px 5px rgba(244, 244, 244, 1),
+        0px 1px 1px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: inset 0px -5px 5px rgba(244, 244, 244, 1),
+        0px 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px -5px 5px rgba(244, 244, 244, 1),
+        0px 1px 1px rgba(255, 255, 255, 0.5);
+    color: #333;
+}
+
+aside#product-tags ul li a:hover,
+aside#product-tags ul li a:active {
+    background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat; /* White */
+    -webkit-box-shadow: inset 0px 5px 5px rgba(244, 244, 244, 1),
+        0px -1px 1px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: inset 0px 5px 5px rgba(244, 244, 244, 1),
+        0px -1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0px 5px 5px rgba(244, 244, 244, 1),
+        0px -1px 1px rgba(255, 255, 255, 0.3);
+    color: #cf5100; /* orange */
+}
+
+aside#product-tags ul li a span {
+    color: #767676;
+}
+
+/* ----------------------------- CART PAGE */
+
+/* Cart contents table */
+
+table#cart {
+    background: #fff;
+    border-color: #ccc;
+}
+
+table#cart thead {
+    background: #e8e8e8; /* Light grey */
+}
+
+table#cart thead tr th,
+table#cart tfoot tr td,
+ol#checkout-steps li table#cart tfoot tr td {
+    border-color: #e8e8e8;
+}
+
+table#cart tr,
+table#cart tbody tr td {
+    border-color: #e8e8e8; /* Light grey */
+}
+
+table#cart tbody tr:nth-child(2n) td {
+    border-color: #e8e8e8;
+}
+
+table#cart tr:nth-child(2n) {
+    background: #f4f4f4; /* Off white */
+}
+
+table#cart tfoot tr:nth-child(2n) {
+    background: none;
+}
+
+table#cart tbody tr td.product-image img {
+    border-color: #e8e8e8;
+}
+
+div.block-related,
+form#discount-form,
+aside.shipping {
+    background: #f4f4f4; /* Off white */
+    border-color: #e8e8e8; /* Light grey */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* Related products */
+
+div.block-related ol,
+div.block-related ul {
+    list-style-type: none;
+}
+
+div.block-related ol li.hproduct {
+    border-color: #ccc;
+}
+
+div.block-related ol li a.product-image img {
+    border-color: #e8e8e8;
+}
+
+/* Totals */
+
+aside.totals {
+    border-color: #ccc;
+}
+
+aside.totals ul {
+    border-color: #e8e8e8;
+}
+
+/* ----------------------------- CHECKOUT */
+
+ol#checkout-steps {
+    background: #f4f4f4;
+    border-color: #ccc;
+}
+
+ol#checkout-steps li {
+    border-color: #ccc;
+}
+
+ol#checkout-steps li h2 {
+    background: #e8e8e8;
+}
+
+ol#checkout-steps li h2 em.step-number {
+    background: #313131;
+    color: #fff;
+}
+
+ol#checkout-steps li section form fieldset,
+ol#checkout-steps li section form div#checkout-shipping-method-load {
+    border-color: #e8e8e8;
+}
+
+ol#checkout-steps li section form input[type="text"], 
+ol#checkout-steps li section form input.text,
+div.account div.col-main form input[type="text"],
+div.account div.col-main form input.text {
+    border-color: #ffb553;
+}
+
+/* Checkout errors */
+
+form input.validation-failed,
+form select.validation-failed,
+ol#checkout-steps li section form input[type="text"].validation-failed, 
+ol#checkout-steps li section form input.validation-failed,
+div.account div.col-main form input[type="text"].validation-failed,
+div.account div.col-main form input.validation-failed,
+ol#checkout-steps li section form select.validation-failed {
+    border-color: #d31e0b;
+}
+
+ol#checkout-steps li section form p.validation-advice {
+    color: #bb1b09;
+}
+
+ol#checkout-steps li section form input[type="text"]:focus, 
+ol#checkout-steps li section form input.text:focus,
+div.account div.col-main form input[type="text"]:focus,
+div.account div.col-main form input.text:focus {
+    border-color: #eb6302; /* Orange */
+}
+
+/* Checkout progress */
+
+div.block-progress div.block-content ul li {
+    border-color: #e8e8e8;
+}
+
+ol#checkout-steps li section div.col-1:nth-child(-n+1) {
+    border-color: #ccc;
+}
+
+/* ----------------------------- MY ACCOUNT */
+
+div.dashboard h1,
+div.dashboard div.box-account div.box-head h2 {
+    border-color: #ccc;
+}
+
+div.dashboard div.box-account {
+    border-color: #e8e8e8;
+}
+
+div.dashboard div.box-account div.box-title {
+    border-color: #d6d6d6;
+}
+
+/* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
+
+div.block-account div.block-content ul li,
+div.account div.col-main form fieldset {
+    border-color: #e8e8e8;
+}
+
+
+/* ----------------------------- PROMO BAR */
+
+section#promo {
+    background: #323232;
+    color: #fff;
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.1); /* White */
+}
+
+/* ----------------------------- FOOTER */
+
+footer small {
+    border-top-color: #ccc;
+    color: #666;
+}

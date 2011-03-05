@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 /**
  * A fat EAV model to store all of our custom theme attribute data.
  *

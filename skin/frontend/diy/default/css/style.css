@@ -1,0 +1,1966 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%; font: inherit; vertical-align: baseline; font-weight: normal;}body {background: #fff; line-height: 1;}blockquote, q {quotes: none;} blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none;}/* remember to highlight inserts somehow! */ins {text-decoration: none; background: #fff75c;}del {text-decoration: line-through;} em {font-style:italic;} strong {font-weight:bold;} abr {border-bottom:1px dotted;} input[type=submit], button {cursor:pointer;} /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block;} /* make sure the page doesn't shift horizontally */ html{overflow-y:scroll}
+
+body {
+    margin: 0 auto;
+    width: 960px;
+}
+
+a {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+/* Clear all link */
+
+a.clear-all {
+    float: right;
+}
+
+/* ----------------------------- HEADERS */
+
+h1, h2, h3 {
+    padding-bottom: 10px;
+}
+
+/* Default Magento block styles */
+
+div.block div.block-title {
+    clear: both;
+}
+
+div.block div.block-content p.block-subtitle {
+    clear: both;
+}
+
+/* ----------------------------- MAGENTO STANDARD COLUMN LAYOUT */
+
+/* Standard column styles */
+
+div.col2-left-layout,
+div.col2-right-layout {
+    clear: both;
+    margin-top: 20px;
+}
+
+div.col-main,
+div.sidebar {
+    float: left;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+div.col-main div.sidebar {
+    margin-top: 0;
+}
+
+/* 1 column layout */
+
+div.col1 div.col-main {
+    float: left;
+    width: 100%;
+}
+
+/* 2 column layout with sidebar on left */
+div.col2-left-layout div.col-main {
+    float: right;
+    width: 75%;
+}
+
+div.col2-left-layout div.sidebar {
+    width: 25%;
+}
+
+div.col2-left-layout div.sidebar div.block {
+    margin-right: 20px;
+}
+
+/* 2 column layout with sidebar on right */
+div.col2-right-layout div.col-main {
+    float: left;
+    width: 75%;
+}
+
+div.col2-right-layout div.sidebar {
+    width: 25%;
+}
+
+div.col2-right-layout div.sidebar div.block {
+    margin-left: 20px;
+}
+
+/* 3 column layout */
+
+div.col3-layout div.col-main {
+    float: left;
+    width: 75%;
+}
+
+div.col3-layout div.sidebar {
+    width: 25%;
+}
+
+div.col3-layout div.col-main div.col-middle {
+    float: left;
+    margin-top: 10px;
+    margin-left: 2.5%;
+    width: 67%;
+}
+
+div.col3-layout div.col-main div.sidebar {
+    width: 30.5%;
+}
+
+div.col3-layout div.col-main div.sidebar div.block {
+    margin-left: 0;
+}
+
+div.col3-layout div.sidebar div.block {
+    margin-left: 20px;
+}
+
+/* ----------------------------- HEADER */
+
+header {
+    padding-top: 10px;
+}
+
+/* ----------------------------- SHOP LOGO AND IMAGE */
+
+a#branding h2 { 
+    float: left;
+    height: 180px;
+    position: absolute;
+    width: 480px;
+}
+
+a#branding img {
+    float: left;
+    position: relative;
+}
+
+/* ----------------------------- CART */
+
+section.cart {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float: right;
+    padding: 5px 10px 5px 20px;
+    margin-bottom: 20px;
+    width: 360px;
+}
+
+section.cart h2 {
+    float: left;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 0;
+}
+
+section.cart p {
+    float: left;
+    padding-top: 5px;
+    padding-right: 20px;
+}
+
+section.cart button {
+    float: right;
+}
+
+/* ----------------------------- SEARCH */
+
+form#search-form {
+    clear: right;
+    float: right;
+    padding-bottom: 10px;
+}
+
+form#search-form label {
+    text-indent: -999999px;
+}
+
+form#search-form input,
+form#search-form label,
+form#search-form button {
+    float: left;
+    margin-left: 10px;
+}
+
+/* ----------------------------- DROPDOWN NAVIGATION */
+
+nav {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+}
+
+nav ul {
+    margin-left: 20px;
+    width: 928px;
+}
+
+nav ul ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+    list-style-type: none;
+    position: relative;
+}
+
+nav a {
+    display: block;
+    line-height: 40px;
+    padding: 0 20px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    float: left;
+    width: 160px;
+    z-index: 99999;
+}
+
+nav ul ul li {
+    min-width: 160px;
+}
+
+nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+nav ul ul a {
+    line-height: 40px;
+    padding: 0 20px;
+    width: 160px;
+    height: auto;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+/* Site navigation */
+
+ul.site-navigation {
+    clear: right;
+    float: right;
+    padding: 10px;
+}
+
+ul.site-navigation li {
+    float: left;
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+/* ----------------------------- FORMS */
+
+input[type=text],
+input[type=email],
+input.text,
+input.search,
+input.email,
+textarea {
+    border: 2px solid;
+    padding: 5px; 
+}
+
+input[type=search] {
+    border: 2px solid;
+    padding: 5px; 
+    /* getting rid of the webkit default rounded corners */
+    -webkit-appearance: textfield;
+}
+
+label {
+    display: block;
+}
+
+form ul li {
+    list-style-type: none;
+}
+
+/* ----------------------------- BUTTONS */
+
+a.button,
+input.button,
+button {
+    -moz-border-radius: 10px;
+    border-radius: 12px;
+    display: block;
+    text-decoration: none;
+    padding: 5px 20px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+/* LAYERED NAV AND COMPARE PRODUCTS */
+
+a.btn-remove {
+    background: url(../images/icon-remove.gif) right center no-repeat;
+    display: block;
+    float: right;
+    height: 16px;
+    margin-top: 30px;
+    opacity: .8;
+    text-indent: -999999px;
+    width: 16px;
+}
+
+a.btn-remove:hover {
+    opacity: 1;
+}
+
+/* Simplified buttons to ensure they don't draw too much focus from the main buttons */
+
+a.simple-button,
+input.simple-button,
+button.simple-button {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* ----------------------------- SIDEBAR BLOCKS */
+
+div.sidebar div.block {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------- LAYERED NAVIGATION */
+
+div.block-layered-nav div.block-title {
+    display: none;
+}
+
+div.block-layered-nav p.block-subtitle {
+    border-bottom: 1px solid;
+    border-bottom: 1px solid;
+    margin: 0 0 10px 0;
+    padding: 10px 0;
+}
+
+div.block-layered-nav ol.currently dl {
+    margin-bottom: 10px;
+}
+
+div.block-layered-nav ol.currently dl dd {
+    padding-left: 20px;
+}
+
+div.block-layered-nav div.actions {
+    border-bottom: 1px solid;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+div.block-layered-nav dl#narrow-by-list dt {
+    background: url(../images/icon-open-close.gif) bottom left no-repeat;
+    border-top: 1px solid;
+    cursor: pointer;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+div.block-layered-nav dl#narrow-by-list dt:first-child {
+    border-top: none;
+    margin-top: -10px;
+}
+
+div.block-layered-nav dl#narrow-by-list dt.active {
+    background: url(../images/icon-open-close.gif) top left no-repeat;
+}
+
+div.block-layered-nav dl#narrow-by-list dd {
+    margin-left: 20px;
+}
+
+div.block-layered-nav ul,
+div.block-layered-nav ol {
+    list-style-type: none;
+}
+
+/* ----------------------------- POLL */
+
+div.block-poll div.block-title {
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+}
+
+div.block-poll form div p.block-subtitle {
+    margin-bottom: 10px;
+}
+
+div.block-poll form label {
+    display: inline;
+}
+
+div.block-poll form div.actions {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+div.block-poll form div.actions button {
+    float: right;
+}
+
+/* ----------------------------- BREADCRUMBS */
+
+ul.breadcrumbs {
+    padding: 10px;
+}
+
+ul.breadcrumbs li {
+    float: left;
+    list-style-type: none;
+    margin-top: 5px;
+    margin-right: 6px;
+}
+
+ul.breadcrumbs li:after {
+    content:" > ";
+}
+
+ul.breadcrumbs li.current-page:after {
+    content: ""
+}
+
+/* ----------------------------- PRODUCT SORTER*/
+
+ul.product-sorter {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    clear: both;
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+ul.product-sorter li {
+    list-style-type: none;
+    padding: 3px 0 1px 0;
+}
+
+ul.product-sorter select {
+    margin-top: 4px;
+}
+
+ul.product-sorter li.amount {
+    float: left;
+    width: 50%;
+}
+
+ul.product-sorter li.limiter {
+    float: right;
+}
+
+ul.product-sorter li.limiter label,
+ul.product-sorter li.limiter select,
+ul.product-sorter li.limiter em {
+    float: left;
+    margin-left: 5px;
+}
+
+ul.product-sorter li.view-mode,
+ul.product-sorter li.pagination {
+    float: left;
+    width: 33.33%;
+}
+
+ul.product-sorter li.pagination strong {
+    float: left;
+}
+
+ul.product-sorter li label {
+    display: inline;
+}
+
+ul.product-sorter li.pagination ol li {
+    float: left;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.product-sorter li.pagination ol li a {
+    display: block;
+    float: left;
+    padding: 0 5px;
+}
+
+ul.product-sorter li.pagination ol li.current {
+    display: block;
+    padding: 0 5px;
+}
+
+ul.product-sorter li.sort-by {
+    float: right;
+}
+
+ul.product-sorter li.sort-by label,
+ul.product-sorter li.sort-by select,
+ul.product-sorter li.sort-by a {
+    float: left;
+    margin-left: 5px;
+}
+
+ul.product-sorter li.sort-by a {
+    margin-top: 4px;
+}
+
+/* ----------------------------- PRODUCTS GRID */
+
+ul.products-grid {
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+ul.products-grid li {
+    border-right: 1px dotted;
+    border-bottom: 1px dotted;
+    float: left;
+    list-style-type: none;
+    padding: 20px 19px 19px 20px; /* 19px makes up for 1px border */
+}
+
+/* 2 column, grid layout, 3 products across */
+
+div.col2-left-layout div.col-main ul.products-grid li,
+div.col2-right-layout div.col-main ul.products-grid li {
+    width: 200px;
+}
+
+div.col2-left-layout div.col-main ul.products-grid li:nth-child(3n),
+div.col2-right-layout div.col-main ul.products-grid li:nth-child(3n) {
+    border-right: none;
+    padding-right: 20px;
+}
+
+/* 9 product list */
+
+div.col2-left-layout div.col-main ul.products-grid li:nth-child(n+7),
+div.col2-right-layout div.col-main ul.products-grid li:nth-child(n+7) {
+    border-bottom: none;
+    padding-bottom: 20px;
+}
+
+ul.products-grid li h2 {
+    height: 75px;
+    margin-top: 20px;
+}
+
+ul.products-grid li h3.current-price {
+    margin-top: 25px;
+    padding-bottom: 0;
+}
+
+ul.products-grid li h4.original-price + h3.current-price {
+    margin-top: 0;
+    width: 110px;
+}
+
+ul.products-grid li h3.current-price,
+ul.products-grid li h4.original-price {
+    clear: right;
+    float: right;
+}
+
+ul.products-grid li div.actions {
+    margin-top: 25px;
+}
+
+ul.products-grid li div.actions button {
+    margin: 0 auto;
+    width: 60%;
+}
+
+ul.products-grid li ul.add-to-links {
+    margin-top: 5px;
+}
+
+ul.products-grid li ul.add-to-links li,
+div.col2-left-layout div.col-main ul.products-grid li ul.add-to-links li {
+    border: none;
+    float: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* ----------------------------- PRODUCTS LIST */
+/* (does inherit from products grid) */
+
+div.col2-left-layout div.col-main ul.list-products li, 
+div.col2-right-layout div.col-main ul.list-products li {
+    width: 680px;
+}
+
+ul.list-products li {
+    border-right: none;
+    float: none;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 20px 20px 19px 20px;
+}
+
+div.col2-left-layout div.col-main ul.list-products li:nth-child(n+7),
+div.col2-right-layout div.col-main ul.list-products li:nth-child(n+7) {
+    border-bottom: 1px dotted;
+}
+
+div.col2-left-layout div.col-main ul.list-products li:last-child,
+div.col2-right-layout div.col-main ul.list-products li:last-child {
+    border-bottom: none;
+}
+
+ul.list-products li a.product-image {
+    float: left;
+    margin: 0 30px 20px 0;
+}
+
+ul.list-products li h2 {
+    height: auto;
+    margin-top: 0;
+}
+
+ul.list-products li abbr.rating {
+    float: left;
+    margin-right: 20px;
+}
+
+ul.list-products li a.review-amount,
+ul.list-products li a.link-review {
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+ul.list-products li div.description {
+    float: left;
+    margin-top: 10px;
+    width: 340px;
+}
+
+ul.list-products li div.actions {
+    float: right;
+    margin-top: 0;
+    width: 450px;
+}
+
+ul.list-products li div.actions button {
+    float: right;
+    margin: 0;
+    width: auto;
+}
+
+ul.list-products li ul.add-to-links {
+    float: left;
+    width: 300px;
+}
+
+div.col2-left-layout div.col-main ul.list-products li ul li, 
+div.col2-right-layout div.col-main ul.list-products li ul li {
+    width: auto;
+}
+
+ul.list-products li ul.add-to-links li,
+ul.list-products li ul.add-to-links li a,
+div.col2-left-layout div.col-main ul.list-products li ul.add-to-links li, 
+div.col2-right-layout div.col-main ul.list-products li ul.add-to-links li,
+div.col2-left-layout div.col-main ul.list-products li ul.add-to-links li a, 
+div.col2-right-layout div.col-main ul.list-products li ul.add-to-links li a {
+    float: left;
+}
+
+ul.list-products li ul.add-to-links li a {
+    margin-right: 20px;
+}
+
+ul.list-products li h3.current-price, 
+ul.list-products li h4.original-price,
+ul.list-products li h3.current-price, 
+ul.list-products li h4.original-price {
+    clear: both;
+    float: right;
+}
+
+ul.list-products li h3.current-price {
+    margin-top: 0;
+}
+
+ul.list-products li h4.original-price + h3.current-price {
+    margin-top: -59px;
+}
+
+ul.list-products li h3.current-price {
+    margin-top: -38px;
+}
+
+ul.list-products li h4.original-price {
+    margin-top: -83px;
+}
+
+/* ----------------------------- SINGLE PRODUCT DISPLAY */
+
+/* Product image display */
+
+section.hproduct div#photos {
+    float: left;
+    margin: 0 20px 0 0;
+    width: 340px;
+}
+
+section.hproduct div#photos ul.no-javascript {
+    float: left;
+    margin-top: 350px;
+    width: 340px;
+}
+
+section.hproduct div#photos ul.no-javascript li {
+    float: left;
+    list-style-type: none;
+}
+
+section.hproduct div#photos div.hoverscroll {
+    margin-top: 350px;
+}
+
+section.hproduct div#photos ul li.active-photo {
+    opacity: 0.5;
+}
+
+section.hproduct div#photos ul li a img {
+    border: 1px solid;
+    margin: 0 1px;
+}
+
+section.hproduct div#photos div.current-photo {
+    position: absolute;
+}
+
+section.hproduct h1.product-name {
+    margin-top: 10px;
+}
+
+section.hproduct aside.description {
+    clear: both;
+    padding: 0 20px 20px 20px;
+}
+
+aside.description p,
+div.description p {
+    padding-bottom: 10px;
+}
+
+section.hproduct abbr.rating {
+    float: left;
+}
+
+section.hproduct a.link-review {
+    display: block;
+}
+
+section.hproduct div.description {
+    padding: 10px 0;
+}
+
+/* Product options */
+
+aside.product-options {
+    border: 1px solid;
+    float: left;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 318px;
+}
+
+aside.product-options dl select {
+    width: 160px;
+}
+
+aside.product-options dl dd {
+    margin-bottom: 10px;
+}
+
+section.hproduct div.actions {
+    float: right;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 370px;
+}
+
+section.hproduct div.out-of-stock p.out-of-stock {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+section.hproduct div.actions fieldset.quantity {
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+section.hproduct div.actions fieldset input.text {
+    width: 30px;
+}
+
+section.hproduct div.actions button {
+    clear: right;
+    float: right;
+    margin-right: 20px;
+}
+
+section.hproduct div.actions ul.add-to-links {
+    clear: right;
+    float: right;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+section.hproduct div.actions ul.add-to-links li {
+    list-style-type: none;
+    text-align: right;
+}
+
+/* Social buttons */
+
+section.hproduct ul.social-buttons {
+    float: left;
+    overflow: hidden;
+    padding: 0 20px 20px 20px;
+}
+
+section.hproduct ul.social-buttons li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+section.hproduct ul.social-buttons li.email {
+    clear: both;
+    display: block;
+}
+
+/* ----------------------------- TIERED PRICING */
+
+aside.tiered-pricing {
+    border: 2px dashed;
+    float: left;
+    margin: 0 10px 20px 10px;
+    padding: 20px;
+    width: 280px;
+}
+
+aside.tiered-pricing ul li {
+    list-style-type: none;
+}
+
+/* ----------------------------- ADDITIONAL INFORMATION */
+
+aside#additional-information {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+aside#additional-information dl {
+    overflow: hidden;
+}
+
+aside#additional-information dt {
+    border-top: 1px solid;
+    clear: both;
+    float: left;
+    padding-top: 5px;
+    width: 25%;
+}
+
+aside#additional-information dd {
+    border-top: 1px solid;
+    float: left;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    width: 75%;
+}
+
+aside#additional-information dd ul,
+aside#additional-information dd ol {
+    margin-left: 15px;
+}
+
+/* ----------------------------- PRODUCT REVIEWS */
+
+aside#reviews {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+/* Star ratings */
+
+abbr.rating {
+    background: url(../images/star-ratings.gif) top left no-repeat;
+    display: block;
+    height: 17px;
+    margin: 3px 10px 5px -2px;
+    width: 85px;
+}
+
+section.hproduct abbr.rating {
+    float: none;
+    margin-left: 358px;
+}
+
+section.hproduct aside#reviews abbr.rating {
+    float: none;
+    margin-left: -2px;
+}
+
+abbr.rating span {
+    background: url(../images/star-ratings.gif) bottom left no-repeat;
+    display: block;
+    height: 17px;
+    text-indent: -999999px;
+    width: 85px;
+}
+
+/* 0.5 star */
+
+abbr.stars-0-5 span {
+    width: 8.5px;
+}
+
+/* 1 star */
+
+abbr.stars-1-0 span {
+    width: 17px;
+}
+
+/* 1.5 stars */
+
+abbr.stars-1-5 span {
+    width: 25.5px;
+}
+
+/* 2 stars */
+
+abbr.stars-2-0 span {
+    width: 34px;
+}
+
+/* 2.5 stars */
+
+abbr.stars-2-5 span {
+    width: 42.5px;
+}
+
+/* 3 stars */
+
+abbr.stars-3-0 span {
+    width: 51px;
+}
+
+/* 3.5 stars */
+
+abbr.stars-3-5 span {
+    width: 59.5px;
+}
+
+/* 4 stars */
+
+abbr.stars-4-0 span {
+    width: 68.5px;
+}
+
+/* 4.5 star */
+
+abbr.stars-4-5 span {
+    width: 76.5px;
+}
+
+aside#reviews h3 {
+    border-top: 1px solid;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+ul.products-grid li a.link-review {
+    display: block;
+}
+
+/* Review form */
+
+form#write-review input.text,
+form#write-review input[type=text],
+form#write-review textarea {
+    margin-bottom: 10px;
+    width: 320px;
+}
+
+form#write-review ul.radio-list {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+form#write-review ul.radio-list li {
+    float: left;
+}
+
+form#write-review ul.radio-list li label {
+    display: inline;
+    float: right;
+    padding: 0 15px 0 5px;
+}
+
+form#write-review ul.radio-list li input {
+    float: left;
+    margin-top: 7px;
+}
+
+form#write-review p.required {
+    padding-bottom: 10px;
+}
+
+form#write-review input.button {
+    clear: both;
+}
+
+/* List of reviews */
+
+ul#reviews-list {
+    padding-top: 20px;
+}
+
+ul#reviews-list li {
+    border-top: 1px solid;
+    list-style-type: none;
+    padding: 20px 0 10px 0;
+}
+
+ul#reviews-list li h3.item {
+    display: none;
+}
+
+ul#reviews-list li h5.reviewer {
+    float: left;
+    margin-left: 100px;
+}
+
+ul#reviews-list li abbr.rating {
+    float: none;
+}
+
+ul#reviews-list li div.description {
+    margin-top: 15px;
+}
+
+/* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
+
+div.block-compare ol li,
+div.block-cart ol li {
+    border-top: 1px solid;
+    clear: both;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+div.block-compare ol li img.photo,
+div.block-cart ol li img.photo {
+    border: 1px solid;
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+div.block-compare ol li a.btn-remove,
+div.block-cart ol li a.btn-remove {
+    margin-top: -20px;
+}
+
+div.block-compare div.actions,
+div.block-cart div.actions {
+    border-top: 1px solid;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+/* CART SIDEBAR */
+
+div.block-cart div.summary h3 {
+    border-top: 1px dotted;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+div.block-cart p.block-subtitle {
+    border-top: 1px solid;
+    padding: 10px 0;
+}
+
+div.view-notes {
+    background: #fff;
+    border: 1px solid;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    width: 156px;
+}
+
+div.notes {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+div.notes dl dt {
+    clear: both;
+    float: left;
+}
+
+div.notes dl dd {
+    float: left;
+    margin-left: 5px;
+}
+
+div.notes:hover div.view-notes {
+    cursor: pointer;
+    display: block;
+    margin-top: -25px;
+    z-index: 2;
+}
+
+div.block-cart div.actions {
+    overflow: hidden;
+}
+
+div.block-cart div.actions button {
+    float: right;
+}
+
+/* ----------------------------- VIEWED PRODUCTS */
+
+div.block-viewed ol li {
+    border-top: 1px solid;
+    clear: both;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+div.block-viewed ol li:last-child {
+    border-bottom: 1px solid;
+}
+
+div.block-viewed ol li img.photo {
+    border: 1px solid;
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+/* ----------------------------- RELATED PRODUCTS */
+
+aside#related-products {
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+
+aside#related-products h2 {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+aside#related-products ul.products-grid li {
+    border-bottom: none;
+    padding-top: 0;
+    text-align: center;
+    width: 140px;
+}
+
+aside#related-products ul.products-grid li abbr.rating {
+    margin: 3px 0 5px 27px;
+}
+
+aside#related-products ul.products-grid li h4.current-price {
+    margin-top: 25px;
+}
+
+aside#related-products ul.products-grid li h5.original-price + h4.current-price {
+    margin-top: 0;
+}
+
+aside#related-products ul.products-grid li:nth-child(3n) {
+    border-right: 1px dotted;
+    padding-right: 19px;
+}
+
+aside#related-products ul.products-grid li:nth-child(4n) {
+    border-right: none;
+    padding-right: 20px;
+}
+
+aside#related-products  ul.products-grid li a.review-amount {
+    display: block;
+}
+
+aside#related-products ul.products-grid li a.review-amount {
+    clear: both;
+}
+
+/* ----------------------------- PRODUCT TAGS */
+
+aside#product-tags {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+aside#product-tags ul {
+    overflow: hidden;
+}
+
+aside#product-tags ul li {
+    float: left;
+    list-style-type: none;
+}
+
+aside#product-tags ul li a {
+    border: 1px solid;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 10px;
+    display: block;
+    margin: 2px 5px 2px 0;
+    padding: 2px 5px 2px 18px;
+}
+
+aside#product-tags form {
+    clear: both;
+    float: right;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+aside#product-tags form label,
+aside#product-tags form input {
+    float: left;
+}
+
+aside#product-tags form input {
+    margin-left: 10px;
+}
+
+aside#product-tags form input.text {
+    width: 320px;
+}
+
+aside#product-tags p.note {
+    clear: both;
+}
+
+/* ----------------------------- CART PAGE */
+
+div.cart h1 {
+    float: left;
+    padding-left: 20px;
+}
+
+ul.checkout-types {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+ul.checkout-types li button.cart {
+    float: right;
+}
+
+/* Cart contents table */
+
+form#cart-form {
+    clear: both;
+}
+
+table#cart {
+    border: 1px solid;
+    margin: 20px 0;
+    width: 100%;
+}
+
+table#cart thead tr th {
+    border-bottom: 1px solid;
+}
+
+table#cart tfoot tr td {
+    border-top: 1px solid;
+    padding: 10px 20px;
+}
+
+table#cart thead th {
+    text-align: left;
+    padding: 0 10px;
+}
+
+table#cart tbody tr {
+    border-bottom: 1px solid;
+}
+
+table#cart tbody tr td,
+ol#checkout-steps li table#cart tfoot tr td {
+    border-right: 1px solid;
+    padding: 5px 10px;
+}
+
+table#cart tbody tr td:last-child {
+    border-right: none;
+}
+
+table#cart tbody tr td.product-image {
+    padding: 10px 20px;
+    width: 79px;
+}
+
+table#cart tbody tr td.product-image a {
+    display: block;
+    height: 79px;
+    width: 79px;
+}
+
+table#cart tbody tr td.product-image img {
+    border: 1px solid;
+}
+
+table#cart tbody tr td.product-name {
+    width: 40%;
+}
+
+table#cart tbody tr td.product-name h3 {
+    padding-bottom: 0;
+}
+
+table#cart tbody tr td.qty,
+table#cart tbody tr td.remove {
+    width: 40px;
+}
+
+table#cart td.remove a.remove {
+    background: url(../images/icon-remove.gif) center center no-repeat;
+    border: none;
+    text-indent: -999999px;
+    opacity: 0.9;
+}
+
+table#cart td.remove a.remove:hover {
+    opacity: 1;
+}
+
+/* Cart page layout */
+
+div.col2-set {
+    float: left;
+    overflow: hidden;
+    width: 640px;
+}
+
+div.col2-set div.col-1,
+div.col2-set div.col-2 {
+    float: left;
+    width: 50%;
+}
+
+div.block-related,
+form#discount-form,
+aside.shipping {
+    border: 1px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 15px 20px 20px 20px;
+}
+
+/* Discount form */
+
+form#discount-form {
+    margin-bottom: 20px;
+}
+
+form#discount-form input#coupon-code {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 94%;
+}
+
+form#discount-form input.button {
+    float: right;
+}
+
+/* Shipping form */
+
+aside.shipping form ul {
+    margin-bottom: 20px;
+}
+
+aside.shipping form ul li {
+    margin-top: 10px;
+}
+
+aside.shipping form ul li input {
+    display: block;
+}
+
+aside.shipping form ul li input.text,
+aside.shipping form ul li select {
+    width: 94%;
+}
+
+aside.shipping form button {
+    clear: both;
+    float: right;
+}
+
+/* Totals */
+
+aside.totals {
+    border: 1px solid;
+    float: right;
+    padding: 15px 20px 10px 20px;
+    width: 278px;
+}
+
+aside.totals h2,
+aside.totals h3 {
+    padding-bottom: 0;
+}
+
+aside.totals h4 {
+    padding-bottom: 10px;
+}
+
+aside.totals h4 {
+    font-size: 18px;
+}
+
+aside.totals h2 + h3 {
+    font-size: 20px;
+}
+
+aside.totals ul {
+    border-top: 1px solid;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+aside.totals ul li {
+    clear: both;
+    list-style-type: none;
+}
+
+aside.totals ul li button {
+    float: right;
+    margin-bottom: 5px;
+}
+
+/* Related products */
+
+div.block-related ol,
+div.block-related ul {
+    list-style-type: none;
+}
+
+div.block-related ol li.hproduct {
+    border-top: 1px solid;
+    clear: both;
+    margin-top: 10px;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+div.block-related ol li a.product-image {
+    display: block;
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+div.block-related ol li a.product-image img {
+    border: 1px solid;
+}
+
+div.block-related ol li.hproduct div.actions {
+    clear: both;
+}
+
+div.block-related ol li.hproduct div.actions button,
+div.block-related ol li.hproduct div.actions ul {
+    margin: 0 auto;
+}
+
+/* ----------------------------- CHECKOUT */
+
+div.checkout h1,
+ol#checkout-steps {
+    margin-left: 20px;
+}
+
+ol#checkout-steps {
+    border: 1px solid;
+    border-top: none;
+}
+
+ol#checkout-steps li {
+    border-top: 1px solid;
+    clear: both;
+    list-style-type: none;
+}
+
+ol#checkout-steps li ul li {
+    border-top: none;
+    clear: none;
+    list-style-type: disc;
+}
+
+ol#checkout-steps li h2 {
+    display: block;
+    padding: 10px;
+}
+
+ol#checkout-steps li h2 em.step-number {
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    display: block;
+    float: left;
+    line-height: 15px;
+    margin-top: -1px;
+    margin-right: 10px;
+    padding: 6px;
+    width: 15px;
+}
+
+ol#checkout-steps li h4 {
+    padding-bottom: 10px;
+}
+
+ol#checkout-steps li section.step {
+    clear: both;
+    overflow: hidden;
+    padding: 20px;
+}
+
+ol#checkout-steps li section div.col2-set {
+    padding: 20px;
+    width: 660px;
+}
+
+ol#checkout-steps li#checkout-method div.col2-set {
+    padding: 0;
+}
+
+ol#checkout-steps li section div.col-1:nth-child(-n+1) {
+    border-right: 1px solid;
+    margin-right: 20px;
+    width: 45%;
+}
+
+ol#checkout-steps li section div.col-1 h4 {
+    margin-top: 10px;
+}
+
+ol#checkout-steps li section div.col-1 ul.copy-list {
+    list-style-type: circle;
+    margin-left: 15px;
+}
+
+ol#checkout-steps li div.buttons-set {
+    overflow: hidden;
+}
+
+ol#checkout-steps li div.buttons-set p.back-link,
+div.account div.col-main form div.buttons-set p.back-link {
+    float: left;
+}
+
+ol#checkout-steps li div.buttons-set p.required {
+    margin: 0 auto;
+    padding-right: 40px;
+    width: 50%;
+}
+
+ol#checkout-steps li#checkout-method div.buttons-set p.required,
+div.account div.col-main form div.buttons-set p.required {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+ol#checkout-steps li div.buttons-set button {
+    float: right;
+    margin-right: 20px;
+}
+
+/* Checkout forms and Account forms */
+
+form#billing-form fieldset ul,
+form#shipping-form fieldset ul,
+form#payment-form fieldset ul,
+form#shipping-method-form div dl {
+    margin: 0 auto;
+    width: 50%;
+}
+
+form#billing-form fieldset ul.radio-list,
+form#shipping-form fieldset ul.radio-list {
+    width: 100%;
+}
+
+ol#checkout-steps li section form fieldset,
+ol#checkout-steps li section form div#checkout-shipping-method-load {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+ol#checkout-steps li#checkout-method section form fieldset {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+ol#checkout-steps li section form ul.radio-list label,
+div.account div.col-main ul.radio-list label,
+div.col-main ul.radio-list label {
+    display: inline;
+}
+
+ol#checkout-steps li section form input[type="text"], 
+ol#checkout-steps li section form input.text,
+div.account div.col-main form input[type="text"],
+div.account div.col-main form input.text {
+    border: 1px solid;
+}
+
+ol#checkout-steps li section form input.text {
+    width: 90%;
+}
+
+ol#checkout-steps li section div.col2-set form input.text {
+    width: 90%;
+}
+
+ol#checkout-steps li section form input.text + input.text {
+    margin-top: 10px;
+}
+
+ol#checkout-steps li section form select {
+    width: 90%;
+}
+
+ol#checkout-steps li section form input.checkbox {
+    clear: both;
+    float: left;
+}
+
+ol#checkout-steps li section form input.checkbox + label {
+    float: left;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+ol#checkout-steps li section form ul li,
+div.account div.col-main form ul li  {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+form#shipping-method-form div dl dt {
+    margin-bottom: 10px;
+}
+
+form#shipping-method-form div dl dd ul li {
+    clear: both;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+form#shipping-method-form div dl dd ul li input {
+    float: left;
+}
+
+form#shipping-method-form div dl dd ul li label {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+/* Checkout errors */
+
+ol#checkout-steps li section form select.validation-failed {
+    border: 1px solid;
+}
+
+ol#checkout-steps li section form p.validation-advice {
+    background: url(../images/cross.png) center left no-repeat;
+    padding-left: 24px;
+}
+
+/* ----------------------------- CHECKOUT SIDEBAR YOUR CHECKOUT PROGRESS */
+
+div.block-progress {
+    margin-top: 45px;
+}
+
+div.block-progress div.block-content ul {
+    list-style-type: none;
+}
+
+div.block-progress div.block-content ul li {
+    border-top: 1px solid;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+div.block-progress div.block-content ul li.complete {
+    background: url(../images/tick.png) 162px 10px no-repeat;
+}
+
+div.block-progress div.block-content ul li.error {
+    background: url(../images/cross.png) 162px 10px no-repeat;
+}
+
+/* ----------------------------- MY ACCOUNT */
+
+div.dashboard {
+    padding-top: 10px;
+}
+
+div.dashboard h1 {
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+div.dashboard div.box-account {
+    border-top: 1px dotted;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+div.dashboard div.box-account div.box-head h2 {
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+
+div.dashboard div.box-account div.box-title {
+    border-bottom: 1px dotted;
+    margin-bottom: 10px;
+}
+
+div.dashboard div.box-account div.box-title a {
+    float: right;
+    margin-top: -35px;
+}
+
+div.dashboard div.box-account div.col2-set {
+    margin-bottom: 25px;
+    width: 700px;
+}
+
+div.dashboard div.box-account div.col-1 div.box {
+    padding-right: 40px;
+}
+
+div.dashboard div.box-account div.col-2 div.box {
+    padding-right: 20px;
+}
+
+div.account div.col-main form {
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+}
+
+div.account div.col-main form fieldset {
+    border-bottom: 1px dotted;
+    margin-bottom: 10px;
+}
+
+div.account div.col-main form fieldset input.text,
+div.account div.col-main form fieldset input[type="text"],
+div.account div.col-main form fieldset textarea,
+div.account div.col-main form fieldset select {
+    width: 100%;
+}
+
+div.account div.col-main form div.buttons-set {
+    overflow: hidden;
+}
+
+div.account div.col-main form div.buttons-set button {
+    float: right;
+}
+
+/* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
+
+div.block-account div.block-content ul {
+    list-style-type: none;
+}
+
+div.block-account div.block-content ul li {
+    border-top: 1px solid;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+/* ----------------------------- PROMO BAR */
+
+section#promo {
+    clear: both;
+    overflow: hidden;
+    width: 100%;
+}
+
+section#promo div.block {
+    padding: 5px 20px;
+}
+
+/* ----------------------------- PROMO TEXT */
+
+section#promo div.block-promo-text {
+    float: left;
+    line-height: 30px;
+    width: 370px;
+}
+
+/* ----------------------------- NEWSLETTER SUBSCRIPTION */
+
+div.block-subscribe {
+    float: right;
+}
+
+div.block-subscribe form label {
+    float: left;
+    line-height: 30px;
+    margin-left: 10px;
+}
+
+div.block-subscribe form input {
+    float: left;
+    margin-left: 10px;
+}
+
+div.block-subscribe form button {
+    float: left;
+    margin-left: 10px;
+}
+
+/* ----------------------------- FOOTER */
+
+footer {
+    clear: both;
+}
+
+footer section {
+    float: left;
+    margin: 20px 0;
+    width: 25%;
+}
+
+footer section h2 {
+    margin-left: 20px;
+}
+
+footer section ul {
+    clear: both;
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+footer section.vcard ul li.tel {
+    padding-top: 10px;
+}
+
+/* Social icons */
+
+footer section.vcard a.facebook,
+footer section.vcard a.rss,
+footer section.vcard a.twitter,
+footer section.vcard a.youtube {
+    display: block;
+    float: left;
+    height: 24px;
+    margin: 0 10px 10px 0;
+    opacity: .8;
+    text-indent: -99999px;
+    width: 24px;
+}
+
+footer section.vcard a.facebook:hover,
+footer section.vcard a.rss:hover,
+footer section.vcard a.twitter:hover,
+footer section.vcard a.youtube:hover {
+    opacity: 1;
+}
+
+footer section.vcard a.facebook {
+    background: url(../images/aquaticus-icons/facebook.png) top left no-repeat;
+}
+
+footer section.vcard a.rss {
+    background: url(../images/aquaticus-icons/feed.png) top left no-repeat;
+}
+
+footer section.vcard a.twitter {
+    background: url(../images/aquaticus-icons/twitter.png) top left no-repeat;
+}
+
+footer section.vcard a.youtube {
+    background: url(../images/aquaticus-icons/youtube.png) top left no-repeat;
+}
+
+footer small {
+    border-top: 1px dotted;
+    clear: both;
+    display: block;
+    margin-top: 10px;
+    padding: 10px 0;
+}

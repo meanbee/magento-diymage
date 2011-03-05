@@ -1,0 +1,77 @@
+<?php
+function generate_label($text, $field_name, $required, $block) {
+    return sprintf(
+        '<label%s for="%s">%s%s</label>',
+        ($required) ? ' class="required"' : '',
+        $block->getFieldName($field_name),
+        ($required) ? '<em class="required">*</em> ' : '',
+        $text
+    );
+}
+
+function generate_input_text($title, $field_name, $required, $block) {
+    return sprintf(
+        '<input type="text" class="text%s" title="%s" value="%s" name="%s" id="%s" %s />',
+        ($required) ? ' required-entry' : '',
+        $title,
+        $block->htmlEscape($block->getObject()->getData($field_name)),
+        $block->getFieldName($field_name),
+        $block->getFieldId($field_name),
+        $block->getFieldParams()
+    );
+}
+
+function generate_input_dropdown_start($title, $field_name, $required, $block) {
+    return sprintf(
+        '<select id="%s" name="%s" title="%s"%s%s>',
+        $block->getFieldId($field_name),
+        $block->getFieldName($field_name),
+        $title,
+        ($required) ? ' class="required-entry"' : '',
+        $block->getFieldParams()
+    );
+}
+?>
+
+<?php if ($this->showPrefix()): ?>
+    <li>
+        <?php echo generate_label($this->__('Prefix'), "prefix", $this->isPrefixRequired(), $this) ?>
+        <?php if ($this->getPrefixOptions()===false): ?>
+            <?php echo generate_input_text($this->__('Prefix'), "prefix", $this->isPrefixRequired(), $this)?>
+        <?php else: ?>
+            <?php echo generate_input_dropdown_start($this->__('Prefix'), "prefix", $this->isPrefixRequired(), $this)?>
+                <?php foreach ($this->getPrefixOptions() as $_option): ?>
+                    <option value="<?php echo $_option ?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
+                <?php endforeach ?>
+            </select>
+        <?php endif; ?>
+    </li>
+<?php endif; ?>
+<li>
+    <?php echo generate_label($this->__('First Name'), "firstname", true, $this) ?>
+    <?php echo generate_input_text($this->__('First Name'), "firstname", true, $this)?>
+</li>
+<?php if ($this->showMiddlename()): ?>
+    <li>
+        <?php echo generate_label($this->__('Middle Name'), "middlename", false, $this) ?>
+        <?php echo generate_input_text($this->__('Middle Name'), "middlename", false, $this)?>
+    </li>
+<?php endif ?>
+<li>
+    <?php echo generate_label($this->__('Last Name'), "lastname", true, $this) ?>
+    <?php echo generate_input_text($this->__('Last Name'), "lastname", true, $this)?>
+</li>
+<?php if ($this->showSuffix()): ?>
+    <li>
+        <?php echo generate_label($this->__('Suffix'), "suffix", $this->isSuffixRequired(), $this) ?>
+        <?php if ($this->getSuffixOptions()===false): ?>
+            <?php echo generate_input_text($this->__('Suffix'), "suffix", $this->isSuffixRequired(), $this)?>
+        <?php else: ?>
+            <?php echo generate_input_dropdown_start($this->__('Suffix'), "suffix", $this->isSuffixRequired(), $this)?>
+                <?php foreach ($this->getSuffixOptions() as $_option): ?>
+                    <option value="<?php echo $_option ?>"<?php if ($this->getObject()->getSuffix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
+                <?php endforeach ?>
+            </select>
+        <?php endif; ?>
+    </li>
+<?php endif ?>

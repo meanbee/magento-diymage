@@ -1,0 +1,33 @@
+<h1>Login or Create An Account</h1> 
+<div class="col2-set"> 
+    <div class="col-1"> 
+        <h2>New Customers</h2> 
+        <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p> 
+        <div class="buttons-set"> 
+            <button type="button" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';">Create an Account</button> 
+        </div> 
+    </div> 
+    <div class="col-2"> 
+        <h2>Registered Customers</h2> 
+        <form id="login-form" action="<?php echo $this->getPostActionUrl() ?>" method="post"> 
+            <fieldset> 
+                <h3>If you have an account with us, please log in.</h3> 
+                <ul> 
+                    <li> 
+                        <label for="login-email" class="required"><em class="required">* </em>Email Address</label> 
+                        <input type="email" class="text required validate-email" id="login-email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" /> 
+                    </li> 
+                    <li> 
+                        <label for="login-password" class="required"><em class="required">* </em>Password</label> 
+                        <input type="password" class="text required" id="login-password" name="login[password]" /> 
+                    </li> 
+                </ul> 
+            </fieldset> 
+            <div class="buttons-set"> 
+                <p class="required">* Required Fields</p> 
+                <a href="#">Forgot your password?</a> 
+                <button type="submit" class="button">Login</button> 
+            </div> 
+        </form> 
+    </div> 
+</div>

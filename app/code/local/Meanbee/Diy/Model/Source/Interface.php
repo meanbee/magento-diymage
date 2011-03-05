@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 interface Meanbee_Diy_Model_Source_Interface {
     /**
      * Return the options for a dropdown in the format:

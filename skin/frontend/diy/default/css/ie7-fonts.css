@@ -1,0 +1,20 @@
+/* Footer address was in italic */
+
+body footer section.vcard ul li.fn,
+body footer section.vcard ul li.street-address,
+body footer section.vcard ul li.locality,
+body footer section.vcard ul li.postal-code,
+body footer section.vcard ul li.country-name,
+body footer section.vcard ul li.tel {
+    font-style: normal;
+}
+
+/* Product list prices were all over the place */
+
+body ul.list-products li h3.current-price, 
+body ul.list-products li h4.original-price, 
+body ul.list-products li h3.current-price, 
+body ul.list-products li h4.original-price,
+body ul.products-grid li h4.original-price + h3.current-price {
+    text-align: left;
+}

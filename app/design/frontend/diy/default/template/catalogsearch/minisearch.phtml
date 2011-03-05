@@ -1,0 +1,7 @@
+<!-- SEARCH --> 
+<form id="search-form" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="POST"> 
+    <label for="search">Search</label> 
+    <input type="search" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" id="search" placeholder="Search the store..." /> 
+    <button value="Search" type="submit" class="button">Search</button> 
+</form> 
+<!-- END SEARCH -->

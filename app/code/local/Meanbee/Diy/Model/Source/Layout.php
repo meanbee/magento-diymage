@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Source_Layout implements Meanbee_Diy_Model_Source_Interface {
     public function asArray() {
         $layouts = Mage::getSingleton('page/config')->getPageLayouts();

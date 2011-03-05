@@ -1,12 +1,15 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Log {
     protected $_fileName;
     protected $_indent = 0;
     protected $_enabled = false;
     
     public function __construct() {
-        $this->_fileName = "diymage.log";
-        $this->_enabled = Mage::getSingleton('diy/settings')->isLoggingEnabled();
+        $config = Mage::getSingleton('diy/config');
+        
+        $this->_fileName = $config->getLogName();
+        $this->_enabled  = $config->isLoggingEnabled();
     }
     
     protected function _writeLog($message, $level) {
