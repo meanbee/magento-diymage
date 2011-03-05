@@ -1,7 +1,14 @@
 <!-- MINICART -->
 <section class="cart"> 
     <h2>Your Cart:</h2> 
-    <p>1 item(s) (£ 5.69)</p>
+    <p>
+        <?php if ($this->getItemCount() > 0): ?>
+            <?php printf("%d item%s", $this->getItemCount(), ($this->getItemCount() > 1) ? "s" : "")?>
+            (<?php echo $this->getSubtotal() ?>)
+        <?php else: ?>
+            <i>Your cart is empty</i>
+        <?php endif ?>
+    </p>
     <button type="button" class="button cart">Checkout Now</button>
 </section>
 <!-- END MINICART -->
