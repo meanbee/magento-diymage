@@ -15,7 +15,7 @@
     <a href="#reviews-list" class="review-amount">8 Review(s)</a>                   
     <a href="#write-review" class="link-review">Write a review</a> 
     <div class="description quick"> 
-        <p>A technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom.</p> 
+        <?php echo $_product->getShortDescription() ?>
     </div> 
     <!-- PRODUCT OPTIONS --> 
     <aside class="product-options"> 
@@ -84,8 +84,7 @@
     </ul> 
     <!-- END SOCIAL STUFF --> 
     <aside class="description"> 
-        <p>Olympus continues to innovate with the launch of the Stylus 750 digital camera, a technically sophisticated point-and-shoot camera offering a number of pioneering technologies such as Dual Image Stabilization, Bright Capture Technology, and TruePic Turbo, as well as a powerful 5x optical zoom that tucks away into a streamlined metal, all-weather body design.</p> 
-        <p>The camera is distinguished by a number of premium features, including: * An advanced combination of the mechanical CCD-shift Image Stabilization and Digital Image Stabilization work together to ensure the clearest pictures possible in any situation; * A 5x optical zoom lens with a newly developed lens element to maintain a small compact size; * A 2.5-inch LCD and Bright Capture Technology dramatically improve composition, capture and review of images in low-light situations; * Olympus' exclusive TruePic Turbo Image Processing engine is coupled with a 7.1-megapixel image sensor to produce crisp, high-quality p</p> 
+        <?php echo nl2br($_product->getDescription()) ?>
     </aside> 
     <!-- ADDITIONAL INFORMATION --> 
         <aside id="additional-information"> 
