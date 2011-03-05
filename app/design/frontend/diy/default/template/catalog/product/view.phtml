@@ -73,18 +73,14 @@
             <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
         </li> 
         <li class="twitter"> 
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="laurakalbag">Tweet</a> 
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
             <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
         </li> 
-        <li class="retweet"> 
-            <script type="text/javascript"> 
-                tweetmeme_url = 'http://yoururl.com';
-            </script> 
-            <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script> 
-        </li> 
-        <li class="email"> 
-            <a href="#">E-mail to a friend</a> 
-        </li> 
+        <?php if ($this->canEmailToFriend()): ?>
+            <li class="email"> 
+                <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
+            </li>
+        <?php endif; ?>
     </ul> 
     <!-- END SOCIAL STUFF --> 
     <aside class="description"> 
