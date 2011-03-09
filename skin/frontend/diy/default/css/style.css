@@ -101,16 +101,19 @@ div.col3-layout div.sidebar {
 div.col3-layout div.col-main {
     float: left;
     margin-top: 10px;
-    margin-left: 2.5%;
-    width: 50%;
+    width: 53%;
 }
 
 div.col3-layout div.col-main div.sidebar div.block {
     margin-left: 0;
 }
 
-div.col3-layout div.sidebar div.block {
+div.col3-layout div.col-right div.block {
     margin-left: 20px;
+}
+
+div.col3-layout div.col-left div.block {
+    margin-right: 20px;
 }
 
 div.col3-layout ul.list-products li div.description {
