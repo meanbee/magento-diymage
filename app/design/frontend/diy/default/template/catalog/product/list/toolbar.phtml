@@ -32,21 +32,7 @@
             <?php endif; ?>
         </li>
     <?php endif; ?> 
-    <li class="pagination"> 
-        <strong>Page:</strong> 
-        <ol> 
-            <li class="current">1</li> 
-            <li><a href="#">2</a></li> 
-            <li><a href="#">3</a></li> 
-            <li> 
-                <a class="next" href="#" title="Next"> 
-                    <img src="<?php echo $this->getSkinUrl('images/icon-arrow-right.gif') ?>" alt="Next" /> 
-                </a> 
-            </li> 
-        </ol>
-        
-        <?php echo $this->getPagerHtml() ?>
-    </li> 
+    <?php echo $this->getPagerHtml() ?>
     <li class="sort-by"> 
         <label>Sort By</label> 
         <select onchange="document.location = this.value">
