@@ -1,5 +1,7 @@
 <?php
 // {{license}}
+
+/* @var $installer Meanbee_Diy_Entity_Setup */
 $installer = $this;
 
 $installer->addEntityType('diy_data', array(
