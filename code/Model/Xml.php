@@ -1,17 +1,26 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Xml {
+    /**
+     * Extract and merge the data from all the diy.xml files.
+     *
+     * @return array
+     */
     protected function getXml() {
         return Mage::getConfig()->loadModulesConfiguration('diy.xml');
     }
-    
+
+    /**
+     * @throws Exception
+     * @return array
+     */
     public function getAttributes() {
         $attributes = $this->getXml()->getXpath('diy/attributes');
         
         if (count($attributes) == 1) {
             return $attributes[0]->asArray();
         } else {
-            throw new Exception("The number of attributes xml tags exceeded one.. I wasn't expecting that!");
+            throw new Exception("The number of attributes xml tags was not one.. I wasn't expecting that!");
         }
     }
     
@@ -25,13 +34,15 @@ class Meanbee_Diy_Model_Xml {
     public function repopulateData() {
         $groups = $this->getAttributes();
         $stores = Mage::getModel('core/store')->getCollection();
-        
+
         foreach ($stores as $store) {
             $store_id = $store['store_id'];
             
             foreach($groups as $group => $attributes) {
                 
                 foreach ($attributes as $name => $attribute) {
+                    /* @var $attribute Mage_Core_Model_Config_Element */
+
                     $collection = Mage::getModel('diy/data')->getCollection();
                     $data = Mage::getModel('diy/data');
                     
