@@ -10,11 +10,9 @@ $installer->addEntityType('diy_data', array(
     'increment_per_store'   => '0'
 ));
 
-/*
 $installer->createEntityTables(
     $this->getTable('diy/data')
 );
-*/
 
 $installer->installEntities();
 
