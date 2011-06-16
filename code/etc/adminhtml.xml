@@ -5,7 +5,7 @@
 <config>
     <menu>
         <diy translate="title" module="diy">
-            <title>Site Design</title>
+            <title>DIY Mage</title>
             <sort_order>900</sort_order>
             <action>diy/design</action>
             <children>
