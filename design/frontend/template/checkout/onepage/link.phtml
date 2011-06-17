@@ -1,0 +1,8 @@
+<?php
+/** @var $this Mage_Checkout_Block_Checkout_Onepage */
+
+$disabled = $this->isDisabled();
+?>
+<?php if ($this->isPossibleOnepageCheckout()):?>
+    <button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="button cart <?php echo ($disabled) ? 'disabled' : '' ?>"<?php echo ($disabled) ? ' disabled="disabled"' : '' ?>>Proceed to Checkout</button>
+<?php endif?>

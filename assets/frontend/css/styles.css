@@ -1316,7 +1316,7 @@ aside#product-tags p.note {
 
 /* ----------------------------- CART PAGE */
 
-div.cart h1 {
+body.checkout-cart h1 {
     float: left;
     padding-left: 20px;
 }
@@ -1433,6 +1433,7 @@ aside.shipping {
     margin-right: 20px;
     margin-bottom: 20px;
     padding: 15px 20px 20px 20px;
+    min-width: 258px;
 }
 
 /* Discount form */
@@ -1441,7 +1442,7 @@ form#discount-form {
     margin-bottom: 20px;
 }
 
-form#discount-form input#coupon-code {
+form#discount-form input#coupon_code {
     margin-top: 5px;
     margin-bottom: 20px;
     width: 94%;
@@ -1473,6 +1474,12 @@ aside.shipping form ul li select {
 aside.shipping form button {
     clear: both;
     float: right;
+}
+
+aside.shipping dl.sp-methods input.radio {
+    float: left;
+    margin-top: 6px;
+    margin-right: 7px;
 }
 
 /* Totals */

@@ -49,3 +49,9 @@
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
 <?php echo $this->getIncludes() ?>
+<script type="text/javascript">
+//<![CDATA[
+    // We've probably got prototype on the page too.
+    jQuery.noConflict();
+//]]>
+</script>
