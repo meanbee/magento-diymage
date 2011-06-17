@@ -1,9 +1,13 @@
-<!DOCTYPE html> 
+<?php
+/** @var $diy Meanbee_Diy_Helper_Theme */
+$diy = Mage::helper('diy/theme');
+?>
+<!DOCTYPE html>
 <html lang="<?php echo $this->getLang() ?>"> 
 <head> 
     <?php echo $this->getChildHtml('head') ?>
 </head>
-<body<?php echo $this->getBodyClass() ? ' class="'.$this->getBodyClass().'"' : '' ?>>
+<body<?php echo $this->getBodyClass() ? ' class="'.$diy->expandBodyClass($this->getBodyClass()).'"' : '' ?>>
     <?php echo $this->getChildHtml('header') ?>
     <?php echo $this->getChildHtml('catalog.navigation') ?>
     <!-- LAYOUT (2 COLUMN LEFT) -->
