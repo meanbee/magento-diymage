@@ -9,28 +9,28 @@
                 <font_colour>
                     <label>Font Colour</label>
                     <help>This is the default colour of the text on your store.</help>
-                    <value>666666</value>
+                    <value>333333</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>10</sort_order>
                 </font_colour>
                 <link_colour>
                     <label>Link Colour</label>
                     <help>This is the colour of the links on your site.</help>
-                    <value>ffcc00</value>
+                    <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>20</sort_order>
                 </link_colour>
                 <link_hover_colour>
                     <label>Link Hover Colour</label>
                     <help>This is the colour that the links go when you hover.</help>
-                    <value>555555</value>
+                    <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>30</sort_order>
                 </link_hover_colour>
                 <font_size>
                     <label>Font Size</label>
                     <help>This is the size of the default text around the site.  Usually 10-12px.</help>
-                    <value>10</value>
+                    <value>13</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>40</sort_order>
                 </font_size>
@@ -44,7 +44,7 @@
                 <input_colour>
                     <label>Input Colour</label>
                     <help>This is the colour used for all default inputs.</help>
-                    <value>2F2F2F</value>
+                    <value>767676</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>60</sort_order>
                 </input_colour>

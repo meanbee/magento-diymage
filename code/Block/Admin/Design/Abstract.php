@@ -2,35 +2,35 @@
 // {{license}}
 abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
     protected $_title = "No title set";
-    
+
     abstract protected function getDataGroup();
-    
+
     public function _beforeToHtml() {
         parent::_beforeToHtml();
-        
+
         Mage::register('diy_current_template', $this->getDataGroup());
-        
+
         $this->createBlocks();
-        
+
         return $this;
     }
-    
+
     /**
      * @return void
      * @author Nicholas Jones
      */
     protected function getDataCollection() {
         $data = Mage::getModel('diy/data');
-        
+
         $collection = $data->getCollection()
                             ->addAttributeToSelect('*')
                             ->addAttributeToFilter('group', $this->getDataGroup())
                             ->addAttributeToFilter('store_id', $this->getStoreId())
                             ->setOrder('sort_order', 'asc');
-        
+
         return $collection;
     }
-    
+
     /**
      * Return the currently active store.  If none set, return 1.
      *
@@ -40,7 +40,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
     public function getStoreId() {
         return (Mage::getSingleton('diy/session')->getActiveStoreId()) ? Mage::getSingleton('diy/session')->getActiveStoreId() : 1;
     }
-    
+
     /**
      * Make all of the controls for this area appear in the $this->getChildHtml() call
      * within the template file.
@@ -72,7 +72,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
             );
         }
     }
-    
+
     /**
      * Provide the URL, including the security key, that is used by the form to submit
      * and save the attributes.
@@ -87,7 +87,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
             )
         );
     }
-    
+
     public function getTitle() {
         return $this->_title;
     }
