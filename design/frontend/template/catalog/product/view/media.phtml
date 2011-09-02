@@ -18,4 +18,19 @@
         </li>
     <?php endforeach; ?>
     </ul>
+	<script type="text/javascript"> 
+		$j(function() {
+	        // Creating hoverscroll with fixed arrows
+			$j('#photo-list').hoverscroll({
+	            fixedArrows: true
+	        });
+	        
+	        // Starting the movement automatically at loading
+	        // @param direction: right/bottom = 1, left/top = -1
+	        // @param speed: Speed of the animation (scrollPosition += direction * speed)
+	        var direction = 1,
+	            speed = 3;
+	        $j("#photo-list")[0].startMoving(direction, speed);
+		});
+	</script>
 <?php endif; ?>
