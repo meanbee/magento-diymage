@@ -41,6 +41,14 @@
                 <id><![CDATA[wishlist_sidebar]]></id>
                 <name><![CDATA[Wishlist]]></name>
             </wishlist_sidebar>
+            <cms_wrapper>
+                <id><![CDATA[cms.wrapper]]></id>
+                <name><![CDATA[CMS Page Content]]></name>
+            </cms_wrapper>
+            <right_permanent_callout>
+                <id><![CDATA[right.permanent.callout]]></id>
+                <name><![CDATA[Right Callout (Permanent)]]></name>
+            </right_permanent_callout>
         </block_namemap>
         <attributes>
             <global>

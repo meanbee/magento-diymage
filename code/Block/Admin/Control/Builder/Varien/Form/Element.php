@@ -4,11 +4,11 @@ class Meanbee_Diy_Block_Admin_Control_Builder_Varien_Form_Element extends Varien
     public function getElementHtml() {
         $block = new Meanbee_Diy_Block_Admin_Control_Builder();
         
-        $block->setShowLabel(false);
+        $block->setIsCMSPage(true);
         
         $control = new Varien_Object(array(
-            "id"   => "builder",
-            "name" => "builder"
+            "id"   => "diy_builder",
+            "name" => "diy_builder"
         ));
         
         $block->setControl($control);

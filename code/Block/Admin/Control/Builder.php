@@ -1,9 +1,19 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Control_Abstract {
+    protected $_isCMSPage = false;
+    
     public function __construct() {
         parent::__construct();
         $this->setTemplate('diy/controls/builder.phtml');
+    }
+    
+    public function setIsCMSPage($value) {
+        $this->_isCMSPage = $value;
+    }
+    
+    public function isCMSPage() {
+        return $this->_isCMSPage;
     }
     
     /**
@@ -15,7 +25,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
      * @author Nicholas Jones
      */
     public function getLayoutReferenceJson($name) {
-        $template = Mage::registry('diy_current_template');
+        $template = $this->getCurrentHandle();
         $layout = Mage::getModel('diy/layout')->addHandle($template);
         
         // @TODO: Split the template on _, and add all of the handle varients.
@@ -97,6 +107,13 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         $keys = array('remove', 'sort_order');
         
         $value_json = parent::getValue();
+        
+        if ($this->isCMSPage()) {
+            $value_json = Mage::registry('cms_page')->getData('diy_builder');
+        } else {
+            $value_json = parent::getValue();
+        }
+        
         $value = Zend_Json::decode($value_json);
         
         if (count($value) > 0) {
@@ -141,5 +158,23 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         }
         
         return Zend_Json::encode($blocks);
+    }
+    
+    public function getFieldName() {
+        if ($this->isCMSPage()) {
+            return "diy_builder";
+        } else {
+            return parent::getFieldName();
+        }
+    }
+    
+    protected function getCurrentHandle() {
+        if ($this->isCMSPage()) {
+            $template = "cms_page_view";
+        } else {
+            $template = Mage::registry('diy_current_template');
+        }
+        
+        return $template;
     }
 }

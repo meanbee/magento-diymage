@@ -74,6 +74,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _modifyPageLayout($identifiers, $layout) {
+        if ($this->_isCMSPage($identifiers)) {
+            $this->_log->debug("Layout not switched because we're on a CMS page");
+            return;
+        }
+        
         // This will become true if we match something in the next set of conditionals
          $layout_file = false;
 
@@ -103,7 +108,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $to_remove = array();
         
         foreach ($identifiers as $identifier) {
-            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            $update = $this->_getUpdateXML($identifier);
             
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
@@ -145,7 +150,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         foreach ($identifiers as $identifier) {
             $this->_log->debug("Searching for identifier $identifier")->indent();
-            $update_xml = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            
+            $update_xml = $this->_getUpdateXML($identifier);
             
             if (count($update_xml) > 0) {
                 // An array of xml snippets
@@ -312,7 +318,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     
     public function _addStaticBlocks($identifiers, $layout) {
         foreach ($identifiers as $identifier) {
-            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            $update = $this->_getUpdateXML($identifier);
 
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
@@ -434,5 +440,27 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }
         
         return false;
+    }
+    
+    protected function _getUpdateXML($ident) {
+        if ($this->_isCMSPage($ident)) {
+            $page_id = Mage::app()->getRequest()->getParam('page_id');
+            $page = Mage::getModel('cms/page')->load($page_id);
+            $this->_log->debug("Observing a CMS page (#{$page_id})");
+            
+            $update_xml = $page->getData('diy_builder');
+        } else {
+            $update_xml = Mage::helper('diy')->getValue($identifier, "builder");
+        }
+        
+        return Zend_Json::decode($update_xml);
+    }
+    
+    protected function _isCMSPage($ident) {
+        if (!is_array($ident)) {
+            $ident = array($ident);
+        }
+        
+        return in_array("cms_page_view", $ident);
     }
 }

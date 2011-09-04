@@ -1,6 +1,6 @@
 <p class="diy control builder">
     <input type="hidden" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value='<?php echo $this->getValue() ?>' />
-    <?php if ($this->getShowLabel() !== false): ?>
+    <?php if (!$this->isCMSPage()): ?>
         <label>Builder</label>
         <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove pre-inserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
     <?php endif ?>
@@ -36,7 +36,7 @@
     function getLayoutElement() {
         if ($('layout')) {
             // DIY Mage page
-            return $('layout').getValue();
+            return $('layout');
         } else {
             // CMS Page new/edit
             return $('page_root_template');
@@ -238,6 +238,16 @@
         
         if (!object) {
             object = {};
+        }
+        
+        // Ensure that our arrays are converted into actual arrays, not kept as strings
+        for (var area in object) {
+            for (var key in object[area]) {
+                var value = object[area][key];
+                if (typeof(value) == "string" && value.substr(0, 1) == "[") {
+                    object[area][key] = $j.parseJSON(value);
+                }
+            }
         }
 
         return object;

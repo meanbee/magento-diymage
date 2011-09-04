@@ -19,3 +19,7 @@ $installer->createEntityTables(
 $installer->installEntities();
 
 $installer->populateData();
+
+Mage::getSingleton('adminhtml/session')->addSuccess(
+    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.1.0 (Direct Install)')
+);
