@@ -33,10 +33,8 @@
 ?>
 <?php $_product = $this->getProduct() ?>
 <?php $_associatedProducts = $this->getAssociatedProducts() ?>
-<?php if($_product->isSaleable() && count($_associatedProducts)): ?>
-	<p class="availability in-stock"><?php echo $this->__('Availability:') ?> <span class="value-title" title="In stock"><?php echo $this->__('In stock') ?></span></p>
-<?php else: ?>
-    <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?> <span class="value-title" title="Out of stock"><?php echo $this->__('Out of stock') ?></span></p>
+<?php if(!$_product->isSaleable() || !count($_associatedProducts)): ?>
+    <p class="out-of-stock"><?php echo $this->__('Sorry, this product is currently out of stock.') ?></p>
 <?php endif; ?>
 <table class="data-table grouped-items-table" id="super-product-table">
     <col />

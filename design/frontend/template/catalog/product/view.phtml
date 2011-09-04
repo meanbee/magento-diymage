@@ -2,77 +2,90 @@
     $_helper = $this->helper('catalog/output');
     $_product = $this->getProduct();
 ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <!-- PRODUCT -->
-<section class="hproduct hreview"> 
-    <div id="photos"> 
-        <?php echo $this->getChildHtml('media') ?>
-    </div> 
-    <h1 class="product-name item"> 
-        <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
-    </h1> 
-    <?php echo $this->getPriceHtml($_product) ?>
-    <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
-    <a href="#reviews-list" class="review-amount">8 Review(s)</a>                   
-    <a href="#write-review" class="link-review">Write a review</a> 
-    <div class="description quick"> 
-        <?php echo $_product->getShortDescription() ?>
-    </div> 
-    <!-- PRODUCT OPTIONS --> 
-    <aside class="product-options"> 
-        <dl> 
-            <dt><label>Gender <em class="required">*</em></label></dt> 
-            <dd> 
-                <select name="gender" id="gender" class="required" required> 
-                    <option>Select</option> 
-                    <option id="gender-male">Male</option> 
-                    <option id="gender-female">Female</option> 
-                </select> 
-            </dd> 
-            <dt><label>Shoe Size <em class="required">*</em></label></dt> 
-            <dd class="last"> 
-                <select name="shoe-size" id="shoe-size" class="required" required> 
-                    <option>Select</option> 
-                    <option id="shoe-size-3">3</option> 
-                    <option id="shoe-size-4">4</option> 
-                    <option id="shoe-size-4-5">4.5</option> 
-                    <option id="shoe-size-5">5</option> 
-                    <option id="shoe-size-5-5">5.5</option> 
-                    <option id="shoe-size-6">6</option> 
-                </select> 
-            </dd> 
-        </dl> 
-        <p class="required">* Required Fields</p> 
-    </aside> 
-    <!-- END PRODUCT OPTIONS --> 
-    <?php echo $this->getTierPriceHtml() ?>
-    <div class="actions out-of-stock"> 
-        <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
-        <fieldset class="quantity"> 
-            <label for="qty"><abbr title="Quantity">Qty</abbr>:</label> 
-            <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
-        </fieldset> 
-        <button type="button" title="Add to Cart" class="button disabled">Add to Cart</button> 
-        <ul class="add-to-links"> 
-            <li><a href="#" class="link-wishlist">Add to Wishlist</a></li> 
-            <li><a href="" class="link-compare">Add to Compare</a></li> 
-       </ul> 
-    </div> 
-    <!-- SOCIAL STUFF --> 
-   <ul class="social-buttons"> 
-        <li class="facebook"> 
-            <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
-            <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
-        </li> 
-        <li class="twitter"> 
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
-            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
-        </li> 
-        <?php if ($this->canEmailToFriend()): ?>
-            <li class="email"> 
-                <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
-            </li>
-        <?php endif; ?>
-    </ul> 
+<section class="hproduct hreview">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+    
+        <div id="photos"> 
+            <?php echo $this->getChildHtml('media') ?>
+        </div> 
+        <h1 class="product-name item"> 
+            <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
+        </h1> 
+        <?php echo $this->getPriceHtml($_product) ?>
+        <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+        <div class="description quick"> 
+            <?php echo $_product->getShortDescription() ?>
+        </div> 
+        <?php echo $this->getChildHtml('alert_urls') ?>
+        <!-- PRODUCT OPTIONS --> 
+        <aside class="product-options"> 
+            <dl> 
+                <dt><label>Gender <em class="required">*</em></label></dt> 
+                <dd> 
+                    <select name="gender" id="gender" class="required" required> 
+                        <option>Select</option> 
+                        <option id="gender-male">Male</option> 
+                        <option id="gender-female">Female</option> 
+                    </select> 
+                </dd> 
+                <dt><label>Shoe Size <em class="required">*</em></label></dt> 
+                <dd class="last"> 
+                    <select name="shoe-size" id="shoe-size" class="required" required> 
+                        <option>Select</option> 
+                        <option id="shoe-size-3">3</option> 
+                        <option id="shoe-size-4">4</option> 
+                        <option id="shoe-size-4-5">4.5</option> 
+                        <option id="shoe-size-5">5</option> 
+                        <option id="shoe-size-5-5">5.5</option> 
+                        <option id="shoe-size-6">6</option> 
+                    </select> 
+                </dd> 
+            </dl> 
+            <p class="required">* Required Fields</p> 
+        </aside> 
+        <!-- END PRODUCT OPTIONS --> 
+        <?php echo $this->getTierPriceHtml() ?>
+        <?php echo $this->getChildHtml('extrahint') ?>
+        <?php echo $this->getChildHtml('product_type_data') ?>
+        <div class="actions out-of-stock"> 
+            <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
+            <fieldset class="quantity"> 
+                <label for="qty"><abbr title="Quantity">Qty</abbr>:</label> 
+                <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
+            </fieldset> 
+            <button type="button" title="Add to Cart" class="button disabled">Add to Cart</button> 
+            <ul class="add-to-links"> 
+                <li><a href="#" class="link-wishlist">Add to Wishlist</a></li> 
+                <li><a href="" class="link-compare">Add to Compare</a></li> 
+           </ul> 
+        </div> 
+    
+        <!-- SOCIAL STUFF --> 
+       <ul class="social-buttons"> 
+            <li class="facebook"> 
+                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
+                <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
+            </li> 
+            <li class="twitter"> 
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
+                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+            </li> 
+            <?php if ($this->canEmailToFriend()): ?>
+                <li class="email"> 
+                    <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
+                </li>
+            <?php endif; ?>
+        </ul> 
+    </form>
     <!-- END SOCIAL STUFF --> 
     <aside class="description"> 
         <?php echo nl2br($_product->getDescription()) ?>
