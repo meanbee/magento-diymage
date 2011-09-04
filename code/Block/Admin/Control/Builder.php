@@ -25,7 +25,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
      * @author Nicholas Jones
      */
     public function getLayoutReferenceJson($name) {
-        $template = Mage::registry('diy_current_template');
+        $template = $this->getCurrentHandle();
         $layout = Mage::getModel('diy/layout')->addHandle($template);
         
         // @TODO: Split the template on _, and add all of the handle varients.
@@ -166,5 +166,15 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         } else {
             return parent::getFieldName();
         }
+    }
+    
+    protected function getCurrentHandle() {
+        if ($this->isCMSPage()) {
+            $template = "cms_page_view";
+        } else {
+            $template = Mage::registry('diy_current_template');
+        }
+        
+        return $template;
     }
 }
