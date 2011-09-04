@@ -29,56 +29,22 @@
         
         <?php if ($_product->isSaleable() && $this->hasOptions()):?>
              <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-         <?php endif;?>
+        <?php endif;?>
          
-           <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-             <?php endif;?>
-        <!-- PRODUCT OPTIONS --> 
-        <aside class="product-options"> 
-            <dl> 
-                <dt><label>Gender <em class="required">*</em></label></dt> 
-                <dd> 
-                    <select name="gender" id="gender" class="required" required> 
-                        <option>Select</option> 
-                        <option id="gender-male">Male</option> 
-                        <option id="gender-female">Female</option> 
-                    </select> 
-                </dd> 
-                <dt><label>Shoe Size <em class="required">*</em></label></dt> 
-                <dd class="last"> 
-                    <select name="shoe-size" id="shoe-size" class="required" required> 
-                        <option>Select</option> 
-                        <option id="shoe-size-3">3</option> 
-                        <option id="shoe-size-4">4</option> 
-                        <option id="shoe-size-4-5">4.5</option> 
-                        <option id="shoe-size-5">5</option> 
-                        <option id="shoe-size-5-5">5.5</option> 
-                        <option id="shoe-size-6">6</option> 
-                    </select> 
-                </dd> 
-            </dl> 
-        </aside> 
-        <!-- END PRODUCT OPTIONS --> 
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+
         <?php echo $this->getTierPriceHtml() ?>
         <?php echo $this->getChildHtml('extrahint') ?>
         <?php echo $this->getChildHtml('product_type_data') ?>
 
         <?php if (!$this->hasOptions()):?>
             <div class="actions"> 
-                 <?php if($_product->isSaleable()): ?>
+                <?php if($_product->isSaleable()): ?>
                     <?php echo $this->getChildHtml('addtocart') ?>
-                    <fieldset class="quantity"> 
-                        <label for="qty"><abbr title="<?php echo $this->__('Quantity'); ?>"><?php echo $this->__('Qty'); ?></abbr>:</label> 
-                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
-                    </fieldset> 
-                    <button type="button" title="<?php echo $this->__('Add to Cart'); ?>" class="button<?php if (!$_product->isSaleable()) { echo " disabled";} ?>"><?php echo $this->__('Add to Cart'); ?></button> 
                 <?php endif; ?>
                 <?php echo $this->getChildHtml('addto') ?>
-                <ul class="add-to-links"> 
-                    <li><a href="#" class="link-wishlist"><?php echo $this->__('Add to Wishlist'); ?></a></li> 
-                    <li><a href="#" class="link-compare"><?php echo $this->__('Add to Compare'); ?></a></li> 
-               </ul> 
             </div>
             <?php echo $this->getChildHtml('extra_buttons') ?>
         <?php endif; ?>
@@ -327,4 +293,4 @@ All but one of the later Queen singles (picking up where Hits II left off) are h
     </aside> 
     <!-- END PRODUCT TAGS --> 
 </section> 
-<!-- END PRODUCT -->-
+<!-- END PRODUCT -->

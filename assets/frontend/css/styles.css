@@ -823,7 +823,11 @@ section.hproduct div.actions {
     float: right;
     margin-bottom: 20px;
     overflow: hidden;
-    width: 370px;
+    width: 360px;
+}
+
+section.hproduct div.actions.addtocart {
+    margin-bottom:0;
 }
 
 section.hproduct div.out-of-stock p.out-of-stock {

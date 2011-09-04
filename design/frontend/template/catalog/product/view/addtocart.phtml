@@ -27,11 +27,12 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
-    <div class="actions"> 
+    <div class="actions addtocart"> 
         <?php if(!$_product->isGrouped()): ?>
             <fieldset class="quantity"> 
                 <label for="qty"><abbr title="<?php echo $this->__('Quantity'); ?>"><?php echo $this->__('Qty'); ?></abbr>:</label>
-                <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="text qty" /> 
+                <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="text qty" />
+            </fieldset>
         <?php endif; ?>
         <button type="button" title="<?php echo $buttonTitle ?>" class="button<?php if (!$_product->isSaleable()) { echo " disabled";} ?>" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button> 
         <?php echo $this->getChildHtml('', true, true) ?>
