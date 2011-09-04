@@ -50,9 +50,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         $store_id = Mage::app()->getStore()->getStoreId();
         
+        $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
-        $this->_addStaticBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
         
         if (!Mage::helper('diy')->getValue("global", "show_categories")) {
