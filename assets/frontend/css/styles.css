@@ -966,60 +966,6 @@ abbr.rating span {
     width: 85px;
 }
 
-/* 0.5 star */
-
-abbr.stars-0-5 span {
-    width: 8.5px;
-}
-
-/* 1 star */
-
-abbr.stars-1-0 span {
-    width: 17px;
-}
-
-/* 1.5 stars */
-
-abbr.stars-1-5 span {
-    width: 25.5px;
-}
-
-/* 2 stars */
-
-abbr.stars-2-0 span {
-    width: 34px;
-}
-
-/* 2.5 stars */
-
-abbr.stars-2-5 span {
-    width: 42.5px;
-}
-
-/* 3 stars */
-
-abbr.stars-3-0 span {
-    width: 51px;
-}
-
-/* 3.5 stars */
-
-abbr.stars-3-5 span {
-    width: 59.5px;
-}
-
-/* 4 stars */
-
-abbr.stars-4-0 span {
-    width: 68.5px;
-}
-
-/* 4.5 star */
-
-abbr.stars-4-5 span {
-    width: 76.5px;
-}
-
 aside#reviews h3 {
     border-top: 1px solid;
     margin-top: 10px;
