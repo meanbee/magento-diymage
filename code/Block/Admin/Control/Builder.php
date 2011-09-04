@@ -112,23 +112,11 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     /**
      * Get a map of block names to nice names, in json form
      *
-     * @TODO: Move this out to XML file
-     *
      * @return string (json)
      * @author Nicholas Jones
      */
     public function getBlocksNiceNameMap() {
-        return Zend_Json::encode(array(
-            "right.poll"                => "Poll",
-            "left.newsletter"           => "Newsletter Signup",
-            "currency"                  => "Currency Select",
-            "tags_popular"              => "Popular Tags",
-            "catalog.leftnav"           => "Category Navigation",
-            "cart_sidebar"              => "Mini Cart",
-            "catalog.compare.sidebar"   => "Compare Products",
-            "paypal.partner.right.logo" => "Paypal Logo",
-            "wishlist_sidebar"          => "Wishlist"
-        ));
+        return Zend_Json::encode(Mage::getModel('diy/xml')->getBlockNamemap());
     }
     
     /**

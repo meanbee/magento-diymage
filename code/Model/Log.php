@@ -24,7 +24,7 @@ class Meanbee_Diy_Model_Log {
             $this->_indent = 0;
         }
         
-        Mage::log($message, $level, $this->_fileName, true);
+        Mage::log($message, $level, $this->_fileName, true /* Force logging */);
     }
     
     public function debug($message) {

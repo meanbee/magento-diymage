@@ -4,6 +4,44 @@
 -->
 <config>
     <diy>
+        <block_namemap>
+            <right_poll>
+                <id><![CDATA[right.poll]]></id>
+                <name><![CDATA[Poll]]></name>
+            </right_poll>
+            <left_newsletter>
+                <id><![CDATA[left.newsletter]]></id>
+                <name><![CDATA[Newsletter Signup]]></name>
+            </left_newsletter>
+            <currency>
+                <id><![CDATA[currency]]></id>
+                <name><![CDATA[Currency Select]]></name>
+            </currency>
+            <tags>
+                <id><![CDATA[tags_popular]]></id>
+                <name><![CDATA[Popular Tags]]></name>
+            </tags>
+            <category_leftnav>
+                <id><![CDATA[catalog.leftnav]]></id>
+                <name><![CDATA[Category Navigation]]></name>
+            </category_leftnav>
+            <cart_sidebar>
+                <id><![CDATA[cart_sidebar]]></id>
+                <name><![CDATA[Mini Cart]]></name>
+            </cart_sidebar>
+            <catalog_compare_sidebar>
+                <id><![CDATA[catalog.compare.sidebar]]></id>
+                <name><![CDATA[Compare Products]]></name>
+            </catalog_compare_sidebar>
+            <paypal_right_logo>
+                <id><![CDATA[paypal.partner.right.logo]]></id>
+                <name><![CDATA[Paypal Logo]]></name>
+            </paypal_right_logo>
+            <wishlist_sidebar>
+                <id><![CDATA[wishlist_sidebar]]></id>
+                <name><![CDATA[Wishlist]]></name>
+            </wishlist_sidebar>
+        </block_namemap>
         <attributes>
             <global>
                 <font_colour>

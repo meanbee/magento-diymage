@@ -1,6 +1,12 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Xml {
+    protected $_log;
+    
+    public function __construct() {
+        $this->_log = Mage::getSingleton('diy/log');
+    }
+    
     /**
      * Extract and merge the data from all the diy.xml files.
      *
@@ -22,6 +28,32 @@ class Meanbee_Diy_Model_Xml {
         } else {
             throw new Exception("The number of attributes xml tags was not one.. I wasn't expecting that!");
         }
+    }
+    
+    /**
+     * Find all of the entries in xpath diy/block_namemap.
+     * 
+     * @return array
+     */
+    public function getBlockNamemap() {
+        $result = array();
+        $map = $this->getXml()->getXpath('diy/block_namemap');
+        
+        if (count($map) == 1) {
+            $xml_data = $map[0]->asArray();
+            
+            if (count($xml_data) > 0) {
+                foreach ($xml_data as $entry) {
+                    if (isset($entry['id']) && isset($entry['name'])) {
+                        $result[$entry['id']] = $entry['name'];
+                    } else {
+                        $this->_log->warn("Block name map: Found an 'entry' missing either an id or a name: " . json_encode($entry));
+                    }
+                }
+            }
+        }
+        
+        return $result;
     }
     
     /**
