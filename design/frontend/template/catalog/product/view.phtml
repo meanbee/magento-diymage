@@ -25,6 +25,7 @@
         <div class="description quick"> 
             <?php echo $_product->getShortDescription() ?>
         </div> 
+        <?php echo $this->getChildHtml('alert_urls') ?>
         <!-- PRODUCT OPTIONS --> 
         <aside class="product-options"> 
             <dl> 
@@ -53,6 +54,8 @@
         </aside> 
         <!-- END PRODUCT OPTIONS --> 
         <?php echo $this->getTierPriceHtml() ?>
+        <?php echo $this->getChildHtml('extrahint') ?>
+        <?php echo $this->getChildHtml('product_type_data') ?>
         <div class="actions out-of-stock"> 
             <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
             <fieldset class="quantity"> 
