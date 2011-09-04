@@ -21,10 +21,13 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         // @TODO: Split the template on _, and add all of the handle varients.
         $template_parts = explode("_", $template);
         
-        if ($template_parts > 1) {
+        if (count($template_parts) > 0) {
             $layout->addHandle($template_parts[0]);
-            $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
-            $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
+            
+            if (count($template_parts) > 1) {
+                $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
+                $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
+            }
         }
         
         $reference = $layout->getReference($name);
@@ -96,12 +99,14 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         $value_json = parent::getValue();
         $value = Zend_Json::decode($value_json);
         
-        foreach ($value as $group => $data) {
-            foreach ($keys as $key) {
-                if ($value[$group][$key] == "[]") {
-                    $value[$group][$key] = array();
-                } else {
-                    $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
+        if (count($value) > 0) {
+            foreach ($value as $group => $data) {
+                foreach ($keys as $key) {
+                    if ($value[$group][$key] == "[]") {
+                        $value[$group][$key] = array();
+                    } else {
+                        $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
+                    }
                 }
             }
         }

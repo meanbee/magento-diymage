@@ -61,6 +61,11 @@ p.diy.control.builder {
     margin-right: 0px;
 }
 
+.adminhtml-cms-page-edit p.diy.control.builder, .adminhtml-cms-page-new p.diy.control.builder {
+    float: none;
+    width: 97%;
+}
+
 p.diy.control.builder span.help {
     margin-top: 0px;
     margin-bottom: 0px;
