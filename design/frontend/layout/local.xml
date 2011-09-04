@@ -50,5 +50,9 @@
             <action method="addItem"><type>skin_js</type><name>js/hoverscroll/jquery.hoverscroll.js</name><params/><if /></action>
             <action method="addItem"><type>skin_js</type><name>js/review-toggles.js</name><params/><if /></action>
         </reference>
+        
+        <reference name="product.info">
+            <block type="catalog/product_view" name="product.social" as="social.links" template="catalog/product/view/social_links.phtml" />
+        </reference>
     </catalog_product_view>
 </layout>

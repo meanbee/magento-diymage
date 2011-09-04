@@ -1,0 +1,18 @@
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<!-- SOCIAL LINKS --> 
+<ul class="social-buttons"> 
+     <li class="facebook"> 
+         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
+         <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
+     </li> 
+     <li class="twitter"> 
+         <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
+         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+     </li> 
+     <?php if ($this->canEmailToFriend()): ?>
+         <li class="email"> 
+             <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
+         </li>
+     <?php endif; ?>
+ </ul><!-- END SOCIAL LINKS -->

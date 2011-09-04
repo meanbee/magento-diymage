@@ -26,6 +26,14 @@
             <?php echo $_product->getShortDescription() ?>
         </div> 
         <?php echo $this->getChildHtml('alert_urls') ?>
+        
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+             <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+         <?php endif;?>
+         
+           <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+             <?php endif;?>
         <!-- PRODUCT OPTIONS --> 
         <aside class="product-options"> 
             <dl> 
@@ -50,43 +58,34 @@
                     </select> 
                 </dd> 
             </dl> 
-            <p class="required">* Required Fields</p> 
         </aside> 
         <!-- END PRODUCT OPTIONS --> 
         <?php echo $this->getTierPriceHtml() ?>
         <?php echo $this->getChildHtml('extrahint') ?>
         <?php echo $this->getChildHtml('product_type_data') ?>
-        <div class="actions out-of-stock"> 
-            <p class="out-of-stock">Sorry, this product is currently out of stock.</p> 
-            <fieldset class="quantity"> 
-                <label for="qty"><abbr title="Quantity">Qty</abbr>:</label> 
-                <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
-            </fieldset> 
-            <button type="button" title="Add to Cart" class="button disabled">Add to Cart</button> 
-            <ul class="add-to-links"> 
-                <li><a href="#" class="link-wishlist">Add to Wishlist</a></li> 
-                <li><a href="" class="link-compare">Add to Compare</a></li> 
-           </ul> 
-        </div> 
+
+        <?php if (!$this->hasOptions()):?>
+            <div class="actions"> 
+                 <?php if($_product->isSaleable()): ?>
+                    <?php echo $this->getChildHtml('addtocart') ?>
+                    <fieldset class="quantity"> 
+                        <label for="qty"><abbr title="<?php echo $this->__('Quantity'); ?>"><?php echo $this->__('Qty'); ?></abbr>:</label> 
+                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="text qty" /> 
+                    </fieldset> 
+                    <button type="button" title="<?php echo $this->__('Add to Cart'); ?>" class="button<?php if (!$_product->isSaleable()) { echo " disabled";} ?>"><?php echo $this->__('Add to Cart'); ?></button> 
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('addto') ?>
+                <ul class="add-to-links"> 
+                    <li><a href="#" class="link-wishlist"><?php echo $this->__('Add to Wishlist'); ?></a></li> 
+                    <li><a href="#" class="link-compare"><?php echo $this->__('Add to Compare'); ?></a></li> 
+               </ul> 
+            </div>
+            <?php echo $this->getChildHtml('extra_buttons') ?>
+        <?php endif; ?>
     
-        <!-- SOCIAL STUFF --> 
-       <ul class="social-buttons"> 
-            <li class="facebook"> 
-                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
-                <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
-            </li> 
-            <li class="twitter"> 
-                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
-                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
-            </li> 
-            <?php if ($this->canEmailToFriend()): ?>
-                <li class="email"> 
-                    <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a> 
-                </li>
-            <?php endif; ?>
-        </ul> 
+        <?php echo $this->getChildHtml('social.links'); ?>
+        
     </form>
-    <!-- END SOCIAL STUFF --> 
     <aside class="description"> 
         <?php echo nl2br($_product->getDescription()) ?>
     </aside> 
