@@ -865,7 +865,7 @@ section.hproduct div.actions ul.add-to-links li {
 section.hproduct ul.social-buttons {
     float: left;
     overflow: hidden;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
 }
 
 section.hproduct ul.social-buttons li {
