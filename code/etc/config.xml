@@ -62,6 +62,15 @@
                     </diy_layouts>
                 </observers>
             </controller_action_layout_generate_xml_before>
+            <adminhtml_cms_page_edit_tab_design_prepare_form>
+                <observers>
+                    <diy_add_builder_to_page_design>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>adminCmsPageEdit</method>
+                    </diy_add_builder_to_page_design>
+                </observers>
+            </adminhtml_cms_page_edit_tab_design_prepare_form>
         </events>
     </global>
 

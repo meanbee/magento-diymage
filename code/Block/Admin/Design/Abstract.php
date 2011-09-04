@@ -46,7 +46,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
      * within the template file.
      *
      * If there are no blocks specified in any diy.xml, then output the blank block which,
-     * incedentaly, is not blank.
+     * incidentally, is not blank.
      *
      * @return void
      * @author Nicholas Jones

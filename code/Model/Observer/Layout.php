@@ -11,11 +11,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     /**
      * @TODO: Add event listeners for adding custom stylesheets
      *
-     * @param string $observer 
+     * @param Varien_Event_Observer $observer 
      * @return void
      * @author Nicholas Jones
      */
-    public function observe($observer) {
+    public function observe(Varien_Event_Observer $observer) {
         
         if (!Mage::getSingleton('diy/config')->isEnabled()) {
             return;

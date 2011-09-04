@@ -1,7 +1,9 @@
 <p class="diy control builder">
     <input type="hidden" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value='<?php echo $this->getValue() ?>' />
-    <label>Builder</label>
-    <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
+    <?php if ($this->getShowLabel() !== false): ?>
+        <label>Builder</label>
+        <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove pre-inserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
+    <?php endif ?>
     <span id="builder_canvas"></span>
 </p>
 
@@ -25,20 +27,32 @@
         updateLayoutBuilder();
 
         // Every time we change the layout of the page, update the builder layout
-        $('layout').observe('change', function (e) {
+        getLayoutElement().observe('change', function (e) {
             updateLayoutBuilder();
         });
     });
+    
+    // Return the dropdown list containing the currently selected page layout
+    function getLayoutElement() {
+        if ($('layout')) {
+            // DIY Mage page
+            return $('layout').getValue();
+        } else {
+            // CMS Page new/edit
+            return $('page_root_template');
+        }
+    }
     
     // Update layout builder extracts the data we need to pass to drawLayoutBuilder()
     // which actually performs the rendering of the builder control.  The argument we'll
     // pass will be an array of objects, the objects have two properties, "key" and "label".
     // The key is the unique name identifying the section, and label is the descriptive name.
     function updateLayoutBuilder() {
-        var layout = $('layout').getValue();
         var configuration = [];
         
-        if (layout.match(/2/) && layout.match(/left/)) {
+        var layout = getLayoutElement().value;
+        
+        if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/left/)) {
             configuration.push(
                 {
                     key: "left",
@@ -49,7 +63,7 @@
                     label: "Main"
                 }
             );
-        } else if (layout.match(/2/) && layout.match(/right/)) {
+        } else if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/right/)) {
                 configuration.push(
                     {
                         key: "content",
@@ -60,7 +74,7 @@
                         label: "Right Column"
                     }
                 );
-        } else if (layout.match(/3/)) {
+        } else if (layout.match(/3/) || layout.match(/three/)) {
             configuration.push(
                 {
                     key: "left",
@@ -75,7 +89,7 @@
                     label: "Right Column"
                 }
             );
-        } else if (layout.match(/1/)) {
+        } else if (layout.match(/1/) || layout.match(/one/)) {
             configuration.push(
                 {
                     key: "content",

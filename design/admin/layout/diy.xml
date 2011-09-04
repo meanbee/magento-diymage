@@ -8,8 +8,8 @@
             <action method="addItem"><type>skin_js</type><name>diy/js/settings_screen.js</name><if /></action>
         </reference>
     </adminhtml_system_config_edit>
-
-    <diy_design>
+    
+    <diy_js>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
@@ -25,6 +25,10 @@
             <action method="addItem"><type>skin_css</type><name>diy/css/colorpicker.css</name><params /></action>
             <action method="addItem"><type>skin_css</type><name>diy/css/controls.css</name><params /></action>
         </reference>
+    </diy_js>
+
+    <diy_design>
+        <update handle="diy_js" />
         <reference name="content">
             <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
             <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
@@ -100,4 +104,9 @@
             <block type="diy/admin_design_noroute" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_noroute>
+    
+    <!-- Already includes adminhtml_cms_page_new -->
+    <adminhtml_cms_page_edit>
+        <update handle="diy_js" />
+    </adminhtml_cms_page_edit>    
 </layout>
