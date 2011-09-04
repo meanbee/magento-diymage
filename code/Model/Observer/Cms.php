@@ -18,11 +18,11 @@ class Meanbee_Diy_Model_Observer_Cms implements Meanbee_Diy_Model_Observer_Inter
 
         // Whoa! Look at the size of that bad boy!
         $builder = new Meanbee_Diy_Block_Admin_Control_Builder_Varien_Form_Element(array(
-            'name'  => 'builder',
+            'name'  => 'diy_builder',
             'label' => ''
         ));
         
-        $builder->setId('builder');
+        $builder->setId('diy_builder');
         
         $builderFieldset->addElement($builder);
     }
