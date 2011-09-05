@@ -52,45 +52,40 @@
         <?php echo $this->getChildHtml('social.links'); ?>
         
     </form>
-    <aside class="description"> 
-        <?php echo nl2br($_product->getDescription()) ?>
-    </aside> 
     <!-- ADDITIONAL INFORMATION --> 
-        <div class="product-collateral">
     <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
-            <div class="box-collateral <?php echo "box-{$alias}"?>">
-                <?php if ($title = $this->getChildData($alias, 'title')):?>
-                <h2><?php echo $this->escapeHtml($title); ?></h2>
-                <?php endif;?>
-                <?php echo $html; ?>
-            </div>
-    <?php endforeach;?>
-            <?php echo $this->getChildHtml('product_additional_data') ?>
+        <div class="box-collateral <?php echo "box-{$alias}"?>">
+            <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+            <?php echo $html; ?>
         </div>
+    <?php endforeach;?>
+    <?php echo $this->getChildHtml('product_additional_data') ?>
         
         
-        <aside id="additional-information"> 
-            <h2>Additional Information</h2> 
-            <dl> 
-                <dt>Model</dt> 
-                <dd>B000JI2N0I</dd> 
-                <dt>In depth</dt> 
-                <dd> 
-                    <ul> 
-                        <li>Made of EVA foam</li> 
-                        <li>Heel strap keeps shoe on foot</li> 
-                        <li>Non-marking, slip-resistant outsole</li> 
-                        <li>Weigh just 6-10 ounces</li> 
-                    </ul> 
-                </dd> 
-                <dt>Model 2</dt> 
-                <dd>B000JI2N0I</dd> 
-                <dt>Details</dt> 
-                <dd> 
-                    <p>Comfortable and fun to wear these clogs are the latest trend in fashion footwear. Wear them either at the beach, in your garden, at the mall or just about anywhere you would want to be comfortable.</p> 
-                </dd> 
-            </dl> 
-        </aside> 
+    <aside id="additional-information"> 
+        <h2>Additional Information</h2> 
+        <dl> 
+            <dt>Model</dt> 
+            <dd>B000JI2N0I</dd> 
+            <dt>In depth</dt> 
+            <dd> 
+                <ul> 
+                    <li>Made of EVA foam</li> 
+                    <li>Heel strap keeps shoe on foot</li> 
+                    <li>Non-marking, slip-resistant outsole</li> 
+                    <li>Weigh just 6-10 ounces</li> 
+                </ul> 
+            </dd> 
+            <dt>Model 2</dt> 
+            <dd>B000JI2N0I</dd> 
+            <dt>Details</dt> 
+            <dd> 
+                <p>Comfortable and fun to wear these clogs are the latest trend in fashion footwear. Wear them either at the beach, in your garden, at the mall or just about anywhere you would want to be comfortable.</p> 
+            </dd> 
+        </dl> 
+    </aside> 
     <!-- END ADDITIONAL INFORMATION --> 
     <!-- REVIEWS IN FULL --> 
     <aside id="reviews"> 

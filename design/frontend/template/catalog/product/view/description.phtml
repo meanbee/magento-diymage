@@ -35,10 +35,7 @@
 	$_product = $this->getProduct();
 ?>
 <?php if ($_description): ?>
-<div class="box-collateral box-description">
-    <h2><?php echo $_product->getName().' '.$this->__('Description'); ?></h2>
-    <div class="std">
+<aside class="description">
         <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), nl2br($_description), 'description') ?>
-    </div>
-</div>
+</aside>
 <?php endif; ?>
