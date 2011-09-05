@@ -222,35 +222,7 @@ All but one of the later Queen singles (picking up where Hits II left off) are h
     </aside> 
     <!-- END REVIEWS IN FULL --> 
     <?php echo $this->getChildHtml('upsell_products') ?>
-    <!-- PRODUCT TAGS --> 
-    <aside id="product-tags"> 
-        <h2>Product Tags</h2> 
-        <h3>Other people marked this product with these tags:</h3> 
-        <ul class="product-tags"> 
-            <li><a href="#">camera <span class="amount">(7)</span></a></li> 
-            <li><a href="#">very <span class="amount">(5)</span></a></li> 
-            <li><a href="#">good <span class="amount">(8)</span></a></li> 
-            <li><a href="#">favorite <span class="amount">(13)</span></a></li> 
-            <li><a href="#">nice <span class="amount">(2)</span></a></li> 
-            <li><a href="#">bla <span class="amount">(1)</span></a></li> 
-            <li><a href="#">buenisimo <span class="amount">(4)</span></a></li> 
-            <li><a href="#">one <span class="amount">(2)</span></a></li> 
-            <li><a href="#">quick <span class="amount">(7)</span></a></li> 
-            <li><a href="#">fox <span class="amount">(9)</span></a></li> 
-            <li><a href="#">jumped <span class="amount">(7)</span></a></li> 
-            <li><a href="#">over <span class="amount">(6)</span></a></li> 
-            <li><a href="#">lazy <span class="amount">(8)</span></a></li> 
-            <li><a href="#">dog <span class="amount">(1)</span></a></li> 
-            <li><a href="#">jugs <span class="amount">(2)</span></a></li> 
-            <li><a href="#">clay <span class="amount">(1)</span></a></li> 
-        </ul> 
-        <form id="add-tags" action="#"> 
-            <label for="product-tag-name">Add Your Tags:</label> 
-            <input type="text" class="text required-entry" name="product-tag-name" id="product-tag-name" /> 
-            <input type="submit" title="Add Tags" class="button" value="Add Tags" /> 
-        </form> 
-        <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p> 
-    </aside> 
-    <!-- END PRODUCT TAGS --> 
+    <?php echo $this->getChildHtml('product.tags') ?>
+    
 </section> 
 <!-- END PRODUCT -->
