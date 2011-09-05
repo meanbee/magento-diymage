@@ -56,6 +56,19 @@
         <?php echo nl2br($_product->getDescription()) ?>
     </aside> 
     <!-- ADDITIONAL INFORMATION --> 
+        <div class="product-collateral">
+    <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+            <div class="box-collateral <?php echo "box-{$alias}"?>">
+                <?php if ($title = $this->getChildData($alias, 'title')):?>
+                <h2><?php echo $this->escapeHtml($title); ?></h2>
+                <?php endif;?>
+                <?php echo $html; ?>
+            </div>
+    <?php endforeach;?>
+            <?php echo $this->getChildHtml('product_additional_data') ?>
+        </div>
+        
+        
         <aside id="additional-information"> 
             <h2>Additional Information</h2> 
             <dl> 
@@ -208,60 +221,7 @@ All but one of the later Queen singles (picking up where Hits II left off) are h
         </ul>   
     </aside> 
     <!-- END REVIEWS IN FULL --> 
-    <!-- RELATED PRODUCTS --> 
-    <aside id="related-products"> 
-        <h2>Related Products</h2> 
-        <ul class="products-grid"> 
-            <li class="hproduct hreview"> 
-                <a href="#" title="Fujifilm FinePix A180 Digital Camera" class="product-image"> 
-                    <img class="photo" src="placeholders/product3.jpg" width="140" height="140" alt="Fujifilm FinePix A180 Digital Camera" /> 
-                </a> 
-                <h3 class="product-name item"> 
-                    <a href="#" class="fn" title="Fujifilm FinePix A180 Digital Camera">Fujifilm FinePix A180 Digital Camera</a> 
-                </h3> 
-                <h5 class="original-price">Was <del>&pound; 3.00</del></h5> 
-                <h4 class="current-price">Now <strong class="price">&pound; 2.75</strong></h4> 
-                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
-                <a href="#" class="review-amount">4 Review(s)</a>                   
-            </li> 
-            <li class="hproduct hreview"> 
-                <a href="#" title="GE J1250 Black Digital Camera" class="product-image"> 
-                    <img class="photo" src="placeholders/product4.jpg" width="140" height="140" alt="GE J1250 Black Digital Camera" /> 
-                </a> 
-                <h3 class="product-name item"> 
-                    <a href="#" class="fn" title="GE J1250 Black Digital Camera">GE J1250 Black Digital Camera</a> 
-                </h3> 
-                <h4 class="current-price"><strong class="price">&pound; 5000.00</strong></h4> 
-                <abbr class="rating stars-3-5" title="3.5 out of 5 stars"><span>3.5</span></abbr> 
-                <a href="#" class="review-amount">13 Review(s)</a>                  
-            </li> 
-            <li class="hproduct hreview"> 
-                <a href="#" title="Samsung ST5000 (Black) Digital Camera" class="product-image"> 
-                    <img class="photo" src="placeholders/product6.jpg" width="140" height="140" alt="Samsung ST5000 (Black) Digital Camera" /> 
-                </a> 
-                <h3 class="product-name item"> 
-                    <a href="#" class="fn" title="Samsung ST5000 (Black) Digital Camera">Samsung ST5000 (Black) Digital Camera</a> 
-                </h3> 
-                <h5 class="original-price">Was <del>&pound; 14.00</del></h5> 
-                <h4 class="current-price">Now <strong class="price">&pound; 12.75</strong></h4> 
-                <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
-                <a href="#" class="review-amount">1 Review(s)</a>                   
-            </li> 
-            <li class="hproduct hreview"> 
-                <a href="#" title="Fujifilm FinePix A180 Digital Camera" class="product-image"> 
-                    <img class="photo" src="placeholders/product3.jpg" width="140" height="140" alt="Fujifilm FinePix A180 Digital Camera" /> 
-                </a> 
-                <h3 class="product-name item"> 
-                    <a href="#" class="fn" title="Fujifilm FinePix A180 Digital Camera">Fujifilm FinePix A180 Digital Camera</a> 
-                </h3> 
-                <h5 class="original-price">Was <del>&pound; 3.00</del></h5> 
-                <h4 class="current-price">Now <strong class="price">&pound; 2.75</strong></h4> 
-                <abbr class="rating stars-1-0" title="1 out of 5 stars"><span>1</span></abbr> 
-                <a href="#" class="review-amount">4 Review(s)</a>                   
-            </li> 
-        </ul> 
-    </aside> 
-    <!-- END RELATED PRODUCTS --> 
+    <?php echo $this->getChildHtml('upsell_products') ?>
     <!-- PRODUCT TAGS --> 
     <aside id="product-tags"> 
         <h2>Product Tags</h2> 

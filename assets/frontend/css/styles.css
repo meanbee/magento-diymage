@@ -582,23 +582,23 @@ div.col2-right-layout div.col-main ul.products-grid li:nth-child(n+7) {
     padding-bottom: 20px;
 }
 
-ul.products-grid li h2 {
+ul.products-grid li h2.product-name {
     height: 75px;
     margin-top: 20px;
 }
 
-ul.products-grid li h3.current-price {
+ul.products-grid li h2.current-price {
     margin-top: 25px;
     padding-bottom: 0;
 }
 
-ul.products-grid li h4.original-price + h3.current-price {
+ul.products-grid li h3.original-price + h2.current-price {
     margin-top: 0;
     width: 110px;
 }
 
-ul.products-grid li h3.current-price,
-ul.products-grid li h4.original-price {
+ul.products-grid li h2.current-price,
+ul.products-grid li h3.original-price {
     clear: right;
     float: right;
 }
@@ -713,27 +713,25 @@ ul.list-products li ul.add-to-links li a {
     margin-right: 20px;
 }
 
-ul.list-products li h3.current-price, 
-ul.list-products li h4.original-price,
-ul.list-products li h3.current-price, 
-ul.list-products li h4.original-price {
+ul.list-products li h2.current-price, 
+ul.list-products li h3.original-price {
     clear: both;
     float: right;
 }
 
-ul.list-products li h3.current-price {
+ul.list-products li h2.current-price {
     margin-top: 0;
 }
 
-ul.list-products li h4.original-price + h3.current-price {
+ul.list-products li h3.original-price + h2.current-price {
     margin-top: -59px;
 }
 
-ul.list-products li h3.current-price {
+ul.list-products li h2.current-price {
     margin-top: -38px;
 }
 
-ul.list-products li h4.original-price {
+ul.list-products li h3.original-price {
     margin-top: -83px;
 }
 
@@ -817,6 +815,11 @@ aside.product-options dl select {
 
 aside.product-options dl dd {
     margin-bottom: 10px;
+}
+
+aside.product-options-bottom {
+    width:360px;
+    float:right;
 }
 
 section.hproduct div.actions {
@@ -1162,7 +1165,7 @@ aside#related-products {
     padding-top: 10px;
 }
 
-aside#related-products h2 {
+aside#related-products > h2 {
     border-bottom: 1px solid;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -1179,12 +1182,21 @@ aside#related-products ul.products-grid li abbr.rating {
     margin: 3px 0 5px 27px;
 }
 
-aside#related-products ul.products-grid li h4.current-price {
+aside#related-products ul.products-grid li h2.current-price {
     margin-top: 25px;
+    float:none;
 }
 
-aside#related-products ul.products-grid li h5.original-price + h4.current-price {
+aside#related-products ul.products-grid li h3.original-price {
+    float:none;
+    padding:0;
+}
+
+aside#related-products ul.products-grid li h3.original-price + h2.current-price {
     margin-top: 0;
+    height:auto;
+    width:auto;
+    text-align:center;
 }
 
 aside#related-products ul.products-grid li:nth-child(3n) {
