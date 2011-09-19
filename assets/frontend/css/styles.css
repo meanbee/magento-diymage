@@ -36,6 +36,11 @@ div.block div.block-content p.block-subtitle {
     clear: both;
 }
 
+div.block div.block-content h2.current-price,
+div.block div.block-content h2.original-price {
+    padding-bottom:0;
+}
+
 /* ----------------------------- MAGENTO STANDARD COLUMN LAYOUT */
 
 /* Standard column styles */
@@ -342,7 +347,6 @@ a.btn-remove:hover {
 a.simple-button,
 input.simple-button,
 button.simple-button,
-div.sidebar div.block a,
 div.sidebar div.block button {
     -moz-border-radius: 5px;
     border-radius: 5px;
