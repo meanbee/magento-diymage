@@ -53,12 +53,16 @@ p.note {
 /* Default Magento block styles */
 
 div.block div.block-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 div.block div.block-title h2 {
     font-size: 14px;
+}
+
+div.block div.block-title strong span {
+    font-weight:bold;
 }
 
 div.block div.block-content p.block-subtitle {
