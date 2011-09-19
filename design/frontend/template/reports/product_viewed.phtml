@@ -40,11 +40,7 @@
                 <h3 class="product-name item">
             	    <a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?></a>
             	</h3>
-            	<?php // Get price and use price.phtml to make sure it's accurate. ?>
-            	<?php $_product_block = $this->getLayout()->createBlock('catalog/product'); ?>
-            	<?php $_product_block->setTemplate('catalog/product/price.phtml') ?>
-            	<?php $_product_block->setProduct($_item) ?>
-            	<?php echo $_product_block->toHtml(); ?>
+            	<?php echo $this->getPriceHtml($_item, true, '-viewedrecently') ?>
             </li>
         <?php endforeach; ?>
         </ol>
