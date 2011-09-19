@@ -826,7 +826,7 @@ section.hproduct div.actions {
     float: right;
     margin-bottom: 20px;
     overflow: hidden;
-    width: 360px;
+    width: 140px;
 }
 
 section.hproduct div.actions.addtocart {
@@ -872,7 +872,7 @@ section.hproduct div.actions ul.add-to-links li {
 section.hproduct ul.social-buttons {
     float: left;
     overflow: hidden;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
 }
 
 section.hproduct ul.social-buttons li {
@@ -884,6 +884,11 @@ section.hproduct ul.social-buttons li {
 section.hproduct ul.social-buttons li.email {
     clear: both;
     display: block;
+}
+
+section.hproduct .box-description { 
+    clear:both; 
+    padding-top:20px;
 }
 
 /* ----------------------------- TIERED PRICING */
