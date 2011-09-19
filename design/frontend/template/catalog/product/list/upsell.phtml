@@ -26,7 +26,7 @@
 ?>
 <?php if(count($this->getItemCollection()->getItems())): ?>
 <aside id="related-products"> 
-      <h2><?php echo $this->__('Related Products'); ?></h2> 
+      <h2><?php echo $this->__('You Might Like'); ?></h2> 
       <ul class="products-grid"> 
           <?php $this->resetItemsIterator() ?>
           <?php for($_i=0;$_i<$this->getColumnCount();$_i++): ?>
