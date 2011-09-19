@@ -943,6 +943,7 @@ aside#additional-information dd ol {
 /* ----------------------------- PRODUCT REVIEWS */
 
 aside#reviews {
+    clear:both;
     border: 1px solid;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -986,6 +987,15 @@ aside#reviews h3 {
 
 ul.products-grid li a.link-review {
     display: block;
+}
+
+ul#reviews-list div.rating-box { 
+    float:left;
+    width:100px;
+}
+
+aside#reviews div.description {
+    clear:both;
 }
 
 /* Review form */
