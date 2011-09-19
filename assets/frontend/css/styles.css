@@ -1193,6 +1193,10 @@ aside#related-products ul.products-grid li {
     width: 140px;
 }
 
+aside#related-products ul.products-grid h3.product-name {
+    min-height:85px;
+}
+
 aside#related-products ul.products-grid li abbr.rating {
     margin: 3px 0 5px 27px;
 }
