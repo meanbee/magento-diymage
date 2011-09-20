@@ -57,4 +57,10 @@
         <?php endforeach; ?>
         <?php echo $this->getChildHtml('toolbar') ?>
     </aside>
+<?php else: ?>
+    <aside id="reviews">
+        <h2><?php echo $this->__('Customer Reviews') ?></h2>
+        <?php echo $this->getLayout()->createBlock('review/helper')->getSummaryHtml($_product, false, true); ?>
+        <?php echo $this->getChildHtml('review_form') ?>
+    </aside>
 <?php endif;?>
