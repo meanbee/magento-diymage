@@ -1198,7 +1198,7 @@ aside#related-products ul.products-grid li {
 }
 
 aside#related-products ul.products-grid h3.product-name {
-    min-height:85px;
+    min-height:75px;
 }
 
 aside#related-products ul.products-grid li abbr.rating {
