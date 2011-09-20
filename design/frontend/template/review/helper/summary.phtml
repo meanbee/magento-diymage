@@ -37,5 +37,5 @@
         </p>
     </div>
 <?php elseif ($this->getDisplayIfEmpty()): ?>
-    <p class="no-rating"><a rel="nofollow" href="<?php echo $this->getProduct()->getProductUrl() ?>#write-review"><?php echo $this->__('Be the first to review this product') ?></a></p>
+    <p class="no-rating"><a rel="nofollow" class="link-review" href="<?php echo $this->getProduct()->getProductUrl() ?>#write-review"><?php echo $this->__('Be the first to review this product') ?></a></p>
 <?php endif; ?>
