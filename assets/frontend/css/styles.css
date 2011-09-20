@@ -834,7 +834,12 @@ section.hproduct div.actions {
 }
 
 section.hproduct div.actions.addtocart {
-    margin-bottom:0;
+    margin:0 0 0 215px;
+    float:right;
+}
+
+section.hproduct aside.product-options-bottom + ul.social-buttons {
+    padding-left:20px;
 }
 
 section.hproduct div.out-of-stock p.out-of-stock {
