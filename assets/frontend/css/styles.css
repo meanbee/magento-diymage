@@ -1450,6 +1450,21 @@ table#cart td.remove a.remove:hover {
     padding-right:20px;
 }
 
+/* Create an Account */
+
+#create-account { 
+    margin: 0 auto;
+    width:50%
+}
+
+#create-account input {
+    width:100%;
+}
+
+#create-account div.buttons-set button {
+    float:right;
+}
+
 /* Cart page layout */Login
 
 div.col2-set {
@@ -1686,7 +1701,8 @@ ol#checkout-steps li div.buttons-set {
 }
 
 ol#checkout-steps li div.buttons-set p.back-link,
-div.account div.col-main form div.buttons-set p.back-link {
+div.account div.col-main form div.buttons-set p.back-link,
+#create-account div.buttons-set p.back-link {
     float: left;
 }
 
@@ -1697,7 +1713,8 @@ ol#checkout-steps li div.buttons-set p.required {
 }
 
 ol#checkout-steps li#checkout-method div.buttons-set p.required,
-div.account div.col-main form div.buttons-set p.required {
+div.account div.col-main form div.buttons-set p.required,
+#create-account div.buttons-set p.required {
     margin: 0 0 10px 0;
     width: 100%;
 }
@@ -1744,7 +1761,9 @@ div.col-main ul.radio-list label {
 ol#checkout-steps li section form input[type="text"], 
 ol#checkout-steps li section form input.text,
 div.account div.col-main form input[type="text"],
-div.account div.col-main form input.text {
+div.account div.col-main form input.text,
+#create-account input[type="text"],
+#create-account input.text {
     border: 1px solid;
 }
 
@@ -1891,7 +1910,8 @@ div.account div.col-main form {
     width: 50%;
 }
 
-div.account div.col-main form fieldset {
+div.account div.col-main form fieldset,
+#create-form fieldset {
     border-bottom: 1px dotted;
     margin-bottom: 10px;
 }

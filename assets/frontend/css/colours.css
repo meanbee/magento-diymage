@@ -454,7 +454,9 @@ ol#checkout-steps li section form div#checkout-shipping-method-load {
 ol#checkout-steps li section form input[type="text"], 
 ol#checkout-steps li section form input.text,
 div.account div.col-main form input[type="text"],
-div.account div.col-main form input.text {
+div.account div.col-main form input.text,
+#create-account input[type="text"],
+#create-account input.text {
     border-color: #ffb553;
 }
 
@@ -509,7 +511,8 @@ div.dashboard div.box-account div.box-title {
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
 
 div.block-account div.block-content ul li,
-div.account div.col-main form fieldset {
+div.account div.col-main form fieldset,
+#create-account fieldset {
     border-color: #e8e8e8;
 }
 
