@@ -438,6 +438,10 @@ div.block-poll form label {
     display: inline;
 }
 
+div.block-poll ol#poll-answers {
+    margin-left:18px;
+}
+
 /* ----------------------------- PAYPAL LOGO SIDEBAR */
 
 div.sidebar div.paypal-logo {
