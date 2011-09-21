@@ -34,7 +34,7 @@
         <ol id="recently-viewed-items">
         <?php foreach ($_products as $_item): ?>
         	<li class="hproduct"> 
-        	    <a href="#" title="<?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?>" class="product-image">
+        	    <a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?>" class="product-image">
 					<img class="photo" src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(50); ?>" width="50" height="50" alt="<?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?>">
 				</a>
                 <h3 class="product-name item">
