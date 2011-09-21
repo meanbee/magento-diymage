@@ -1443,6 +1443,14 @@ div.col2-set div.col-2 {
     width: 50%;
 }
 
+div.col1-layout div.col2-set {
+    width:100%;
+}
+
+body.checkout-cart div.col1-layout div.col2-set {
+    width:640px;
+}
+
 form#discount-form,
 aside.shipping {
     border: 1px solid;
