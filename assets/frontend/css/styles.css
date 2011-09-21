@@ -1336,6 +1336,11 @@ body.checkout-cart h1 {
     padding-left: 20px;
 }
 
+.cart-empty {
+    clear:both;
+    padding-left:20px;
+}
+
 ul.checkout-types {
     list-style-type: none;
     overflow: hidden;
