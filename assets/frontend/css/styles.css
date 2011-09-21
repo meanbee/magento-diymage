@@ -294,6 +294,12 @@ textarea {
     padding: 5px; 
 }
 
+input[type=text],
+input[type=email],
+input[type=password] {
+    width:250px;
+}
+
 input[type=search] {
     border: 2px solid;
     padding: 5px; 
@@ -1429,7 +1435,22 @@ table#cart td.remove a.remove:hover {
     opacity: 1;
 }
 
-/* Cart page layout */
+/* Register / Login */
+
+#login-form div.buttons-set a,
+#login-form div.buttons-set button {
+    float:left;
+}
+
+#login-form div.buttons-set button {
+    margin-left:55px;
+}
+
+#login-form div.col2-set p { 
+    padding-right:20px;
+}
+
+/* Cart page layout */Login
 
 div.col2-set {
     float: left;
@@ -1908,6 +1929,10 @@ section#promo {
     clear: both;
     overflow: hidden;
     width: 100%;
+}
+
+section#promo input[type=email] {
+    width:auto;
 }
 
 section#promo div.block {
