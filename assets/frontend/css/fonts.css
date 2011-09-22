@@ -326,7 +326,7 @@ ol#checkout-steps li h4 {
 }
 
 ol#checkout-steps li div.buttons-set p.required,
-div.account div.col-main form div.buttons-set p.required,
+div.my-account form div.buttons-set p.required,
 #create-account div.buttons-set p.required {
     text-align: right;
 }

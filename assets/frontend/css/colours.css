@@ -453,8 +453,8 @@ ol#checkout-steps li section form div#checkout-shipping-method-load {
 
 ol#checkout-steps li section form input[type="text"], 
 ol#checkout-steps li section form input.text,
-div.account div.col-main form input[type="text"],
-div.account div.col-main form input.text,
+div.my-account form input[type="text"],
+div.my-account form input.text,
 #create-account input[type="text"],
 #create-account input.text {
     border-color: #ffb553;
@@ -466,8 +466,8 @@ form input.validation-failed,
 form select.validation-failed,
 ol#checkout-steps li section form input[type="text"].validation-failed, 
 ol#checkout-steps li section form input.validation-failed,
-div.account div.col-main form input[type="text"].validation-failed,
-div.account div.col-main form input.validation-failed,
+div.my-account form input[type="text"].validation-failed,
+div.my-account form input.validation-failed,
 ol#checkout-steps li section form select.validation-failed {
     border-color: #d31e0b !important;
 }
@@ -479,8 +479,8 @@ form .validation-advice {
 
 ol#checkout-steps li section form input[type="text"]:focus, 
 ol#checkout-steps li section form input.text:focus,
-div.account div.col-main form input[type="text"]:focus,
-div.account div.col-main form input.text:focus {
+div.my-account form input[type="text"]:focus,
+div.my-account form input.text:focus {
     border-color: #eb6302; /* Orange */
 }
 
@@ -512,7 +512,7 @@ div.dashboard div.box-account div.box-title {
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
 
 div.block-account div.block-content ul li,
-div.account div.col-main form fieldset,
+div.my-account form fieldset,
 #create-account fieldset {
     border-color: #e8e8e8;
 }

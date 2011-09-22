@@ -1725,7 +1725,7 @@ ol#checkout-steps li div.buttons-set {
 }
 
 ol#checkout-steps li div.buttons-set p.back-link,
-div.account div.col-main form div.buttons-set p.back-link,
+div.my-account form div.buttons-set p.back-link,
 #create-account div.buttons-set p.back-link {
     float: left;
 }
@@ -1737,7 +1737,7 @@ ol#checkout-steps li div.buttons-set p.required {
 }
 
 ol#checkout-steps li#checkout-method div.buttons-set p.required,
-div.account div.col-main form div.buttons-set p.required,
+div.my-account form div.buttons-set p.required,
 #create-account div.buttons-set p.required {
     margin: 0 0 10px 0;
     width: 100%;
@@ -1784,8 +1784,8 @@ div.col-main ul.radio-list label {
 
 ol#checkout-steps li section form input[type="text"], 
 ol#checkout-steps li section form input.text,
-div.account div.col-main form input[type="text"],
-div.account div.col-main form input.text,
+div.my-account form  input[type="text"],
+div.my-account form input.text,
 #create-account input[type="text"],
 #create-account input.text {
     border: 1px solid;
@@ -1928,30 +1928,30 @@ div.dashboard div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
-div.account div.col-main form {
+div.my-account form {
     margin: 0 auto;
     padding: 10px;
     width: 50%;
 }
 
-div.account div.col-main form fieldset,
+div.my-account form fieldset,
 #create-account fieldset {
     border-bottom: 1px dotted;
     margin-bottom: 10px;
 }
 
-div.account div.col-main form fieldset input.text,
-div.account div.col-main form fieldset input[type="text"],
-div.account div.col-main form fieldset textarea,
-div.account div.col-main form fieldset select {
+div.my-account form fieldset input.text,
+div.my-account form fieldset input[type="text"],
+div.my-account form fieldset textarea,
+div.my-account form fieldset select {
     width: 100%;
 }
 
-div.account div.col-main form div.buttons-set {
+div.my-account form div.buttons-set {
     overflow: hidden;
 }
 
-div.account div.col-main form div.buttons-set button {
+div.my-account form div.buttons-set button {
     float: right;
 }
 
