@@ -469,11 +469,12 @@ ol#checkout-steps li section form input.validation-failed,
 div.account div.col-main form input[type="text"].validation-failed,
 div.account div.col-main form input.validation-failed,
 ol#checkout-steps li section form select.validation-failed {
-    border-color: #d31e0b;
+    border-color: #d31e0b !important;
 }
 
-ol#checkout-steps li section form p.validation-advice {
-    color: #bb1b09;
+ol#checkout-steps li section form p.validation-advice,
+form .validation-advice {
+    color: #bb1b09 !important;
 }
 
 ol#checkout-steps li section form input[type="text"]:focus, 

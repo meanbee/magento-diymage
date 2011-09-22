@@ -315,6 +315,17 @@ form ul li {
     list-style-type: none;
 }
 
+form ul li input.checkbox,
+form ul li input.radio { 
+    width:auto;
+    display:inline;
+}
+
+form ul li input.checkbox + label,
+form ul li input.radio + label {
+    display:inline;
+}
+
 /* ----------------------------- BUTTONS */
 
 a.button,
@@ -1461,11 +1472,15 @@ table#cart td.remove a.remove:hover {
     width:100%;
 }
 
+#create-account input.checkbox {
+    width:auto;
+}
+
 #create-account div.buttons-set button {
     float:right;
 }
 
-/* Cart page layout */Login
+/* Cart page layout */
 
 div.col2-set {
     float: left;
@@ -1795,7 +1810,7 @@ ol#checkout-steps li section form input.checkbox + label {
 }
 
 ol#checkout-steps li section form ul li,
-div.account div.col-main form ul li  {
+form ul li  {
     list-style-type: none;
     margin-bottom: 10px;
 }
@@ -1911,7 +1926,7 @@ div.account div.col-main form {
 }
 
 div.account div.col-main form fieldset,
-#create-form fieldset {
+#create-account fieldset {
     border-bottom: 1px dotted;
     margin-bottom: 10px;
 }
