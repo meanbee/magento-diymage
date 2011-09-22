@@ -108,6 +108,12 @@ nav ul a {
     text-transform: uppercase;
 }
 
+/* ----------------------------- MESSAGES */
+
+ul.messages span {
+    font-size:12px;
+}
+
 /* ----------------------------- FORMS */
 
 form input[type=text],
