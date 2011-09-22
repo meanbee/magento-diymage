@@ -455,6 +455,10 @@ div.block-poll form label {
     display: inline;
 }
 
+div.block-poll form ul li {
+    margin:0;
+}
+
 div.block-poll ol#poll-answers {
     margin-left:18px;
 }
