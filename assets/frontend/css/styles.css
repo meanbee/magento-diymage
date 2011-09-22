@@ -1461,22 +1461,31 @@ table#cart td.remove a.remove:hover {
     padding-right:20px;
 }
 
-/* Create an Account */
+/* Single column form e.g. Create an Account */
 
-#create-account { 
+div.col1-layout form { 
     margin: 0 auto;
     width:50%
 }
 
-#create-account input {
-    width:100%;
-}
-
-#create-account input.checkbox {
+div.col1-layout .col2-set form {
+    margin:0;
     width:auto;
 }
 
-#create-account div.buttons-set button {
+div.col1-layout form input {
+    width:100%;
+}
+
+div.col1-layout .col2-set form input {
+    width:250px;
+}
+
+div.col1-layout form input.checkbox {
+    width:auto;
+}
+
+div.col1-layout form div.buttons-set button {
     float:right;
 }
 
