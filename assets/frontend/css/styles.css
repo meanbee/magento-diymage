@@ -1221,24 +1221,19 @@ div.block-cart div.actions button {
 }
 
 /* ----------------------------- VIEWED PRODUCTS */
+/* ----------------------------- RECENTLY COMPARED PRODUCTS */
 
-div.sidebar div.block-viewed div.block-title { 
-    border-bottom: 0;
-}
-
-div.block-viewed ol li {
-    border-top: 1px solid;
+div.block-viewed ol li,
+div.block-compared ol li {
+    border-bottom: 1px solid;
     clear: both;
     list-style-type: none;
     overflow: hidden;
     padding: 10px 0;
 }
 
-div.block-viewed ol li:last-child {
-    border-bottom: 1px solid;
-}
-
-div.block-viewed ol li img.photo {
+div.block-viewed ol li img.photo,
+div.block-compared ol li img.photo {
     border: 1px solid;
     float: right;
     margin: 0 0 10px 10px;

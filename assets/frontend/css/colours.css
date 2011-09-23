@@ -300,6 +300,17 @@ div.block-viewed ol li img.photo {
     border-color: #e8e8e8;
 }
 
+/* ----------------------------- RECENTLY COMPARED PRODUCTS */
+
+div.block-compared ol li,
+div.block-compared ol li:last-child {
+    border-color: #ccc;
+}
+
+div.block-compared ol li img.photo {
+    border-color: #e8e8e8;
+}
+
 /* ----------------------------- RELATED PRODUCTS */
 
 aside#related-products,
