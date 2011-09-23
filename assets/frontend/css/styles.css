@@ -1947,6 +1947,11 @@ div.dashboard div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
+div.my-account div.buttons-set { 
+    clear:both;
+    float:right;
+}
+
 div.my-account form {
     margin: 0 auto;
     padding: 10px;
@@ -1972,6 +1977,11 @@ div.my-account form div.buttons-set {
 
 div.my-account form div.buttons-set button {
     float: right;
+}
+
+div.my-account div.addresses-primary ol li {
+    margin-bottom:10px;
+    
 }
 
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
