@@ -1947,7 +1947,7 @@ div.dashboard div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
-div.my-account div.buttons-set { 
+div.my-account div.addresses-list + div.buttons-set { 
     clear:both;
     float:right;
 }
