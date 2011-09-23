@@ -513,6 +513,15 @@ ul.breadcrumbs li.current-page:after {
     content: ""
 }
 
+/* ----------------------------- TITLE BUTTONS */
+.title-buttons h1 {
+    float:left;
+}
+
+.title-buttons button {
+    float:right;
+}
+
 /* ----------------------------- PRODUCT SORTER*/
 
 ul.product-sorter {
