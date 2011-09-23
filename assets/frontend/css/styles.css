@@ -1980,6 +1980,10 @@ div.block-account div.block-content ul li {
     padding-top: 5px;
 }
 
+div.block-account div.block-content ul li:first-child {
+    border-top:0;
+}
+
 /* ----------------------------- PROMO BAR */
 
 section#promo {
