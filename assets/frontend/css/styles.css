@@ -1391,6 +1391,7 @@ ul.checkout-types li button.cart {
 
 form#cart-form {
     clear: both;
+    width:100%;
 }
 
 table#cart {
