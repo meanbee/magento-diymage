@@ -1218,6 +1218,8 @@ div.block-cart div.actions {
 
 div.block-cart div.actions button {
     float: right;
+    border-radius:12px;
+    padding:5px 20px;
 }
 
 /* ----------------------------- VIEWED PRODUCTS */

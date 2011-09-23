@@ -305,6 +305,10 @@ div.block-cart div.summary h3 {
     font-weight: normal;
 }
 
+div.block-cart strong span.price {
+    font-weight:bold;
+}
+
 div.notes dl dt {
     font-weight: bold;
 }

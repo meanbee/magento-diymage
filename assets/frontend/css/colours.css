@@ -113,7 +113,8 @@ button:hover {
 
 a.cart,
 input.cart,
-button.cart {
+button.cart,
+div.sidebar div.block button.cart {
     background-color: #409a40;
     border: 1px solid #409a40; /* Green for browsers that don't support rgba */
     border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
