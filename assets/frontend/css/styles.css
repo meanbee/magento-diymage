@@ -518,7 +518,8 @@ ul.breadcrumbs li.current-page:after {
     float:left;
 }
 
-.title-buttons button {
+.title-buttons button,
+.title-buttons a {
     float:right;
 }
 
@@ -1998,6 +1999,59 @@ div.block-account div.block-content ul li {
 
 div.block-account div.block-content ul li:first-child {
     border-top:0;
+}
+
+/* ----------------------------- COMPARE PRODUCTS */
+body.catalog-product-compare-index .title-buttons {
+    margin:10px;
+}
+
+body.catalog-product-compare-index .data-table {
+    clear:both;
+    margin-bottom:20px;
+}
+
+body.catalog-product-compare-index .data-table .product-name {
+    min-height:75px;
+}
+
+body.catalog-product-compare-index ul li {
+    list-style-type:none;
+}
+
+body.catalog-product-compare-index table th {
+    text-align:left;
+}
+
+body.catalog-product-compare-index table th span {
+    font-weight:bold;
+}
+
+body.catalog-product-compare-index table td {
+    padding:5px;
+}
+
+body.catalog-product-compare-index table tr.product-shop-row td,
+body.catalog-product-compare-index table tr.add-to-row td {
+    text-align:center;
+}
+
+body.catalog-product-compare-index table tr.product-shop-row button,
+body.catalog-product-compare-index table tr.add-to-row button {
+    display:inline;
+}
+
+body.catalog-product-compare-index table tr.product-shop-row .price-box {
+    margin-top:25px;
+}
+
+body.catalog-product-compare-index table tr.product-shop-row .ratings + .price-box {
+    margin:0;
+}
+
+body.catalog-product-compare-index div.buttons-set {
+    float:right;
+    padding-bottom:20px;
 }
 
 /* ----------------------------- PROMO BAR */
