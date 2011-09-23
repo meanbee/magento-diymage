@@ -929,6 +929,7 @@ section.hproduct div.actions ul.add-to-links {
 section.hproduct div.actions ul.add-to-links li {
     list-style-type: none;
     text-align: right;
+    margin-bottom:0;
 }
 
 /* Social buttons */
@@ -942,7 +943,7 @@ section.hproduct ul.social-buttons {
 section.hproduct ul.social-buttons li {
     float: left;
     list-style-type: none;
-    margin-right: 10px;
+    margin:0 10px 0 0;
 }
 
 section.hproduct ul.social-buttons li.email {
