@@ -1140,6 +1140,11 @@ div.block-cart ol li {
     padding: 10px 0;
 }
 
+div.block-compare ol li:first-child,
+div.block-cart ol li:first-child {
+    border-top:0;
+}
+
 div.block-compare ol li img.photo,
 div.block-cart ol li img.photo {
     border: 1px solid;
