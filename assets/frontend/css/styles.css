@@ -453,15 +453,14 @@ div.block-layered-nav ol {
 
 /* ----------------------------- POPULAR TAGS */
 
-div.block-tags ul { 
+ul.tags-list { 
     list-style-type:none;
 }
 
-div.block-tags ul li { 
+ul.tags-list li {
     display:inline;
     margin-right:4px;
 }
-
 
 /* ----------------------------- POLL */
 
