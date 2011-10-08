@@ -1,16 +1,22 @@
 <!-- SITE NAVIGATION --> 
 <ul class="site-navigation"> 
     <li> 
-        <a href="<?php echo $this->getUrl("customer/account") ?>" title="My Account">My Account</a> 
+        <a href="<?php echo $this->getUrl("customer/account") ?>" title="<?php echo $this->__('My Account') ?>"><?php echo $this->__('My Account') ?></a> 
     </li> 
     <li> 
-        <a href="<?php echo $this->getUrl("wishlist") ?>" title="My Wishlist" class="top-link-wishlist">My Wishlist</a> 
+        <a href="<?php echo $this->getUrl("wishlist") ?>" title="<?php echo $this->__('My Wishlist') ?>" class="top-link-wishlist"><?php echo $this->__('My Wishlist') ?></a> 
     </li> 
     <li> 
-        <a href="<?php echo $this->getUrl("checkout") ?>" title="Checkout" class="top-link-checkout">Checkout</a> 
-    </li> 
+        <a href="<?php echo $this->getUrl("checkout") ?>" title="<?php echo $this->__('Checkout') ?>" class="top-link-checkout"><?php echo $this->__('Checkout') ?></a> 
+    </li>
+    <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> 
     <li> 
-        <a href="<?php echo $this->getUrl("customer/account/login") ?>" title="Log Out">Log Out</a> 
-    </li> 
+        <a href="<?php echo $this->getUrl("customer/account/logout") ?>" title="<?php echo $this->__('Log Out') ?>"><?php echo $this->__('Log Out') ?></a> 
+    </li>
+    <?php else: ?>
+    <li>
+        <a href="<?php echo $this->getUrl("customer/account/login") ?>" title="<?php echo $this->__('Log In') ?>"><?php echo $this->__('Log In') ?></a>
+    </li>
+    <?php endif; ?>
 </ul> 
 <!-- END SITE NAVIGATION -->
