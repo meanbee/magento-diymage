@@ -702,6 +702,11 @@ ul.products-grid li h3.original-price {
     width: 110px;
 }
 
+ul.products-grid li a.minimal-price-link {
+    float:right;
+    width: 110px;
+}
+
 ul.products-grid li div.actions {
     margin-top: 25px;
 }
@@ -814,6 +819,7 @@ ul.list-products li ul.add-to-links li a {
 
 ul.list-products li p.price-from,
 ul.list-products li p.price-to,
+ul.list-products li p.minimal-price,
 ul.list-products li h2.current-price, 
 ul.list-products li h3.original-price {
     clear: both;
