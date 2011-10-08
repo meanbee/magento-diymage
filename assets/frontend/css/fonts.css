@@ -176,6 +176,16 @@ h2.current-price span {
     font-weight:bold; 
 }
 
+ul.products-grid li p.price-from,
+ul.products-grid li p.price-to,
+ul.products-grid li p.minimal-price,
+ul.products-grid li a.minimal-price-link,
+ul.products-grid li h2.current-price, 
+ul.products-grid li h3.original-price,
+ul.products-grid li h3.original-price + h2.current-price {
+    text-align: right;
+}
+
 /* Product options */
 
 aside.product-options dl dt label {
@@ -198,16 +208,6 @@ ul.list-products li h2 {
 
 ul.list-products li ul.add-to-links li {
     text-align: left;
-}
-
-ul.list-products li p.price-from,
-ul.list-products li p.price-to,
-ul.list-products li p.minimal-price,
-ul.list-products li a.minimal-price-link,
-ul.list-products li h2.current-price, 
-ul.list-products li h3.original-price,
-ul.products-grid li h3.original-price + h2.current-price {
-    text-align: right;
 }
 
 /* ----------------------------- ADDITIONAL INFORMATION */

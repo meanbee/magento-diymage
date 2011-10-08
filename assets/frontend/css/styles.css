@@ -695,6 +695,10 @@ ul.products-grid li h3.original-price + h2.current-price {
     margin-top: 0;
 }
 
+ul.products-grid li p.price-from,
+ul.products-grid li p.price-to,
+ul.products-grid li p.minimal-price,
+ul.products-grid li a.minimal-price-link,
 ul.products-grid li h2.current-price,
 ul.products-grid li h3.original-price {
     clear: right;
