@@ -638,6 +638,8 @@ ul.products-grid li {
     padding: 20px 19px 19px 20px; /* 19px makes up for 1px border */
 }
 
+ul.
+
 /* 2 column, grid layout, 3 products across */
 
 div.col2-left-layout div.col-main ul.products-grid li,
@@ -671,13 +673,13 @@ ul.products-grid li h2.current-price {
 
 ul.products-grid li h3.original-price + h2.current-price {
     margin-top: 0;
-    width: 110px;
 }
 
 ul.products-grid li h2.current-price,
 ul.products-grid li h3.original-price {
     clear: right;
     float: right;
+    width: 110px;
 }
 
 ul.products-grid li div.actions {
