@@ -186,11 +186,11 @@ ul.product-sorter li.view-mode a {
 
 /* ----------------------------- PRODUCTS GRID */
 
-ul.products-grid li {
+ul.products-grid li.hproduct {
     border-color: #ccc;
 }
 
-ul.products-grid li h4.original-price + h3.current-price {
+ul.products-grid li.hproduct h4.original-price + h3.current-price {
     color: #c80202;
 }
 
@@ -215,8 +215,8 @@ section.hproduct div.out-of-stock p.out-of-stock {
 /* ----------------------------- PRODUCTS LIST */
 /* (does inherit from products grid) */
 
-div.col2-left-layout div.col-main ul.list-products li:nth-child(n+7),
-div.col2-right-layout div.col-main ul.list-products li:nth-child(n+7) {
+div.col2-left-layout div.col-main ul.list-products li.hproduct:nth-child(n+7),
+div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
     border-color: #ccc;
 }
 
