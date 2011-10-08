@@ -451,6 +451,18 @@ div.block-layered-nav ol {
     list-style-type: none;
 }
 
+/* ----------------------------- POPULAR TAGS */
+
+div.block-tags ul { 
+    list-style-type:none;
+}
+
+div.block-tags ul li { 
+    display:inline;
+    margin-right:4px;
+}
+
+
 /* ----------------------------- POLL */
 
 div.block-poll form div p.block-subtitle {
