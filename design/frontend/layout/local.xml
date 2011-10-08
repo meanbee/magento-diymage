@@ -3,6 +3,7 @@
     <default>
         <remove name="right.permanent.callout" />
         <remove name="left.permanent.callout" />
+        <remove name="left.newsletter" />
         <reference name="head">
             <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
             <action method="addItem"><type>skin_css</type><name>css/ie7.css</name><params/><if>IE 7</if></action>
