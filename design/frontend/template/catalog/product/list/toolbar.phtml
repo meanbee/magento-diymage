@@ -15,7 +15,7 @@
                     <?php echo $_limit ?>
                 </option>
             <?php endforeach; ?>
-        </select> <em>per page</em> 
+        </select> <em><?php echo $this->__('per page') ?></em> 
     </li>
     <?php if( $this->isEnabledViewSwitcher() ): ?>
         <li class="view-mode">
