@@ -2,9 +2,9 @@
 <div class="block block-subscribe"> 
     <form action="<?php echo $this->getFormActionUrl() ?>" id="subscribe"> 
         <div class="block-content"> 
-            <label for="newsletter-email-address">Subscribe to our newsletter</label> 
-            <input type="email" name="email" id="newsletter-email-address" placeholder="Your e-mail address" title="Sign up for our newsletter" class="text required" /> 
-            <input type="submit" title="Subscribe" class="button" value="Submit"/> 
+            <label for="newsletter-email-address"><?php echo $this->__('Subscribe to our newsletter') ?></label> 
+            <input type="email" name="email" id="newsletter-email-address" placeholder="<?php echo $this->__('Your e-mail address') ?>" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="text required" /> 
+            <input type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button" value="Submit"/> 
         </div> 
     </form> 
 </div> 
