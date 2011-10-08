@@ -104,7 +104,19 @@
         </reference>
 
     </catalog_product_view>
-
+    
+    <catalogsearch_result_index>
+        <reference name="search_result_list">
+            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+            </block>
+            <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
+        </reference>
+    </catalogsearch_result_index>
     <tag_product_list>
         <reference name="search_result_list">
             <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
@@ -117,4 +129,5 @@
             <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
         </reference>
     </tag_product_list>
+    
 </layout>
