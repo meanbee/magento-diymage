@@ -545,6 +545,10 @@ ul.breadcrumbs li.current-page:after {
     float:right;
 }
 
+.title-buttons + p {
+    clear:both;
+}
+
 /* ----------------------------- PRODUCT SORTER*/
 
 ul.product-sorter {
