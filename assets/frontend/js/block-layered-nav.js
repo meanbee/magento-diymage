@@ -1,7 +1,7 @@
 (function ($, undefined) {
     $(document).ready(function(){
 
-        //Hide (Collapse) the toggle containers on load
+        // Hide (Collapse) the toggle containers on load
         $("div.block-layered-nav dl#narrow-by-list dd").hide(); 
         // Show the first container open
         $("div.block-layered-nav dl#narrow-by-list dd:eq(0)").show();
