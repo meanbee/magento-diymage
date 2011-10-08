@@ -32,17 +32,36 @@
             <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
         </reference>
     </default>
-    
+
     <catalog_category_default>
-        <reference name="root">
-            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
-        </reference>
+        <update handle="page_two_columns_right" />
         <reference name="product_list">
-            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml" />
+            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+            </block>
             <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
         </reference>
     </catalog_category_default>
-    
+
+    <catalog_category_layered>
+        <update handle="page_three_columns" />
+        <reference name="product_list">
+            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+                
+            </block>
+            <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
+        </reference>
+    </catalog_category_layered>
+
     <catalog_product_view>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
