@@ -73,7 +73,7 @@
             <action method="addItem"><type>skin_js</type><name>js/hoverscroll/jquery.hoverscroll.js</name><params/><if /></action>
             <action method="addItem"><type>skin_js</type><name>js/review-toggles.js</name><params/><if /></action>
         </reference>
-        
+
         <reference name="product.info">
             <block type="catalog/product_view" name="product.social" as="social.links" template="catalog/product/view/social_links.phtml" />
             <block type="core/template" name="product.info.other" as="other" template="review/product/view/other.phtml"/>
@@ -94,16 +94,27 @@
                 </block>
             </block>
         </reference>
-        
 
-        
         <reference name="product.info.additional">
             <action method="unsetChild"><name>product_tag_list</name></action>
         </reference>
-        
+
         <reference name="product.info.options.wrapper.bottom">
             <action method="unsetChild"><name>product.clone_prices</name></action>
         </reference>
-    
+
     </catalog_product_view>
+
+    <tag_product_list>
+        <reference name="search_result_list">
+            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
+                <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+                <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+            </block>
+            <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
+        </reference>
+    </tag_product_list>
 </layout>
