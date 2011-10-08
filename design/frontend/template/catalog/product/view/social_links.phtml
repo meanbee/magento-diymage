@@ -7,7 +7,7 @@
          <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like> 
      </li> 
      <li class="twitter"> 
-         <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="diymage">Tweet</a> 
+         <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<?php echo Mage::getStoreConfig('diy/theme/twitter') ?>"><?php echo $this->__('Tweet') ?></a> 
          <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
      </li> 
      <?php if ($this->canEmailToFriend()): ?>

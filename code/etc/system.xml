@@ -81,6 +81,24 @@
                         </developer_enabled>
                     </fields>
                 </general>
+                <theme translate="label">
+                    <label>Default Theme Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <twitter translate="label">
+                            <label>Twitter Username</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The Twitter account to be used as the "via" when sharing products</comment>
+                        </twitter>
+                    </fields>
+                </theme>
             </groups>
         </diy>
     </sections>
