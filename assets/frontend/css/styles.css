@@ -711,6 +711,10 @@ ul.products-grid li div.actions {
     margin-top: 25px;
 }
 
+ul.products-grid li div.price-box + div.actions {
+    margin-top:100px;
+}
+
 ul.products-grid li div.actions button {
     margin: 0 auto;
     width: 60%;
@@ -782,7 +786,7 @@ ul.list-products li div.description {
     width: 340px;
 }
 
-ul.list-products li div.actions {
+ul.list-products li div.price-box div.actions {
     float: right;
     margin-top: 0;
     width: 450px;

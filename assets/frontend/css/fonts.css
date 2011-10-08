@@ -203,6 +203,7 @@ ul.list-products li ul.add-to-links li {
 ul.list-products li p.price-from,
 ul.list-products li p.price-to,
 ul.list-products li p.minimal-price,
+ul.list-products li a.minimal-price-link,
 ul.list-products li h2.current-price, 
 ul.list-products li h3.original-price,
 ul.products-grid li h3.original-price + h2.current-price {
