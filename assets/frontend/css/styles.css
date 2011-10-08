@@ -125,10 +125,6 @@ div.col3-layout ul.list-products li div.description {
     width: 200px;
 }
 
-div.col3-layout ul.list-products li abbr.rating {
-    width: 150px;
-}
-
 div.col3-layout ul.list-products a.review-amount {
     margin-left: 0;
 }
@@ -627,7 +623,6 @@ ul.product-sorter li.sort-by a {
 
 ul.products-grid {
     overflow: hidden;
-    padding: 10px 0;
 }
 
 ul.products-grid li {
@@ -636,9 +631,21 @@ ul.products-grid li {
     float: left;
     list-style-type: none;
     padding: 20px 19px 19px 20px; /* 19px makes up for 1px border */
+    width:200px;
 }
 
-ul.
+ul.products-grid li.last {
+    border-right:0px;
+}
+
+ul.list-products li {
+    width:auto;
+}
+
+ul.products-grid.list-products li h2.product-name {
+    height:auto;
+    margin-top:0;
+}
 
 /* 2 column, grid layout, 3 products across */
 
