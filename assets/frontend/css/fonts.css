@@ -162,10 +162,14 @@ ul.products-grid li h2 a {
     font-weight: bold;
 }
 
+p.price-from span.price,
+p.price-to span.price,
 h2.current-price {
     font-size: 18px;
 }
 
+p.price-from span.price,
+p.price-to span.price,
 h2.current-price span {
     font-weight:bold; 
 }
@@ -194,6 +198,8 @@ ul.list-products li ul.add-to-links li {
     text-align: left;
 }
 
+ul.list-products li p.price-from,
+ul.list-products li p.price-to,
 ul.list-products li h2.current-price, 
 ul.list-products li h3.original-price,
 ul.products-grid li h3.original-price + h2.current-price {
