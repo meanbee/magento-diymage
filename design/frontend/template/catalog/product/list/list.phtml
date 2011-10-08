@@ -12,12 +12,8 @@
             <?php if($_product->getRatingSummary()): ?>
             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
             <?php endif; ?>
-            <abbr class="rating stars-2-0" title="2 out of 5 stars"><span>2</span></abbr> 
-            <a href="#" class="review-amount">8 Review(s)</a>                   
-            <a href="#" class="link-review">Write a review</a> 
             <div class="description quick"> 
                 <p><?php echo nl2br($_product->getShortDescription()) ?></p> 
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>" class="link-more"><?php echo $this->__('Learn More') ?></a>
             </div> 
             <?php echo $this->getPriceHtml($_product, true) ?>
             <div class="actions"> 
