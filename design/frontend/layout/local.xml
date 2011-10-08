@@ -106,6 +106,9 @@
     </catalog_product_view>
     
     <catalogsearch_result_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
+        </reference>
         <reference name="search_result_list">
             <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
                 <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
