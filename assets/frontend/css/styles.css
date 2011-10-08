@@ -121,6 +121,14 @@ div.col3-layout div.col-left div.block {
     margin-right: 20px;
 }
 
+div.col3-layout ul.products-grid li {
+    width:210px;
+}
+
+div.col3-layout ul.products-grid.list-products li {
+    width:auto;
+}
+
 div.col3-layout ul.list-products li div.description {
     width: 200px;
 }
@@ -814,7 +822,12 @@ ul.list-products li h3.original-price + h2.current-price {
 }
 
 ul.list-products li h2.current-price {
-    margin-top: -38px;
+    margin-top: -50px;
+}
+
+ul.list-products li a.minimal-price-link {
+    margin-top: -30px;
+    float:right;
 }
 
 ul.list-products li h3.original-price {
