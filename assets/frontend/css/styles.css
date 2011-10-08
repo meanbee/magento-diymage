@@ -130,7 +130,8 @@ div.col3-layout ul.products-grid.list-products li {
 }
 
 div.col3-layout ul.list-products li div.description {
-    width: 200px;
+    width: 235px;
+    padding-bottom:40px;
 }
 
 div.col3-layout ul.list-products a.review-amount {
@@ -811,6 +812,8 @@ ul.list-products li ul.add-to-links li a {
     margin-right: 20px;
 }
 
+ul.list-products li p.price-from,
+ul.list-products li p.price-to,
 ul.list-products li h2.current-price, 
 ul.list-products li h3.original-price {
     clear: both;
@@ -832,6 +835,7 @@ ul.list-products li h2.current-price {
 ul.list-products li a.minimal-price-link {
     margin-top: -30px;
     float:right;
+    clear:both;
 }
 
 ul.list-products li h3.original-price {
