@@ -395,6 +395,12 @@ div.sidebar div.block form div.actions button {
     float: right;
 }
 
+div.sidebar div.block input[type="text"], 
+div.sidebar div.block input[type="email"], 
+div.sidebar div.block input[type="password"] {
+    width:150px;
+}
+
 /* ----------------------------- LAYERED NAVIGATION */
 
 div.block-layered-nav p.block-subtitle {
