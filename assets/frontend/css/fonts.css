@@ -262,6 +262,10 @@ table#cart tbody tr td.product-name h3 {
     font-size: 13px;
 }
 
+table#cart tbody tr span.cart-price span { 
+    font-weight:bold;
+}
+
 ol#checkout-steps li table#cart tfoot tr.subtotal td,
 ol#checkout-steps li table#cart tfoot tr.grand-total td,
 ol#checkout-steps li table#cart tfoot tr.shipping td {

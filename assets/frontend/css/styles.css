@@ -1545,9 +1545,17 @@ table#cart tbody tr td.product-name h3 {
     padding-bottom: 0;
 }
 
+table#cart tbody tr a.edit-item {
+    float:right;
+}
+
 table#cart tbody tr td.qty,
 table#cart tbody tr td.remove {
     width: 40px;
+}
+
+table#cart tbody tr td.qty input {
+    width:auto;
 }
 
 table#cart td.remove a.remove {
