@@ -228,6 +228,10 @@ aside.product-options {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
 }
 
+aside.product-options dl dd {
+    border-color:#D6D6D6;
+}
+
 /* ----------------------------- TIERED PRICING */
 
 aside.tiered-pricing {
