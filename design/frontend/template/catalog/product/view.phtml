@@ -35,9 +35,9 @@
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
         <?php endif;?>
 
+        <?php echo $this->getChildHtml('product_type_data') ?>
         <?php echo $this->getTierPriceHtml() ?>
         <?php echo $this->getChildHtml('extrahint') ?>
-        <?php echo $this->getChildHtml('product_type_data') ?>
 
         <?php if (!$this->hasOptions()):?>
             <div class="actions"> 

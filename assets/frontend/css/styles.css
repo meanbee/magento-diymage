@@ -944,6 +944,10 @@ aside.product-options dl dd {
     border-bottom:1px solid #D6D6D6;
 }
 
+aside.product-options dl dd.last {
+    border-bottom:0;
+}
+
 aside.product-options label {
     display:inline;
 }
@@ -957,7 +961,7 @@ aside.product-options ul li {
 }
 
 aside.product-options-bottom {
-    width:360px;
+    width:140px;
     float:right;
 }
 
@@ -969,7 +973,17 @@ section.hproduct div.actions {
 }
 
 section.hproduct div.actions.addtocart {
-    margin:0 0 0 215px;
+    margin:0;
+    float:right;
+}
+
+section.hproduct div.out-of-stock {
+    width:219px;
+    float:right;
+}
+
+section.hproduct p.price-as-configured {
+    width:219px;
     float:right;
 }
 
