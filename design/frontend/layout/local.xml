@@ -134,6 +134,11 @@
             <action method="addItem"><type>skin_js</type><name>js/checkout-toggles.js</name><params/><if /></action>
         </reference>
     </checkout_onepage_index>
+    
+    <checkout_onepage_success>
+        <remove name="cart_sidebar" />
+        <remove name="catalog.compare.sidebar" />
+    </checkout_onepage_success>
 
     <tag_product_list>
         <reference name="search_result_list">

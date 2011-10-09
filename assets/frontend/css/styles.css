@@ -1227,6 +1227,7 @@ ul#reviews-list li div.description {
 /* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
 
 div.block-compare ol li,
+div.block-reorder ol li,
 div.block-cart ol li {
     border-top: 1px solid;
     clear: both;
@@ -1776,7 +1777,7 @@ div.block-related ol li.hproduct div.actions ul {
 
 /* ----------------------------- CHECKOUT */
 
-body.checkout-onepage h1,
+body.checkout-onepage-index h1,
 ol#checkoutSteps {
     margin-left: 20px;
 }
