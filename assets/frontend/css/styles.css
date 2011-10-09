@@ -1490,36 +1490,44 @@ form#cart-form {
     width:100%;
 }
 
+table#checkout-review-table,
 table#cart {
     border: 1px solid;
+    border-spacing: 0;  
     margin: 20px 0;
     width: 100%;
 }
 
+table#checkout-review-table thead  tr th,
 table#cart thead tr th {
     border-bottom: 1px solid;
 }
 
+table#checkout-review-table tfoot tr td,
 table#cart tfoot tr td {
     border-top: 1px solid;
     padding: 10px 20px;
 }
 
+table#checkout-review-table thead th,
 table#cart thead th {
     text-align: left;
     padding: 0 10px;
 }
 
+table#checkout-review-table tbody tr,
 table#cart tbody tr {
     border-bottom: 1px solid;
 }
 
+table#checkout-review-table tbody tr td,
 table#cart tbody tr td,
-ol#checkoutSteps li table#cart tfoot tr td {
+ol#checkoutSteps li table#checkout-review-table tfoot tr td {
     border-right: 1px solid;
     padding: 5px 10px;
 }
 
+table#checkout-review-table tbody tr td:last-child,
 table#cart tbody tr td:last-child {
     border-right: none;
 }
@@ -1539,10 +1547,12 @@ table#cart tbody tr td.product-image img {
     border: 1px solid;
 }
 
+table#checkout-review-table tbody tr td.product-name,
 table#cart tbody tr td.product-name {
     width: 40%;
 }
 
+table#checkout-review-table tbody tr td.product-name h3,
 table#cart tbody tr td.product-name h3 {
     padding-bottom: 0;
 }
@@ -1694,6 +1704,7 @@ aside.shipping dl.sp-methods input.radio {
     float: left;
     margin-top: 6px;
     margin-right: 7px;
+    width:auto;
 }
 
 /* Totals */

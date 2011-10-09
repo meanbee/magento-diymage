@@ -265,14 +265,17 @@ aside#product-tags p.note {
 
 /* Cart contents table */
 
+table#checkout-review-table tr td,
 table#cart tr td {
     vertical-align: top;
 }
 
+table#checkout-review-table thead
 table#cart thead {
     text-align: left;
 }
 
+table#checkout-review-table tbody tr td.product-name h3,
 table#cart tbody tr td.product-name h3 {
     font-size: 13px;
 }
@@ -281,19 +284,15 @@ table#cart tbody tr span.cart-price span {
     font-weight:bold;
 }
 
-ol#checkoutSteps li table#cart tfoot tr.subtotal td,
-ol#checkoutSteps li table#cart tfoot tr.grand-total td,
-ol#checkoutSteps li table#cart tfoot tr.shipping td {
+ol#checkoutSteps li table tfoot tr td {
     text-align: right;
 }
 
-ol#checkoutSteps li table#cart tfoot tr.subtotal td.price,
-ol#checkoutSteps li table#cart tfoot tr.grand-total td.price,
-ol#checkoutSteps li table#cart tfoot tr.shipping td.price {
+ol#checkoutSteps li table tfoot tr td + td {
     text-align: left;
 }
 
-ol#checkoutSteps li table#cart tfoot tr.grand-total td.price {
+ol#checkoutSteps li table tfoot tr.last td + td span.price{
     font-weight: bold;
 }
 
@@ -381,6 +380,10 @@ ol#checkoutSteps li#checkout-method div.buttons-set p.required {
 form#co-shipping-method-form div dl dt {
     font-size: 14px;
     font-weight: bold;
+}
+
+ol#checkoutSteps span.please-wait {
+    float:right;
 }
 
 /* ----------------------------- FOOTER */
