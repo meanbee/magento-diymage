@@ -91,27 +91,25 @@
                     <label for="shipping:fax"><?php echo $this->__('Fax') ?></label>
                     <input type="text" name="shipping[fax]" value="<?php echo $this->htmlEscape($this->getAddress()->getFax()) ?>" title="<?php echo $this->__('Fax') ?>" class="text" id="shipping:fax" onchange="shipping.setSameAsBilling(false);" />
                 </li>
-            </ul>
-        </fieldset>
-
-        <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
-            <ul>
+            
+            <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
                 <li class="control">
                     <input type="checkbox" name="shipping[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="shipping:save_in_address_book" onchange="shipping.setSameAsBilling(false);"<?php if ($this->getAddress()->getSaveInAddressBook()):?> checked="checked"<?php endif;?> class="checkbox" /><label for="shipping:save_in_address_book"><?php echo $this->__('Save in address book') ?></label></li>
-        <?php else:?>
-            <ul>
+            <?php else:?>
                 <li class="no-display"><input type="hidden" name="shipping[save_in_address_book]" value="1" /></li>
-            </ul>
-        <?php endif;?>
-        
-        <fieldset>
-            <ul>
-                <li class="control">
-                    <input type="checkbox" name="shipping[same_as_billing]" id="shipping:same_as_billing" value="1"<?php if($this->getAddress()->getSameAsBilling()): ?> checked="checked"<?php endif; ?> title="<?php echo $this->__('Use Billing Address') ?>" onclick="shipping.setSameAsBilling(this.checked)" class="checkbox" /><label for="shipping:same_as_billing"><?php echo $this->__('Use Billing Address') ?></label>
-                    </li>
+            <?php endif;?>
             </ul>
         </fieldset>
     </div>
+    
+    <fieldset>
+        <ul>
+            <li class="control">
+                <input type="checkbox" name="shipping[same_as_billing]" id="shipping:same_as_billing" value="1"<?php if($this->getAddress()->getSameAsBilling()): ?> checked="checked"<?php endif; ?> title="<?php echo $this->__('Use Billing Address') ?>" onclick="shipping.setSameAsBilling(this.checked)" class="checkbox" /><label for="shipping:same_as_billing"><?php echo $this->__('Use Billing Address') ?></label>
+                </li>
+        </ul>
+    </fieldset>
+
     <div class="buttons-set" id="shipping-buttons-container">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
         <p class="back-link"><a href="#" onclick="checkout.back(); return false;"><?php echo $this->__('Back') ?></a></p>
