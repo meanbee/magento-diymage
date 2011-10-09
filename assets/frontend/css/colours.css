@@ -222,7 +222,7 @@ section.hproduct div.out-of-stock fieldset label {
     color: #8e8e8e; /* Light grey */
 }
 
-section.hproduct div.out-of-stock p.out-of-stock {
+section.hproduct p.out-of-stock {
     color: #b90101; /* Red */
 }
 
@@ -236,6 +236,7 @@ div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
 
 /* Product options */
 
+table.grouped-items-table,
 aside.product-options {
     background: #f4f4f4; /* Off white */
     border-color: #e8e8e8; /* Light grey */

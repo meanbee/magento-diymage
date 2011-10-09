@@ -39,7 +39,7 @@
 <table class="data-table grouped-items-table" id="super-product-table">
     <col />
     <col />
-    <col width="1" />
+    <col />
     <thead>
         <tr>
             <th><?php echo $this->__('Product Name') ?></th>
@@ -61,10 +61,10 @@
             </td>
             <?php if ($_product->isSaleable()): ?>
             <td class="a-center">
-            <?php if ($_item->isSaleable()) : ?>
-                <input type="text" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+            <?php if (!$_item->isSaleable()) : ?>
+                <input type="text" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="text qty" />
             <?php else: ?>
-                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                <p class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></p>
             <?php endif; ?>
             </td>
             <?php endif; ?>

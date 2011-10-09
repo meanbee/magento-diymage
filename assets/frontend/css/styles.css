@@ -925,6 +925,7 @@ section.hproduct div.description {
 
 /* Product options */
 
+table.grouped-items-table,
 aside.product-options {
     border: 1px solid;
     float: left;
@@ -951,6 +952,7 @@ aside.product-options label {
     display:inline;
 }
 
+table.grouped-items-table input.qty,
 aside.product-options input.qty {
     width:2.5em;
 }

@@ -189,13 +189,27 @@ ul.products-grid li h3.original-price + h2.current-price {
 
 /* Product options */
 
+table.grouped-items-table {
+    text-align:left;
+}
+
+section.hproduct table.grouped-items-table p.out-of-stock {
+    font-size:12px;
+    font-weight:normal;
+}
+
+table.grouped-items-table span.price {
+    font-size:14px;
+}
+
+table.grouped-items-table tbody td,
 aside.product-options dl dt label {
     font-weight: bold;
 }
 
 /* Out of stock */
 
-section.hproduct div.out-of-stock p.out-of-stock {
+section.hproduct p.out-of-stock {
     font-weight: bold;
 }
 
