@@ -399,7 +399,7 @@ table#cart thead {
 
 table#cart thead tr th,
 table#cart tfoot tr td,
-ol#checkout-steps li table#cart tfoot tr td {
+ol#checkoutSteps li table#cart tfoot tr td {
     border-color: #e8e8e8;
 }
 
@@ -459,31 +459,31 @@ aside.totals ul {
 
 /* ----------------------------- CHECKOUT */
 
-ol#checkout-steps {
+ol#checkoutSteps {
     background: #f4f4f4;
     border-color: #ccc;
 }
 
-ol#checkout-steps li {
+ol#checkoutSteps li {
     border-color: #ccc;
 }
 
-ol#checkout-steps li h2 {
+ol#checkoutSteps li h2 {
     background: #e8e8e8;
 }
 
-ol#checkout-steps li h2 em.step-number {
+ol#checkoutSteps li h2 em.step-number {
     background: #313131;
     color: #fff;
 }
 
-ol#checkout-steps li section form fieldset,
-ol#checkout-steps li section form div#checkout-shipping-method-load {
+ol#checkoutSteps li section form fieldset,
+ol#checkoutSteps li section form div#checkout-shipping-method-load {
     border-color: #e8e8e8;
 }
 
-ol#checkout-steps li section form input[type="text"], 
-ol#checkout-steps li section form input.text,
+ol#checkoutSteps li section form input[type="text"], 
+ol#checkoutSteps li section form input.text,
 div.my-account form input[type="text"],
 div.my-account form input.text,
 #create-account input[type="text"],
@@ -495,21 +495,21 @@ div.my-account form input.text,
 
 form input.validation-failed,
 form select.validation-failed,
-ol#checkout-steps li section form input[type="text"].validation-failed, 
-ol#checkout-steps li section form input.validation-failed,
+ol#checkoutSteps li section form input[type="text"].validation-failed, 
+ol#checkoutSteps li section form input.validation-failed,
 div.my-account form input[type="text"].validation-failed,
 div.my-account form input.validation-failed,
-ol#checkout-steps li section form select.validation-failed {
+ol#checkoutSteps li section form select.validation-failed {
     border-color: #d31e0b !important;
 }
 
-ol#checkout-steps li section form p.validation-advice,
+ol#checkoutSteps li section form p.validation-advice,
 form .validation-advice {
     color: #bb1b09 !important;
 }
 
-ol#checkout-steps li section form input[type="text"]:focus, 
-ol#checkout-steps li section form input.text:focus,
+ol#checkoutSteps li section form input[type="text"]:focus, 
+ol#checkoutSteps li section form input.text:focus,
 div.my-account form input[type="text"]:focus,
 div.my-account form input.text:focus {
     border-color: #eb6302; /* Orange */
@@ -521,7 +521,7 @@ div.block-progress div.block-content ul li {
     border-color: #e8e8e8;
 }
 
-ol#checkout-steps li section div.col-1:nth-child(-n+1) {
+ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
     border-color: #ccc;
 }
 

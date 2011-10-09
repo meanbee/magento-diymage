@@ -1515,7 +1515,7 @@ table#cart tbody tr {
 }
 
 table#cart tbody tr td,
-ol#checkout-steps li table#cart tfoot tr td {
+ol#checkoutSteps li table#cart tfoot tr td {
     border-right: 1px solid;
     padding: 5px 10px;
 }
@@ -1765,34 +1765,34 @@ div.block-related ol li.hproduct div.actions ul {
 
 /* ----------------------------- CHECKOUT */
 
-div.checkout h1,
-ol#checkout-steps {
+body.checkout-onepage h1,
+ol#checkoutSteps {
     margin-left: 20px;
 }
 
-ol#checkout-steps {
+ol#checkoutSteps {
     border: 1px solid;
     border-top: none;
 }
 
-ol#checkout-steps li {
+ol#checkoutSteps li {
     border-top: 1px solid;
     clear: both;
     list-style-type: none;
 }
 
-ol#checkout-steps li ul li {
+ol#checkoutSteps li ul li {
     border-top: none;
     clear: none;
     list-style-type: disc;
 }
 
-ol#checkout-steps li h2 {
+ol#checkoutSteps li h2 {
     display: block;
     padding: 10px;
 }
 
-ol#checkout-steps li h2 em.step-number {
+ol#checkoutSteps li h2 em.step-number {
     -moz-border-radius: 15px;
     border-radius: 15px;
     display: block;
@@ -1804,64 +1804,64 @@ ol#checkout-steps li h2 em.step-number {
     width: 15px;
 }
 
-ol#checkout-steps li h4 {
+ol#checkoutSteps li h4 {
     padding-bottom: 10px;
 }
 
-ol#checkout-steps li section.step {
+ol#checkoutSteps li section.step {
     clear: both;
     overflow: hidden;
     padding: 20px;
 }
 
-ol#checkout-steps li section div.col2-set {
+ol#checkoutSteps li section div.col2-set {
     padding: 20px;
     width: 660px;
 }
 
-ol#checkout-steps li#checkout-method div.col2-set {
+ol#checkoutSteps li#opc-login div.col2-set {
     padding: 0;
 }
 
-ol#checkout-steps li section div.col-1:nth-child(-n+1) {
+ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
     border-right: 1px solid;
     margin-right: 20px;
     width: 45%;
 }
 
-ol#checkout-steps li section div.col-1 h4 {
+ol#checkoutSteps li section div.col-1 h4 {
     margin-top: 10px;
 }
 
-ol#checkout-steps li section div.col-1 ul.copy-list {
+ol#checkoutSteps li section div.col-1 ul.copy-list {
     list-style-type: circle;
     margin-left: 15px;
 }
 
-ol#checkout-steps li div.buttons-set {
+ol#checkoutSteps li div.buttons-set {
     overflow: hidden;
 }
 
-ol#checkout-steps li div.buttons-set p.back-link,
+ol#checkoutSteps li div.buttons-set p.back-link,
 div.my-account form div.buttons-set p.back-link,
 #create-account div.buttons-set p.back-link {
     float: left;
 }
 
-ol#checkout-steps li div.buttons-set p.required {
+ol#checkoutSteps li div.buttons-set p.required {
     margin: 0 auto;
     padding-right: 40px;
     width: 50%;
 }
 
-ol#checkout-steps li#checkout-method div.buttons-set p.required,
+ol#checkoutSteps li#opc-login div.buttons-set p.required,
 div.my-account form div.buttons-set p.required,
 #create-account div.buttons-set p.required {
     margin: 0 0 10px 0;
     width: 100%;
 }
 
-ol#checkout-steps li div.buttons-set button {
+ol#checkoutSteps li div.buttons-set button {
     float: right;
     margin-right: 20px;
 }
@@ -1881,27 +1881,31 @@ form#shipping-form fieldset ul.radio-list {
     width: 100%;
 }
 
-ol#checkout-steps li section form fieldset,
-ol#checkout-steps li section form div#checkout-shipping-method-load {
+ol#checkoutSteps li section form fieldset,
+ol#checkoutSteps li section form div#checkout-shipping-method-load {
     border-bottom: 1px solid;
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
 
-ol#checkout-steps li#checkout-method section form fieldset {
+ol#checkoutSteps li#opc-login section form fieldset {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
-ol#checkout-steps li section form ul.radio-list label,
+ol#checkoutSteps li section input.radio + label {
+    display: inline;
+    margin-left: 3px;
+}
+
 div.account div.col-main ul.radio-list label,
 div.col-main ul.radio-list label {
     display: inline;
 }
 
-ol#checkout-steps li section form input[type="text"], 
-ol#checkout-steps li section form input.text,
+ol#checkoutSteps li section form input[type="text"], 
+ol#checkoutSteps li section form input.text,
 div.my-account form  input[type="text"],
 div.my-account form input.text,
 #create-account input[type="text"],
@@ -1909,34 +1913,34 @@ div.my-account form input.text,
     border: 1px solid;
 }
 
-ol#checkout-steps li section form input.text {
+ol#checkoutSteps li section form input.text {
     width: 90%;
 }
 
-ol#checkout-steps li section div.col2-set form input.text {
+ol#checkoutSteps li section div.col2-set form input.text {
     width: 90%;
 }
 
-ol#checkout-steps li section form input.text + input.text {
+ol#checkoutSteps li section form input.text + input.text {
     margin-top: 10px;
 }
 
-ol#checkout-steps li section form select {
+ol#checkoutSteps li section form select {
     width: 90%;
 }
 
-ol#checkout-steps li section form input.checkbox {
+ol#checkoutSteps li section form input.checkbox {
     clear: both;
     float: left;
 }
 
-ol#checkout-steps li section form input.checkbox + label {
+ol#checkoutSteps li section form input.checkbox + label {
     float: left;
     margin-left: 10px;
     margin-top: -2px;
 }
 
-ol#checkout-steps li section form ul li,
+ol#checkoutSteps li section form ul li,
 form ul li  {
     list-style-type: none;
     margin-bottom: 10px;
@@ -1965,11 +1969,11 @@ form#shipping-method-form div dl dd ul li label {
 
 /* Checkout errors */
 
-ol#checkout-steps li section form select.validation-failed {
+ol#checkoutSteps li section form select.validation-failed {
     border: 1px solid;
 }
 
-ol#checkout-steps li section form p.validation-advice {
+ol#checkoutSteps li section form p.validation-advice {
     background: url(../images/cross.png) center left no-repeat;
     padding-left: 24px;
 }

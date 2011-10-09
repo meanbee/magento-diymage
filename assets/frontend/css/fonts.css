@@ -281,19 +281,19 @@ table#cart tbody tr span.cart-price span {
     font-weight:bold;
 }
 
-ol#checkout-steps li table#cart tfoot tr.subtotal td,
-ol#checkout-steps li table#cart tfoot tr.grand-total td,
-ol#checkout-steps li table#cart tfoot tr.shipping td {
+ol#checkoutSteps li table#cart tfoot tr.subtotal td,
+ol#checkoutSteps li table#cart tfoot tr.grand-total td,
+ol#checkoutSteps li table#cart tfoot tr.shipping td {
     text-align: right;
 }
 
-ol#checkout-steps li table#cart tfoot tr.subtotal td.price,
-ol#checkout-steps li table#cart tfoot tr.grand-total td.price,
-ol#checkout-steps li table#cart tfoot tr.shipping td.price {
+ol#checkoutSteps li table#cart tfoot tr.subtotal td.price,
+ol#checkoutSteps li table#cart tfoot tr.grand-total td.price,
+ol#checkoutSteps li table#cart tfoot tr.shipping td.price {
     text-align: left;
 }
 
-ol#checkout-steps li table#cart tfoot tr.grand-total td.price {
+ol#checkoutSteps li table#cart tfoot tr.grand-total td.price {
     font-weight: bold;
 }
 
@@ -351,27 +351,30 @@ div.notes dl dt {
 
 /* ----------------------------- CHECKOUT */
 
-ol#checkout-steps li h2 em.step-number {
+ol#checkoutSteps li h2 em.step-number {
     font-style: normal;
     font-weight: bold;
     text-align: center;
 }
 
-ol#checkout-steps li h3 {
+ol#checkoutSteps li h3 {
     font-size: 14px;
 }
 
-ol#checkout-steps li h4 {
+ol#checkoutSteps li h4 {
     font-weight: bold;
 }
 
-ol#checkout-steps li div.buttons-set p.required,
+ol#checkoutSteps li div.buttons-set p.required {
+    text-align: left;
+}
+
 div.my-account form div.buttons-set p.required,
 #create-account div.buttons-set p.required {
     text-align: right;
 }
 
-ol#checkout-steps li#checkout-method div.buttons-set p.required {
+ol#checkoutSteps li#checkout-method div.buttons-set p.required {
     text-align: left;
 }
 
