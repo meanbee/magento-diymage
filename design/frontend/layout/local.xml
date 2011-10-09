@@ -129,6 +129,12 @@
         <remove name="minicart" />
     </checkout_cart_configure>
 
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/checkout-toggles.js</name><params/><if /></action>
+        </reference>
+    </checkout_onepage_index>
+
     <tag_product_list>
         <reference name="search_result_list">
             <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">
