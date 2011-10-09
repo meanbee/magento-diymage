@@ -97,33 +97,34 @@
                 </li>
             </ul>
         </fieldset>
-        <fieldset>
-            <ul>
-            <?php if(!$this->isCustomerLoggedIn()): ?>
+        <?php if(!$this->isCustomerLoggedIn()): ?>
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+            <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
 
-                <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-                <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
-                <?php if ($_dob->isEnabled() || $_gender->isEnabled()): ?>
-                    <?php if ($_dob->isEnabled()): ?>
-                        <li>
-                            <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                        </li>
-                    <?php endif; ?>
-                    <?php if ($_gender->isEnabled()): ?>
-                        <li>
-                            <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                        </li>
-                    <?php endif ?>
-                <?php endif ?>
-
-                <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
-                <?php if ($_taxvat->isEnabled()): ?>
-                        <li>
-                            <?php echo $_taxvat->setTaxvat($this->getQuote()->getCustomerTaxvat())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                        </li>
-                <?php endif ?>
-
-                <div id="register-customer-password">
+            <?php if($_dob->isEnabled() || $_gender->isEnabled() || $_taxvat->isEnabled() ): ?>
+                <fieldset>
+                    <ul>
+                        <?php if ($_dob->isEnabled()): ?>
+                            <li>
+                                <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($_gender->isEnabled()): ?>
+                            <li>
+                                <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                            </li>
+                        <?php endif ?>
+                        <?php if ($_taxvat->isEnabled()): ?>
+                            <li>
+                                <?php echo $_taxvat->setTaxvat($this->getQuote()->getCustomerTaxvat())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                            </li>
+                        <?php endif ?>
+                    </ul>
+                </fieldset>
+            <?php endif; ?>
+            <fielset id="register-customer-password">
+                <ul>
                     <li>
                         <label for="billing:customer_password" class="required"><em class="required">*</em> <?php echo $this->__('Password') ?></label>
                         <input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="text required-entry validate-password" />
@@ -132,10 +133,10 @@
                         <label for="billing:confirm_password" class="required"><em class="required">*</em> <?php echo $this->__('Confirm Password') ?></label>
                         <input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="text required-entry validate-cpassword" />
                     </li>
-                </div>
-            <?php endif; ?>
-            </ul>
-        </fieldset>
+                </ul>
+            </fieldset>
+        <?php endif; ?>
+
         <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
             <fieldset>
                 <ul>
