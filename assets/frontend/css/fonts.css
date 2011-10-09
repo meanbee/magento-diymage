@@ -378,7 +378,7 @@ ol#checkoutSteps li#checkout-method div.buttons-set p.required {
     text-align: left;
 }
 
-form#shipping-method-form div dl dt {
+form#co-shipping-method-form div dl dt {
     font-size: 14px;
     font-weight: bold;
 }

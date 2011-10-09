@@ -1946,21 +1946,21 @@ form ul li  {
     margin-bottom: 10px;
 }
 
-form#shipping-method-form div dl dt {
+form#co-shipping-method-form div dl dt {
     margin-bottom: 10px;
 }
 
-form#shipping-method-form div dl dd ul li {
+form#co-shipping-method-form div dl dd ul li {
     clear: both;
     margin-bottom: 10px;
     overflow: hidden;
 }
 
-form#shipping-method-form div dl dd ul li input {
+form#co-shipping-method-form div dl dd ul li input {
     float: left;
 }
 
-form#shipping-method-form div dl dd ul li label {
+form#co-shipping-method-form div dl dd ul li label {
     display: inline;
     float: left;
     margin-left: 10px;
