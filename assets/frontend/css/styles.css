@@ -1868,10 +1868,10 @@ ol#checkoutSteps li div.buttons-set button {
 
 /* Checkout forms and Account forms */
 
-form#billing-form fieldset ul,
-form#shipping-form fieldset ul,
-form#payment-form fieldset ul,
-form#shipping-method-form div dl {
+form#co-billing-form fieldset ul,
+form#co-shipping-form fieldset ul,
+form#co-payment-form fieldset ul,
+form#co-shipping-method-form div dl {
     margin: 0 auto;
     width: 50%;
 }
