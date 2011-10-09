@@ -4,7 +4,11 @@
     <p>
         <?php if ($this->getItemCount() > 0): ?>
             <?php printf("%d item%s", $this->getItemCount(), ($this->getItemCount() > 1) ? "s" : "")?>
-            (<?php echo $this->getSubtotal() ?>)
+            <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+            (<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?>)
+            <?php else: ?>
+            (<?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>)
+            <?php endif; ?>
         <?php else: ?>
             <i><?php echo $this->__('Your cart is empty') ?></i>
         <?php endif ?>

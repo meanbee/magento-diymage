@@ -25,7 +25,7 @@
         </reference>
         <reference name="header">
             <block type="page/html" name="minisearch" as="minisearch" template="catalogsearch/minisearch.phtml" />
-            <block type="page/html" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
+            <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
             <block type="page/html" name="customer.navigation" as="customer.navigation" template="page/html/customer.navigation.phtml" />
         </reference>
         <reference name="footer">
