@@ -1467,6 +1467,11 @@ body.checkout-cart h1 {
     padding-left: 20px;
 }
 
+body.checkout-cart-configure h1 {
+    float:none;
+    padding:0;
+}
+
 .cart-empty {
     clear:both;
     padding-left:20px;
