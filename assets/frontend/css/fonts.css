@@ -303,15 +303,22 @@ aside.shipping form label {
 
 /* Totals */
 
-aside.totals h3 {
-    font-size: 14px;
+aside.totals td {
+    font-size:14px;
+    font-weight:bold;
 }
 
-aside.totals h2,
-aside.totals h3,
-aside.totals h4,
+aside.totals tbody span.price {
+    font-size:18px;
+}
+
+aside.totals tfoot span.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 aside.totals ul li {
-    text-align: right;
+    text-align:right;
 }
 
 /* CART SIDEBAR */

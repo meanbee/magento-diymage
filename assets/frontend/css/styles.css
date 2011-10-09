@@ -1661,6 +1661,7 @@ form#discount-form input#coupon_code {
 
 form#discount-form input.button {
     float: right;
+    width:auto;
 }
 
 /* Shipping form */
@@ -1702,21 +1703,12 @@ aside.totals {
     width: 278px;
 }
 
-aside.totals h2,
-aside.totals h3 {
-    padding-bottom: 0;
+aside.totals table {
+    width:100%;
 }
 
-aside.totals h4 {
-    padding-bottom: 10px;
-}
-
-aside.totals h4 {
-    font-size: 18px;
-}
-
-aside.totals h2 + h3 {
-    font-size: 20px;
+aside.totals table tfoot {
+    margin-top:10px;
 }
 
 aside.totals ul {
