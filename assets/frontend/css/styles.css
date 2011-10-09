@@ -1995,6 +1995,12 @@ div.block-progress {
     margin-top: 45px;
 }
 
+div.sidebar div.block.block-progress div.block-title {
+    border:0;
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
 div.block-progress div.block-content ul {
     list-style-type: none;
 }
