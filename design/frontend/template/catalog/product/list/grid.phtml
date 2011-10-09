@@ -17,7 +17,7 @@
             <?php if($_product->getRatingSummary()): ?>
             <?php echo $this->getReviewsSummaryHtml($_product) ?>
             <?php endif; ?>
-            <div class="actions"> 
+            <div class="actions<?php if(!$_product->isSaleable()) { echo " out-of-stock"; } ?>"> 
                 <?php if($_product->isSaleable()): ?>
                     <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
                 <?php else: ?>
