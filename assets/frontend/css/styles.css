@@ -1870,7 +1870,7 @@ ol#checkoutSteps li div.buttons-set button {
 
 form#co-billing-form fieldset ul,
 form#co-shipping-form fieldset ul,
-form#co-payment-form fieldset ul,
+form#co-payment-form fieldset dl,
 form#co-shipping-method-form div dl {
     margin: 0 auto;
     width: 50%;
