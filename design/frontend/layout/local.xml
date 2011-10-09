@@ -120,6 +120,15 @@
             <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
         </reference>
     </catalogsearch_result_index>
+
+    <checkout_cart_index>
+        <remove name="minicart" />
+    </checkout_cart_index>
+    
+    <checkout_cart_configure>
+        <remove name="minicart" />
+    </checkout_cart_configure>
+
     <tag_product_list>
         <reference name="search_result_list">
             <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml">

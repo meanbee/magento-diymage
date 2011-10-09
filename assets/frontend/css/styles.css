@@ -195,6 +195,10 @@ form#search-form {
     padding-bottom: 10px;
 }
 
+a#branding + form#search-form {
+    margin-top:62px;
+}
+
 form#search-form label {
     text-indent: -999999px;
 }
