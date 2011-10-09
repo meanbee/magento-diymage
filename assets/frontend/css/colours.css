@@ -18,6 +18,20 @@ p.note {
     color: #767676;
 }
 
+/* ----------------------------- GLOBAL MESSAGES */
+.notice-msg { 
+    background-color:#ECEDED;
+    color:#111;
+}
+.error-msg { 
+    background-color:#FFF3EE;
+    color:#b90101;
+}
+.success-msg { 
+    background-color:#E0FCF2;
+    color:#409A40;
+}
+
 /* ----------------------------- CART */
 
 section.cart {
