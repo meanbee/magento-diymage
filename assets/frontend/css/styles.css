@@ -925,7 +925,11 @@ section.hproduct div.description {
 
 /* Product options */
 
-table.grouped-items-table,
+table.data-table.grouped-items-table {
+    float:left;
+    width:358px;
+}
+
 aside.product-options {
     border: 1px solid;
     float: left;
@@ -988,10 +992,6 @@ section.hproduct p.price-as-configured {
     float:right;
 }
 
-section.hproduct aside.product-options-bottom + ul.social-buttons {
-    padding-left:20px;
-}
-
 section.hproduct div.out-of-stock p.out-of-stock {
     padding-right: 10px;
     padding-bottom: 10px;
@@ -1033,6 +1033,10 @@ section.hproduct ul.social-buttons {
     float: left;
     overflow: hidden;
     padding: 20px 20px 20px 0;
+}
+
+section.hproduct aside.product-options-bottom + ul.social-buttons {
+    padding-left:20px;
 }
 
 section.hproduct ul.social-buttons li {
@@ -1491,94 +1495,85 @@ form#cart-form {
     width:100%;
 }
 
-table#checkout-review-table,
-table#cart {
+table.data-table {
     border: 1px solid;
     border-spacing: 0;  
     margin: 20px 0;
     width: 100%;
 }
 
-table#checkout-review-table thead  tr th,
-table#cart thead tr th {
+table.data-table thead tr th {
     border-bottom: 1px solid;
 }
 
-table#checkout-review-table tfoot tr td,
-table#cart tfoot tr td {
+table.data-table tfoot tr td {
     border-top: 1px solid;
     padding: 10px 20px;
 }
 
-table#checkout-review-table thead th,
-table#cart thead th {
+table.data-table thead th {
     text-align: left;
     padding: 0 10px;
 }
 
-table#checkout-review-table tbody tr,
-table#cart tbody tr {
+table.data-table tbody tr {
     border-bottom: 1px solid;
 }
 
-table#checkout-review-table tbody tr td,
-table#cart tbody tr td,
+table.data-table tbody tr td,
 ol#checkoutSteps li table#checkout-review-table tfoot tr td {
     border-right: 1px solid;
     padding: 5px 10px;
 }
 
-table#checkout-review-table tbody tr td:last-child,
-table#cart tbody tr td:last-child {
+table.data-table tbody tr td:last-child {
     border-right: none;
 }
 
-table#cart tbody tr td.product-image {
+table.data-table tbody tr td.product-image {
     padding: 10px 20px;
     width: 79px;
 }
 
-table#cart tbody tr td.product-image a {
+table.data-table tbody tr td.product-image a {
     display: block;
     height: 79px;
     width: 79px;
 }
 
-table#cart tbody tr td.product-image img {
+table.data-table tbody tr td.product-image img {
     border: 1px solid;
 }
 
-table#checkout-review-table tbody tr td.product-name,
-table#cart tbody tr td.product-name {
+table.data-table tbody tr td.product-name {
     width: 40%;
 }
 
-table#checkout-review-table tbody tr td.product-name h3,
-table#cart tbody tr td.product-name h3 {
+table.data-table tbody tr td.product-name h3 {
     padding-bottom: 0;
 }
 
-table#cart tbody tr a.edit-item {
+table.data-table tbody tr a.edit-item {
     float:right;
 }
 
-table#cart tbody tr td.qty,
-table#cart tbody tr td.remove {
+table.data-table tbody tr td.qty,
+table.data-table tbody tr td.remove {
     width: 40px;
 }
 
-table#cart tbody tr td.qty input {
+table.data-table tbody tr td.qty input {
     width:auto;
 }
 
-table#cart td.remove a.remove {
+table.data-table td.remove a.remove {
     background: url(../images/icon-remove.gif) center center no-repeat;
     border: none;
     text-indent: -999999px;
     opacity: 0.9;
 }
 
-table#cart td.remove a.remove:hover {
+table.data-table td.remove a.remove:hover {
     opacity: 1;
 }
 

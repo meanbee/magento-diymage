@@ -392,47 +392,39 @@ aside#product-tags ul li a span {
 
 /* Cart contents table */
 
-table#checkout-review-table,
-table#cart {
+table.data-table {
     background: #fff;
     border-color: #ccc;
 }
 
-table#checkout-review-table thead,
-table#cart thead {
+table.data-table thead {
     background: #e8e8e8; /* Light grey */
 }
 
-table#checkout-review-table thead tr th,
-table#cart thead tr th,
-table#cart tfoot tr td,
+table.data-table thead tr th,
+table.data-table tfoot tr td,
 ol#checkoutSteps li table#checkout-review-table tfoot tr td {
     border-color: #e8e8e8;
 }
 
-table#checkout-review-table tr,
-table#checkout-review-table tbody tr td,
-table#cart tr,
-table#cart tbody tr td {
+table.data-table tr,
+table.data-table tbody tr td {
     border-color: #e8e8e8; /* Light grey */
 }
 
-table#checkout-review-table tbody tr:nth-child(2n) td,
-table#cart tbody tr:nth-child(2n) td {
+table.data-table tbody tr:nth-child(2n) td {
     border-color: #e8e8e8;
 }
 
-table#checkout-review-table tr:nth-child(2n),
-table#cart tr:nth-child(2n) {
+table.data-table tr:nth-child(2n) {
     background: #f4f4f4; /* Off white */
 }
 
-table#checkout-review-table tfoot tr:nth-child(2n),
-table#cart tfoot tr:nth-child(2n) {
+table.data-table tfoot tr:nth-child(2n) {
     background: none;
 }
 
-table#cart tbody tr td.product-image img {
+table.data-table tbody tr td.product-image img {
     border-color: #e8e8e8;
 }
 

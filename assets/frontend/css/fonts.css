@@ -273,22 +273,19 @@ aside#product-tags p.note {
 
 /* Cart contents table */
 
-table#checkout-review-table tr td,
-table#cart tr td {
+table.data-table tr td {
     vertical-align: top;
 }
 
-table#checkout-review-table thead
-table#cart thead {
+table.table thead {
     text-align: left;
 }
 
-table#checkout-review-table tbody tr td.product-name h3,
-table#cart tbody tr td.product-name h3 {
+table.data-table td.product-name h3 {
     font-size: 13px;
 }
 
-table#cart tbody tr span.cart-price span { 
+table.data-table tbody tr span.cart-price span { 
     font-weight:bold;
 }
 
