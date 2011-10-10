@@ -1240,6 +1240,11 @@ div.block-cart ol li {
     padding: 10px 0;
 }
 
+div.block-reorder ol li p {
+    display:inline;
+}
+
+div.block-reorder ol li:first-child,
 div.block-compare ol li:first-child,
 div.block-cart ol li:first-child {
     border-top:0;

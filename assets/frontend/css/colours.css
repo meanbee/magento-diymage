@@ -324,6 +324,12 @@ div.block-viewed ol li img.photo {
     border-color: #e8e8e8;
 }
 
+/* ----------------------------- RECENTLY ORDERED PRODUCTS */
+
+div.block-reorder ol li {
+    border-color:#ccc;
+}
+
 /* ----------------------------- RECENTLY COMPARED PRODUCTS */
 
 div.block-compared ol li,
