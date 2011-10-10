@@ -537,16 +537,16 @@ ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
 
 /* ----------------------------- MY ACCOUNT */
 
-div.dashboard h1,
-div.dashboard div.box-account div.box-head h2 {
+div.my-account h1,
+div.my-account div.box-account div.box-head h2 {
     border-color: #ccc;
 }
 
-div.dashboard div.box-account {
+div.my-account div.box-account {
     border-color: #e8e8e8;
 }
 
-div.dashboard div.box-account div.box-title {
+div.my-account div.box-account div.box-title {
     border-color: #d6d6d6;
 }
 

@@ -540,6 +540,7 @@ ul.breadcrumbs li.current-page:after {
 }
 
 .title-buttons button,
+.title-buttons span,
 .title-buttons a {
     float:right;
 }
@@ -2031,17 +2032,17 @@ div.block-progress div.block-content ul li.error {
 
 /* ----------------------------- MY ACCOUNT */
 
-div.dashboard {
+div.my-account {
     padding-top: 10px;
 }
 
-div.dashboard h1 {
+div.my-account h1 {
     border-bottom: 1px solid;
     margin-bottom: 15px;
     padding-bottom: 15px;
 }
 
-div.dashboard div.box-account {
+div.my-account div.box-account {
     border-top: 1px dotted;
     margin-top: 15px;
     margin-bottom: 20px;
@@ -2049,36 +2050,36 @@ div.dashboard div.box-account {
     padding: 10px;
 }
 
-div.dashboard div.box-account div.box-head h2 {
+div.my-account div.box-account div.box-head h2 {
     border-bottom: 1px solid;
     margin-bottom: 20px;
 }
 
-div.dashboard div.box-account div.box-head h2 + a {
+div.my-account div.box-account div.box-head h2 + a {
     float:right;
     margin-top: -57px;
 }
 
-div.dashboard div.box-account div.box-title {
+div.my-account div.box-account div.box-title {
     border-bottom: 1px dotted;
     margin-bottom: 10px;
 }
 
-div.dashboard div.box-account div.box-title a {
+div.my-account div.box-account div.box-title a {
     float: right;
     margin-top: -35px;
 }
 
-div.dashboard div.box-account div.col2-set {
+div.my-account div.box-account div.col2-set {
     margin-bottom: 25px;
     width: 700px;
 }
 
-div.dashboard div.box-account div.col-1 div.box {
+div.my-account div.box-account div.col-1 div.box {
     padding-right: 40px;
 }
 
-div.dashboard div.box-account div.col-2 div.box {
+div.my-account div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
@@ -2116,7 +2117,11 @@ div.my-account form div.buttons-set button {
 
 div.my-account div.addresses-primary ol li {
     margin-bottom:10px;
-    
+}
+
+div.my-account dl.order-info,
+div.my-account div.order-items {
+    clear:both;
 }
 
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
