@@ -39,6 +39,10 @@ section.cart {
     border-color: #e8e8e8; /* Light grey */
 }
 
+section.cart a {
+    color:#333;
+}
+
 /* ----------------------------- NAVIGATION */
 
 nav {

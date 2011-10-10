@@ -101,6 +101,14 @@ section.cart h2 {
     font-size: 14px;
 }
 
+section.cart a {
+    text-decoration:none;
+}
+
+section.cart h2 a {
+    font-weight:bold;
+}
+
 /* ----------------------------- NAVIGATION */
 
 nav ul a {
