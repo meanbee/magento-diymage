@@ -535,14 +535,11 @@ ul.breadcrumbs li.current-page:after {
 }
 
 /* ----------------------------- TITLE BUTTONS */
-.title-buttons h1 {
-    float:left;
-}
-
 .title-buttons button,
 .title-buttons span,
 .title-buttons a {
-    float:right;
+    float: right;
+    margin-top: -57px;
 }
 
 .title-buttons + p {
