@@ -277,15 +277,17 @@ table.data-table tr td {
     vertical-align: top;
 }
 
-table.table thead {
+table.data-table thead {
     text-align: left;
 }
 
-table.data-table td.product-name h3 {
+table.data-table td.product-name h3,
+table.data-table td h3.product-name {
     font-size: 13px;
+    font-weight: normal;
 }
 
-table.data-table tbody tr span.cart-price span { 
+table#cart tbody tr span.cart-price span { 
     font-weight:bold;
 }
 
