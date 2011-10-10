@@ -2011,6 +2011,11 @@ div.block-progress div.block-content ul li {
     padding-top: 5px;
 }
 
+div.block-progress div.block-content ul li a {
+    float:right;
+    margin-right:25px;
+}
+
 div.block-progress div.block-content ul li.complete {
     background: url(../images/tick.png) 162px 10px no-repeat;
 }
