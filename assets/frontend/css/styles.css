@@ -2116,6 +2116,10 @@ div.my-account div.addresses-primary ol li {
     margin-bottom:10px;
 }
 
+div.my-account div.order-actions {
+    float:right;
+}
+
 div.my-account dl.order-info,
 div.my-account div.order-items {
     clear:both;
