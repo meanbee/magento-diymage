@@ -55,13 +55,16 @@
     </script>
     <?php endif; ?>
     <?php $_order = $this->getOrder() ?>
-    <h2 class="table-caption"><?php echo $this->__('Items Ordered') ?>
-        <?php if ($_order->getTracksCollection()->count()) : ?>
-            <span class="separator">|</span> <a href="#" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($_order) ?>','trackorder','top=0,left=0,width=800,height=600,resizable=yes,scrollbars=yes'); return false;" title="<?php echo $this->__('Track your order') ?>"><?php echo $this->__('Track your order') ?></a>
-        <?php endif; ?>
-    </h2>
+    <div class="box-account">
+        <div class="box-head title-buttons">
+            <h2 class="table-caption"><?php echo $this->__('Items Ordered') ?></h2>
+            <?php if ($_order->getTracksCollection()->count()) : ?>
+                <a href="#" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($_order) ?>','trackorder','top=0,left=0,width=800,height=600,resizable=yes,scrollbars=yes'); return false;" title="<?php echo $this->__('Track your order') ?>"><?php echo $this->__('Track your order') ?></a>
+            <?php endif; ?>
+        </div>
 
-    <?php echo $this->getChildHtml('order_items') ?>
+        <?php echo $this->getChildHtml('order_items') ?>
+    </div>
 
     <?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order', $_order) && $_order->getGiftMessageId()): ?>
     <div class="order-additional order-gift-message">
