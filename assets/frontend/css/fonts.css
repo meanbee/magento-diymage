@@ -391,6 +391,12 @@ ol#checkoutSteps span.please-wait {
     float:right;
 }
 
+/* ----------------------------- ACCOUNT */
+
+#my-orders-table td.a-center { 
+    text-align:center;
+}
+
 /* ----------------------------- FOOTER */
 
 footer section h2 {

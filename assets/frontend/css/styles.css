@@ -2054,6 +2054,11 @@ div.dashboard div.box-account div.box-head h2 {
     margin-bottom: 20px;
 }
 
+div.dashboard div.box-account div.box-head h2 + a {
+    float:right;
+    margin-top: -57px;
+}
+
 div.dashboard div.box-account div.box-title {
     border-bottom: 1px dotted;
     margin-bottom: 10px;
