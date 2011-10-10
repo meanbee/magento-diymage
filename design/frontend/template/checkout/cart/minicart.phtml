@@ -1,6 +1,10 @@
 <!-- MINICART -->
 <section class="cart">
-    <h2><a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Your Cart:') ?></a></h2> 
+    <?php if ($this->getSummaryCount() > 0): ?>
+        <h2><a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Your Cart:') ?></a></h2>
+    <?php else: ?>
+        <h2><?php echo $this->__('Your Cart:') ?></h2>
+    <?php endif; ?>
     <p>
         <?php if ($this->getSummaryCount() > 0): ?>
             <a href="<?php echo $this->getUrl('checkout/cart') ?>">
