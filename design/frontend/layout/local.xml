@@ -130,6 +130,8 @@
     </checkout_cart_configure>
 
     <checkout_onepage_index>
+        <remove name="minicart" />
+
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/checkout-toggles.js</name><params/><if /></action>
         </reference>
@@ -138,6 +140,7 @@
     <checkout_onepage_success>
         <remove name="cart_sidebar" />
         <remove name="catalog.compare.sidebar" />
+        <remove name="minicart" />
     </checkout_onepage_success>
 
     <tag_product_list>
