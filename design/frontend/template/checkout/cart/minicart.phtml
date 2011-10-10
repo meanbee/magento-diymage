@@ -2,8 +2,8 @@
 <section class="cart"> 
     <h2><?php echo $this->__('Your Cart:') ?></h2> 
     <p>
-        <?php if ($this->getItemCount() > 0): ?>
-            <?php printf("%d item%s", $this->getItemCount(), ($this->getItemCount() > 1) ? "s" : "")?>
+        <?php if ($this->getSummaryCount() > 0): ?>
+            <?php printf("%d item%s", $this->getSummaryCount(), ($this->getSummaryCount() > 1) ? "s" : "")?>
             <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
             (<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?>)
             <?php else: ?>
