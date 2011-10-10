@@ -289,15 +289,15 @@ table.data-table tbody tr span.cart-price span {
     font-weight:bold;
 }
 
-ol#checkoutSteps li table tfoot tr td {
+table.data-table tfoot tr td {
     text-align: right;
 }
 
-ol#checkoutSteps li table tfoot tr td + td {
+table.data-table tfoot tr td + td {
     text-align: left;
 }
 
-ol#checkoutSteps li table tfoot tr.last td + td span.price{
+table.data-table tfoot tr.last td + td span.price{
     font-weight: bold;
 }
 
