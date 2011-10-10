@@ -1794,6 +1794,10 @@ ol#checkoutSteps li ul li {
     list-style-type: disc;
 }
 
+ol#checkoutSteps .messages li ul li {
+    list-style-type:none;
+}
+
 ol#checkoutSteps li h2 {
     display: block;
     padding: 10px;
