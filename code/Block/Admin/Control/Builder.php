@@ -118,7 +118,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         
         if (count($value) > 0) {
             foreach ($value as $group => $data) {
-                foreach ($keys as $key) {
+                foreach ($keys as $key) {                    
                     if ($value[$group][$key] == "[]") {
                         $value[$group][$key] = array();
                     } else {

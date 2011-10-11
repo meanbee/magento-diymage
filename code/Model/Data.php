@@ -45,4 +45,10 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
             return false;
         }
     }
+    
+    public function setValue($value) {
+        if ($this->getInputControl() == "diy/admin_control_colour") {
+            $this->setData('value', substr($value, 1));
+        }
+    }
 }
