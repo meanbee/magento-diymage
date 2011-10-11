@@ -253,10 +253,12 @@ aside#product-tags h3 {
     font-weight: normal;
 }
 
+div.box-tags div.tags ul li,
 aside#product-tags ul li {
     line-height: 17px;
 }
 
+div.box-tags div.tags ul li a,
 aside#product-tags ul li a {
     text-decoration: none;
 }

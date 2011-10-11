@@ -1420,11 +1420,13 @@ aside#product-tags ul {
     overflow: hidden;
 }
 
+div.box-tags div.tags ul li,
 aside#product-tags ul li {
     float: left;
     list-style-type: none;
 }
 
+div.box-tags div.tags ul li a,
 aside#product-tags ul li a {
     border: 1px solid;
     -moz-border-radius-topleft: 10px;
@@ -1463,6 +1465,19 @@ aside#product-tags form input.text {
 
 aside#product-tags p.note {
     clear: both;
+}
+
+div.box-tags .hproduct {
+    float: left;
+    width: 50%;
+    margin-bottom:20px;
+    list-style-type: none;
+}
+
+div.box-tags .hproduct img.photo {
+    border: 1px solid;
+    float: left;
+    margin: 0 10px 10px 0;
 }
 
 /* ----------------------------- CART PAGE */

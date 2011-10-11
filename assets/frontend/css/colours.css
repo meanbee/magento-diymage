@@ -366,6 +366,7 @@ aside#product-tags {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
 }
 
+div.box-tags div.tags ul li a,
 aside#product-tags ul li a {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat;
     border-color: #e8e8e8; /* Light grey */
@@ -378,6 +379,8 @@ aside#product-tags ul li a {
     color: #333;
 }
 
+div.box-tags div.tags ul li a:hover,
+div.box-tags div.tags ul li a:active,
 aside#product-tags ul li a:hover,
 aside#product-tags ul li a:active {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat; /* White */
@@ -390,8 +393,13 @@ aside#product-tags ul li a:active {
     color: #cf5100; /* orange */
 }
 
+div.box-tags div.tags ul li a span,
 aside#product-tags ul li a span {
     color: #767676;
+}
+
+div.box-tags .hproduct img.photo {
+    border-color: #e8e8e8;    
 }
 
 /* ----------------------------- CART PAGE */
