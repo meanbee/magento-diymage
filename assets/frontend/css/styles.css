@@ -1255,6 +1255,10 @@ div.block-cart ol li img.photo {
     margin: 0 0 10px 10px;
 }
 
+div.block-cart h3.product-name {
+    min-height: 45px;
+}
+
 div.block-compare ol li a.btn-remove,
 div.block-cart ol li a.btn-remove {
     margin-top: -20px;
