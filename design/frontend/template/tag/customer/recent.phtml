@@ -33,7 +33,9 @@
         <?php foreach( $this->getCollection()->getItems() as $_item ): ?>
             <li class="item hproduct">
                 <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
+                <a href="<?php echo $_item->getProductUrl() ?>">
                     <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(50); ?>" width="50" height="50" alt="<?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?>">
+                </a>
                 <div class="tags">
                     <ul>
                     <?php foreach( $_item->getProductTags() as $_tag ): ?>
