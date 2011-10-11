@@ -32,10 +32,10 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     
     public function findByName($name, $group, $store_id) {
         $collection = $this->getCollection();
-        $collection->addAttributeToSelect('*')
-                   ->addAttributeToFilter('name', $name)
-                   ->addAttributeToFilter('store_id', $store_id)
-                   ->addAttributeToFilter('group', $group);
+        $collection->addFieldToSelect('*')
+                   ->addFieldToFilter('name', $name)
+                   ->addFieldToFilter('store_id', $store_id)
+                   ->addFieldToFilter('data_group', $group);
         
         if (count($collection) == 1) {
             return $collection->getFirstItem();
