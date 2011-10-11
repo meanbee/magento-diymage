@@ -294,7 +294,7 @@ table.data-table td h3.product-name {
     font-weight: normal;
 }
 
-table#cart tbody tr span.cart-price span { 
+table#cart tbody tr .cart-price span { 
     font-weight:bold;
 }
 
