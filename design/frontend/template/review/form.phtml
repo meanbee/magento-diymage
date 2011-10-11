@@ -68,7 +68,7 @@
     Validation.addAllThese(
     [
            ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function(v) {
-                var trs = $('product-review-table').select('tr');
+                var trs = $('write-review').select('tr');
                 var inputs;
                 var error = 1;
 
