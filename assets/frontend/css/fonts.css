@@ -271,6 +271,11 @@ aside#product-tags p.note {
     text-align: right;
 }
 
+table#my-tags-table button,
+table#my-tags-table ul.add-to-links {
+    text-align:center;
+}
+
 /* ----------------------------- CART PAGE */
 
 /* Cart contents table */

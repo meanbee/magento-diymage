@@ -1480,6 +1480,14 @@ div.box-tags .hproduct img.photo {
     margin: 0 10px 10px 0;
 }
 
+table#my-tags-table button {
+    width:115px;
+}
+
+table#my-tags-table ul.add-to-links {
+    list-style-type:none;
+}
+
 /* ----------------------------- CART PAGE */
 
 body.checkout-cart h1 {
