@@ -27,6 +27,11 @@ class Meanbee_Diy_Model_Log {
         Mage::log($message, $level, $this->_fileName, true /* Force logging */);
     }
     
+    public function log($message) {
+        $this->debug($message);
+        return $this;
+    }
+    
     public function debug($message) {
         $this->_writeLog($message, Zend_Log::DEBUG);
         return $this;
