@@ -6,7 +6,7 @@ $installer->startSetup();
 
 $table = $installer->getConnection()
     ->newTable($installer->getTable('diy/data'))
-    ->addColumn('data_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
+    ->addColumn('id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'identity'  => true,
         'nullable'  => false,
         'primary'   => true,

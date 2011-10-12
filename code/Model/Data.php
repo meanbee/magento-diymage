@@ -16,7 +16,7 @@
 class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     
     protected function _construct() {
-        $this->_init('diy/data');
+        $this->_init('diy/data', 'id');
     }
     
     public function validate() {
@@ -48,7 +48,9 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     
     public function setValue($value) {
         if ($this->getInputControl() == "diy/admin_control_colour") {
-            $this->setData('value', substr($value, 1));
+            $value = substr($value, 1);
         }
+        
+        return parent::setValue($value);
     }
 }
