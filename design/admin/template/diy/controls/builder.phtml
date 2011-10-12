@@ -221,7 +221,7 @@
         
         var new_object = $j.parseJSON($j("#<?php echo $this->getFieldId() ?>").val());
         
-        if (new_object == null) {
+        if (!new_object || new_object == null) {
             new_object = {};
         }
         
