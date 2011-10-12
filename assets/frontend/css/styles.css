@@ -1424,13 +1424,13 @@ aside#product-tags ul {
     overflow: hidden;
 }
 
-div.box-tags div.tags ul li,
+div.box-tags .tags li,
 aside#product-tags ul li {
     float: left;
     list-style-type: none;
 }
 
-div.box-tags div.tags ul li a,
+div.box-tags .tags li a,
 aside#product-tags ul li a {
     border: 1px solid;
     -moz-border-radius-topleft: 10px;
@@ -1485,11 +1485,15 @@ div.box-tags .hproduct img.photo {
 }
 
 table#my-tags-table button {
-    width:115px;
+    width: 115px;
 }
 
 table#my-tags-table ul.add-to-links {
-    list-style-type:none;
+    list-style-type: none;
+}
+
+div.box-tags + div.buttons-set {
+    clear: both;
 }
 
 /* ----------------------------- CART PAGE */

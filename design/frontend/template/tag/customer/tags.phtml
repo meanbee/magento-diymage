@@ -29,12 +29,14 @@
     <h1><?php echo $this->__('My Tags') ?></h1>
 </div>
 <?php if($this->getTags()): ?>
+<div class="box-tags">
     <p><?php echo $this->__('Click on a tag to view your corresponding products.') ?></p>
-    <ul class="tags-list">
+    <ul class="tags">
         <?php foreach ($this->getTags() as $_tag): ?>
-            <li><a href="<?php echo $this->getUrl('tag/customer/view', array('tagId' => $_tag->getTagId())) ?>" style="font-size:<?php echo $_tag->getRatio()*70+75 ?>%;"><?php echo $this->htmlEscape($_tag->getName()) ?></a></li>
+            <li><a href="<?php echo $this->getUrl('tag/customer/view', array('tagId' => $_tag->getTagId())) ?>"><?php echo $this->htmlEscape($_tag->getName()) ?> <span class="amount">(<?php echo $_tag->getPopularity() ?>)</span></a></li>
         <?php endforeach; ?>
     </ul>
+</div>
 <?php else: ?>
     <p><?php echo $this->__('You have not tagged any products yet.') ?></p>
 <?php endif; ?>
