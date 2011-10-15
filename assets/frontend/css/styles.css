@@ -1037,6 +1037,11 @@ section.hproduct aside.product-options-bottom + ul.social-buttons {
     padding-left:20px;
 }
 
+aside.tiered-pricing + ul.social-buttons {
+    clear:both;
+    padding-left:20px;
+}
+
 section.hproduct ul.social-buttons li {
     float: left;
     list-style-type: none;
@@ -1058,7 +1063,7 @@ section.hproduct .box-description {
 aside.tiered-pricing {
     border: 2px dashed;
     float: left;
-    margin: 0 10px 20px 10px;
+    margin: 10px 10px 0 0;
     padding: 20px;
     width: 280px;
 }
@@ -1390,6 +1395,10 @@ aside#related-products ul.products-grid li h3.original-price + h2.current-price 
     height:auto;
     width:auto;
     text-align:center;
+}
+
+aside#related-products a.minimal-price-link {
+    display:none;
 }
 
 aside#related-products ul.products-grid li:nth-child(3n) {
