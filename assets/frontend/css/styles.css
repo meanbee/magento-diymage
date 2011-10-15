@@ -2039,15 +2039,20 @@ form#checkout_multishipping_form {
     width: 80%;
 }
 
+form#checkout_multishipping_form .title-buttons button {
+    margin-top: -37px;
+}
+
 .checkout-progress {
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 .checkout-progress li {
     display: inline;
     margin: 15px;
 }
+
 
 
 
