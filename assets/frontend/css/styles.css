@@ -2032,6 +2032,25 @@ ol#checkoutSteps li section form p.validation-advice {
     padding-left: 24px;
 }
 
+
+/* ----------------------------- MULTI-SHIPPING CHECKOUT */
+
+form#checkout_multishipping_form {
+    width: 80%;
+}
+
+.checkout-progress {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.checkout-progress li {
+    display: inline;
+    margin: 15px;
+}
+
+
+
 /* ----------------------------- CHECKOUT SIDEBAR YOUR CHECKOUT PROGRESS */
 
 div.block-progress {
