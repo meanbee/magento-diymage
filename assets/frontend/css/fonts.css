@@ -318,8 +318,8 @@ div.block-related ol li.hproduct div.actions ul li {
 
 aside#related-products h2.current-price,
 aside#related-products h3.original-price {
-    font-weight:normal;
-    font-size:13px;
+    font-weight: normal;
+    font-size: 13px;
 }
 
 /* Shipping form */
@@ -331,12 +331,23 @@ aside.shipping form label {
 /* Totals */
 
 aside.totals td {
-    font-size:14px;
-    font-weight:bold;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+aside.totals th + td,
+aside.totals td + td {
+    text-align: right;
+    white-space: nowrap;
+}
+
+aside.totals th {
+    text-align: left;
+    font-weight: bold;
 }
 
 aside.totals tbody span.price {
-    font-size:18px;
+    font-size: 18px;
 }
 
 aside.totals tfoot span.price {
@@ -345,7 +356,7 @@ aside.totals tfoot span.price {
 }
 
 aside.totals ul li {
-    text-align:right;
+    text-align: right;
 }
 
 /* CART SIDEBAR */
@@ -355,7 +366,7 @@ div.block-cart div.summary h3 {
 }
 
 div.block-cart strong span.price {
-    font-weight:bold;
+    font-weight: bold;
 }
 
 div.notes dl dt {
