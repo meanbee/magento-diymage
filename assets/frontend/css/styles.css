@@ -1257,7 +1257,8 @@ ul#reviews-list li div.description {
 
 div.block-compare ol li,
 div.block-reorder ol li,
-div.block-cart ol li {
+div.block-cart ol li,
+div.block-wishlist ol li {
     border-top: 1px solid;
     clear: both;
     list-style-type: none;
@@ -1271,23 +1272,27 @@ div.block-reorder ol li p {
 
 div.block-reorder ol li:first-child,
 div.block-compare ol li:first-child,
-div.block-cart ol li:first-child {
+div.block-cart ol li:first-child,
+div.block-wishlist ol li:first-child {
     border-top:0;
 }
 
 div.block-compare ol li img.photo,
-div.block-cart ol li img.photo {
+div.block-cart ol li img.photo,
+div.block-wishlist ol li img.photo {
     border: 1px solid;
     float: right;
     margin: 0 0 10px 10px;
 }
 
-div.block-cart h3.product-name {
+div.block-cart h3.product-name,
+div.block-wishlist h3.product-name {
     min-height: 45px;
 }
 
 div.block-compare ol li a.btn-remove,
-div.block-cart ol li a.btn-remove {
+div.block-cart ol li a.btn-remove,
+div.block-wishlist ol li a.btn-remove {
     margin-top: -20px;
 }
 

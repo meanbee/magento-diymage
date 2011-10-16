@@ -293,12 +293,15 @@ ul#reviews-list li {
 div.block-compare ol li,
 div.block-compare div.actions,
 div.block-cart ol li,
-div.block-cart div.actions {
+div.block-cart div.actions,
+div.block-wishlist ol li,
+div.block-wishlist div.actions {
     border-color: #ccc;
 }
 
 div.block-compare ol li img.photo,
-div.block-cart ol li img.photo {
+div.block-cart ol li img.photo,
+div.block-wishlist ol li img.photo {
     border-color: #e8e8e8;
 }
 
