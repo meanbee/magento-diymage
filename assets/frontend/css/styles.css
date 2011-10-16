@@ -302,6 +302,7 @@ input[type=email],
 input.text,
 input.search,
 input.email,
+select.multiselect,
 textarea {
     border: 2px solid;
     padding: 5px; 
@@ -309,7 +310,8 @@ textarea {
 
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password],
+select.multiselect {
     width:250px;
 }
 

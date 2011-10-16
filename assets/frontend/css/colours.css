@@ -91,6 +91,7 @@ input[type=text],
 input[type=search],
 input.text,
 input.search,
+select.multiselect,
 textarea {
     background: #fff;
     border-color: #ffb553;
@@ -101,6 +102,7 @@ input[type=text]:focus,
 input[type=search]:focus,
 input.text:focus,
 input.search:focus,
+select.multiselect:focus
 textarea:focus {
     border-color: #eb6302; /* Orange */
 }
