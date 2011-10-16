@@ -2212,9 +2212,17 @@ div.my-account div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
+div.my-account div.addresses-list {
+    margin-bottom: 20px;
+}
+
 div.my-account div.addresses-list + div.buttons-set { 
     clear:both;
     float:right;
+}
+
+div.my-account div.addresses-additional {
+    clear: both;
 }
 
 div.my-account form {
