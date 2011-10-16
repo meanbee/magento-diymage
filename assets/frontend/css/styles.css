@@ -20,6 +20,10 @@ a.clear-all {
     float: right;
 }
 
+span.no-display {
+    display:none;
+}
+
 /* ----------------------------- HEADERS */
 
 h1, h2, h3 {
@@ -325,13 +329,17 @@ form ul li {
 }
 
 form ul li input.checkbox,
-form ul li input.radio { 
+form ul li input.radio,
+form dl dt input.checkbox,
+form dl dt input.radio { 
     width:auto;
     display:inline;
 }
 
 form ul li input.checkbox + label,
-form ul li input.radio + label {
+form ul li input.radio + label,
+form dl dt input.checkbox + label,
+form dl dt input.radio + label {
     display:inline;
 }
 
@@ -2035,12 +2043,28 @@ ol#checkoutSteps li section form p.validation-advice {
 
 /* ----------------------------- MULTI-SHIPPING CHECKOUT */
 
-form#checkout_multishipping_form {
+div.multiple-checkout form {
     width: 80%;
+}
+
+div.multiple-checkout ul#payment_form_ccsave {
+    width: 90%;
 }
 
 form#checkout_multishipping_form .title-buttons button {
     margin-top: -37px;
+}
+
+form#shipping_method_form table {
+    margin: 10px 0;
+}
+
+div.col2-set div.col-narrow {
+    width:30%;
+}
+
+div.col2-set div.col-wide {
+    width:70%;
 }
 
 .checkout-progress {
@@ -2052,9 +2076,25 @@ form#checkout_multishipping_form .title-buttons button {
     display: inline;
     margin: 15px;
 }
+.multiple-checkout .box {
+    margin-bottom: 10px;
+}
 
+.multiple-checkout #checkout-review-submit {
+    float: right;
+}
 
+.multiple-checkout .buttons-set p.back-link {
+    float: left;
+}
 
+#review-buttons-container {
+    float: right;
+}
+
+.multiple-checkout #review-please-wait {
+    float: right;
+}
 
 /* ----------------------------- CHECKOUT SIDEBAR YOUR CHECKOUT PROGRESS */
 

@@ -135,6 +135,10 @@
         <remove name="minicart" />
     </checkout_onepage_index>
     
+    <checkout_multishipping>
+        <remove name="minicart" />
+    </checkout_multishipping>
+    
     <checkout_onepage_success>
         <remove name="cart_sidebar" />
         <remove name="catalog.compare.sidebar" />

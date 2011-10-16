@@ -397,13 +397,23 @@ form#co-shipping-method-form div dl dt {
 }
 
 ol#checkoutSteps span.please-wait {
-    float:right;
+    float: right;
 }
 
 /* ----------------------------- MULTI-SHIPPING CHECKOUT */
 
 .checkout-progress li.active span {
-    font-weight:bold;
+    font-weight: bold;
+}
+
+.multiple-checkout .grand-total {
+    font-weight: bold;
+    text-align: right;
+}
+
+.multiple-checkout .grand-total span.price {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* ----------------------------- ACCOUNT */
