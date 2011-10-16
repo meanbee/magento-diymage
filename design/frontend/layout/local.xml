@@ -74,6 +74,7 @@
             <action method="addItem"><type>skin_css</type><name>js/hoverscroll/jquery.hoverscroll.css</name><params/><if /></action>
             <action method="addItem"><type>skin_js</type><name>js/hoverscroll/jquery.hoverscroll.js</name><params/><if /></action>
             <action method="addItem"><type>skin_js</type><name>js/review-toggles.js</name><params/><if /></action>
+            <block type="core/template" name="facebook.meta" template="page/html/facebook.phtml" />
         </reference>
 
         <reference name="product.info">
