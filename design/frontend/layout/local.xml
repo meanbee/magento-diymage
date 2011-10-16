@@ -108,6 +108,7 @@
     </catalog_product_view>
     
     <catalogsearch_result_index>
+        <update handle="page_three_columns" />
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
         </reference>

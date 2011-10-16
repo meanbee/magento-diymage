@@ -657,7 +657,11 @@ ul.products-grid li.hproduct {
 }
 
 ul.products-grid li.hproduct.last {
-    border-right:0px;
+    border-right: 0px;
+}
+
+ul.products-grid.last li.hproduct {
+    border-bottom: 0px;
 }
 
 ul.list-products li.hproduct {
