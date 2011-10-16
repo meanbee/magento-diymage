@@ -47,8 +47,8 @@
                     <tr>
                         <th><?php echo $this->__('Product') ?></th>
                         <th><?php echo $this->__('Comment') ?></th>
-                        <th class="a-center"><span class="nobr"><?php echo $this->__('Added On') ?></span></th>
-                        <th class="a-center"><span class="nobr"><?php echo $this->__('Add to Cart') ?></span></th>
+                        <th><?php echo $this->__('Added On') ?></th>
+                        <th><?php echo $this->__('Add to Cart') ?></th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -65,19 +65,19 @@
                             <?php echo $this->getPriceHtml($product) ?>
                             <?php echo $this->getDetailsHtml($item) ?>
                         </td>
-                        <td>
+                        <td classs="product-comment">
                             <textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo $this->__('Comment') ?>"><?php echo $this->getCommentValue($item); ?></textarea>
                         </td>
-                        <td>
-                            <span class="nobr"><?php echo $this->getFormatedDate($item->getAddedAt()) ?></span>
+                        <td class="product-added">
+                            <?php echo $this->getFormatedDate($item->getAddedAt()) ?>
                         </td>
-                        <td class="a-center">
+                        <td class="qty">
                         <?php if ($item->canHaveQty() && $isVisibleProduct): ?>
-                            <p><input type="text" class="input-text qty" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" /></p>
+                            <p><input type="text" class="text qty" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" /></p>
                         <?php endif; ?>
                         <?php if ($product->isSaleable()): ?>
                             <?php if ($isVisibleProduct): ?>
-                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="addWItemToCart(<?php echo $item->getId(); ?>)" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="addWItemToCart(<?php echo $item->getId(); ?>)" class="button btn-cart"><?php echo $this->__('Add to Cart') ?></button>
                             <?php endif ?>
                         <?php else: ?>
                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
@@ -87,7 +87,7 @@
                             <?php endif ?>
                         </td>
                         <td>
-                            <a href="<?php echo $this->getItemRemoveUrl($item) ?>" title="<?php echo $this->__('Remove Item') ?>" onclick="return confirmRemoveWishlistItem();" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
+                            <a href="<?php echo $this->getItemRemoveUrl($item) ?>" title="<?php echo $this->__('Remove Item') ?>" onclick="return confirmRemoveWishlistItem();" class="btn-remove"><?php echo $this->__('Remove item')?></a>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -95,11 +95,11 @@
             </table>
             <script type="text/javascript">decorateTable('wishlist-table')</script>
             <div class="buttons-set buttons-set2">
-                <button type="submit" onclick="this.name='save_and_share'" title="<?php echo $this->__('Share Wishlist') ?>" class="button btn-share"><span><span><?php echo $this->__('Share Wishlist') ?></span></span></button>
+                <button type="submit" onclick="this.name='save_and_share'" title="<?php echo $this->__('Share Wishlist') ?>" class="button btn-share"><?php echo $this->__('Share Wishlist') ?></button>
                 <?php if($this->isSaleable()):?>
-                    <button type="button" title="<?php echo $this->__('Add All to Cart') ?>" onclick="addAllWItemsToCart()" class="button btn-add"><span><span><?php echo $this->__('Add All to Cart') ?></span></span></button>
+                    <button type="button" title="<?php echo $this->__('Add All to Cart') ?>" onclick="addAllWItemsToCart()" class="button btn-add"><?php echo $this->__('Add All to Cart') ?></button>
                 <?php endif;?>
-                <button type="submit" title="<?php echo $this->__('Update Wishlist') ?>" onclick="this.name='do'" class="button btn-update"><span><span><?php echo $this->__('Update Wishlist') ?></span></span></button>
+                <button type="submit" title="<?php echo $this->__('Update Wishlist') ?>" onclick="this.name='do'" class="button btn-update"><?php echo $this->__('Update Wishlist') ?></button>
             </div>
         </fieldset>
     </form>

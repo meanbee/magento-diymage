@@ -2245,6 +2245,24 @@ div.block-account div.block-content ul li:first-child {
     border-top:0;
 }
 
+/* ----------------------------- WISHLIST */
+
+#wishlist-view-form {
+    width: 95%;
+}
+
+#wishlist-view-form textarea {
+    width: 95%;
+}
+
+.my-wishlist .buttons-set2 {
+    margin-bottom: 10px;
+}
+
+.my-wishlist table td.product-added {
+    white-space: nowrap;
+}
+
 /* ----------------------------- COMPARE PRODUCTS */
 body.catalog-product-compare-index .title-buttons {
     margin:10px;
