@@ -2217,12 +2217,16 @@ div.my-account div.addresses-list {
 }
 
 div.my-account div.addresses-list + div.buttons-set { 
-    clear:both;
-    float:right;
+    clear: both;
+    float: right;
 }
 
 div.my-account div.addresses-additional {
     clear: both;
+}
+
+div.my-account div.addresses-additional li {
+    margin-bottom: 10px;
 }
 
 div.my-account form {
