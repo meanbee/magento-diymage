@@ -1406,6 +1406,7 @@ aside#related-products ul.products-grid li {
     padding-top: 0;
     text-align: center;
     width: 140px;
+    min-height: 357px;
 }
 
 aside#related-products ul.products-grid h3.product-name {
