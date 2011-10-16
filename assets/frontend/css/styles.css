@@ -2277,7 +2277,7 @@ div.block-account div.block-content ul li:first-child {
     width: 95%;
 }
 
-.my-wishlist textarea {
+div.my-account .my-wishlist form fieldset textarea {
     width: 95%;
 }
 
