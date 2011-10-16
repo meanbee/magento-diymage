@@ -1239,6 +1239,20 @@ ul#reviews-list li div.description {
     margin-top: 15px;
 }
 
+.box-reviews .hproduct {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.box-reviews ol li {
+    list-style-type: none;
+}
+
+.box-reviews div.rating-box {
+    float:left;
+}
+
 /* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
 
 div.block-compare ol li,
