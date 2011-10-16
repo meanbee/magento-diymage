@@ -1295,8 +1295,7 @@ div.block-wishlist h3.product-name {
 }
 
 div.block-compare ol li a.btn-remove,
-div.block-cart ol li a.btn-remove,
-div.block-wishlist ol li a.btn-remove {
+div.block-cart ol li a.btn-remove {
     margin-top: -20px;
 }
 
@@ -1394,6 +1393,10 @@ aside#related-products > h2 {
     border-bottom: 1px solid;
     padding-bottom: 10px;
     padding-left: 20px;
+}
+
+aside#related-products ul.products-grid {
+    padding: 10px 0;
 }
 
 aside#related-products ul.products-grid li {
