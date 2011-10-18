@@ -571,6 +571,10 @@ ul.product-sorter {
     padding: 0 20px;
 }
 
+div.my-account ol {
+    list-style-type: none;
+}
+
 ul.product-sorter li {
     list-style-type: none;
     padding: 3px 0 1px 0;
@@ -602,6 +606,7 @@ ul.product-sorter li.pagination {
     width: 33.33%;
 }
 
+div.my-account li.pagination strong,
 ul.product-sorter li.pagination strong {
     float: left;
 }
@@ -610,23 +615,31 @@ ul.product-sorter li label {
     display: inline;
 }
 
+div.my-account li.pagination {
+    width: 100px;
+}
+
+div.my-account li.pagination ol li,
 ul.product-sorter li.pagination ol li {
     float: left;
     list-style-type: none;
     padding: 0;
 }
 
+div.my-account li.pagination ol li a,
 ul.product-sorter li.pagination ol li a {
     display: block;
     float: left;
     padding: 0 5px;
 }
 
+div.my-account li.pagination ol li.current,
 ul.product-sorter li.pagination ol li.current {
     display: block;
     padding: 0 5px;
 }
 
+div.my-account ol.pager,
 ul.product-sorter li.sort-by {
     float: right;
 }
