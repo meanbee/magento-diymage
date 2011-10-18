@@ -33,7 +33,13 @@
     <?php if($_orderIds = $this->getOrderIds()): ?>
     <p>
         <?php $flag = false ?>
-        <?php echo $this->__('Your order number is ') ?>
+        
+        <?php if ( count($_orderIds) > 1): ?>
+            <?php echo $this->__('Your order numbers are ') ?>
+        <?php else: ?>
+            <?php echo $this->__('Your order number is ') ?>
+        <?php endif; ?>
+        
         <?php foreach ($_orderIds as $orderId=>$incrementId): ?>
             <?php if ($flag): ?>
                 <?php echo ', ' ?>
