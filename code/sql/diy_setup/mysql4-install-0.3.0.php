@@ -6,8 +6,11 @@ $installer = $this;
 
 $installer->startSetup();
 
+/**
+ * Create the main DIY Mage table
+ */
+ 
 $table = $installer->getTable('diy/data');
-
 $installer->run("
 
 CREATE TABLE `{$table}` (
@@ -24,8 +27,13 @@ CREATE TABLE `{$table}` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='diy_data';
 
-
 ");
+
+/**
+ * Modify the CMS page table to include our builder
+ */
+
+$installer->getConnection()->addColumn($installer->getTable('cms_page'), 'diy_builder', 'text');
 
 $installer->endSetup();
 
