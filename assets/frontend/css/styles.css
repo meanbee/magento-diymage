@@ -2083,6 +2083,14 @@ form#checkout_multishipping_form .title-buttons button {
     margin-top: -37px;
 }
 
+#multiship-addresses-table td select {
+    width: 300px;
+}
+
+#multiship-addresses-table a.button {
+    padding: 5px 0;
+}
+
 form#shipping_method_form table {
     margin: 10px 0;
 }
