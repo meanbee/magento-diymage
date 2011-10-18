@@ -36,59 +36,57 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="col2-set addresses-list">
-    <div class="col-1 addresses-primary">
-        <h2><?php echo $this->__('Default Addresses') ?></h2>
-        <ol>
+    <div class="col-1">
         <?php if($_pAddsses = Mage::getSingleton('customer/session')->getCustomer()->getDefaultBilling()): ?>
-            <li class="item">
+            <div class="item">
                 <h3><?php echo $this->__('Default Billing Address') ?></h3>
                 <address>
                     <?php echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>
                 </address>
                 <p><a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>"><?php echo $this->__('Change Billing Address') ?></a></p>
-           </li>
+           </div>
         <?php else: ?>
-            <li class="item">
+            <div class="item empty">
                 <h3><?php echo $this->__('Default Billing Address') ?></h3>
                 <?php echo $this->__('You have no default billing address in your address book.') ?>
-            </li>
+            </div>
         <?php endif ?>
-
+    </div>
+    <div class="col-2">
         <?php if($_pAddsses = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping()): ?>
-            <li class="item">
+            <div class="item">
                 <h3><?php echo $this->__('Default Shipping Address') ?></h3>
                 <address>
                     <?php echo $this->getAddressHtml(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>
                 </address>
                 <p><a href="<?php echo $this->getAddressEditUrl(Mage::getSingleton('customer/session')->getCustomer()->getAddressById($_pAddsses)) ?>"><?php echo $this->__('Change Shipping Address') ?></a></p>
-            </li>
+            </div>
         <?php else: ?>
-            <li class="item empty">
+            <div class="item empty">
                 <h3><?php echo $this->__('Default Shipping Address') ?></h3>
                 <p><?php echo $this->__('You have no default shipping address in your address book.') ?></p>
-            </li>
+            </div>
         <?php endif ?>
-        </ol>
     </div>
-    <div class="col-2 addresses-additional">
-        <h2><?php echo $this->__('Additional Address Entries') ?></h2>
-        <ol>
-        <?php if($_pAddsses = $this->getAdditionalAddresses()): ?>
-            <?php foreach($_pAddsses as $_address): ?>
-            <li class="item">
-                <address>
-                    <?php echo $this->getAddressHtml($_address) ?>
-                </address>
-                <p><a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>"><?php echo $this->__('Edit Address') ?></a> <span class="separator">|</span> <a href="#" class="link-remove" onclick="return deleteAddress('<?php echo $_address->getId() ?>');"><?php echo $this->__('Delete Address') ?></a></p>
-            </li>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <li class="item empty">
-                <p><?php echo $this->__('You have no additional address entries in your address book.') ?></p>
-            </li>
-        <?php endif ?>
-        </ol>
-    </div>
+</div>
+   <div class="addresses-additional">
+    <h2><?php echo $this->__('Additional Address Entries') ?></h2>
+    <ol>
+    <?php if($_pAddsses = $this->getAdditionalAddresses()): ?>
+        <?php foreach($_pAddsses as $_address): ?>
+        <li class="item">
+            <address>
+                <?php echo $this->getAddressHtml($_address) ?>
+            </address>
+            <p><a href="<?php echo $this->getUrl('customer/address/edit', array('id'=>$_address->getId())) ?>"><?php echo $this->__('Edit Address') ?></a> <span class="separator">|</span> <a href="#" class="link-remove" onclick="return deleteAddress('<?php echo $_address->getId() ?>');"><?php echo $this->__('Delete Address') ?></a></p>
+        </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li class="item empty">
+            <p><?php echo $this->__('You have no additional address entries in your address book.') ?></p>
+        </li>
+    <?php endif ?>
+    </ol>
 </div>
 <div class="buttons-set">
     <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><?php echo $this->__('Back') ?></a>

@@ -61,6 +61,13 @@ nav ul ul {
     -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
 }
 
+nav ul ul ul {
+    /* half the transparency otherwise it goes to dark */
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
+}
+
 nav ul ul a {
     background: #333; /* dark grey */
 }
@@ -91,6 +98,7 @@ input[type=text],
 input[type=search],
 input.text,
 input.search,
+select.multiselect,
 textarea {
     background: #fff;
     border-color: #ffb553;
@@ -101,6 +109,7 @@ input[type=text]:focus,
 input[type=search]:focus,
 input.text:focus,
 input.search:focus,
+select.multiselect:focus
 textarea:focus {
     border-color: #eb6302; /* Orange */
 }
@@ -293,12 +302,15 @@ ul#reviews-list li {
 div.block-compare ol li,
 div.block-compare div.actions,
 div.block-cart ol li,
-div.block-cart div.actions {
+div.block-cart div.actions,
+div.block-wishlist ol li,
+div.block-wishlist div.actions {
     border-color: #ccc;
 }
 
 div.block-compare ol li img.photo,
-div.block-cart ol li img.photo {
+div.block-cart ol li img.photo,
+div.block-wishlist ol li img.photo {
     border-color: #e8e8e8;
 }
 
@@ -366,6 +378,7 @@ aside#product-tags {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
 }
 
+div.box-tags .tags li a,
 aside#product-tags ul li a {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat;
     border-color: #e8e8e8; /* Light grey */
@@ -378,6 +391,8 @@ aside#product-tags ul li a {
     color: #333;
 }
 
+div.box-tags .tags li a:hover,
+div.box-tags .tags li a:active,
 aside#product-tags ul li a:hover,
 aside#product-tags ul li a:active {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat; /* White */
@@ -390,8 +405,13 @@ aside#product-tags ul li a:active {
     color: #cf5100; /* orange */
 }
 
+div.box-tags .tags li a span,
 aside#product-tags ul li a span {
     color: #767676;
+}
+
+div.box-tags .hproduct img.photo {
+    border-color: #e8e8e8;    
 }
 
 /* ----------------------------- CART PAGE */

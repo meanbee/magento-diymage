@@ -20,6 +20,10 @@ a.clear-all {
     float: right;
 }
 
+span.no-display {
+    display:none;
+}
+
 /* ----------------------------- HEADERS */
 
 h1, h2, h3 {
@@ -253,7 +257,7 @@ nav ul ul {
     top: 40px;
     left: 0;
     float: left;
-    width: 160px;
+    width: 200px;
     z-index: 99999;
 }
 
@@ -298,6 +302,7 @@ input[type=email],
 input.text,
 input.search,
 input.email,
+select.multiselect,
 textarea {
     border: 2px solid;
     padding: 5px; 
@@ -305,7 +310,8 @@ textarea {
 
 input[type=text],
 input[type=email],
-input[type=password] {
+input[type=password],
+select.multiselect {
     width:250px;
 }
 
@@ -325,13 +331,17 @@ form ul li {
 }
 
 form ul li input.checkbox,
-form ul li input.radio { 
+form ul li input.radio,
+form dl dt input.checkbox,
+form dl dt input.radio { 
     width:auto;
     display:inline;
 }
 
 form ul li input.checkbox + label,
-form ul li input.radio + label {
+form ul li input.radio + label,
+form dl dt input.checkbox + label,
+form dl dt input.radio + label {
     display:inline;
 }
 
@@ -649,7 +659,11 @@ ul.products-grid li.hproduct {
 }
 
 ul.products-grid li.hproduct.last {
-    border-right:0px;
+    border-right: 0px;
+}
+
+ul.products-grid.last li.hproduct {
+    border-bottom: 0px;
 }
 
 ul.list-products li.hproduct {
@@ -1037,6 +1051,11 @@ section.hproduct aside.product-options-bottom + ul.social-buttons {
     padding-left:20px;
 }
 
+aside.tiered-pricing + ul.social-buttons {
+    clear:both;
+    padding-left:20px;
+}
+
 section.hproduct ul.social-buttons li {
     float: left;
     list-style-type: none;
@@ -1058,7 +1077,7 @@ section.hproduct .box-description {
 aside.tiered-pricing {
     border: 2px dashed;
     float: left;
-    margin: 0 10px 20px 10px;
+    margin: 10px 10px 0 0;
     padding: 20px;
     width: 280px;
 }
@@ -1226,11 +1245,26 @@ ul#reviews-list li div.description {
     margin-top: 15px;
 }
 
+.box-reviews .hproduct {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.box-reviews ol li {
+    list-style-type: none;
+}
+
+.box-reviews div.rating-box {
+    float:left;
+}
+
 /* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
 
 div.block-compare ol li,
 div.block-reorder ol li,
-div.block-cart ol li {
+div.block-cart ol li,
+div.block-wishlist ol li {
     border-top: 1px solid;
     clear: both;
     list-style-type: none;
@@ -1244,15 +1278,22 @@ div.block-reorder ol li p {
 
 div.block-reorder ol li:first-child,
 div.block-compare ol li:first-child,
-div.block-cart ol li:first-child {
+div.block-cart ol li:first-child,
+div.block-wishlist ol li:first-child {
     border-top:0;
 }
 
 div.block-compare ol li img.photo,
-div.block-cart ol li img.photo {
+div.block-cart ol li img.photo,
+div.block-wishlist ol li img.photo {
     border: 1px solid;
     float: right;
     margin: 0 0 10px 10px;
+}
+
+div.block-cart h3.product-name,
+div.block-wishlist h3.product-name {
+    min-height: 45px;
 }
 
 div.block-compare ol li a.btn-remove,
@@ -1356,11 +1397,16 @@ aside#related-products > h2 {
     padding-left: 20px;
 }
 
+aside#related-products ul.products-grid {
+    padding: 10px 0;
+}
+
 aside#related-products ul.products-grid li {
     border-bottom: none;
     padding-top: 0;
     text-align: center;
     width: 140px;
+    min-height: 357px;
 }
 
 aside#related-products ul.products-grid h3.product-name {
@@ -1386,6 +1432,10 @@ aside#related-products ul.products-grid li h3.original-price + h2.current-price 
     height:auto;
     width:auto;
     text-align:center;
+}
+
+aside#related-products a.minimal-price-link {
+    display:none;
 }
 
 aside#related-products ul.products-grid li:nth-child(3n) {
@@ -1420,11 +1470,13 @@ aside#product-tags ul {
     overflow: hidden;
 }
 
+div.box-tags .tags li,
 aside#product-tags ul li {
     float: left;
     list-style-type: none;
 }
 
+div.box-tags .tags li a,
 aside#product-tags ul li a {
     border: 1px solid;
     -moz-border-radius-topleft: 10px;
@@ -1462,6 +1514,31 @@ aside#product-tags form input.text {
 }
 
 aside#product-tags p.note {
+    clear: both;
+}
+
+div.box-tags .hproduct {
+    float: left;
+    width: 50%;
+    margin-bottom:20px;
+    list-style-type: none;
+}
+
+div.box-tags .hproduct img.photo {
+    border: 1px solid;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+table#my-tags-table button {
+    width: 115px;
+}
+
+table#my-tags-table ul.add-to-links {
+    list-style-type: none;
+}
+
+div.box-tags + div.buttons-set {
     clear: both;
 }
 
@@ -1992,6 +2069,62 @@ ol#checkoutSteps li section form p.validation-advice {
     padding-left: 24px;
 }
 
+
+/* ----------------------------- MULTI-SHIPPING CHECKOUT */
+
+div.multiple-checkout form {
+    width: 80%;
+}
+
+div.multiple-checkout ul#payment_form_ccsave {
+    width: 90%;
+}
+
+form#checkout_multishipping_form .title-buttons button {
+    margin-top: -37px;
+}
+
+form#shipping_method_form table {
+    margin: 10px 0;
+}
+
+div.col2-set div.col-narrow {
+    width:30%;
+}
+
+div.col2-set div.col-wide {
+    width:70%;
+}
+
+.checkout-progress {
+    width: 70%;
+    margin: 0 auto 20px;
+}
+
+.checkout-progress li {
+    display: inline;
+    margin: 15px;
+}
+.multiple-checkout .box {
+    margin-bottom: 10px;
+}
+
+.multiple-checkout #checkout-review-submit {
+    float: right;
+}
+
+.multiple-checkout .buttons-set p.back-link {
+    float: left;
+}
+
+#review-buttons-container {
+    float: right;
+}
+
+.multiple-checkout #review-please-wait {
+    float: right;
+}
+
 /* ----------------------------- CHECKOUT SIDEBAR YOUR CHECKOUT PROGRESS */
 
 div.block-progress {
@@ -2080,9 +2213,21 @@ div.my-account div.box-account div.col-2 div.box {
     padding-right: 20px;
 }
 
+div.my-account div.addresses-list {
+    margin-bottom: 20px;
+}
+
 div.my-account div.addresses-list + div.buttons-set { 
-    clear:both;
-    float:right;
+    clear: both;
+    float: right;
+}
+
+div.my-account div.addresses-additional {
+    clear: both;
+}
+
+div.my-account div.addresses-additional li {
+    margin-bottom: 10px;
 }
 
 div.my-account form {
@@ -2139,6 +2284,24 @@ div.block-account div.block-content ul li {
 
 div.block-account div.block-content ul li:first-child {
     border-top:0;
+}
+
+/* ----------------------------- WISHLIST */
+
+#wishlist-view-form {
+    width: 95%;
+}
+
+div.my-account .my-wishlist form fieldset textarea {
+    width: 95%;
+}
+
+.my-wishlist .buttons-set2 {
+    margin-bottom: 10px;
+}
+
+.my-wishlist table td.product-added {
+    white-space: nowrap;
 }
 
 /* ----------------------------- COMPARE PRODUCTS */
