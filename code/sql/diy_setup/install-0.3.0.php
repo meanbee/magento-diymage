@@ -38,5 +38,5 @@ $installer->endSetup();
 $installer->populateData();
 
 Mage::getSingleton('adminhtml/session')->addSuccess(
-    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.2.0 (Direct DSL Install)')
+    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.3.0 (Direct DSL Install)')
 );

@@ -13,6 +13,7 @@ $installer->startSetup();
 $table = $installer->getTable('diy/data');
 $installer->run("
 
+DROP TABLE `{$table}`;
 CREATE TABLE `{$table}` (
     `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'DIY Mage Data ID',
     `name` text COMMENT 'Name',
@@ -42,5 +43,5 @@ $installer->installEntities();
 $installer->populateData();
 
 Mage::getSingleton('adminhtml/session')->addSuccess(
-    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.2.0 (Direct SQL Install)')
+    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.3.0 (Direct SQL Install)')
 );

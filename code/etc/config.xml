@@ -12,14 +12,22 @@
         <models>
             <diy>
                 <class>Meanbee_Diy_Model</class>
-                <resourceModel>diy_resource</resourceModel>
+                <!-- @TODO Work out how to make use of the db-agnostic resource -->
+                <resourceModel>diy_mysql4</resourceModel>
             </diy>
             <diy_resource>
                 <class>Meanbee_Diy_Model_Resource</class>
+                <deprecatedNode>diy_mysql4</deprecatedNode>
                 <entities>
                     <data><table>diy_data</table></data>
                 </entities>
             </diy_resource>
+            <diy_mysql4>
+                <class>Meanbee_Diy_Model_Mysql4</class>
+                <entities>
+                    <data><table>diy_data</table></data>
+                </entities>
+            </diy_mysql4>
         </models>
         <blocks>
             <diy>
