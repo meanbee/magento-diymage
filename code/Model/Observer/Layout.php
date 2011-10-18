@@ -59,7 +59,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $this->_removeBlock($layout, "catalog.topnav");
         }
         
-        $this->_addStylesheet($layout, "diymage.css?" . time());
+        $this->_addStylesheet($layout, "diymage_" . $store_id . ".css?" . time());
         
         // Apply our sort changes..
         //$update->load();

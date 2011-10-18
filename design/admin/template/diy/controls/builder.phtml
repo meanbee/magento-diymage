@@ -165,7 +165,7 @@
         var css_class = "";
         var key = name;
         
-        if (updates[reference] && $j.inArray(name, updates[reference].remove) != -1) {
+        if (updates[reference] && updates[reference].remove != null && $j.inArray(name, updates[reference].remove) != -1) {
             css_class = "deleted";
         }
         
@@ -221,7 +221,7 @@
         
         var new_object = $j.parseJSON($j("#<?php echo $this->getFieldId() ?>").val());
         
-        if (new_object == null) {
+        if (!new_object || new_object == null) {
             new_object = {};
         }
         
@@ -287,7 +287,7 @@
         var html = "";
         var css_class = "";
         
-        if (updates[section] && $j.inArray(name, updates[section].remove) != -1) {
+        if (updates[section] && updates[section].remove != null && $j.inArray(name, updates[section].remove) != -1) {
             css_class = "deleted";
         }
         

@@ -5,21 +5,29 @@
 <config>
     <modules>
         <Meanbee_Diy>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </Meanbee_Diy>
     </modules>
     <global>
         <models>
             <diy>
                 <class>Meanbee_Diy_Model</class>
-                <resourceModel>diy_eav</resourceModel>
+                <!-- @TODO Work out how to make use of the db-agnostic resource -->
+                <resourceModel>diy_mysql4</resourceModel>
             </diy>
-            <diy_eav>
-                <class>Meanbee_Diy_Model_Eav</class>
+            <diy_resource>
+                <class>Meanbee_Diy_Model_Resource</class>
+                <deprecatedNode>diy_mysql4</deprecatedNode>
                 <entities>
-                    <data><table>diy_eav</table></data>
+                    <data><table>diy_data</table></data>
                 </entities>
-            </diy_eav>
+            </diy_resource>
+            <diy_mysql4>
+                <class>Meanbee_Diy_Model_Mysql4</class>
+                <entities>
+                    <data><table>diy_data</table></data>
+                </entities>
+            </diy_mysql4>
         </models>
         <blocks>
             <diy>

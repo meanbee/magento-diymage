@@ -23,11 +23,11 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         $data = Mage::getModel('diy/data');
 
         $collection = $data->getCollection()
-                            ->addAttributeToSelect('*')
-                            ->addAttributeToFilter('group', $this->getDataGroup())
-                            ->addAttributeToFilter('store_id', $this->getStoreId())
+                            ->addFieldToSelect('*')
+                            ->addFieldToFilter('data_group', $this->getDataGroup())
+                            ->addFieldToFilter('store_id', $this->getStoreId())
                             ->setOrder('sort_order', 'asc');
-
+                            
         return $collection;
     }
 

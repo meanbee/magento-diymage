@@ -16,7 +16,7 @@
 class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     
     protected function _construct() {
-        $this->_init('diy/data');
+        $this->_init('diy/data', 'id');
     }
     
     public function validate() {
@@ -32,10 +32,10 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
     
     public function findByName($name, $group, $store_id) {
         $collection = $this->getCollection();
-        $collection->addAttributeToSelect('*')
-                   ->addAttributeToFilter('name', $name)
-                   ->addAttributeToFilter('store_id', $store_id)
-                   ->addAttributeToFilter('group', $group);
+        $collection->addFieldToSelect('*')
+                   ->addFieldToFilter('name', $name)
+                   ->addFieldToFilter('store_id', $store_id)
+                   ->addFieldToFilter('data_group', $group);
         
         if (count($collection) == 1) {
             return $collection->getFirstItem();
@@ -44,5 +44,13 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
         } else {
             return false;
         }
+    }
+    
+    public function setValue($value) {
+        if ($this->getInputControl() == "diy/admin_control_colour") {
+            $value = substr($value, 1);
+        }
+        
+        return parent::setValue($value);
     }
 }

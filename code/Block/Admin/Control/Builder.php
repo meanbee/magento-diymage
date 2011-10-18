@@ -90,24 +90,10 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     }
     
     /**
-     * Create the JSON properly for outputting
-     *
-     * @return string (json)
-     * @author Nicholas Jones
-     */
-    public function getValue() {
-        return Zend_Json::encode($this->_getValueAsArray());
-    }
-    
-    /**
      * @return array
      * @author Nicholas Jones
      */
     protected function _getValueAsArray() {
-        $keys = array('remove', 'sort_order');
-        
-        $value_json = parent::getValue();
-        
         if ($this->isCMSPage()) {
             $value_json = Mage::registry('cms_page')->getData('diy_builder');
         } else {
@@ -115,18 +101,6 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         }
         
         $value = Zend_Json::decode($value_json);
-        
-        if (count($value) > 0) {
-            foreach ($value as $group => $data) {
-                foreach ($keys as $key) {
-                    if ($value[$group][$key] == "[]") {
-                        $value[$group][$key] = array();
-                    } else {
-                        $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
-                    }
-                }
-            }
-        }
         
         return $value;
     }

@@ -86,7 +86,7 @@ class Meanbee_Diy_Model_Xml {
                     }
                     
                     $values["name"]             = $name;
-                    $values["group"]            = $group;
+                    $values["data_group"]       = $group;
                     $values["store_id"]         = $store_id;
                     $values["label"]            = $attribute['label'];
                     $values["help"]             = $attribute['help'];
