@@ -1983,6 +1983,10 @@ form#co-shipping-method-form div dl {
     width: 50%;
 }
 
+form#co-payment-form fieldset dl dl {
+    width: 100%;
+}
+
 form#billing-form fieldset ul.radio-list,
 form#shipping-form fieldset ul.radio-list {
     width: 100%;
@@ -2073,6 +2077,8 @@ form#co-shipping-method-form div dl dd ul li label {
     margin-left: 10px;
     margin-top: -3px;
 }
+
+
 
 /* Checkout errors */
 
