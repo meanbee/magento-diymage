@@ -4,6 +4,10 @@ $installer = $this;
 
 $installer->startSetup();
 
+/**
+ * Create the main DIY Mage table
+ */
+
 $table = $installer->getConnection()
     ->newTable($installer->getTable('diy/data'))
     ->addColumn('id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
@@ -23,10 +27,16 @@ $table = $installer->getConnection()
 
 $installer->getConnection()->createTable($table);
 
-$installer->populateData();
+/**
+ * Modify the CMS page table to include our builder
+ */
+ 
+$installer->getConnection()->addColumn($installer->getTable('cms_page'), 'diy_builder', 'text');
 
 $installer->endSetup();
 
+$installer->populateData();
+
 Mage::getSingleton('adminhtml/session')->addSuccess(
-    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.2.0 (Direct Install)')
+    Mage::helper('diy')->__('DIY Mage: Database schema is now at 0.2.0 (Direct DSL Install)')
 );
