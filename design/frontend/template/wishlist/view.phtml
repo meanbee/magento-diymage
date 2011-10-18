@@ -49,7 +49,7 @@
                         <th><?php echo $this->__('Comment') ?></th>
                         <th><?php echo $this->__('Added On') ?></th>
                         <th><?php echo $this->__('Add to Cart') ?></th>
-                        <th>&nbsp;</th>
+                        <th><?php echo $this->__('Remove?') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,7 +73,7 @@
                         </td>
                         <td class="qty">
                         <?php if ($item->canHaveQty() && $isVisibleProduct): ?>
-                            <p><input type="text" class="text qty" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" /></p>
+                            <input type="text" class="text qty" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" />
                         <?php endif; ?>
                         <?php if ($product->isSaleable()): ?>
                             <?php if ($isVisibleProduct): ?>
@@ -82,12 +82,12 @@
                         <?php else: ?>
                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                         <?php endif; ?>
-                            <?php if ($isVisibleProduct): ?>
-                            <p><a href="<?php echo $this->getItemConfigureUrl($item) ?>"><?php echo $this->__('Edit') ?></a></p>
-                            <?php endif ?>
                         </td>
                         <td>
                             <a href="<?php echo $this->getItemRemoveUrl($item) ?>" title="<?php echo $this->__('Remove Item') ?>" onclick="return confirmRemoveWishlistItem();" class="btn-remove"><?php echo $this->__('Remove item')?></a>
+                            <?php if ($isVisibleProduct): ?>
+                            <a href="<?php echo $this->getItemConfigureUrl($item) ?>"><?php echo $this->__('Edit') ?></a>
+                            <?php endif ?>
                         </td>
                     </tr>
                 <?php endforeach ?>

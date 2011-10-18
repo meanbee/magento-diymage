@@ -2311,6 +2311,20 @@ div.my-account .my-wishlist form fieldset textarea {
     white-space: nowrap;
 }
 
+div.my-account div.my-wishlist table td.qty {
+    width: 160px;
+}
+
+div.my-account div.my-wishlist table input.qty {
+    width: 20px;
+}
+
+.my-wishlist table button.btn-cart {
+    float: right;
+    margin-left: 10px;
+    width: 110px;
+}
+
 /* ----------------------------- COMPARE PRODUCTS */
 body.catalog-product-compare-index .title-buttons {
     margin:10px;
