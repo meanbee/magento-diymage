@@ -79,6 +79,15 @@
                     </diy_add_builder_to_page_design>
                 </observers>
             </adminhtml_cms_page_edit_tab_design_prepare_form>
+            <controller_action_layout_render_before>
+                <observers>
+                    <diy_add_devtools>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>addDevTools</method>
+                    </diy_add_devtools>
+                </observers>
+            </controller_action_layout_render_before>
         </events>
     </global>
 

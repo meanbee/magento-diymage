@@ -26,4 +26,17 @@ class Meanbee_Diy_Model_Observer {
         $handle = Mage::getModel('diy/observer_cms');
         $handle->observe($observer);
     }
+    
+    /**
+     * The function listens out for controller_action_layout_render_before
+     *
+     * @see Mage_Core_Controller_Varien_Action
+     * @param string $observer 
+     * @return void
+     * @author Nicholas Jones
+     */
+    public function addDevTools($observer) {
+        $handle = Mage::getModel('diy/observer_devtools');
+        $handle->observe($observer);
+    }
 }

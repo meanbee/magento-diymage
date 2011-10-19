@@ -1,0 +1,67 @@
+<?php
+$cache_types = Mage::helper('core')->getCacheTypes();
+
+$cache_total_count = 0;
+$cache_enabled_count = 0;
+foreach ($cache_types as $type => $label) {
+    $cache_total_count++;
+    if (Mage::app()->useCache($type)) {
+        $cache_enabled_count++;
+    }
+}
+
+if ($cache_enabled_count == 0) {
+    $colour = 'green';
+} else if ($cache_enabled_count == $cache_total_count) {
+    $colour = 'red';
+} else {
+    $colour = 'orange';
+}
+?>
+<div id="diymage_devtools_bar">
+    <div class="handles">
+        <b>Layout Handles:</b> <?php echo join(", ", Mage::app()->getLayout()->getUpdate()->getHandles()) ?>.<br />
+        <a href="#" onclick="$('diymage_devtools_bar').hide(); return false">Close Bar</a>
+    </div>
+    <div class="system">
+        <ul>
+            <li>
+                Cache: <span style="color: <?php echo $colour ?>; font-weight: bold;"><?php echo sprintf("%d/%d enabled", $cache_enabled_count, $cache_total_count)?></span> (<a href="<?php echo $this->getUrl('diy/devtools/cacheDisable') ?>">Disable All</a>, <a href="<?php echo $this->getUrl('diy/devtools/cacheRefresh') ?>">Refresh</a>)</li>
+            <li>Indexes: <span style="color: green; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)</li>
+        </ul>
+    </div>
+</div>
+
+<style type="text/css" media="screen">
+<!--
+#diymage_devtools_bar {
+    padding: 10px;
+
+    background: white;
+    opacity: 0.9;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    box-shadow: #999 0px -5px 5px 0px;
+}
+
+#diymage_devtools_bar .handles {
+    float: left;
+    text-align: left;
+    width: 80%;
+}
+
+#diymage_devtools_bar .system {
+    float: right;
+    text-align: left;
+    width: 20%;
+}
+
+#diymage_devtools_bar a {
+    color: #1E7EC8;
+}
+-->
+</style>
