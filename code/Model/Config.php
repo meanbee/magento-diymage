@@ -13,6 +13,10 @@ class Meanbee_Diy_Model_Config {
         return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_enabled');
     }
     
+    public function isDeveloperToolbarEnabled() {
+        return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_toolbar_enabled');
+    }
+    
     public function getLicenseKey() {
         return Mage::getStoreConfig('diy/license/key');
     }

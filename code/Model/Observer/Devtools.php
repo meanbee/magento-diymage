@@ -13,7 +13,7 @@ class Meanbee_Diy_Model_Observer_Devtools implements Meanbee_Diy_Model_Observer_
      * @author Nicholas Jones
      */
     public function observe(Varien_Event_Observer $observer) {
-        if (!Mage::getSingleton('diy/config')->isEnabled()) {
+        if (!Mage::getSingleton('diy/config')->isDeveloperToolbarEnabled()) {
             return;
         }
         
