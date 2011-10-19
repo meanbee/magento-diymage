@@ -17,17 +17,39 @@ if ($cache_enabled_count == 0) {
 } else {
     $colour = 'orange';
 }
+
+$template_hints_enabled = Mage::getStoreConfigFlag('dev/debug/template_hints');
+$logging_enabled = Mage::getStoreConfigFlag('dev/log/active');
+$symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 ?>
 <div id="diymage_devtools_bar">
     <div class="handles">
-        <b>Layout Handles:</b> <?php echo join(", ", Mage::app()->getLayout()->getUpdate()->getHandles()) ?>.<br />
-        <a href="#" onclick="$('diymage_devtools_bar').hide(); return false">Close Bar</a>
+        <ul>
+            <li><strong>DIY Mage Developer Bar</strong></li>
+            <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
+            <li><a href="#" onclick="$('diymage_devtools_bar').hide(); return false">Hide Developer Bar</a></li>
+        </ul>
     </div>
     <div class="system">
         <ul>
             <li>
-                Cache: <span style="color: <?php echo $colour ?>; font-weight: bold;"><?php echo sprintf("%d/%d enabled", $cache_enabled_count, $cache_total_count)?></span> (<a href="<?php echo $this->getUrl('diy/devtools/cacheDisable') ?>">Disable All</a>, <a href="<?php echo $this->getUrl('diy/devtools/cacheRefresh') ?>">Refresh</a>)</li>
-            <li>Indexes: <span style="color: green; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)</li>
+                <strong>Cache:</strong> <span style="color: <?php echo $colour ?>; font-weight: bold;"><?php echo sprintf("%d/%d enabled", $cache_enabled_count, $cache_total_count)?></span> (<a href="<?php echo $this->getUrl('diy/devtools/cacheDisable') ?>">Disable All</a>, <a href="<?php echo $this->getUrl('diy/devtools/cacheRefresh') ?>">Force Refresh</a>)</li>
+            <li>
+                <strong>Indexes:</strong> <span style="color: green; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
+            </li>
+            <li>
+                <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
+            </li>
+        </ul>
+    </div>
+    <div class="system">
+        <ul>
+            <li>
+                <strong>Logging:</strong> <span style="color: <?php echo ($logging_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($logging_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/loggingToggle') ?>"><?php echo ($logging_enabled) ? 'Disable' : 'Enable'; ?></a>)
+            </li>
+            <li>
+                <strong>Template Symlinks:</strong> <span style="color: <?php echo ($symlinks_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($symlinks_enabled) ? 'Allowed' : 'Disallowed'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/symlinkToggle') ?>"><?php echo ($symlinks_enabled) ? 'Disallow' : 'Allow'; ?></a>)
+            </li>
         </ul>
     </div>
 </div>
@@ -37,21 +59,29 @@ if ($cache_enabled_count == 0) {
 #diymage_devtools_bar {
     padding: 10px;
 
-    background: white;
-    opacity: 0.9;
+    background: #eee;
+    opacity: 0.8;
 
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     
-    box-shadow: #999 0px -5px 5px 0px;
+    box-shadow: #999 0px -2px 5px 0px;
 }
 
 #diymage_devtools_bar .handles {
     float: left;
     text-align: left;
-    width: 80%;
+    width: 60%;
+}
+
+#diymage_devtools_bar .handles span {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 1px;
+    font-family: courier;
+    color: #666;
 }
 
 #diymage_devtools_bar .system {
