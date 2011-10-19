@@ -8,10 +8,11 @@
             <label>DIY Mage Settings</label>
             <tab>general</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>9000</sort_order>
+            <sort_order>50</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
+            <class>diymage-section</class>
             <groups>
                 <license translate="label">
                     <label>License Configuration</label>

@@ -3,6 +3,11 @@
 // {{license}}
 -->
 <layout>
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>diy/css/styles.css</name><params /></action>        </reference>
+    </default>
+    
     <adminhtml_system_config_edit>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/settings_screen.js</name><if /></action>
