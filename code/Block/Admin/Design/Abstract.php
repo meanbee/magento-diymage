@@ -19,7 +19,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
      * @return void
      * @author Nicholas Jones
      */
-    protected function getDataCollection() {
+    protected function getDataCollection($sub_group = false) {
         $data = Mage::getModel('diy/data');
 
         $collection = $data->getCollection()
@@ -29,7 +29,38 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
                             ->setOrder('sub_group')
                             ->setOrder('sort_order', 'asc');
                             
+        if ($sub_group) {
+            $collection->addFieldToFilter('sub_group', $sub_group);
+        }
+                            
         return $collection;
+    }
+    
+    /**
+     * Get a list of the 'sub groups' used within this page
+     */
+    protected function getGroupList() {
+        $data = Mage::getModel('diy/data');
+
+        $collection = $data->getCollection()
+                            ->addFieldToSelect('sub_group')
+                            ->addFieldToFilter('data_group', $this->getDataGroup())
+                            ->addFieldToFilter('store_id', $this->getStoreId())
+                            ->distinct(true);
+                            
+        return $collection;
+    }
+    
+    protected function getGroupLabel($sub_group) {
+        $groups = Mage::getSingleton('diy/xml')->getGroups();
+        
+        if (isset($groups[$this->getDataGroup()]) && isset($groups[$this->getDataGroup()][$sub_group])) {
+            $sub_group_data = $groups[$this->getDataGroup()][$sub_group];
+            
+            return $sub_group_data['label'];
+        }
+        
+        return 'Additional Settings';
     }
 
     /**
@@ -53,24 +84,35 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
      * @author Nicholas Jones
      */
     protected function createBlocks() {
-        if (count($this->getDataCollection()) > 0) {
-            foreach ($this->getDataCollection() as $data) {
-                $block = $this->getLayout()->createBlock(
-                    $data['input_control'],
-                    'control_' . $data['name'],
-                    array("control" => $data)
-                );
 
-                $this->append($block);
+        foreach ($this->getGroupList() as $group_data) {
+            $container = $this->getLayout()->createBlock('diy/admin_design_util_container');
+
+            $group = $group_data->getSubGroup();
+            
+            $container->setData('name', $this->getGroupLabel($group));
+            
+            if (count($this->getDataCollection($group)) > 0) {
+                foreach ($this->getDataCollection($group) as $data) {
+                    $block = $this->getLayout()->createBlock(
+                        $data['input_control'],
+                        'control_' . $data['name'],
+                        array("control" => $data)
+                    );
+                    
+                    $container->append($block);
+                }
+            } else {
+                $container->append(
+                    $this->getLayout()->createBlock(
+                        'diy/admin_control_blank',
+                        'control_empty_' . rand(0,9999),
+                        array("template" => "diy/controls/blank.phtml")
+                    )
+                );
             }
-        } else {
-            $this->append(
-                $this->getLayout()->createBlock(
-                    'diy/admin_control_blank',
-                    'control_empty_' . rand(0,9999),
-                    array("template" => "diy/controls/blank.phtml")
-                )
-            );
+            
+            $this->append($container);
         }
     }
 

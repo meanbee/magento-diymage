@@ -53,7 +53,8 @@
         <groups>
             <global>
                 <fonts>
-                    <label>Fonts</label>
+                    <label>Font Settings</label>
+                    <sort_order>10</sort_order>
                 </fonts>
             </global>
         </groups>
