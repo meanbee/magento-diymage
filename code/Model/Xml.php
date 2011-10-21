@@ -1,10 +1,28 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Xml {
+    const CACHE_KEY_GROUPS  = 'DIYMAGE_GROUPS';
+    const CONST_KEY_NAMEMAP = 'DIYMAGE_NAMEMAP';
+    
+    const CACHE_NAME = 'diymage_config';
+    
     protected $_log;
     
     public function __construct() {
         $this->_log = Mage::getSingleton('diy/log');
+    }
+    
+    protected function _useCache() {
+        return true;
+        return Mage::app()->useCache(self::CACHE_NAME);
+    }
+    
+    protected function _getCache($name) {
+        return Mage::app()->loadCache($name);
+    }
+    
+    protected function _setCache($name, $value) {
+        Mage::app()->saveCache($value, $name, array(self::CACHE_NAME));
     }
     
     /**
@@ -34,7 +52,13 @@ class Meanbee_Diy_Model_Xml {
         $groups = $this->getXml()->getXpath('diy/groups');
         
         if (count($groups) == 1) {
-            return $groups[0]->asArray();
+            $result = $groups[0]->asArray();
+            
+            if ($this->_useCache()) {
+                $this->_setCache(self::CACHE_KEY_GROUPS, $result);
+            }
+            
+            return $result;
         } else {
             throw new Exception("The number of group xml tags was not one.. I wasn't expecting that!");
         }
@@ -61,6 +85,10 @@ class Meanbee_Diy_Model_Xml {
                     }
                 }
             }
+        }
+        
+        if ($this->_useCache()) {
+            $this->_setCache(self::CONST_KEY_NAMEMAP, $result);
         }
         
         return $result;
