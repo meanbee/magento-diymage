@@ -29,7 +29,9 @@
 <div class="page-title">
     <h1><?php echo $this->__('My Orders') ?></h1>
 </div>
-<?php echo $this->getPagerHtml(); ?>
+<ol class="pager">
+    <?php echo $this->getPagerHtml(); ?>
+</ol>
 <?php if($_orders->getSize()): ?>
 <table class="data-table" id="my-orders-table">
     <col width="1" />
@@ -70,7 +72,9 @@
     </tbody>
 </table>
 <script type="text/javascript">decorateTable('my-orders-table');</script>
-<?php echo $this->getPagerHtml(); ?>
+<ol class="pager">
+    <?php echo $this->getPagerHtml(); ?>
+</ol>
 <?php else: ?>
     <p><?php echo $this->__('You have placed no orders.'); ?></p>
 <?php endif ?>

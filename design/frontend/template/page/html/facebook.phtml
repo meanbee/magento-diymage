@@ -1,7 +1,7 @@
 <?php // If on product page, pick out appropriate content for facebook to use. ?>
 <?php if ( $product =  Mage::registry('current_product')): ?>
-<meta property="og:title" content="<?php echo $product->getName() . " | " . 
-    Mage::getStoreConfig("general/store_information/name");  ?>" />
-<meta property="og:description" content="<?php echo $product->getShortDescription() ?>" />
+<meta property="og:title" content="<?php echo $this->htmlEscape($product->getName()) . " | " . 
+    $this->htmlEscape(Mage::getStoreConfig("general/store_information/name")) ?>" />
+<meta property="og:description" content="<?php echo strip_tags($product->getShortDescription()) ?>" />
 <meta property="og:image" content="<?php echo $product->getThumbnailUrl() ?>" />
 <?php endif; ?>

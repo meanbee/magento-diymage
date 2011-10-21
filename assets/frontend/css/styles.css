@@ -184,7 +184,6 @@ section.cart h2 {
 section.cart p {
     float: left;
     padding-top: 5px;
-    padding-right: 20px;
 }
 
 section.cart button {
@@ -553,7 +552,11 @@ ul.breadcrumbs li.current-page:after {
 }
 
 .title-buttons + p {
-    clear:both;
+    clear: both;
+}
+
+.page-popup .title-buttons a {
+    margin-top: -37px;
 }
 
 /* ----------------------------- PRODUCT SORTER*/
@@ -566,6 +569,10 @@ ul.product-sorter {
     margin: 10px 0;
     overflow: hidden;
     padding: 0 20px;
+}
+
+div.my-account ol {
+    list-style-type: none;
 }
 
 ul.product-sorter li {
@@ -599,6 +606,7 @@ ul.product-sorter li.pagination {
     width: 33.33%;
 }
 
+div.my-account li.pagination strong,
 ul.product-sorter li.pagination strong {
     float: left;
 }
@@ -607,23 +615,31 @@ ul.product-sorter li label {
     display: inline;
 }
 
+div.my-account li.pagination {
+    width: 100px;
+}
+
+div.my-account li.pagination ol li,
 ul.product-sorter li.pagination ol li {
     float: left;
     list-style-type: none;
     padding: 0;
 }
 
+div.my-account li.pagination ol li a,
 ul.product-sorter li.pagination ol li a {
     display: block;
     float: left;
     padding: 0 5px;
 }
 
+div.my-account li.pagination ol li.current,
 ul.product-sorter li.pagination ol li.current {
     display: block;
     padding: 0 5px;
 }
 
+div.my-account ol.pager,
 ul.product-sorter li.sort-by {
     float: right;
 }
@@ -1967,6 +1983,10 @@ form#co-shipping-method-form div dl {
     width: 50%;
 }
 
+form#co-payment-form fieldset dl dl {
+    width: 100%;
+}
+
 form#billing-form fieldset ul.radio-list,
 form#shipping-form fieldset ul.radio-list {
     width: 100%;
@@ -2058,6 +2078,8 @@ form#co-shipping-method-form div dl dd ul li label {
     margin-top: -3px;
 }
 
+
+
 /* Checkout errors */
 
 ol#checkoutSteps li section form select.validation-failed {
@@ -2082,6 +2104,14 @@ div.multiple-checkout ul#payment_form_ccsave {
 
 form#checkout_multishipping_form .title-buttons button {
     margin-top: -37px;
+}
+
+#multiship-addresses-table td select {
+    width: 300px;
+}
+
+#multiship-addresses-table a.button {
+    padding: 5px 0;
 }
 
 form#shipping_method_form table {
@@ -2304,14 +2334,23 @@ div.my-account .my-wishlist form fieldset textarea {
     white-space: nowrap;
 }
 
-/* ----------------------------- COMPARE PRODUCTS */
-body.catalog-product-compare-index .title-buttons {
-    margin:10px;
+div.my-account div.my-wishlist table td.qty {
+    width: 160px;
 }
 
-body.catalog-product-compare-index .data-table {
-    clear:both;
-    margin-bottom:20px;
+div.my-account div.my-wishlist table input.qty {
+    width: 20px;
+}
+
+.my-wishlist table button.btn-cart {
+    float: right;
+    margin-left: 10px;
+    width: 110px;
+}
+
+/* ----------------------------- COMPARE PRODUCTS */
+body.catalog-product-compare-index .title-buttons {
+    margin: 10px 0 0;
 }
 
 body.catalog-product-compare-index .data-table .product-name {
@@ -2319,33 +2358,42 @@ body.catalog-product-compare-index .data-table .product-name {
 }
 
 body.catalog-product-compare-index ul li {
-    list-style-type:none;
+    list-style-type: none;
 }
 
 body.catalog-product-compare-index table th {
-    text-align:left;
+    text-align: left;
+    padding-left: 10px;
 }
 
 body.catalog-product-compare-index table th span {
-    font-weight:bold;
+    font-weight: bold;
 }
 
 body.catalog-product-compare-index table td {
-    padding:5px;
+    padding: 5px;
+}
+
+body.catalog-product-compare-index table td a.btn-remove {
+    margin: 5px;
 }
 
 body.catalog-product-compare-index table tr.product-shop-row td,
 body.catalog-product-compare-index table tr.add-to-row td {
-    text-align:center;
+    text-align: center;
 }
 
 body.catalog-product-compare-index table tr.product-shop-row button,
 body.catalog-product-compare-index table tr.add-to-row button {
-    display:inline;
+    display: inline;
+}
+
+body.catalog-product-compare-index table div.rating-box abbr.rating {
+    margin: 2px auto;
 }
 
 body.catalog-product-compare-index table tr.product-shop-row .price-box {
-    margin-top:25px;
+    margin-top: 46px;
 }
 
 body.catalog-product-compare-index table tr.product-shop-row .ratings + .price-box {
