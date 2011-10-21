@@ -47,15 +47,45 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
                             ->addFieldToFilter('data_group', $this->getDataGroup())
                             ->addFieldToFilter('store_id', $this->getStoreId())
                             ->distinct(true);
+        
+        // Build our initial group list with a default sort value of 9000 to try and
+        // get them to the bottom of the page
+        $group_list = array();                
+        foreach ($collection as $item) {
+            $group_list[$item->getSubGroup()] = 9000;
+        }
                             
-        return $collection;
+        // List the group sort order from the XML file
+        $sub_groups = $this->_getDataGroupSubGroupsFromXml();
+        $sort_order = array();
+        foreach ($sub_groups as $name => $data) {
+            $sort_order = $data['sort_order'];
+            if (isset($group_list[$name])) {
+                $group_list[$name] = $sort_order;
+            }
+        }
+    
+        // Sort the array on values
+        asort($group_list, SORT_NUMERIC);
+
+        return array_keys($group_list);
+    }
+    
+    protected function _getDataGroupSubGroupsFromXml() {
+        $groups = Mage::getSingleton('diy/xml')->getGroups();
+        
+        if (isset($groups[$this->getDataGroup()])) {
+            return $groups[$this->getDataGroup()];
+        }
+
+        return false;
     }
     
     protected function getGroupLabel($sub_group) {
-        $groups = Mage::getSingleton('diy/xml')->getGroups();
+        $groups = $this->_getDataGroupSubGroupsFromXml();
         
-        if (isset($groups[$this->getDataGroup()]) && isset($groups[$this->getDataGroup()][$sub_group])) {
-            $sub_group_data = $groups[$this->getDataGroup()][$sub_group];
+        if ($groups && isset($groups[$sub_group])) {
+            $sub_group_data = $groups[$sub_group];
             
             return $sub_group_data['label'];
         }
@@ -85,10 +115,8 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
      */
     protected function createBlocks() {
 
-        foreach ($this->getGroupList() as $group_data) {
+        foreach ($this->getGroupList() as $group) {
             $container = $this->getLayout()->createBlock('diy/admin_design_util_container');
-
-            $group = $group_data->getSubGroup();
             
             $container->setData('name', $this->getGroupLabel($group));
             
