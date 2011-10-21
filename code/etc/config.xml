@@ -5,7 +5,7 @@
 <config>
     <modules>
         <Meanbee_Diy>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </Meanbee_Diy>
     </modules>
     <global>
@@ -80,6 +80,15 @@
                 </observers>
             </adminhtml_cms_page_edit_tab_design_prepare_form>
         </events>
+        <!-- <cache>
+            <types>
+                 <diy_config module="diy" translate="label description">
+                    <label>DIY Mage Control Configuration</label>
+                    <description>DIY Mage control specification files (diy.xml).</description>
+                    <tags>diymage_config</tags>
+                 </diy_config>
+            </types>
+        </cache> -->
     </global>
 
     <frontend>

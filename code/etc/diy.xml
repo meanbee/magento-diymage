@@ -50,6 +50,14 @@
                 <name><![CDATA[Right Callout (Permanent)]]></name>
             </right_permanent_callout>
         </block_namemap>
+        <groups>
+            <global>
+                <fonts>
+                    <label>Font Settings</label>
+                    <sort_order>10</sort_order>
+                </fonts>
+            </global>
+        </groups>
         <attributes>
             <global>
                 <font_colour>
@@ -58,6 +66,7 @@
                     <value>333333</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>10</sort_order>
+                    <group>fonts</group>
                 </font_colour>
                 <link_colour>
                     <label>Link Colour</label>
@@ -65,6 +74,7 @@
                     <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>20</sort_order>
+                    <group>fonts</group>
                 </link_colour>
                 <link_hover_colour>
                     <label>Link Hover Colour</label>
@@ -72,6 +82,7 @@
                     <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>30</sort_order>
+                    <group>fonts</group>
                 </link_hover_colour>
                 <font_size>
                     <label>Font Size</label>
