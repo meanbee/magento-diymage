@@ -30,6 +30,16 @@ class Meanbee_Diy_Model_Xml {
         }
     }
     
+    public function getGroups() {
+        $groups = $this->getXml()->getXpath('diy/groups');
+        
+        if (count($groups) == 1) {
+            return $groups[0]->asArray();
+        } else {
+            throw new Exception("The number of group xml tags was not one.. I wasn't expecting that!");
+        }
+    }
+    
     /**
      * Find all of the entries in xpath diy/block_namemap.
      * 
@@ -87,6 +97,7 @@ class Meanbee_Diy_Model_Xml {
                     
                     $values["name"]             = $name;
                     $values["data_group"]       = $group;
+                    $values["sub_group"]        = ($attribute['group']) ? $attribute['group'] : 'default';
                     $values["store_id"]         = $store_id;
                     $values["label"]            = $attribute['label'];
                     $values["help"]             = $attribute['help'];
