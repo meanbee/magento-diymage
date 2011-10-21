@@ -17,7 +17,10 @@ class Meanbee_Diy_Model_Observer_Devtools implements Meanbee_Diy_Model_Observer_
             return;
         }
         
-        $block = Mage::app()->getLayout()->createBlock('diy/devtools');
-        Mage::app()->getLayout()->getBlock('footer')->append($block);
+        $block_bar   = Mage::app()->getLayout()->createBlock('diy/devtools_bar');
+        $block_hints = Mage::app()->getLayout()->createBlock('diy/devtools_hints');
+
+        Mage::app()->getLayout()->getBlock('footer')->append($block_bar);
+        Mage::app()->getLayout()->getBlock('footer')->append($block_hints);
     }
 }

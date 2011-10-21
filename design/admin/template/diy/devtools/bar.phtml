@@ -93,5 +93,49 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 #diymage_devtools_bar a {
     color: #1E7EC8;
 }
+
+.diy-hint {
+    outline: red dotted 1px;
+    position: relative;
+    cursor: pointer;
+    font-size: 11px;
+    min-height: 10px;
+}
+
+.diy-hint:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.diy-hint .inner {
+    display: none;
+    text-align: left;
+}
+
+.diy-hint:hover > .inner {
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: red;
+    color: white;
+    height: 36px;
+    width: 100%;
+    padding: 3px;
+    z-index: 9000;
+}
+
+.diy-hint:hover > .inner {
+    width: auto;
+}
+
+.diy-hint:hover > .shade {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: red;
+    opacity: 0.15;
+}
 -->
 </style>

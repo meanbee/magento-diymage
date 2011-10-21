@@ -39,4 +39,17 @@ class Meanbee_Diy_Model_Observer {
         $handle = Mage::getModel('diy/observer_devtools');
         $handle->observe($observer);
     }
+    
+    /**
+     * The function listens out for core_block_abstract_to_html_before or core_block_abstract_to_html_after
+     *
+     * @see Mage_Core_Controller_Varien_Action
+     * @param string $observer 
+     * @return void
+     * @author Nicholas Jones
+     */
+    public function addHint($observer) {
+        $handle = Mage::getModel('diy/observer_devtools_hints');
+        $handle->observe($observer);
+    }
 }
