@@ -1936,7 +1936,7 @@ ol#checkoutSteps li section div.col-1 {
 
 ol#checkoutSteps li section div.col-2 {
     border-left: 1px solid;
-    padding-left: 20px;
+    padding: 0 0 5px 20px;
 }
 
 ol#checkoutSteps li section div.col-1 h4 {
