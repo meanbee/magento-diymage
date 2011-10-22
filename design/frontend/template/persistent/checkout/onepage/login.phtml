@@ -59,7 +59,7 @@
             </ul>
             <h4><?php echo $this->__('Register and save time!') ?></h4>
             <p><?php echo $this->__('Register with us for future convenience:') ?></p>
-            <ul class="ul">
+            <ul class="copy-list">
                 <li><?php echo $this->__('Fast and easy check out') ?></li>
                 <li><?php echo $this->__('Easy access to your order history and status') ?></li>
             </ul>
@@ -95,10 +95,10 @@
         <div class="buttons-set">
             <p class="required">&nbsp;</p>
             <?php if ($this->getQuote()->isAllowedGuestCheckout()): ?>
-                <button id="onepage-guest-register-button" type="button" class="button" onclick="checkout.setMethod();"><span><span><?php echo $this->__('Continue') ?></span></span></button>
+                <button id="onepage-guest-register-button" type="button" class="button" onclick="checkout.setMethod();"><?php echo $this->__('Continue') ?></button>
             <?php else: ?>
                 <form action="<?php echo $this->getUrl('persistent/index/saveMethod'); ?>">
-                    <button id="onepage-guest-register-button" type="submit" class="button"><span><span><?php echo $this->__('Register') ?></span></span></button>
+                    <button id="onepage-guest-register-button" type="submit" class="button"><?php echo $this->__('Register') ?></button>
                 </form>
             <?php endif; ?>
         </div>
@@ -107,7 +107,7 @@
         <div class="buttons-set">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
             <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" class="f-left"><?php echo $this->__('Forgot your password?') ?></a>
-            <button type="submit" class="button" onclick="onepageLogin(this)"><span><span><?php echo $this->__('Login') ?></span></span></button>
+            <button type="submit" class="button" onclick="onepageLogin(this)"><?php echo $this->__('Login') ?></button>
         </div>
     </div>
 </div>
