@@ -114,6 +114,7 @@ textarea:focus {
     border-color: #eb6302; /* Orange */
 }
 
+label.required em,
 em.required,
 p.required {
     color: #b90101; /* Red */
