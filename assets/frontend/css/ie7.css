@@ -14,8 +14,7 @@ body ul.site-navigation {
 /* Header cart checkout button was too wide, breaking the layout */
 
 body section.cart button {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 5px 15px;
 }
 
 /* Search form was too narrow and search button was too wide, breaking the layout */
@@ -26,8 +25,7 @@ body form#search-form {
 }
 
 body form#search-form button {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 5px 15px
 }
 
 /* Right sidebar gets pushed down */
