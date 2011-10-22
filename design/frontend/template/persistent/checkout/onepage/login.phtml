@@ -71,22 +71,22 @@
         <h3><?php echo $this->__('Login') ?></h3>
         <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
         <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post">
-        <fieldset>
-            <h4><?php echo $this->__('Already registered?') ?></h4>
-            <p><?php echo $this->__('Please log in below:') ?></p>
-            <ul class="form-list">
-                <li>
-                    <label for="login-email" class="required"><em>*</em> <?php echo $this->__('Email Address') ?></label>
-                    <input type="text" class="text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" />
-                </li>
-                <li>
-                    <label for="login-password" class="required"><em>*</em> <?php echo $this->__('Password') ?></label>
-                    <input type="password" class="text required-entry" id="login-password" name="login[password]" />
-                </li>
-                <?php echo $this->getChildHtml('persistent.remember.me'); ?>
-            </ul>
-            <input name="context" type="hidden" value="checkout" />
-        </fieldset>
+            <fieldset>
+                <h4><?php echo $this->__('Already registered?') ?></h4>
+                <p><?php echo $this->__('Please log in below:') ?></p>
+                <ul class="form-list">
+                    <li>
+                        <label for="login-email" class="required"><em>*</em> <?php echo $this->__('Email Address') ?></label>
+                        <input type="text" class="text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" />
+                    </li>
+                    <li>
+                        <label for="login-password" class="required"><em>*</em> <?php echo $this->__('Password') ?></label>
+                        <input type="password" class="text required-entry" id="login-password" name="login[password]" />
+                    </li>
+                    <?php echo $this->getChildHtml('persistent.remember.me'); ?>
+                </ul>
+                <input name="context" type="hidden" value="checkout" />
+            </fieldset>
         </form>
     </div>
 </div>
