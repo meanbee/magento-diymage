@@ -552,7 +552,7 @@ div.block-progress div.block-content ul li {
     border-color: #e8e8e8;
 }
 
-ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
+ol#checkoutSteps li section div.col-2 {
     border-color: #ccc;
 }
 

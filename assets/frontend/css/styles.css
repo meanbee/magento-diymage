@@ -1930,10 +1930,13 @@ ol#checkoutSteps li#opc-login div.col2-set {
     padding: 0;
 }
 
-ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
-    border-right: 1px solid;
-    margin-right: 20px;
+ol#checkoutSteps li section div.col-1 {
     width: 45%;
+}
+
+ol#checkoutSteps li section div.col-2 {
+    border-left: 1px solid;
+    padding-left: 20px;
 }
 
 ol#checkoutSteps li section div.col-1 h4 {
