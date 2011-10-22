@@ -184,6 +184,7 @@ section.cart h2 {
 section.cart p {
     float: left;
     padding-top: 5px;
+    padding-right: 5px;
 }
 
 section.cart button {
@@ -211,6 +212,7 @@ form#search-form label,
 form#search-form button {
     float: left;
     margin-left: 10px;
+    width: auto;
 }
 
 /* ----------------------------- DROPDOWN NAVIGATION */
@@ -2479,7 +2481,7 @@ section#promo {
     width: 100%;
 }
 
-section#promo input[type=email] {
+section#promo input#newsletter-email-address {
     width:auto;
 }
 
