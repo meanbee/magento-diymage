@@ -30,6 +30,12 @@ body form#search-form button {
     padding-right: 5px;
 }
 
+/* Right sidebar gets pushed down */
+
+div.col3-layout div.sidebar {
+    width: 23%;
+}
+
 /* Photo navigation was appearing too far up in the wrong place */
 
 body section.hproduct div#photos div.hoverscroll {
