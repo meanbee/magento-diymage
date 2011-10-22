@@ -18,13 +18,6 @@ body section.cart button {
     padding-right: 5px;
 }
 
-/* No breadcrumb separators */
-
-ul.breadcrumbs li a {
-    background: url(../images/icon-arrow-right.gif) center right no-repeat;
-    padding-right: 20px;
-}
-
 /* Search form was too narrow and search button was too wide, breaking the layout */
 
 body form#search-form {

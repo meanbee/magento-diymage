@@ -535,14 +535,6 @@ ul.breadcrumbs li {
     margin-right: 6px;
 }
 
-ul.breadcrumbs li:after {
-    content:" > ";
-}
-
-ul.breadcrumbs li.current-page:after {
-    content: ""
-}
-
 /* ----------------------------- TITLE BUTTONS */
 .title-buttons button,
 .title-buttons span,
