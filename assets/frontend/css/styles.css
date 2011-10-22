@@ -2145,6 +2145,11 @@ div.col2-set div.col-wide {
 
 #review-buttons-container {
     float: right;
+    width: 100%;
+}
+
+#review-buttons-container p.f-left {
+    float: left;
 }
 
 .multiple-checkout #review-please-wait {
