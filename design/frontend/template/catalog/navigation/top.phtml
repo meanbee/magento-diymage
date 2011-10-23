@@ -1,8 +1,8 @@
 <?php
-function renderCategoryChildren($category, $block) {
+function renderCategoryChildren($category, $block, $top = false) {
     ?>
     <li>
-        <a href="<?php echo $block->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a>
+        <a href="<?php echo $block->getCategoryUrl($category) ?>"<?php if ($top) { echo ' class="level-top"'; } ?>><?php echo $category->getName() ?></a>
         <?php if ($category->getChildren()->count() > 0): ?>
             <ul>
             <?php foreach ($category->getChildren() as $child): ?>
@@ -19,7 +19,7 @@ function renderCategoryChildren($category, $block) {
     <ul>
         <?php foreach ($this->getStoreCategories() as $child): ?>
             <?php if ($child->getIsActive()): ?>
-                <?php renderCategoryChildren($child, $this) ?>
+                <?php renderCategoryChildren($child, $this, true) ?>
             <?php endif ?>
         <?php endforeach ?>
     </ul> 
