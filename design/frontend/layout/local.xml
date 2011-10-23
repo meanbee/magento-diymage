@@ -12,7 +12,7 @@
             <action method="addCss"><stylesheet>css/fonts.css</stylesheet></action>
             <action method="addItem"><type>skin_css</type><name>css/ie7-fonts.css</name><params/><if>IE 7</if></action>
             
-            <action method="addItem"><type>skin_js</type><name>js/jquery-1.4.4.min.js</name><params/><if/></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery-1.6.4.min.js</name><params/><if/></action>
             
             <action method="addItem"><type>skin_js</type><name>js/selectivizr.js</name><params/><if><![CDATA[(gte IE 6)&(lte IE 8)]]></if></action>
             <action method="addItem"><type>skin_js</type><name>js/html5shiv.js</name><params/><if>lt IE 9</if></action>
