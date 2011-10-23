@@ -26,6 +26,27 @@ p.diy.control span.help {
     font-style: italic;
 }
 
+p.diy.control button {
+    -moz-border-radius: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    padding: 5px 20px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    background: #e26500 url(../images/button-bg.png) top left repeat-x; /* orange */
+    border: 1px solid #e26500; /* Orange for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.2), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.3); /* White */
+}
+
+button:hover {
+    background-position: bottom left;
+}
+
 /** COLOUR SPECIFIC STYLES ****************************************/
 p.diy.control.colour input {
     padding: 3px;
