@@ -73,6 +73,10 @@
                 <id><![CDATA[right.reports.product.viewed]]></id>
                 <name><![CDATA[Recently Viewed Products]]></name>
             </products_viewed>
+            <contact_form>
+                <id><![CDATA[contactForm]]></id>
+                <name><![CDATA[Contact Form]]></name>
+            </contact_form>
         </block_namemap>
         <groups>
             <global>
