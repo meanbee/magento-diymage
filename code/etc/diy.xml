@@ -97,6 +97,18 @@
                 <id><![CDATA[checkout.onepage]]></id>
                 <name><![CDATA[Onepage Checkout]]></name>
             </checkout>
+            <product_info>
+                <id><![CDATA[product.info]]></id>
+                <name><![CDATA[Product Info]]></name>
+            </product_info>
+            <external_pagecache_cookie>
+                <id><![CDATA[external.pagecache.cookie]]></id>
+                <name><![CDATA[External Page Cache Cookie]]></name>
+            </external_pagecache_cookie>
+            <related_products>
+                <id><![CDATA[catalog.product.related]]></id>
+                <name><![CDATA[Related Products]]></name>
+            </related_products>
         </block_namemap>
         <groups>
             <global>
