@@ -1971,6 +1971,10 @@ div.my-account form div.buttons-set p.required,
     width: 100%;
 }
 
+ol#checkoutSteps li div.buttons-set a.f-left {
+    float: left;
+}
+
 ol#checkoutSteps li div.buttons-set button {
     float: right;
     margin-right: 20px;
