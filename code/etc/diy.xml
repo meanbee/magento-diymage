@@ -69,6 +69,16 @@
                     <sort_order>40</sort_order>
                 </footer>
             </global>
+            <cms_index_index>
+            </cms_index_index>
+            <catalog_category_view>
+                <pager>
+                    <label>Pager Settings</label>
+                    <sort_order>10</sort_order>
+                </pager>
+            </catalog_category_view>
+            <catalog_product_view>
+            </catalog_product_view>
         </groups>
         <attributes>
             <global>
@@ -409,6 +419,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>20</sort_order>
+                    <group>pager</group>
                 </pager_border>
                 <pager_background>
                     <label>Pager Background Colour</label>
@@ -416,6 +427,7 @@
                     <value>EEEEEE</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>30</sort_order>
+                    <group>pager</group>
                 </pager_background>
             </catalog_category_view>
             <checkout_cart_index>
