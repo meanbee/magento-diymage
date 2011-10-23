@@ -3,6 +3,8 @@ p.diy.control {
     padding: 10px;
     background: #f6f6f6;
     border:1px solid #eee;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     margin-bottom: 10px;
     width: 250px;
     float: left;
@@ -117,13 +119,12 @@ p.diy.control.builder .col1 #builder_0 {
     margin: 10px 0;
 }
 
-
-
-
 p.diy.control.builder .container {
     background-color: #fcfcfc;
     margin: 10px;
     padding: 10px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     float: left;
 }
