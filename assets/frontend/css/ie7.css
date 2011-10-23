@@ -94,6 +94,16 @@ body ul.list-products li div.actions {
     margin-left: 230px;
 }
 
+/* Product list sorter doesn't need floating */
+ul.product-sorter li.sort-by a {
+    float: none;
+}
+
+ul.product-sorter li.sort-by a img {
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
 /* Continue shopping button in cart in the wrong place */
 
 table#cart button.continue {
