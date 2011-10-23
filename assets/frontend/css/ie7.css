@@ -99,6 +99,11 @@ table#cart button.continue {
     float: left;
 }
 
+/* Checkout progress */
+div.block-progress div.block-content ul li span {
+    float: left;
+}
+
 /* Footer social icons were stacking instead of floating 
 Following lis need to be unfloated after this rule is applied */
 
