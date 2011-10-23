@@ -13,7 +13,7 @@
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.4.3.min.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.6.4.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-ui-1.8.6.custom.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery.json-2.2.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
