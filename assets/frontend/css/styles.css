@@ -2431,6 +2431,10 @@ div.my-account div.my-wishlist table input.qty {
     width: 110px;
 }
 
+.my-wishlist table input.qty {
+    float: left;
+}
+
 /* ----------------------------- COMPARE PRODUCTS */
 body.catalog-product-compare-index .title-buttons {
     margin: 10px 0 0;
