@@ -93,6 +93,10 @@
                 <id><![CDATA[checkout.cart]]></id>
                 <name><![CDATA[Cart]]></name>
             </cart>
+            <checkout>
+                <id><![CDATA[checkout.onepage]]></id>
+                <name><![CDATA[Onepage Checkout]]></name>
+            </checkout>
         </block_namemap>
         <groups>
             <global>
