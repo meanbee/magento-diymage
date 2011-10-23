@@ -109,6 +109,10 @@
                 <id><![CDATA[catalog.product.related]]></id>
                 <name><![CDATA[Related Products]]></name>
             </related_products>
+            <category_products>
+                <id><![CDATA[category.products]]></id>
+                <name><![CDATA[Category Products]]></name>
+            </category_products>
         </block_namemap>
         <groups>
             <global>
