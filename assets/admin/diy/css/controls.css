@@ -55,13 +55,16 @@ p.diy.control.unit span.unit {
 
 /** BUILDER SPECIFIC STYLES ****************************************/
 p.diy.control.builder {
-    float: right;
-    width: 450px;
+    clear: both;
+    float: none;
+    width: auto;
+    overflow: hidden;
     height: auto;
     margin-right: 0px;
 }
 
-.adminhtml-cms-page-edit p.diy.control.builder, .adminhtml-cms-page-new p.diy.control.builder {
+.adminhtml-cms-page-edit p.diy.control.builder, 
+.adminhtml-cms-page-new p.diy.control.builder {
     float: none;
     width: 97%;
 }
@@ -71,11 +74,58 @@ p.diy.control.builder span.help {
     margin-bottom: 0px;
 }
 
+/* 3 column builder */
+p.diy.control.builder .col3 #builder_0 {
+    width: 20.5%;
+    margin-left: 0;
+}
+
+p.diy.control.builder .col3 #builder_1 {
+    width: 50%;
+}
+
+p.diy.control.builder .col3 #builder_2 {
+    width: 20.5%;
+    margin-right: 0;
+}
+
+/* 2 column left builder */
+p.diy.control.builder .col2-left #builder_0 {
+    width: 22.5%;
+    margin-left: 0;
+}
+
+p.diy.control.builder .col2-left #builder_1 {
+    width: 72%;
+    margin-right: 0;
+}
+
+/* 2 column right builder */
+p.diy.control.builder .col2-right #builder_0 {
+    width: 72%;
+    margin-left: 0;
+}
+
+p.diy.control.builder .col2-right #builder_1 {
+    width: 22.5%;
+    margin-right: 0;
+}
+
+/* 1 column builder */
+p.diy.control.builder .col1 #builder_0 {
+    width: 98%;
+    margin: 10px 0;
+}
+
+
+
+
 p.diy.control.builder .container {
     background-color: #fcfcfc;
-    margin-top: 10px;
+    margin: 10px;
     padding: 10px;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
+    float: left;
 }
 
 p.diy.control.builder .container .block {
