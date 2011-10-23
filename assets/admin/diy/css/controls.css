@@ -97,6 +97,7 @@ p.diy.control.unit input {
     font-size: 12px;
     width: 32px;
     text-align: center;
+    border: 2px solid #FFB553;
 }
 
 p.diy.control.unit span.unit {
