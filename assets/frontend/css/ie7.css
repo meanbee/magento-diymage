@@ -14,7 +14,7 @@ body ul.site-navigation {
 /* Header cart checkout button was too wide, breaking the layout */
 
 body section.cart button {
-    padding: 5px 15px;
+    padding: 5px 0px;
 }
 
 /* Search form was too narrow and search button was too wide, breaking the layout */
@@ -25,7 +25,7 @@ body form#search-form {
 }
 
 body form#search-form button {
-    padding: 5px 15px
+    padding: 5px;
 }
 
 /* Right sidebar gets pushed down */
@@ -52,6 +52,11 @@ body section.hproduct aside.product-options {
 
 body ul#reviews-list li h5.reviewer {
     margin-left: 0;
+}
+
+/* Poll answers didn't show numbers */
+div.block-poll ol#poll-answers {
+    margin-left: 30px;
 }
 
 /* Product list prices were all over the place */
