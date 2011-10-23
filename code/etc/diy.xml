@@ -65,6 +65,14 @@
                 <id><![CDATA[my.account.wrapper]]></id>
                 <name><![CDATA[My Account Wrapper]]></name>
             </myaccount_wrapper>
+            <products_compared>
+                <id><![CDATA[right.reports.product.compared]]></id>
+                <name><![CDATA[Recently Compared Products]]></name>
+            </products_compared>
+            <products_viewed>
+                <id><![CDATA[right.reports.product.viewed]]></id>
+                <name><![CDATA[Recently Viewed Products]]></name>
+            </products_viewed>
         </block_namemap>
         <groups>
             <global>
