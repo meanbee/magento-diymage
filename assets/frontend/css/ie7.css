@@ -1,6 +1,7 @@
 /* Fix button widths */
 input.button,
-button.button {
+button.button,
+div.block-cart div.actions button {
     padding: 5px 0;
 }
 
@@ -102,6 +103,11 @@ table#cart button.continue {
 /* Checkout progress */
 div.block-progress div.block-content ul li span {
     float: left;
+}
+
+/* Customer account login  */
+body.customer-account-login div.col2-set div.col-2 {
+    padding-left: 20px;
 }
 
 /* Footer social icons were stacking instead of floating 
