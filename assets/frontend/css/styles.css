@@ -406,6 +406,10 @@ div.sidebar div.block div.block-title {
     padding-bottom: 5px;
 }
 
+div.sidebar div.block div.block-title h2 {
+    padding-bottom: 0;
+}
+
 div.sidebar div.block form div.actions {
     margin-top: 10px;
     overflow: hidden;
