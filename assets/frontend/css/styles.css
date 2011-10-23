@@ -1150,7 +1150,7 @@ aside#reviews {
 abbr.rating {
     background: url(../images/star-ratings.gif) top left no-repeat;
     display: block;
-    height: 17px;
+    height: 16px;
     margin: 3px 10px 5px -2px;
     width: 85px;
 }
