@@ -2297,6 +2297,7 @@ div.my-account form div.buttons-set {
 
 div.my-account form div.buttons-set button {
     float: right;
+    margin-left: 10px;
 }
 
 div.my-account div.addresses-primary ol li {
