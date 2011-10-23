@@ -134,6 +134,10 @@
                 </footer>
             </global>
             <cms_index_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
             </cms_index_index>
             <catalog_category_view>
                 <builder>
@@ -146,7 +150,53 @@
                 </pager>
             </catalog_category_view>
             <catalog_product_view>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
             </catalog_product_view>
+            <checkout_cart_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </checkout_cart_index>
+            <checkout_onepage_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </checkout_onepage_index>
+            <catalogsearch_result_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </catalogsearch_result_index>
+            <catalogsearch_advanced>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </catalogsearch_advanced>
+            <contacts_index_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </contacts_index_index>
+            <cms_index_noroute>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </cms_index_noroute>
+            <customer_account>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </customer_account>
         </groups>
         <attributes>
             <global>
@@ -437,7 +487,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -446,6 +497,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </cms_index_index>
             <catalog_product_view>
@@ -454,7 +506,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -463,6 +516,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </catalog_product_view>
             <catalog_category_view>
@@ -506,7 +560,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -515,6 +570,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </checkout_cart_index>
             <checkout_onepage_index>
@@ -523,7 +579,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -532,6 +589,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </checkout_onepage_index>
             <catalogsearch_result_index>
@@ -540,7 +598,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -549,6 +608,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>                
             </catalogsearch_result_index>
             <catalogsearch_advanced>
@@ -557,7 +617,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -566,7 +627,8 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
-                </layout>                
+                    <group>builder</group>
+                </layout>
             </catalogsearch_advanced>
             <contacts_index_index>
                 <builder>
@@ -574,7 +636,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -583,6 +646,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </contacts_index_index>
             <cms_index_noroute>
@@ -591,7 +655,8 @@
                     <help></help>
                     <value></value>
                     <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>0</sort_order>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
                 </builder>
                 <layout>
                     <label>Page Layout</label>
@@ -600,6 +665,7 @@
                     <input_control>diy/admin_control_dropdown</input_control>
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
+                    <group>builder</group>
                 </layout>
             </cms_index_noroute>
             <customer_account>
@@ -608,7 +674,8 @@
                        <help></help>
                        <value></value>
                        <input_control>diy/admin_control_builder</input_control>
-                       <sort_order>0</sort_order>
+                       <sort_order>20</sort_order>
+                       <group>builder</group>
                    </builder>
                    <layout>
                        <label>Page Layout</label>
@@ -617,6 +684,7 @@
                        <input_control>diy/admin_control_dropdown</input_control>
                        <source_model>diy/source_layout</source_model>
                        <sort_order>10</sort_order>
+                       <group>builder</group>
                    </layout>
             </customer_account>
         </attributes>
