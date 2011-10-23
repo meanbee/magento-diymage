@@ -14,7 +14,7 @@ class Meanbee_Diy_Model_Stylesheet {
      * @return void
      * @author Nicholas Jones
      */
-    protected function _writeToFile($string, $store_id) {
+    protected function _writeToFile($string, $store_id = 1) {
         $file = Mage::getBaseDir() . "/skin/frontend/base/default/diymage_" . $store_id . ".css";
         
         $result = file_put_contents($file, $string, LOCK_EX);
