@@ -77,6 +77,18 @@
                 <id><![CDATA[contactForm]]></id>
                 <name><![CDATA[Contact Form]]></name>
             </contact_form>
+            <product_tooltip>
+                <id><![CDATA[product.tooltip]]></id>
+                <name><![CDATA[Product Tooltip]]></name>
+            </product_tooltip>
+            <search_result>
+                <id><![CDATA[search.result]]></id>
+                <name><![CDATA[Search Result]]></name>
+            </search_result>
+            <layered_navigation>
+                <id><![CDATA[catalogsearch.leftnav]]></id>
+                <name><![CDATA[Layered Navigation]]></name>
+            </layered_navigation>
         </block_namemap>
         <groups>
             <global>
