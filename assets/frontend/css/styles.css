@@ -17,7 +17,7 @@ a {
 /* Clear all link */
 
 a.clear-all {
-    float: right;
+    float: left;
 }
 
 .no-display {
@@ -416,6 +416,7 @@ div.sidebar div.block div.actions {
 
 div.sidebar div.block div.actions button {
     float: right;
+    margin: 0;
 }
 
 div.sidebar div.block input[type="text"], 
