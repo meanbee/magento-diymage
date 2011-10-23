@@ -59,6 +59,11 @@
                     <action>diy/design/noroute</action>
                     <sort_order>100</sort_order>
                 </noroute>
+                <customer_account translate="title" module="diy">
+                    <title>Customer Account</title>
+                    <action>diy/design/customeraccount</action>
+                    <sort_order>110</sort_order>                    
+                </customer_account>
                 <settings translate="title" module="diy">
                     <title>Settings</title>
                     <action>adminhtml/system_config/edit/section/diy</action>
