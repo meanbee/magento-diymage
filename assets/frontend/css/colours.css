@@ -328,8 +328,7 @@ div.block-cart p.block-subtitle {
 
 /* ----------------------------- VIEWED PRODUCTS */
 
-div.block-viewed ol li,
-div.block-viewed ol li:last-child {
+div.block-viewed ol li {
     border-color: #ccc;
 }
 
