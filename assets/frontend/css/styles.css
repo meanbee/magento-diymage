@@ -20,7 +20,7 @@ a.clear-all {
     float: right;
 }
 
-span.no-display {
+.no-display {
     display:none;
 }
 
