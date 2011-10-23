@@ -89,6 +89,10 @@
                 <id><![CDATA[catalogsearch.leftnav]]></id>
                 <name><![CDATA[Layered Navigation]]></name>
             </layered_navigation>
+            <cart>
+                <id><![CDATA[checkout.cart]]></id>
+                <name><![CDATA[Cart]]></name>
+            </cart>
         </block_namemap>
         <groups>
             <global>
