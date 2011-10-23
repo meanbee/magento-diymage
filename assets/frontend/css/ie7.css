@@ -1,3 +1,9 @@
+/* Fix button widths */
+input.button,
+button.button {
+    padding: 5px 0;
+}
+
 /* Header h2 appearing in the middle of the page, rather than hidden behind the header image */
 
 body a#branding h2 {
@@ -85,6 +91,12 @@ body ul.list-products li div.actions {
     clear: both;
     float: none;
     margin-left: 230px;
+}
+
+/* Continue shopping button in cart in the wrong place */
+
+table#cart button.continue {
+    float: left;
 }
 
 /* Footer social icons were stacking instead of floating 
