@@ -1646,7 +1646,11 @@ table.data-table tbody tr td.product-name h3 {
     padding-bottom: 0;
 }
 
-table.data-table tbody tr a.edit-item {
+table.data-table tbody tr td.product-name a {
+    float: left;
+}
+
+table.data-table tbody tr td.product-name a.edit-item {
     float:right;
 }
 
