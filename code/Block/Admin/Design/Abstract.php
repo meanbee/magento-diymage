@@ -119,6 +119,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
             $container = $this->getLayout()->createBlock('diy/admin_design_util_container');
             
             $container->setData('name', $this->getGroupLabel($group));
+            $container->setData('id', $group);
             
             if (count($this->getDataCollection($group)) > 0) {
                 foreach ($this->getDataCollection($group) as $data) {

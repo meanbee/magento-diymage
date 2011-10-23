@@ -1,4 +1,11 @@
-<div class="subgroup" style="clear: both">
+<div class="subgroup" id="group_<?php echo $this->getId() ?>" style="clear: both">
     <h3><?php echo $this->getName() ?></h3>
     <?php echo $this->getChildHtml() ?>
 </div>
+<script type="text/javascript">
+    <?php // Toggle controls when header is clicked ?>
+    $j("#group_<?php echo $this->getId() ?> h3").click( function() {
+        $j("#group_<?php echo $this->getId() ?> p").slideToggle('slow');
+        $j("#group_<?php echo $this->getId() ?> h3").toggleClass('open');
+    });
+</script>
