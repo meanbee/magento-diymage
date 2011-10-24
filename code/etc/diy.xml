@@ -41,10 +41,6 @@
                 <id><![CDATA[wishlist_sidebar]]></id>
                 <name><![CDATA[Wishlist]]></name>
             </wishlist_sidebar>
-            <cms_wrapper>
-                <id><![CDATA[cms.wrapper]]></id>
-                <name><![CDATA[CMS Page Content]]></name>
-            </cms_wrapper>
             <right_permanent_callout>
                 <id><![CDATA[right.permanent.callout]]></id>
                 <name><![CDATA[Right Callout (Permanent)]]></name>
@@ -133,12 +129,6 @@
                     <sort_order>40</sort_order>
                 </footer>
             </global>
-            <cms_index_index>
-                <builder>
-                    <label>Layout Settings</label>
-                    <sort_order>10</sort_order>
-                </builder>
-            </cms_index_index>
             <catalog_category_view>
                 <builder>
                     <label>Layout Settings</label>
@@ -185,12 +175,6 @@
                     <sort_order>10</sort_order>
                 </builder>
             </contacts_index_index>
-            <cms_index_noroute>
-                <builder>
-                    <label>Layout Settings</label>
-                    <sort_order>10</sort_order>
-                </builder>
-            </cms_index_noroute>
             <customer_account>
                 <builder>
                     <label>Layout Settings</label>
@@ -481,25 +465,6 @@
                     <group>footer</group>
                 </footer_list_display>
             </global>
-            <cms_index_index>
-                <builder>
-                    <label>Builder</label>
-                    <help></help>
-                    <value></value>
-                    <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>20</sort_order>
-                    <group>builder</group>
-                </builder>
-                <layout>
-                    <label>Page Layout</label>
-                    <help>This is the main structural layout of the page.</help>
-                    <value>page/2columns-right.phtml</value>
-                    <input_control>diy/admin_control_dropdown</input_control>
-                    <source_model>diy/source_layout</source_model>
-                    <sort_order>10</sort_order>
-                    <group>builder</group>
-                </layout>
-            </cms_index_index>
             <catalog_product_view>
                 <builder>
                     <label>Builder</label>
@@ -649,25 +614,6 @@
                     <group>builder</group>
                 </layout>
             </contacts_index_index>
-            <cms_index_noroute>
-                <builder>
-                    <label>Builder</label>
-                    <help></help>
-                    <value></value>
-                    <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>20</sort_order>
-                    <group>builder</group>
-                </builder>
-                <layout>
-                    <label>Page Layout</label>
-                    <help>This is the main structural layout of the page.</help>
-                    <value>page/2columns-right.phtml</value>
-                    <input_control>diy/admin_control_dropdown</input_control>
-                    <source_model>diy/source_layout</source_model>
-                    <sort_order>10</sort_order>
-                    <group>builder</group>
-                </layout>
-            </cms_index_noroute>
             <customer_account>
                 <builder>
                        <label>Builder</label>
