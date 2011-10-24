@@ -22,6 +22,20 @@ class Meanbee_Diy_Block_Admin_Switcher extends Meanbee_Diy_Block_Admin_Abstract 
     }
     
     public function getActiveStore() {
-        return Mage::getSingleton('diy/session')->getActiveStoreId();
+        $session = Mage::getSingleton('diy/session')->getActiveStoreId();
+        
+        if (!$session) {
+            $stores = $this->getStoreAsOptionArray();
+            
+            // Ensure we've not moved the array pointer
+            reset($stores);
+            
+            // Return the store id of the first element
+            $first_store = key($stores);
+            
+            Mage::getSingleton('diy/session')->setActiveStoreId($first_store);
+        } else {
+            return $session;
+        }
     }
 }

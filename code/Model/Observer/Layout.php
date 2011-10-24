@@ -55,7 +55,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $this->_removeBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
         
-        if (!Mage::helper('diy')->getValue("global", "show_categories")) {
+        if (!Mage::helper('diy')->getValue("global", "show_categories", Mage::app()->getStore()->getId())) {
             $this->_removeBlock($layout, "catalog.topnav");
         }
         
