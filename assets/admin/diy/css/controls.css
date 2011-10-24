@@ -22,8 +22,9 @@
     padding-right: 8px;
 }
 
-
-
+div.subgroup p.diy.control {
+	display: none;
+}
 
 /** GENERIC CONTROL STYLES ****************************************/
 p.diy.control {
@@ -37,7 +38,6 @@ p.diy.control {
     float: left;
     margin-right: 10px;
 	height: 125px;
-	display: none;
 }
 
 p.diy.control label {

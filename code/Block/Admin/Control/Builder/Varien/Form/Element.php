@@ -7,8 +7,8 @@ class Meanbee_Diy_Block_Admin_Control_Builder_Varien_Form_Element extends Varien
         $block->setIsCMSPage(true);
         
         $control = new Varien_Object(array(
-            "id"   => "diy_builder",
-            "name" => "diy_builder"
+            "id"   => "builder",
+            "name" => "builder"
         ));
         
         $block->setControl($control);
