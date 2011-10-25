@@ -8,7 +8,7 @@ class Meanbee_Diy_Helper_Data extends Mage_Core_Helper_Abstract {
      * @author Nicholas Jones
      */
     public function getValue($group, $name) {
-        $item = Mage::getModel('diy/data')->findByName($name, $group, Mage::app()->getStore()->getId());
+        $item = Mage::getModel('diy/data')->findByName($name, $group, Mage::getSingleton('diy/session')->getActiveStoreId());
         
         if ($item !== false) {
             return $item->getValue();
