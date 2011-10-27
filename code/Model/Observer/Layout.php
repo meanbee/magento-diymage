@@ -54,10 +54,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
-        
-        if (!Mage::helper('diy')->getValue("global", "show_categories")) {
-            $this->_removeBlock($layout, "catalog.topnav");
-        }
+        $this->_otherDIYSettings($identifiers, $layout);
         
         $this->_addStylesheet($layout, "diymage_" . $store_id . ".css?" . time());
         
@@ -272,7 +269,25 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     }
     
     /**
-     * undocumented function
+     * Action other DIY settings that involve layout updates (non-builder)
+     * 
+     * @param string $identifiers
+     * @param string $layout
+     * @return void
+     * @author Tom Robertshaw
+     **/
+     protected function _otherDIYSettings($identifiers, $layout) {
+         // Assign helper to variable to save time
+         $diy = Mage::helper('diy');
+         
+         // Should the top category navigation be shown
+         if (!$diy->getValue("global", "show_categories")) {
+             $this->_removeBlock($layout, "catalog.topnav");
+         }
+     }
+    
+    /**
+     * Add a static block and position it
      *
      * @param string $layout 
      * @param string $block_id The id of the static block in the database

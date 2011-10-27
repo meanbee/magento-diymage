@@ -20,9 +20,10 @@
             <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
         </reference>
         <reference name="root">
-            <block type="catalog/navigation" name="catalog.navigation" as="catalog.navigation" template="catalog/navigation/top.phtml" />
+            <block type="catalog/navigation" name="catalog.topnav" as="catalog.navigation" template="catalog/navigation/top.phtml" />
             <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
         </reference>
+        
         <reference name="header">
             <block type="page/html" name="minisearch" as="minisearch" template="catalogsearch/minisearch.phtml" />
             <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
