@@ -180,15 +180,15 @@ p.diy.control.builder .container {
 }
 
 p.diy.control.builder .container .block {
-    border: 1px solid #566D7E;
-    padding: 3px;
+    padding: 3px 10px;
     margin-top: 3px;
-    background: #A0CFEC;
+    background: #2D7AAE;
+    color: white;
+    letter-spacing: 0.1em;
 }
 
 p.diy.control.builder .container .block.static {
-    background: #FFFECD;
-    border: 1px solid #968A61;
+    background: #3fa0e0;
 }
 
 
