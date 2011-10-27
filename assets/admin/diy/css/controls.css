@@ -1,3 +1,8 @@
+/** ALL DIYMAGE PAGES *********************************************/
+body.diy-design-listing .middle { 
+    background: url('../images/graphic-flatpack-bg.gif') 0 0;
+}
+
 /** GROUP STYLING *************************************************/
 #diy_form div.subgroup h3 {
     cursor: pointer;
