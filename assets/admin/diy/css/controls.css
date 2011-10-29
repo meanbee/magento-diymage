@@ -1,4 +1,5 @@
 /** ALL DIYMAGE PAGES *********************************************/
+body.diy-design-index .middle,
 body.diy-design-listing .middle { 
     background: url('../images/graphic-flatpack-bg.gif') 0 0;
 }
