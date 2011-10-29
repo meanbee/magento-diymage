@@ -22,7 +22,9 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         }
         
         if ($store_id = $this->getRequest()->getParam('store_id')) {
-             Mage::getSingleton('diy/session')->setActiveStoreId($store_id);
+            Mage::getSingleton('diy/session')->setActiveStoreId($store_id);
+        } else {
+            Mage::getSingleton('diy/session')->setActiveStoreId($this->__getDefaultStore());
         }
         
         return $this;
@@ -104,5 +106,22 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     
     private function __render() {
         $this->loadLayout()->_setActiveMenu('diy')->renderLayout();
+    }
+    
+    private function __getDefaultStore() {
+        $storeModel = Mage::getSingleton('adminhtml/system_store');
+        $options = array();
+
+        foreach ($storeModel->getWebsiteCollection() as $website) {
+           foreach ($storeModel->getGroupCollection() as $store) {
+               if ($store->getWebsiteId() != $website->getId()) { continue; }
+               foreach ($storeModel->getStoreCollection() as $view) {
+                   if ($view->getGroupId() != $store->getId()) { continue; }
+                   return $view->getId();
+               }
+           }
+        }
+        
+        return false;
     }
 }
