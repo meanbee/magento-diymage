@@ -48,15 +48,15 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $full_identifier
         );
         
-        $store_id = Mage::app()->getStore()->getStoreId();
+        $store = Mage::app()->getStore()->getStoreId();
         
         $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
-        $this->_otherDIYSettings($identifiers, $layout);
+        $this->_otherDIYSettings($store, $identifiers, $layout);
         
-        $this->_addStylesheet($layout, "diymage_" . $store_id . ".css?" . time());
+        $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
         
         // Apply our sort changes..
         //$update->load();
@@ -276,12 +276,12 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @return void
      * @author Tom Robertshaw
      **/
-     protected function _otherDIYSettings($identifiers, $layout) {
+     protected function _otherDIYSettings($store, $identifiers, $layout) {
          // Assign helper to variable to save time
          $diy = Mage::helper('diy');
          
          // Should the top category navigation be shown
-         if (!$diy->getValue("global", "show_categories")) {
+         if (!$diy->getValue("global", "show_categories", $this->_store )) {
              $this->_removeBlock($layout, "catalog.topnav");
          }
      }
