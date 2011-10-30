@@ -6,6 +6,7 @@
 body {
     font-size: <?php echo $d->getValue("global", "font_size"); ?>px;
     color: #<?php echo $d->getValue("global", "font_colour")?>;
+    background: url("images/diy/<?php echo $d->getValue("global", "body_background") ?>") top left;
 }
 
 a {

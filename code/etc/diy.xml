@@ -184,6 +184,14 @@
         </groups>
         <attributes>
             <global>
+                <body_background>
+                    <label>Body Background Image</label>
+                    <help>Upload a image to be used as the background</help>
+                    <value />
+                    <input_control>diy/admin_control_image</input_control>
+                    <sort_order>0</sort_order>
+                    <group>fonts</group>
+                </body_background>
                 <font_colour>
                     <label>Font Colour</label>
                     <help>This is the default colour of the text on your store.</help>
