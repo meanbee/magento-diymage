@@ -86,6 +86,8 @@ p.diy.control.colour input {
     padding: 3px;
     font-size: 12px;
     font-weight: bold;
+    text-align: center;
+    width: 70px;
     border: 0;
     cursor:pointer;
     border:1px solid #eee;
