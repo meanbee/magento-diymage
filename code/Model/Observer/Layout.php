@@ -309,6 +309,22 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
          if (!$diy->getValue("catalog_product_view", "show_attributes", $store)) {
              $this->_removeBlock($layout, "product.attributes");
          }
+         
+         /*
+          * Cart
+          */
+          
+         if (!$diy->getValue("checkout_cart_index", "show_crosssell", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.crosssell");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_shipping", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.shipping");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_coupon", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.coupon");
+         }
      }
     
     /**

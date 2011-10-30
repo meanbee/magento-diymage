@@ -597,6 +597,30 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                <show_crosssell>
+                    <label>Show Cross-sell Products?</label>
+                    <help>Should the cross-sell products be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </show_crosssell>
+                <show_shipping>
+                    <label>Show Shipping Estimate?</label>
+                    <help>Should the estimate shipping block be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>builder</group>
+                </show_shipping>
+                <show_coupon>
+                    <label>Show Coupons?</label>
+                    <help>Should the discount code box be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>builder</group>
+                </show_coupon>
             </checkout_cart_index>
             <checkout_onepage_index>
                 <builder>
