@@ -424,6 +424,14 @@
                     <sort_order>290</sort_order>
                     <group>breadcrumbs</group>
                 </breadcrumb_size>
+                <footer_background>
+                    <label>Footer Background Image</label>
+                    <help />
+                    <value />
+                    <input_control>diy/admin_control_image</input_control>
+                    <sort_order>10</sort_order>
+                    <group>footer</group>
+                </footer_background>
                 <footer_font_size>
                     <label>Footer Font Size</label>
                     <help>This is the size of text in the footer.</help>
