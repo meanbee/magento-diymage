@@ -40,7 +40,7 @@ class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
         if (count($collection) == 1) {
             return $collection->getFirstItem();
         } else if (count($collection) > 1) {
-            Mage::exception("Found more than one data item with the same name/store_id combintation");
+            Mage::exception("Found more than one data item with the same name/store_id combination");
         } else {
             return false;
         }
