@@ -533,6 +533,14 @@
                     <sort_order>40</sort_order>
                     <group>builder</group>
                 </show_tags>
+                <show_attributes>
+                    <label>Show Product Attribute Table?</label>
+                    <help>Should the product attribute table be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>50</sort_order>
+                    <group>builder</group>
+                </show_attributes>
             </catalog_product_view>
             <catalog_category_view>
                 <builder>

@@ -290,19 +290,24 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
           * Product Page 
           */
          
-         // Show product reviews
+         // Hide product reviews
          if (!$diy->getValue("catalog_product_view", "show_reviews", $store)) {
              $this->_removeBlock($layout, "product.info.product_additional_data");
          }
          
-         // Show cross-sell products
+         // Hide cross-sell products
          if (!$diy->getValue("catalog_product_view", "show_crosssells", $store)) {
              $this->_removeBlock($layout, "product.info.upsell");
          }
          
-         // Show product tags
+         // Hide product tags
          if (!$diy->getValue("catalog_product_view", "show_tags", $store )) {
              $this->_removeBlock($layout, "product_tag_list");
+         }
+         
+         // Hide additional data
+         if (!$diy->getValue("catalog_product_view", "show_attributes", $store)) {
+             $this->_removeBlock($layout, "product.attributes");
          }
      }
     
