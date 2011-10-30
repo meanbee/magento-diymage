@@ -640,6 +640,14 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                <show_progress>
+                    <label>Show Checkout Progress?</label>
+                    <help>Should the progress information be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </show_progress>
             </checkout_onepage_index>
             <catalogsearch_result_index>
                 <builder>
