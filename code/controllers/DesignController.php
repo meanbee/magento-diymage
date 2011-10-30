@@ -71,14 +71,49 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
             $return_url = $this->getRequest()->getPost("return_url");
             $publish = (bool) $this->getRequest()->getPost("publish");
             
+            // Handle saving settings
             foreach ($data as $id => $value) {
                 if (!is_integer($id)) {
-                    throw new Exception("I was expecting an integer there");
+                    
+                    // Check whether we're deleting an image
+                    if (preg_match("/_delete$/", $id) && $value) {
+                    
+                        // Find the real id without "_delete"
+                        $id = substr($id, 0, -7);
+                        $value = "";
+                    } else {
+                    
+                        // If we weren't then it's unrecognised input.
+                        throw new Exception("I was expecting an integer there");
+                    }
                 }
-                
+                                
                 $data = Mage::getModel('diy/data')->load($id);
                 $data->setValue($value);
                 $data->save();
+            }
+            
+            // Upload images
+            foreach ($_FILES as $id => $file) {
+                if (isset($file['name']) && file_exists($file['tmp_name'])) {
+                    try {
+                        $uploader = new Mage_Core_Model_File_Uploader($id);
+                        $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
+                        $uploader->setAllowRenameFiles(false);
+                        $uploader->setFilesDispersion(false);
+                        $uploader->setAllowCreateFolders(true);
+                        $path = Mage::getBaseDir('skin') .DS. "frontend" .DS. "base" 
+                            .DS. "default" .DS. "images" .DS. "diy" .DS;
+                        $result = $uploader->save($path);
+                        
+                        $id = substr($id, 4);
+                        $data = Mage::getModel('diy/data')->load($id);
+                        $data->setValue($result['file']);
+                        $data->save();
+                    } catch (Exception $e) {
+                        Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                    }
+                }
             }
             
             if ($publish) {

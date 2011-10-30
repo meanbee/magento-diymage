@@ -223,6 +223,14 @@ p.diy.control.font option, p.diy.control.font select {
     font-size: 18px;
 }
 
+/** IMAGE SPECIFIC STYLES *****************************************/
+p.diy.control.image label.delete {
+    color: black;
+    font-weight: normal;
+    font-size: 12px;
+    display: inline;
+}
+
 /** STORE SWITCHER SPECIFIC STYLES *******************************************/
 div.diy.store_switcher {
     background: #f6f6f6;
