@@ -280,12 +280,20 @@
                     <sort_order>110</sort_order>
                     <group>fonts</group>
                 </input_text_padding>
+                <button_colour>
+                    <label>Button Font Colour</label>
+                    <help />
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>120</sort_order>
+                    <group>fonts</group>
+                </button_colour>
                 <header_link_colour>
                     <label>Header Link Colour</label>
                     <help>This is the colour of links in the header</help>
                     <value>ffcc00</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>120</sort_order>
+                    <sort_order>130</sort_order>
                     <group>fonts</group>
                 </header_link_colour>
                 <show_categories>
@@ -499,6 +507,32 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                
+                <!-- Show/Hide various elements -->
+                <show_reviews>
+                    <label>Show Reviews?</label>
+                    <help>Should the review summary and details be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </show_reviews>
+                <show_upsells>
+                    <label>Show Upsell Products?</label>
+                    <help>Should the upsell products block be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>builder</group>
+                </show_upsells>
+                <show_tags>
+                    <label>Show Product Tags?</label>
+                    <help>Should the product tags be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>builder</group>
+                </show_tags>
             </catalog_product_view>
             <catalog_category_view>
                 <builder>
@@ -518,6 +552,8 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                
+                <!-- Pager -->
                 <pager_border>
                     <label>Show Pager Border?</label>
                     <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
@@ -533,7 +569,7 @@
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>30</sort_order>
                     <group>pager</group>
-                </pager_background>
+                </pager_background><!-- END Pager -->
             </catalog_category_view>
             <checkout_cart_index>
                 <builder>

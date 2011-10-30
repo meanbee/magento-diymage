@@ -281,8 +281,28 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
          $diy = Mage::helper('diy');
          
          // Should the top category navigation be shown
-         if (!$diy->getValue("global", "show_categories", $this->_store )) {
+         if (!$diy->getValue("global", "show_categories", $store )) {
              $this->_removeBlock($layout, "catalog.topnav");
+         }
+         
+         
+         /*
+          * Product Page 
+          */
+         
+         // Show product reviews
+         if (!$diy->getValue("catalog_product_view", "show_reviews", $store)) {
+             $this->_removeBlock($layout, "product.info.product_additional_data");
+         }
+         
+         // Show cross-sell products
+         if (!$diy->getValue("catalog_product_view", "show_crosssells", $store)) {
+             $this->_removeBlock($layout, "product.info.upsell");
+         }
+         
+         // Show product tags
+         if (!$diy->getValue("catalog_product_view", "show_tags", $store )) {
+             $this->_removeBlock($layout, "product_tag_list");
          }
      }
     
