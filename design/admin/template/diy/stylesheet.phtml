@@ -17,8 +17,14 @@ a:hover {
     color: #<?php echo $d->getValue("global", "link_hover_colour") ?>;
 }
 
-input, select, textarea, button {
+input, select, textarea {
     color: #<?php echo $d->getValue("global", "input_colour") ?>;
+    font-family: <?php echo $d->getValue("global", "input_font_family") ?>;
+    font-size: <?php echo $d->getValue("global", "input_font_size") ?>px;
+}
+
+button { 
+    color: #<?php echo $d->getValue("global", "button_colour") ?>;
     font-family: <?php echo $d->getValue("global", "input_font_family") ?>;
     font-size: <?php echo $d->getValue("global", "input_font_size") ?>px;
 }
