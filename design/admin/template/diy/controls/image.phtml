@@ -1,0 +1,18 @@
+<?php
+/**
+ * @see Meanbee_Diy_Block_Admin_Control_Image
+ * @author Tom Robertshaw
+ */
+ 
+ $name = "diy_" . $this->getUniqueId();
+ $delete_name = "diy[" . $this->getUniqueId() . "_delete]";
+?>
+<p class="diy control image">
+    <label for="<?php echo $name ?>"><?php echo $this->getLabel() ?></label>
+    <input type="file" name="<?php echo $name ?>" id="<?php echo $this->getFieldId() ?>" />
+    <span class="help"><?php echo $this->getHelpText() ?></span>
+    <?php if ($this->getValue()): ?>
+        <input type="checkbox" name="<?php echo $delete_name ?>" id="<?php echo $delete_name ?>" value ="1" />
+        <label class="delete" for="<?php echo $delete_name ?>"> Delete <?php echo $this->getValue() ?></label>
+    <?php endif; ?>
+</p>

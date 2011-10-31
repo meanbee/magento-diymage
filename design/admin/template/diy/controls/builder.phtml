@@ -22,7 +22,7 @@
     var static_blocks = <?php echo $this->getStaticBlocks() ?>;
     var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
-    document.observe("dom:loaded", function () {        
+    Event.observe(window, 'load', function () {        
         // When the document loads, build our builder on the right hand side of the page
         updateLayoutBuilder();
 

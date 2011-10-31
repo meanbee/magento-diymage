@@ -14,11 +14,6 @@
                     <action>diy/design</action>
                     <sort_order>10</sort_order>
                 </global>
-                <homepage translate="title" module="diy">
-                    <title>Home Page</title>
-                    <action>diy/design/homepage</action>
-                    <sort_order>20</sort_order>
-                </homepage>
                 <catalog_category translate="title" module="diy">
                     <title>Product Listing</title>
                     <action>diy/design/listing</action>
@@ -54,11 +49,6 @@
                     <action>diy/design/contacts</action>
                     <sort_order>90</sort_order>
                 </contacts>
-                <noroute translate="title" module="diy">
-                    <title>404 Page</title>
-                    <action>diy/design/noroute</action>
-                    <sort_order>100</sort_order>
-                </noroute>
                 <customer_account translate="title" module="diy">
                     <title>Customer Account</title>
                     <action>diy/design/customeraccount</action>

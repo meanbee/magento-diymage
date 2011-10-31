@@ -18,6 +18,12 @@ body ul.site-navigation {
     min-width: 330px;
 }
 
+/* Messages aren't displayed full-width */
+.error-msg,
+.success-msg,
+.note-msg,
+.notice-msg { width: 920px; }
+
 /* Header cart checkout button was too wide, breaking the layout */
 
 body section.cart button {

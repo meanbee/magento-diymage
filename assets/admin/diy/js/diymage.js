@@ -2,3 +2,8 @@
 function resetValue(id, value) {
     $j("#" + id).val(value);
 }
+
+
+function resetColour(id, value) {
+    $j.fn.mColorPicker.setInputColor(id, "#" + value);
+}

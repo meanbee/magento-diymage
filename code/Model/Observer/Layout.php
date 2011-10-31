@@ -48,18 +48,15 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $full_identifier
         );
         
-        $store_id = Mage::app()->getStore()->getStoreId();
+        $store = Mage::app()->getStore()->getStoreId();
         
         $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
+        $this->_otherDIYSettings($store, $identifiers, $layout);
         
-        if (!Mage::helper('diy')->getValue("global", "show_categories", Mage::app()->getStore()->getId())) {
-            $this->_removeBlock($layout, "catalog.topnav");
-        }
-        
-        $this->_addStylesheet($layout, "diymage_" . $store_id . ".css?" . time());
+        $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
         
         // Apply our sort changes..
         //$update->load();
@@ -272,7 +269,74 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     }
     
     /**
-     * undocumented function
+     * Action other DIY settings that involve layout updates (non-builder)
+     * 
+     * @param string $identifiers
+     * @param string $layout
+     * @return void
+     * @author Tom Robertshaw
+     **/
+     protected function _otherDIYSettings($store, $identifiers, $layout) {
+         // Assign helper to variable to save time
+         $diy = Mage::helper('diy');
+         
+         // Should the top category navigation be shown
+         if (!$diy->getValue("global", "show_categories", $store )) {
+             $this->_removeBlock($layout, "catalog.topnav");
+         }
+         
+         
+         /*
+          * Product Page 
+          */
+         
+         // Hide product reviews
+         if (!$diy->getValue("catalog_product_view", "show_reviews", $store)) {
+             $this->_removeBlock($layout, "product.info.product_additional_data");
+         }
+         
+         // Hide cross-sell products
+         if (!$diy->getValue("catalog_product_view", "show_crosssells", $store)) {
+             $this->_removeBlock($layout, "product.info.upsell");
+         }
+         
+         // Hide product tags
+         if (!$diy->getValue("catalog_product_view", "show_tags", $store )) {
+             $this->_removeBlock($layout, "product_tag_list");
+         }
+         
+         // Hide additional data
+         if (!$diy->getValue("catalog_product_view", "show_attributes", $store)) {
+             $this->_removeBlock($layout, "product.attributes");
+         }
+         
+         /*
+          * Cart
+          */
+          
+         if (!$diy->getValue("checkout_cart_index", "show_crosssell", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.crosssell");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_shipping", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.shipping");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_coupon", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.coupon");
+         }
+         
+         /* 
+          * Checkout
+          */
+          
+         if (!$diy->getValue("checkout_onepage_index", "show_progress", $store)) {
+             $this->_removeBlock($layout, "checkout.progress.wrapper");
+         }
+     }
+    
+    /**
+     * Add a static block and position it
      *
      * @param string $layout 
      * @param string $block_id The id of the static block in the database
