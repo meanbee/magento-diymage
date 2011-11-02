@@ -79,6 +79,15 @@
                     </diy_add_builder_to_page_design>
                 </observers>
             </adminhtml_cms_page_edit_tab_design_prepare_form>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <diy_check_writable_paths>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>checkWritablePaths</method>
+                    </diy_check_writable_paths>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
         </events>
         <!-- <cache>
             <types>
