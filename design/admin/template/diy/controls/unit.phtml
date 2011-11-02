@@ -4,7 +4,9 @@
  * @author Nicholas Jones
  */
 ?>
-<p class="diy control unit">
-    <input type="text" data-default="<?php echo $this->getDefaultValue() ?>" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><span class="unit"><?php echo $this->getUnit() ?></span>
+<div class="diy control unit">
+    <div class="input">
+        <input type="text" data-default="<?php echo $this->getDefaultValue() ?>" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><span class="unit"><?php echo $this->getUnit() ?></span>
+    </div>
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-</p>
+</div>

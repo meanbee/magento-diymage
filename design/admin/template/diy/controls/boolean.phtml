@@ -5,7 +5,7 @@
  * @see Meanbee_Diy_Block_Admin_Control_Boolean
  */
 ?>
-<p class="diy control boolean">
+<div class="diy control boolean">
     <div class="input">
         <select name="<?php echo $this->getFieldName() ?>" data-default="<?php echo $this->getDefaultValue() ?>" id="<?php echo $this->getFieldId() ?>">
             <option value="1"<?php if ($this->getValue() == "1"):?> selected="selected"<?php endif ?>><?php echo $this->__('Yes') ?></option>
@@ -13,4 +13,4 @@
         </select>
     </div>
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-</p>
+</div>
