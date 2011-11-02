@@ -4,6 +4,7 @@
 -->
 <config>
     <diy>
+        <!-- Add translations from Magento block names to ones that are human readable -->
         <block_namemap>
             <right_poll>
                 <id><![CDATA[right.poll]]></id>
@@ -110,6 +111,9 @@
                 <name><![CDATA[Category Products]]></name>
             </category_products>
         </block_namemap>
+        <!-- END TRANSLATIONS --> 
+        
+        <!-- Specify groups that are used across DIY Mage admin pages -->
         <groups>
             <!-- GLOBAL SETTINGS -->
             <global>
@@ -145,7 +149,7 @@
                 </breadcrumbs>
                 <footer>
                     <label>Footer Settings</label>
-                    <help>In a similar fashion to header settings, configure the footer text and link styling.
+                    <help>In a similar fashion to header settings, configure the footer text and link styling.</help>
                     <sort_order>70</sort_order>
                 </footer>
             </global>
@@ -164,73 +168,114 @@
             </catalog_category_view>
             <!-- END CATEGORY LISTING SETTINGS -->
             
+            <!-- PRODUCT PAGE SETTINGS -->
             <catalog_product_view>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </catalog_product_view>
+            <!-- END PRODUCT PAGE SETTINGS -->
+            
+            <!-- CART SETTINGS -->
             <checkout_cart_index>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </checkout_cart_index>
+            <!-- END CART SETTINGS -->
+            
+            <!-- ONEPAGE CHECKOUT SETTINGS -->
             <checkout_onepage_index>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </checkout_onepage_index>
+            <!-- END ONEPAGE CHECKOUT SETTINGS -->
+            
+            <!-- SEARCH RESULTS SETTINGS -->
             <catalogsearch_result_index>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </catalogsearch_result_index>
+            <!-- END SEARCH RESULTS SETTINGS -->
+            
+            <!-- ADVANCED SEARCH RESULTS SETTINGS -->
             <catalogsearch_advanced>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </catalogsearch_advanced>
+            <!-- END ADVANCED SEARCH RESULTS SETTINGS -->
+            
+            <!-- CONTACT PAGE SETTINGS -->
             <contacts_index_index>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </contacts_index_index>
+            <!-- END CONTACT PAGE SETTINGS -->
+            
+            <!-- CUSTOMER ACCOUNT SETTINGS -->
             <customer_account>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
             </customer_account>
+            <!-- END CUSTOMER ACCOUNT SETTINGS -->
         </groups>
+        <!-- END GROUPS -->
+        
+        <!-- Declare attributes and which groups they belong to -->
         <attributes>
+            <!-- GLOBAL SETTINGS --> 
             <global>
                 <body_background>
                     <label>Body Background Image</label>
                     <help>Upload a image to be used as the background</help>
                     <value />
                     <input_control>diy/admin_control_image</input_control>
-                    <sort_order>0</sort_order>
-                    <group>fonts</group>
+                    <sort_order>10</sort_order>
+                    <group>body</group>
                 </body_background>
+                
+                <font_family>
+                    <label>Font Family</label>
+                    <help>This font will be the default font on all elements</help>
+                    <value>arial</value>
+                    <input_control>diy/admin_control_font</input_control>
+                    <sort_order>10</sort_order>
+                    <group>fonts</group>
+                </font_family>
                 <font_colour>
                     <label>Font Colour</label>
                     <help>This is the default colour of the text on your store.</help>
                     <value>333333</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>10</sort_order>
+                    <sort_order>20</sort_order>
                     <group>fonts</group>
                 </font_colour>
+                <font_size>
+                    <label>Font Size</label>
+                    <help>This is the size of the default text around the site.  Usually 10-12px.</help>
+                    <value>13</value>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>30</sort_order>
+                    <group>fonts</group>
+                </font_size>
                 <link_colour>
                     <label>Link Colour</label>
                     <help>This is the colour of the links on your site.</help>
                     <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>20</sort_order>
+                    <sort_order>40</sort_order>
                     <group>fonts</group>
                 </link_colour>
                 <link_hover_colour>
@@ -238,32 +283,17 @@
                     <help>This is the colour that the links go when you hover.</help>
                     <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>30</sort_order>
-                    <group>fonts</group>
-                </link_hover_colour>
-                <font_size>
-                    <label>Font Size</label>
-                    <help>This is the size of the default text around the site.  Usually 10-12px.</help>
-                    <value>13</value>
-                    <input_control>diy/admin_control_unit_px</input_control>
-                    <sort_order>40</sort_order>
-                    <group>fonts</group>
-                </font_size>
-                <font_family>
-                    <label>Font Family</label>
-                    <help>This font will be the default font on all elements</help>
-                    <value>arial</value>
-                    <input_control>diy/admin_control_font</input_control>
                     <sort_order>50</sort_order>
                     <group>fonts</group>
-                </font_family>
+                </link_hover_colour>
+
                 <input_colour>
                     <label>Input Colour</label>
                     <help>This is the colour used for all default inputs.</help>
                     <value>767676</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>60</sort_order>
-                    <group>fonts</group>
+                    <sort_order>10</sort_order>
+                    <group>inputs</group>
                 </input_colour>
                 <input_font_family>
                     <label>Input Font Family</label>
@@ -271,7 +301,7 @@
                     <value>arial</value>
                     <input_control>diy/admin_control_font</input_control>
                     <sort_order>70</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </input_font_family>
                 <input_font_size>
                     <label>Input Font Size</label>
@@ -279,7 +309,7 @@
                     <value>12</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>80</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </input_font_size>
                 <input_background_colour>
                     <label>Input Background Colour</label>
@@ -287,7 +317,7 @@
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>90</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </input_background_colour>
                 <input_border_colour>
                     <label>Input Border Colour</label>
@@ -295,7 +325,7 @@
                     <value>B6B6B6</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>100</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </input_border_colour>
                 <input_text_padding>
                     <label>Text Input Box Padding</label>
@@ -303,7 +333,7 @@
                     <value>2</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>110</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </input_text_padding>
                 <button_colour>
                     <label>Button Font Colour</label>
@@ -311,16 +341,18 @@
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>120</sort_order>
-                    <group>fonts</group>
+                    <group>inputs</group>
                 </button_colour>
+                
                 <header_link_colour>
                     <label>Header Link Colour</label>
                     <help>This is the colour of links in the header</help>
                     <value>ffcc00</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>130</sort_order>
-                    <group>fonts</group>
+                    <sort_order>10</sort_order>
+                    <group>header</group>
                 </header_link_colour>
+                
                 <show_categories>
                     <label>Show Categories?</label>
                     <help>This control decides whether to show the categories along the top of the page, or not.</help>
@@ -417,6 +449,7 @@
                     <sort_order>240</sort_order>
                     <group>navigation</group>
                 </nav_sub_list_border_colour>
+                
                 <breadcrumb_text_colour>
                     <label>Breadcrumb Current Page Colour</label>
                     <help>This is the colour of the current page in the breadcrumbs.</help>
@@ -457,6 +490,7 @@
                     <sort_order>290</sort_order>
                     <group>breadcrumbs</group>
                 </breadcrumb_size>
+                
                 <footer_background>
                     <label>Footer Background Image</label>
                     <help />
@@ -514,6 +548,47 @@
                     <group>footer</group>
                 </footer_list_display>
             </global>
+            <!-- END GLOBAL SETTINGS --> 
+                        
+           <!-- CATEGORY LISTING SETTINGS -->
+            <catalog_category_view>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/3columns.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+                <pager_border>
+                    <label>Show Pager Border?</label>
+                    <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>20</sort_order>
+                    <group>pager</group>
+                </pager_border>
+                <pager_background>
+                    <label>Pager Background Colour</label>
+                    <help>This control decides what the background colour of the pager toolbar containing the page numbers, etc, should be.</help>
+                    <value>EEEEEE</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>pager</group>
+                </pager_background>
+            </catalog_category_view>
+            <!-- END CATEGORY LISTING SETTINGS -->
+            
+            <!-- PRODUCT PAGE SETTINGS -->
             <catalog_product_view>
                 <builder>
                     <label>Builder</label>
@@ -532,8 +607,6 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
-                
-                <!-- Show/Hide various elements -->
                 <show_reviews>
                     <label>Show Reviews?</label>
                     <help>Should the review summary and details be shown?</help>
@@ -567,43 +640,9 @@
                     <group>builder</group>
                 </show_attributes>
             </catalog_product_view>
-            <catalog_category_view>
-                <builder>
-                    <label>Builder</label>
-                    <help></help>
-                    <value></value>
-                    <input_control>diy/admin_control_builder</input_control>
-                    <sort_order>20</sort_order>
-                    <group>builder</group>
-                </builder>
-                <layout>
-                    <label>Page Layout</label>
-                    <help>This is the main structural layout of the page.</help>
-                    <value>page/3columns.phtml</value>
-                    <input_control>diy/admin_control_dropdown</input_control>
-                    <source_model>diy/source_layout</source_model>
-                    <sort_order>10</sort_order>
-                    <group>builder</group>
-                </layout>
-                
-                <!-- Pager -->
-                <pager_border>
-                    <label>Show Pager Border?</label>
-                    <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
-                    <value>1</value>
-                    <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>20</sort_order>
-                    <group>pager</group>
-                </pager_border>
-                <pager_background>
-                    <label>Pager Background Colour</label>
-                    <help>This control decides what the background colour of the pager toolbar containing the page numbers, etc, should be.</help>
-                    <value>EEEEEE</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>30</sort_order>
-                    <group>pager</group>
-                </pager_background><!-- END Pager -->
-            </catalog_category_view>
+            <!-- END PRODUCT PAGE SETTINGS -->
+            
+            <!-- CART SETTINGS -->
             <checkout_cart_index>
                 <builder>
                     <label>Builder</label>
@@ -647,6 +686,9 @@
                     <group>builder</group>
                 </show_coupon>
             </checkout_cart_index>
+            <!-- END CART SETTINGS -->
+            
+            <!-- ONEPAGE CHECKOUT SETTINGS -->
             <checkout_onepage_index>
                 <builder>
                     <label>Builder</label>
@@ -674,6 +716,9 @@
                     <group>builder</group>
                 </show_progress>
             </checkout_onepage_index>
+            <!-- END ONEPAGE CHECKOUT SETTINGS -->
+            
+            <!-- SEARCH RESULTS SETTINGS -->
             <catalogsearch_result_index>
                 <builder>
                     <label>Builder</label>
@@ -691,8 +736,11 @@
                     <source_model>diy/source_layout</source_model>
                     <sort_order>10</sort_order>
                     <group>builder</group>
-                </layout>                
+                </layout>
             </catalogsearch_result_index>
+            <!-- END SEARCH RESULTS SETTINGS -->
+            
+            <!-- ADVANCED SEARCH RESULTS SETTINGS -->
             <catalogsearch_advanced>
                 <builder>
                     <label>Builder</label>
@@ -712,6 +760,9 @@
                     <group>builder</group>
                 </layout>
             </catalogsearch_advanced>
+            <!-- END ADVANCED SEARCH RESULTS SETTINGS -->
+            
+            <!-- CONTACT PAGE SETTINGS -->
             <contacts_index_index>
                 <builder>
                     <label>Builder</label>
@@ -731,6 +782,9 @@
                     <group>builder</group>
                 </layout>
             </contacts_index_index>
+            <!-- END CONTACT PAGE SETTINGS -->
+            
+            <!-- CUSTOMER ACCOUNT SETTINGS -->
             <customer_account>
                 <builder>
                        <label>Builder</label>
@@ -750,6 +804,8 @@
                        <group>builder</group>
                    </layout>
             </customer_account>
+            <!-- END CUSTOMER ACCOUNT SETTINGS -->
         </attributes>
+        <!-- END ATTRIBUTES -->
     </diy>
 </config>
