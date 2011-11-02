@@ -48,7 +48,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $full_identifier
         );
         
-        $store = Mage::app()->getStore()->getStoreId();
+        $store = $this->_getStoreId();
         
         $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
@@ -60,6 +60,10 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         // Apply our sort changes..
         //$update->load();
+    }
+    
+    protected function _getStoreId() {
+        return Mage::app()->getStore()->getStoreId();
     }
     
     /**
@@ -109,7 +113,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $remove = Zend_Json::decode($data['remove']);
+                    $remove = $data['remove'];
                     
                     if ($remove == null) {
                         $remove = array();
@@ -157,7 +161,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 
                 foreach ($update_xml as $group => $data) {
                     $this->_log->debug("Searching for group $group")->indent();
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     $block_found = array();
                     
                     foreach ($blocks as $key => $block_data) {
@@ -514,7 +518,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             
             $update_xml = $page->getData('diy_builder');
         } else {
-            $update_xml = Mage::helper('diy')->getValue($identifier, "builder");
+            $update_xml = Mage::helper('diy')->getValue($ident, "builder", $this->_getStoreId());
         }
         
         return Zend_Json::decode($update_xml);
