@@ -390,7 +390,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     
                     foreach ($blocks as $block) {
                         if ($block['static']) {
