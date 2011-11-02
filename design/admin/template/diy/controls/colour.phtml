@@ -7,7 +7,9 @@
 $js_var = "colour_". $this->getUniqueId();
 ?>
 <p class="diy control colour">
-    <input type="colour" id="colour_<?php echo $this->getUniqueId() ?>" value="#<?php echo strtoupper($this->getValue()) ?>" data-hex="true" data-default="<?php echo $this->getDefaultValue(); ?>" class="colourpicker" name="<?php echo $this->getFieldName() ?>" />
-    <span style="cursor:pointer;" id="icp_colour_<?php echo $this->getUniqueId() ?>" class="mColorPickerTrigger"><img src="<?php echo $this->getSkinUrl('diy/images/color.png') ?>" style="border:0;margin:0 0 0 3px" align="absmiddle"></span>
+    <div class="input">
+        <input type="colour" id="colour_<?php echo $this->getUniqueId() ?>" value="#<?php echo strtoupper($this->getValue()) ?>" data-hex="true" data-default="<?php echo $this->getDefaultValue(); ?>" class="colourpicker" name="<?php echo $this->getFieldName() ?>" />
+        <span style="cursor:pointer;" id="icp_colour_<?php echo $this->getUniqueId() ?>" class="mColorPickerTrigger"><img src="<?php echo $this->getSkinUrl('diy/images/color.png') ?>" style="border:0;margin:0 0 0 3px" align="absmiddle"></span>
+    </div>
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
 </p>
