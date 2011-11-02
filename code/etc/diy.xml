@@ -111,24 +111,47 @@
             </category_products>
         </block_namemap>
         <groups>
+            <!-- GLOBAL SETTINGS -->
             <global>
+                <body>
+                    <label>Body Settings</label>
+                    <help>Set width and background styling of the page body.</help>
+                    <sort_order>10</sort_order>
+                </body>
                 <fonts>
                     <label>Font Settings</label>
-                    <sort_order>10</sort_order>
+                    <help>Choose the font, colour and size settings used around the site.</help>
+                    <sort_order>20</sort_order>
                 </fonts>
+                <inputs>
+                    <label>Input settings</label>
+                    <help>Tweak the feel of input and button elements.</help>
+                    <sort_order>30</sort_order>
+                </inputs>
+                <header>
+                    <label>Header Settings</label>
+                    <help>Customise header specific styles</help>
+                    <sort_order>40</sort_order>                    
+                </header>
                 <navigation>
                     <label>Navigation Settings</label>
-                    <sort_order>20</sort_order>
+                    <help>Choose the colours used for each level of the category navigation, e.g. link and background colour.</help>
+                    <sort_order>50</sort_order>
                 </navigation>
                 <breadcrumbs>
                     <label>Breadcrumb Settings</label>
-                    <sort_order>30</sort_order>
+                    <help>Customise breadcrumb styling.</help>
+                    <sort_order>60</sort_order>
                 </breadcrumbs>
                 <footer>
                     <label>Footer Settings</label>
-                    <sort_order>40</sort_order>
+                    <help>In a similar fashion to header settings, configure the footer text and link styling.
+                    <sort_order>70</sort_order>
                 </footer>
             </global>
+            <!-- END GLOBAL SETTINGS -->
+            
+            <!-- CATEGORY LISTING SETTINGS -->
             <catalog_category_view>
                 <builder>
                     <label>Layout Settings</label>
@@ -139,6 +162,8 @@
                     <sort_order>20</sort_order>
                 </pager>
             </catalog_category_view>
+            <!-- END CATEGORY LISTING SETTINGS -->
+            
             <catalog_product_view>
                 <builder>
                     <label>Layout Settings</label>

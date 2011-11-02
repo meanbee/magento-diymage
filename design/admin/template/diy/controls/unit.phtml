@@ -5,8 +5,6 @@
  */
 ?>
 <p class="diy control unit">
+    <input type="text" data-default="<?php echo $this->getDefaultValue() ?>" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><span class="unit"><?php echo $this->getUnit() ?></span>
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-    <input type="text" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value="<?php echo $this->getValue() ?>" /><span class="unit"><?php echo $this->getUnit() ?></span>
-    <span class="help"><?php echo $this->getHelpText() ?></span>
-    <a href="javascript:void;" onclick="resetValue('<?php echo $this->getFieldId() ?>', '<?php echo $this->getDefaultValue() ?>'); return false">Reset to default</a>
 </p>

@@ -5,7 +5,20 @@ body.diy-design-listing .middle {
 }
 
 /** GROUP STYLING *************************************************/
-#diy_form div.subgroup h3 {
+div.subgroup {
+    width: 350px;
+    margin: 10px;
+    float: left;
+}
+
+div.subgroup:nth-child(3n-1) {
+    clear:both;
+}
+
+div.subgroup .content {
+    background-color: #f6f6f6;
+}
+div.subgroup h3 {
     cursor: pointer;
     text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* black */ 0px 1px 1px rgba(255, 255, 255, 0.1);
     color: white;
@@ -15,49 +28,70 @@ body.diy-design-listing .middle {
     letter-spacing: 1px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
-    margin: 10px 0;
+    margin: 0;
 }
 
-#diy_form div.subgroup h3:before {
+div.subgroup h3:before {
     content: "\25B6";
     padding-right: 10px;
 }
 
-#diy_form div.subgroup h3.open:before {
+div.subgroup h3.open:before {
     content: "\25BC";
     padding-right: 8px;
 }
 
-div.subgroup p.diy.control {
-	display: none;
+div.subgroup div.content {
+    display: none;
+}
+
+div.subgroup div.content p.help {
+    padding: 10px;
+}
+
+div.subgroup div.content a.reset {
+    font-size: 14px;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    margin: 10px 20px;
+    clear: both;
+}
+
+div.subgroup div.content a.reset span {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 /** GENERIC CONTROL STYLES ****************************************/
 p.diy.control {
-    padding: 10px;
+    padding: 5px 20px;
     background: #f6f6f6;
-    border:1px solid #eee;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    clear: both ;
     margin-bottom: 10px;
-    width: 250px;
-    float: left;
     margin-right: 10px;
-	height: 125px;
+    height: 18px;
 }
 
 p.diy.control label {
     color: #666;
-    display: block;
-    font-weight: bold;
+    display: inline;
     font-size: 14px;
     margin-bottom: 10px;
+    float: left;
+    width: 180px;
 }
 
 p.diy.control span.help {
     display: block;
     margin-top: 10px;
     font-style: italic;
+}
+
+p.diy.control input,
+p.diy.control select,
+p.diy.control span {
+    float: left;
 }
 
 p.diy.control button {
@@ -87,16 +121,28 @@ p.diy.control.colour input {
     font-size: 12px;
     font-weight: bold;
     text-align: center;
-    width: 70px;
+    width: 80px;
     border: 0;
     cursor:pointer;
     border:1px solid #eee;
+}
+
+p.diy.control span.mColorPickerTrigger + label {
+    margin-left: 6px;
 }
 
 /** DROPDOWN SPECIFIC STYLES **************************************/
 p.diy.control.dropdown select {
     padding: 3px;
     font-size: 12px;
+}
+
+p.diy.control select + label {
+    margin-left: 30px;
+}
+
+p.diy.control.boolean select + label {
+    margin-left: 60px;
 }
 
 /** UNIT SPECIFIC STYLES *******************************************/
@@ -113,7 +159,19 @@ p.diy.control.unit span.unit {
     padding-left: 3px;
 }
 
+p.diy.control span.unit + label {
+    margin-left: 50px;
+}
+
 /** BUILDER SPECIFIC STYLES ****************************************/
+#group_builder {
+    width: 95%;
+}
+
+#builder_canvas {
+    width: 100%;
+}
+
 p.diy.control.builder {
     clear: both;
     float: none;
@@ -222,18 +280,28 @@ p.diy.control.builder .static_block_add select {
 
 /** FONT SPECIFIC STYLES *******************************************/
 p.diy.control.font option, p.diy.control.font select {
-    font-size: 18px;
+    font-size: 14px;
 }
 
-/** IMAGE SPECIFIC STYLES *****************************************/
+/** IMAGE SPECIFIC STYLES ******************************************/
+p.diy.control.image {
+    height: 60px;
+}
+
+p.diy.control.image input.delete {
+    clear: both;
+    height: 27px;
+}
+
 p.diy.control.image label.delete {
     color: black;
     font-weight: normal;
     font-size: 12px;
     display: inline;
+    padding: 5px;
 }
 
-/** STORE SWITCHER SPECIFIC STYLES *******************************************/
+/** STORE SWITCHER SPECIFIC STYLES *********************************/
 div.diy.store_switcher {
     background: #f6f6f6;
     border:1px solid #eee;
