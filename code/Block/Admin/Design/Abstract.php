@@ -93,6 +93,18 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         return 'Additional Settings';
     }
 
+    protected function getGroupHelp($sub_group) {
+        $groups = $this->_getDataGroupSubGroupsFromXml();
+        
+        if ($groups && isset($groups[$sub_group])) {
+            $sub_group_data = $groups[$sub_group];
+            
+            return $sub_group_data['help'];
+        }
+        
+        return false;
+    }
+
     /**
      * Return the currently active store.  If none set, return 1.
      *
@@ -120,6 +132,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
             
             $container->setData('name', $this->getGroupLabel($group));
             $container->setData('id', $group);
+            $container->setData('help', $this->getGroupHelp($group));
             
             if (count($this->getDataCollection($group)) > 0) {
                 foreach ($this->getDataCollection($group) as $data) {
