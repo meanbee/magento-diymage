@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Block_Admin_Switcher extends Meanbee_Diy_Block_Admin_Abstract {
     public function getStoreAsOptionArray() {
         $storeModel = Mage::getSingleton('adminhtml/system_store');

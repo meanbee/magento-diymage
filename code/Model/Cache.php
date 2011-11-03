@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Cache {
     
     private $__tags = array("meanbee/diy");

@@ -25,6 +25,9 @@
  * @license     http://www.magentocommerce.com/license/enterprise-edition
  */
 -->
+<!--
+// {{license}}
+-->
 <widgets>
     <new_products>
         <parameters>

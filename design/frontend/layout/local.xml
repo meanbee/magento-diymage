@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+<!--
+// {{license}}
+-->
 <layout version="0.1.0">
     <default>
         <remove name="right.permanent.callout" />
