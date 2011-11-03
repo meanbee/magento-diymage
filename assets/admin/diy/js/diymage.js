@@ -28,3 +28,15 @@ function resetValues(id) {
         }
     });       
 }
+
+$j(function () {
+	$j('#nav > li.parent > a > span').each(function (i, el) {
+		el = $j(el);
+		
+		var label = el.html();
+		
+		if (label == "DIY Mage") {
+			el.parent().parent().addClass('diymage');
+		}
+	});
+});

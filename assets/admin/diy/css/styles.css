@@ -1,8 +1,10 @@
 br.clear { clear: both; }
 
 ul.tabs a.diymage-section,
-ul.tabs a.diymage-section:hover { background:url(../../images/tabs_span_bg.gif) repeat-x 0 100%; border-bottom:none; padding:0.5em 0.5em 0.35em 1.5em; }
+ul.tabs a.diymage-section:hover { background:url(../images/tabs_span_bg.gif) repeat-x 0 100%; border-bottom:none; padding:0.5em 0.5em 0.35em 1.5em; }
 ul.tabs a.diymage-section:hover { background-color:#d8e6e6; }
 ul.tabs a.diymage-section.active, ul.tabs a.diymage-section.active:hover { background-color:#fff; }
 ul.tabs a.diymage-section span,
 ul.tabs a.diymage-section:hover span { background:url(../images/logo.png) no-repeat 0 0; height:0; overflow:hidden; padding:14px 0 0; padding-bottom: 3px; width:108px; }
+
+ul#nav li.diymage > a { background: url(../images/menu_icon.png) no-repeat 7px 5px; padding-left: 30px; }
