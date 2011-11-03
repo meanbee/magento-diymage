@@ -13,12 +13,6 @@
  * obtain it through the world-wide-web, please send an email
  * to hello@meanbee.com so we can send you a copy immediately.
  *
- * LICENSEE
- *
- * Purchased by: {{name}}, ({{url}})
- * Purchase date: {{date}}
- * Purchase type: {{license}}
- *
  * DISCLAIMER
  *
  * Don't go editing this file and then asking us why it didn't work :)
