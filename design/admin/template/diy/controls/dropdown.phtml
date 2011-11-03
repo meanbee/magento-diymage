@@ -7,7 +7,7 @@
  * @author Nicholas Jones
  */
 ?>
-<p class="diy control dropdown">
+<div class="diy control dropdown">
     <div class="input">
         <select name="<?php echo $this->getFieldName() ?>" data-default="<?php echo $this->getDefaultValue() ?>" id="<?php echo $this->getFieldId() ?>">
             <?php foreach ($this->getOptions() as $key => $value): ?>
@@ -16,4 +16,4 @@
         </select>
     </div>
     <label for="<?php echo $this->getFieldName() ?>"><?php echo $this->getLabel() ?></label>
-</p>
+</div>

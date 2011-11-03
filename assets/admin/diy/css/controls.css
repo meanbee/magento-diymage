@@ -64,7 +64,7 @@ div.subgroup div.content a.reset span {
 }
 
 /** GENERIC CONTROL STYLES ****************************************/
-p.diy.control {
+div.diy.control {
     padding: 5px 20px;
     background: #f6f6f6;
     clear: both ;
@@ -73,28 +73,27 @@ p.diy.control {
     height: 18px;
 }
 
-p.diy.control label {
+div.diy.control div.input {
+    width: 130px;
+    float: left;
+}
+
+div.diy.control label {
     color: #666;
     display: inline;
     font-size: 14px;
     margin-bottom: 10px;
     float: left;
-    width: 180px;
+    width: 170px;
 }
 
-p.diy.control span.help {
+div.diy.control span.help {
     display: block;
     margin-top: 10px;
     font-style: italic;
 }
 
-p.diy.control input,
-p.diy.control select,
-p.diy.control span {
-    float: left;
-}
-
-p.diy.control button {
+div.diy.control button {
     -moz-border-radius: 10px;
     border-radius: 12px;
     text-decoration: none;
@@ -116,7 +115,7 @@ button:hover {
 }
 
 /** COLOUR SPECIFIC STYLES ****************************************/
-p.diy.control.colour input {
+div.diy.control.colour input {
     padding: 3px;
     font-size: 12px;
     font-weight: bold;
@@ -127,26 +126,14 @@ p.diy.control.colour input {
     border:1px solid #eee;
 }
 
-p.diy.control span.mColorPickerTrigger + label {
-    margin-left: 6px;
-}
-
 /** DROPDOWN SPECIFIC STYLES **************************************/
-p.diy.control.dropdown select {
+div.diy.control.dropdown select {
     padding: 3px;
     font-size: 12px;
 }
 
-p.diy.control select + label {
-    margin-left: 30px;
-}
-
-p.diy.control.boolean select + label {
-    margin-left: 60px;
-}
-
 /** UNIT SPECIFIC STYLES *******************************************/
-p.diy.control.unit input {
+div.diy.control.unit input {
     padding: 3px;
     font-size: 12px;
     width: 32px;
@@ -154,13 +141,9 @@ p.diy.control.unit input {
     border: 2px solid #FFB553;
 }
 
-p.diy.control.unit span.unit {
+div.diy.control.unit span.unit {
     font-size: 18px;
     padding-left: 3px;
-}
-
-p.diy.control span.unit + label {
-    margin-left: 50px;
 }
 
 /** BUILDER SPECIFIC STYLES ****************************************/
@@ -172,7 +155,7 @@ p.diy.control span.unit + label {
     width: 100%;
 }
 
-p.diy.control.builder {
+div.diy.control.builder {
     clear: both;
     float: none;
     width: auto;
@@ -181,61 +164,61 @@ p.diy.control.builder {
     margin-right: 0px;
 }
 
-.adminhtml-cms-page-edit p.diy.control.builder, 
-.adminhtml-cms-page-new p.diy.control.builder {
+.adminhtml-cms-page-edit div.diy.control.builder, 
+.adminhtml-cms-page-new div.diy.control.builder {
     float: none;
     width: 97%;
 }
 
-p.diy.control.builder span.help {
+div.diy.control.builder span.help {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 /* 3 column builder */
-p.diy.control.builder .col3 #builder_0 {
+div.diy.control.builder .col3 #builder_0 {
     width: 20.5%;
     margin-left: 0;
 }
 
-p.diy.control.builder .col3 #builder_1 {
+div.diy.control.builder .col3 #builder_1 {
     width: 50%;
 }
 
-p.diy.control.builder .col3 #builder_2 {
+div.diy.control.builder .col3 #builder_2 {
     width: 20.5%;
     margin-right: 0;
 }
 
 /* 2 column left builder */
-p.diy.control.builder .col2-left #builder_0 {
+div.diy.control.builder .col2-left #builder_0 {
     width: 22.5%;
     margin-left: 0;
 }
 
-p.diy.control.builder .col2-left #builder_1 {
+div.diy.control.builder .col2-left #builder_1 {
     width: 72%;
     margin-right: 0;
 }
 
 /* 2 column right builder */
-p.diy.control.builder .col2-right #builder_0 {
+div.diy.control.builder .col2-right #builder_0 {
     width: 72%;
     margin-left: 0;
 }
 
-p.diy.control.builder .col2-right #builder_1 {
+div.diy.control.builder .col2-right #builder_1 {
     width: 22.5%;
     margin-right: 0;
 }
 
 /* 1 column builder */
-p.diy.control.builder .col1 #builder_0 {
+div.diy.control.builder .col1 #builder_0 {
     width: 98%;
     margin: 10px 0;
 }
 
-p.diy.control.builder .container {
+div.diy.control.builder .container {
     background-color: #fcfcfc;
     margin: 10px;
     padding: 10px;
@@ -245,7 +228,7 @@ p.diy.control.builder .container {
     float: left;
 }
 
-p.diy.control.builder .container .block {
+div.diy.control.builder .container .block {
     padding: 3px 10px;
     margin-top: 3px;
     background: #2D7AAE;
@@ -253,47 +236,47 @@ p.diy.control.builder .container .block {
     letter-spacing: 0.1em;
 }
 
-p.diy.control.builder .container .block.static {
+div.diy.control.builder .container .block.static {
     background: #3fa0e0;
 }
 
 
-p.diy.control.builder .container .container_canvas li {
+div.diy.control.builder .container .container_canvas li {
     cursor: move;
 }
 
-p.diy.control.builder .container .container_canvas li.deleted {
+div.diy.control.builder .container .container_canvas li.deleted {
     opacity: 0.3;
 }
 
-p.diy.control.builder .container .add-block {
+div.diy.control.builder .container .add-block {
     margin-top: 10px;
 }
 
-p.diy.control.builder .static_block_add {
+div.diy.control.builder .static_block_add {
     padding-top: 10px;
 }
 
-p.diy.control.builder .static_block_add select {
+div.diy.control.builder .static_block_add select {
     margin-right: 10px;
 }
 
 /** FONT SPECIFIC STYLES *******************************************/
-p.diy.control.font option, p.diy.control.font select {
+div.diy.control.font option, div.diy.control.font select {
     font-size: 14px;
 }
 
 /** IMAGE SPECIFIC STYLES ******************************************/
-p.diy.control.image {
+div.diy.control.image {
     height: 60px;
 }
 
-p.diy.control.image input.delete {
+div.diy.control.image input.delete {
     clear: both;
     height: 27px;
 }
 
-p.diy.control.image label.delete {
+div.diy.control.image label.delete {
     color: black;
     font-weight: normal;
     font-size: 12px;
