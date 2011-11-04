@@ -613,7 +613,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>20</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_reviews>
                 <show_upsells>
                     <label>Show Upsell Products?</label>
@@ -621,7 +621,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>30</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_upsells>
                 <show_tags>
                     <label>Show Product Tags?</label>
@@ -629,7 +629,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>40</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_tags>
                 <show_attributes>
                     <label>Show Product Attribute Table?</label>
@@ -637,7 +637,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>50</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_attributes>
             </catalog_product_view>
             <!-- END PRODUCT PAGE SETTINGS -->
@@ -667,7 +667,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>20</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_crosssell>
                 <show_shipping>
                     <label>Show Shipping Estimate?</label>
@@ -675,7 +675,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>30</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_shipping>
                 <show_coupon>
                     <label>Show Coupons?</label>
@@ -683,7 +683,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>40</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_coupon>
             </checkout_cart_index>
             <!-- END CART SETTINGS -->
@@ -713,7 +713,7 @@
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>20</sort_order>
-                    <group>builder</group>
+                    <group></group>
                 </show_progress>
             </checkout_onepage_index>
             <!-- END ONEPAGE CHECKOUT SETTINGS -->
