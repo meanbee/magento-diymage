@@ -300,7 +300,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
          }
          
          // Hide cross-sell products
-         if (!$diy->getValue("catalog_product_view", "show_crosssells", $store)) {
+         if (!$diy->getValue("catalog_product_view", "show_upsells", $store)) {
              $this->_removeBlock($layout, "product.info.upsell");
          }
          
