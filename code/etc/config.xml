@@ -141,5 +141,15 @@
                 </diy>
             </modules>
         </translate>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <diy_check_notification_feed>
+                        <class>diy/observer</class>
+                        <method>checkNotificationFeed</method>
+                    </diy_check_notification_feed>
+                </observers>
+            </controller_action_predispatch>
+        </events>
     </adminhtml>
 </config>

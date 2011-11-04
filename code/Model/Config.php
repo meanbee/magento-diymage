@@ -29,6 +29,10 @@ class Meanbee_Diy_Model_Config {
         return "http://ping.diymage.com/check";
     }
     
+    public function getNotificationsUrl() {
+        return "http://notifications.diymage.com";
+    }
+    
     public function getLogName() {
         return "diymage.log";
     }
