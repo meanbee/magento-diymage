@@ -457,7 +457,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         if (!$config->hasCompletedLicenseFields()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
-                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::getUrl('adminhtml/system_config/edit/section/diy') . '">configuration section</a>.')
             );
             
             $this->_log->warn("License fields are not complete");
@@ -468,9 +468,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             "date"            => date("c"),
             "locale"          => Mage::getStoreConfig('general/locale/code'),
             "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
-            "license_key"     => $config->getLicenseKey(),
-            "license_email"   => $config->getLicenseEmail(),
-            "magento_version" => Mage::getVersion()
+            "email"           => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion(),
+            "diymage_version" => $config->getVersion()
         );
         
         $client->setParameterPost('payload', $post_data);

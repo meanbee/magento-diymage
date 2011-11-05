@@ -31,15 +31,6 @@
                             <show_in_store>0</show_in_store>
                             <comment>The email address you used to purchase your license key.</comment>
                         </email>
-                        <key translate="label">
-                            <label>License Key</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
-                            <comment>The 24-character string sent to you in your purchase confirmation email, and is shown in your account area at diymage.com</comment>
-                        </key>
                     </fields>
                 </license>
                 <general translate="label">
