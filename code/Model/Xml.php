@@ -1,28 +1,10 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Xml {
-    const CACHE_KEY_GROUPS  = 'DIYMAGE_GROUPS';
-    const CONST_KEY_NAMEMAP = 'DIYMAGE_NAMEMAP';
-    
-    const CACHE_NAME = 'diymage_config';
-    
     protected $_log;
     
     public function __construct() {
         $this->_log = Mage::getSingleton('diy/log');
-    }
-    
-    protected function _useCache() {
-        return true;
-        return Mage::app()->useCache(self::CACHE_NAME);
-    }
-    
-    protected function _getCache($name) {
-        return Mage::app()->loadCache($name);
-    }
-    
-    protected function _setCache($name, $value) {
-        Mage::app()->saveCache($value, $name, array(self::CACHE_NAME));
     }
     
     /**
@@ -49,13 +31,20 @@ class Meanbee_Diy_Model_Xml {
     }
     
     public function getGroups() {
+        $cache = Mage::getSingleton('diy/cache');
+        $cache_key = $cache::KEY_GROUPS;
+        
+        if ($result = $cache->load($cache_key)) {
+            return $result;
+        }
+        
         $groups = $this->getXml()->getXpath('diy/groups');
         
         if (count($groups) == 1) {
             $result = $groups[0]->asArray();
             
-            if ($this->_useCache()) {
-                $this->_setCache(self::CACHE_KEY_GROUPS, $result);
+            if ($cache->isActive()) {
+                $cache->save($cache_key, $result);
             }
             
             return $result;
@@ -70,7 +59,15 @@ class Meanbee_Diy_Model_Xml {
      * @return array
      */
     public function getBlockNamemap() {
+        $cache = Mage::getSingleton('diy/cache');
+        $cache_key = $cache::KEY_BLOCKMAP;
+        
+        if ($result = $cache->load($cache_key)) {
+            return $result;
+        }
+        
         $result = array();
+        
         $map = $this->getXml()->getXpath('diy/block_namemap');
         
         if (count($map) == 1) {
@@ -87,8 +84,8 @@ class Meanbee_Diy_Model_Xml {
             }
         }
         
-        if ($this->_useCache()) {
-            $this->_setCache(self::CONST_KEY_NAMEMAP, $result);
+        if ($cache->isActive()) {
+            $cache->save($cache_key, $result);
         }
         
         return $result;

@@ -8,11 +8,17 @@ class Meanbee_Diy_Model_Feed extends Mage_AdminNotification_Model_Feed {
     }
     
     public function getLastUpdate() {
-        return Mage::app()->loadCache(self::CACHE_KEY);
+        $cache = $this->_getCache();
+        return $cache->load($cache::KEY_NOTIFY);
     }
     
     public function setLastUpdate() {
-        Mage::app()->saveCache(time(), self::CACHE_KEY);
+        $cache = $this->_getCache();
+        $cache->save($cache::KEY_NOTIFY, time());
         return $this;
+    }
+    
+    protected function _getCache() {
+        return Mage::getSingleton('diy/cache');
     }
 }

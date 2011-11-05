@@ -89,15 +89,15 @@
                 </observers>
             </adminhtml_controller_action_predispatch_start>
         </events>
-        <!-- <cache>
+        <cache>
             <types>
                  <diy_config module="diy" translate="label description">
-                    <label>DIY Mage Control Configuration</label>
-                    <description>DIY Mage control specification files (diy.xml).</description>
-                    <tags>diymage_config</tags>
+                    <label>DIY Mage</label>
+                    <description>Anything that DIY Mage thinks might be worth caching.</description>
+                    <tags>diymage</tags>
                  </diy_config>
             </types>
-        </cache> -->
+        </cache>
     </global>
 
     <frontend>
