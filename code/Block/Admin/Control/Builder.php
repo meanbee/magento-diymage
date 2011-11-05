@@ -136,7 +136,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     
     public function getFieldName() {
         if ($this->isCMSPage()) {
-            return "diy_builder";
+            return "builder";
         } else {
             return parent::getFieldName();
         }

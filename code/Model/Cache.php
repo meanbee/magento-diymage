@@ -1,18 +1,24 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Cache {
+    const TAG = 'diymage';
     
-    private $__tags = array("meanbee/diy");
-    private $__key_license = "license";
+    const KEY_LSTATUS  = 'lstatus';
+    const KEY_NOTIFY   = 'notifications';
+    const KEY_BLOCKMAP = 'block_name_map';
+    const KEY_GROUPS   = 'xml_groups';
     
-    protected function _getCache() {
-        return Mage::getSingleton('core/cache');
+    public function isActive() {
+        return Mage::app()->useCache(self::TAG);
     }
     
-    public function getLicenseStatus() {
-        return $this->_getCache()->load($this->__key_license);
+    public function save($key, $value, $lifetime = false) {
+        Mage::app()->saveCache($value, $key, array(self::TAG), $lifetime);
+        return $this;
     }
     
-    public function setLicenseStatus($status, $expiry = 604800 /* 60*60*24*7 */) {
-        $this->_getCache()->save($status, $this->__key_license, $this->__tags, $expiry);
+    public function load($key) {
+        $result = Mage::app()->loadCache($key);
+        return $result;
     }
 }

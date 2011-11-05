@@ -1,11 +1,14 @@
-<p class="diy control builder">
+<?php
+// {{license}}
+?>
+<div class="diy control builder">
     <input type="hidden" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value='<?php echo $this->getValue() ?>' />
     <?php if (!$this->isCMSPage()): ?>
         <label>Builder</label>
         <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove pre-inserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
     <?php endif ?>
     <span id="builder_canvas"></span>
-</p>
+</div>
 
 <script type="text/javascript" charset="utf-8">
 <!--
@@ -22,7 +25,7 @@
     var static_blocks = <?php echo $this->getStaticBlocks() ?>;
     var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
-    document.observe("dom:loaded", function () {        
+    Event.observe(window, 'load', function () {        
         // When the document loads, build our builder on the right hand side of the page
         updateLayoutBuilder();
 
@@ -51,6 +54,7 @@
         var configuration = [];
         
         var layout = getLayoutElement().value;
+        var desc = "";
         
         if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/left/)) {
             configuration.push(
@@ -63,17 +67,19 @@
                     label: "Main"
                 }
             );
+            desc = "col2-left";
         } else if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/right/)) {
-                configuration.push(
-                    {
-                        key: "content",
-                        label: "Main"
-                    },
-                    {
-                        key: "right",
-                        label: "Right Column"
-                    }
-                );
+            configuration.push(
+                {
+                    key: "content",
+                    label: "Main"
+                },
+                {
+                    key: "right",
+                    label: "Right Column"
+                }
+            );
+            desc = "col2-right";
         } else if (layout.match(/3/) || layout.match(/three/)) {
             configuration.push(
                 {
@@ -89,6 +95,7 @@
                     label: "Right Column"
                 }
             );
+            desc = "col3";
         } else if (layout.match(/1/) || layout.match(/one/)) {
             configuration.push(
                 {
@@ -96,19 +103,24 @@
                     label: "Main"
                 }
             );
+            desc = "col1";
         }
         
-        drawLayoutBuilder(configuration);
+        drawLayoutBuilder(configuration, desc);
     }
     
     // This function actually builds the HTML elements that make up the control, using the
     // configuration passed from updateLayoutBuilder(), and renders the control on the page.
-    function drawLayoutBuilder(configuration) {
+    function drawLayoutBuilder(configuration, desc) {
         var container = $j('#builder_canvas');
         var html = "";
         
         // Reset the content so we can append later
         container.html('');
+
+        // Add the class name
+        container.removeClass();
+        container.addClass(desc);
         
         for ( var i = 0; i < configuration.length; i++ ) {
             var html = "";
@@ -264,7 +276,7 @@
         
         html += "</select>";
         
-        html += "<button onclick='addStaticBlock(\"" + select_id + "\", \"" + section + "\"); return false'>Add Static Block</button>";
+        html += "<button onclick='addStaticBlock(\"" + select_id + "\", \"" + section + "\"); return false'>Add</button>";
         
         html += "</div>";
         

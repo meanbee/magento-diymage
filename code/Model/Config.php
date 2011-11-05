@@ -17,20 +17,24 @@ class Meanbee_Diy_Model_Config {
         return Mage::getStoreConfig('diy/general/developer_toolbar_enabled');
     }
     
-    public function getLicenseKey() {
-        return Mage::getStoreConfig('diy/license/key');
-    }
-    
     public function getLicenseEmail() {
         return Mage::getStoreConfig('diy/license/email');
     }
     
     public function hasCompletedLicenseFields() {
-        return $this->getLicenseKey() && $this->getLicenseEmail();
+        return $this->getLicenseEmail();
+    }
+    
+    public function getVersion() {
+        return Mage::getConfig()->getNode('modules/Meanbee_Diy/version')->__toString();
     }
     
     public function getPingUrl() {
-        return "http://ping.diymage.com/check";
+        return "http://ping.diymage.com";
+    }
+    
+    public function getNotificationsUrl() {
+        return "http://notifications.diymage.com";
     }
     
     public function getLogName() {

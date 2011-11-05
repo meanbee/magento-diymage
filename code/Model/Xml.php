@@ -30,13 +30,44 @@ class Meanbee_Diy_Model_Xml {
         }
     }
     
+    public function getGroups() {
+        $cache = Mage::getSingleton('diy/cache');
+        $cache_key = $cache::KEY_GROUPS;
+        
+        if ($result = $cache->load($cache_key)) {
+            return $result;
+        }
+        
+        $groups = $this->getXml()->getXpath('diy/groups');
+        
+        if (count($groups) == 1) {
+            $result = $groups[0]->asArray();
+            
+            if ($cache->isActive()) {
+                $cache->save($cache_key, $result);
+            }
+            
+            return $result;
+        } else {
+            throw new Exception("The number of group xml tags was not one.. I wasn't expecting that!");
+        }
+    }
+    
     /**
      * Find all of the entries in xpath diy/block_namemap.
      * 
      * @return array
      */
     public function getBlockNamemap() {
+        $cache = Mage::getSingleton('diy/cache');
+        $cache_key = $cache::KEY_BLOCKMAP;
+        
+        if ($result = $cache->load($cache_key)) {
+            return $result;
+        }
+        
         $result = array();
+        
         $map = $this->getXml()->getXpath('diy/block_namemap');
         
         if (count($map) == 1) {
@@ -51,6 +82,10 @@ class Meanbee_Diy_Model_Xml {
                     }
                 }
             }
+        }
+        
+        if ($cache->isActive()) {
+            $cache->save($cache_key, $result);
         }
         
         return $result;
@@ -87,6 +122,7 @@ class Meanbee_Diy_Model_Xml {
                     
                     $values["name"]             = $name;
                     $values["data_group"]       = $group;
+                    $values["sub_group"]        = ($attribute['group']) ? $attribute['group'] : 'default';
                     $values["store_id"]         = $store_id;
                     $values["label"]            = $attribute['label'];
                     $values["help"]             = $attribute['help'];

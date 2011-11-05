@@ -5,7 +5,7 @@
 <config>
     <modules>
         <Meanbee_Diy>
-            <version>0.3.0</version>
+            <version>0.4.0</version>
         </Meanbee_Diy>
     </modules>
     <global>
@@ -106,7 +106,25 @@
                     </diy_add_devtools_block_after>
                 </observers>
             </core_block_abstract_to_html_after>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <diy_check_writable_paths>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>checkWritablePaths</method>
+                    </diy_check_writable_paths>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
         </events>
+        <cache>
+            <types>
+                 <diy_config module="diy" translate="label description">
+                    <label>DIY Mage</label>
+                    <description>Anything that DIY Mage thinks might be worth caching.</description>
+                    <tags>diymage</tags>
+                 </diy_config>
+            </types>
+        </cache>
     </global>
 
     <frontend>
@@ -150,5 +168,15 @@
                 </diy>
             </modules>
         </translate>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <diy_check_notification_feed>
+                        <class>diy/observer</class>
+                        <method>checkNotificationFeed</method>
+                    </diy_check_notification_feed>
+                </observers>
+            </controller_action_predispatch>
+        </events>
     </adminhtml>
 </config>

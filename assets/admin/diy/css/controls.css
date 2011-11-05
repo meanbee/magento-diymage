@@ -1,122 +1,310 @@
-/** GENERIC CONTROL STYLES ****************************************/
-p.diy.control {
-    padding: 10px;
-    background: #f6f6f6;
-    border:1px solid #eee;
-    margin-bottom: 10px;
-    width: 250px;
-    float: left;
-    margin-right: 10px;
-	height: 125px;
+/** ALL DIYMAGE PAGES *********************************************/
+body.diy-design-index .middle,
+body.diy-design-listing .middle { 
+    background: url('../images/graphic-flatpack-bg.gif') 0 0;
 }
 
-p.diy.control label {
-    color: #666;
+/** GROUP STYLING *************************************************/
+div.subgroup {
+    width: 350px;
+    margin: 10px;
+    float: left;
+}
+
+div.subgroup:nth-child(3n-1) {
+    clear:both;
+}
+
+div.subgroup .content {
+    background-color: #f6f6f6;
+}
+div.subgroup h3 {
+    cursor: pointer;
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* black */ 0px 1px 1px rgba(255, 255, 255, 0.1);
+    color: white;
+    background: #313131;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin: 0;
+}
+
+div.subgroup h3:hover {
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+}
+
+div.subgroup h3:before {
+    content: "\25B6";
+    padding-right: 10px;
+}
+
+div.subgroup h3.open:before {
+    content: "\25BC";
+    padding-right: 8px;
+}
+
+div.subgroup div.content {
+    display: none;
+    border: 1px solid #E8E8E8;
+    border-top: 0;
+}
+
+div.subgroup div.content p.help {
+    padding: 10px;
+}
+
+div.subgroup div.content a.reset {
+    font-size: 14px;
+    text-decoration: none;
+    text-align: right;
     display: block;
+    margin: 10px 20px;
+    clear: both;
+}
+
+div.subgroup div.content a.reset span {
     font-weight: bold;
+    font-size: 16px;
+}
+
+/** GENERIC CONTROL STYLES ****************************************/
+div.diy.control {
+    padding: 5px 15px;
+    background: #f6f6f6;
+    clear: both ;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: 18px;
+}
+
+div.diy.control div.input {
+    width: 130px;
+    float: left;
+}
+
+div.diy.control label {
+    color: #666;
+    display: inline;
     font-size: 14px;
     margin-bottom: 10px;
+    float: left;
+    width: 170px;
 }
 
-p.diy.control span.help {
+div.diy.control span.help {
     display: block;
     margin-top: 10px;
     font-style: italic;
 }
 
+div.diy.control button {
+    -moz-border-radius: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    padding: 5px 20px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    background: #e26500 url(../images/button-bg.png) top left repeat-x; /* orange */
+    border: 1px solid #e26500; /* Orange for browsers that don't support rgba */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
+    color: #fff; /* white */
+    text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.2), /* Black */
+                0px 1px 1px rgba(255, 255, 255, 0.3); /* White */
+}
+
+button:hover {
+    background-position: bottom left;
+}
+
 /** COLOUR SPECIFIC STYLES ****************************************/
-p.diy.control.colour input {
+div.diy.control.colour input {
     padding: 3px;
     font-size: 12px;
     font-weight: bold;
+    text-align: center;
+    width: 80px;
     border: 0;
     cursor:pointer;
     border:1px solid #eee;
 }
 
 /** DROPDOWN SPECIFIC STYLES **************************************/
-p.diy.control.dropdown select {
+div.diy.control.dropdown select {
     padding: 3px;
     font-size: 12px;
 }
 
 /** UNIT SPECIFIC STYLES *******************************************/
-p.diy.control.unit input {
+div.diy.control.unit input {
     padding: 3px;
     font-size: 12px;
     width: 32px;
     text-align: center;
+    border: 2px solid #FFB553;
 }
 
-p.diy.control.unit span.unit {
+div.diy.control.unit span.unit {
     font-size: 18px;
     padding-left: 3px;
 }
 
 /** BUILDER SPECIFIC STYLES ****************************************/
-p.diy.control.builder {
+#group_builder {
+    width: 95%;
+}
+
+#builder_canvas {
+    width: 100%;
+}
+
+#group_builder div.diy.control label {
+	margin-bottom: 0;
+}
+
+#group_builder div.diy.control.dropdown {
+    width: 300px;
+}
+
+#group_builder div.diy.control.dropdown div.input {
     float: right;
-    width: 450px;
+}
+
+div.diy.control.builder {
+    clear: both;
+    float: none;
+    width: auto;
+    overflow: hidden;
     height: auto;
     margin-right: 0px;
 }
 
-.adminhtml-cms-page-edit p.diy.control.builder, .adminhtml-cms-page-new p.diy.control.builder {
+.adminhtml-cms-page-edit div.diy.control.builder, 
+.adminhtml-cms-page-new div.diy.control.builder {
     float: none;
     width: 97%;
 }
 
-p.diy.control.builder span.help {
+div.diy.control.builder span.help {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-p.diy.control.builder .container {
+/* 3 column builder */
+div.diy.control.builder .col3 #builder_0 {
+    width: 20.5%;
+    margin-left: 0;
+}
+
+div.diy.control.builder .col3 #builder_1 {
+    width: 50%;
+}
+
+div.diy.control.builder .col3 #builder_2 {
+    width: 20.5%;
+    margin-right: 0;
+}
+
+/* 2 column left builder */
+div.diy.control.builder .col2-left #builder_0 {
+    width: 22.5%;
+    margin-left: 0;
+}
+
+div.diy.control.builder .col2-left #builder_1 {
+    width: 72%;
+    margin-right: 0;
+}
+
+/* 2 column right builder */
+div.diy.control.builder .col2-right #builder_0 {
+    width: 72%;
+    margin-left: 0;
+}
+
+div.diy.control.builder .col2-right #builder_1 {
+    width: 22.5%;
+    margin-right: 0;
+}
+
+/* 1 column builder */
+div.diy.control.builder .col1 #builder_0 {
+    width: 98%;
+    margin: 10px 0;
+}
+
+div.diy.control.builder .container {
     background-color: #fcfcfc;
-    margin-top: 10px;
+    margin: 10px;
     padding: 10px;
-    border:1px solid #ccc;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    float: left;
 }
 
-p.diy.control.builder .container .block {
-    border: 1px solid #566D7E;
-    padding: 3px;
+div.diy.control.builder .container .block {
+    padding: 3px 10px;
     margin-top: 3px;
-    background: #A0CFEC;
+    background: #2D7AAE;
+    color: white;
+    letter-spacing: 0.1em;
 }
 
-p.diy.control.builder .container .block.static {
-    background: #FFFECD;
-    border: 1px solid #968A61;
+div.diy.control.builder .container .block.static {
+    background: #3fa0e0;
 }
 
 
-p.diy.control.builder .container .container_canvas li {
+div.diy.control.builder .container .container_canvas li {
     cursor: move;
 }
 
-p.diy.control.builder .container .container_canvas li.deleted {
+div.diy.control.builder .container .container_canvas li.deleted {
     opacity: 0.3;
 }
 
-p.diy.control.builder .container .add-block {
+div.diy.control.builder .container .add-block {
     margin-top: 10px;
 }
 
-p.diy.control.builder .static_block_add {
+div.diy.control.builder .static_block_add {
     padding-top: 10px;
 }
 
-p.diy.control.builder .static_block_add select {
+div.diy.control.builder .static_block_add select {
     margin-right: 10px;
 }
 
 /** FONT SPECIFIC STYLES *******************************************/
-p.diy.control.font option, p.diy.control.font select {
-    font-size: 18px;
+div.diy.control.font option, div.diy.control.font select {
+    font-size: 14px;
 }
 
-/** STORE SWITCHER SPECIFIC STYLES *******************************************/
+/** IMAGE SPECIFIC STYLES ******************************************/
+div.diy.control.image {
+    height: 60px;
+}
+
+div.diy.control.image input.delete {
+    clear: both;
+    height: 27px;
+}
+
+div.diy.control.image label.delete {
+    color: black;
+    font-weight: normal;
+    font-size: 12px;
+    display: inline;
+    padding: 5px;
+}
+
+/** STORE SWITCHER SPECIFIC STYLES *********************************/
 div.diy.store_switcher {
     background: #f6f6f6;
     border:1px solid #eee;

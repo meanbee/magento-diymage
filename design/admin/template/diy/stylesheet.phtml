@@ -1,105 +1,114 @@
 <?php
+// {{license}}
+?>
+<?php
     // Put this in a variable to make typing quicker.
     $d = Mage::helper('diy');
 ?>
-
 body {
-    font-size: <?php echo $d->getValue("global", "font_size"); ?>px;
-    color: #<?php echo $d->getValue("global", "font_colour")?>;
+    <?php echo $this->getStyleLine('global', 'font_size', 'font-size', '%spx') ?>
+    <?php echo $this->getStyleLine('global', 'font_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'body_background', 'background', 'url(images/diy/%s) top left') ?>
 }
 
 a {
-    color: #<?php echo $d->getValue("global", "link_colour") ?>;
+    <?php echo $this->getStyleLine('global', 'link_colour', 'color', '#%s') ?>
 }
 
 a:hover {
-    color: #<?php echo $d->getValue("global", "link_hover_colour") ?>;
+    <?php echo $this->getStyleLine('global', 'link_hover_colour', 'color', '#%s') ?>
 }
 
-input, select, textarea, button {
-    color: #<?php echo $d->getValue("global", "input_colour") ?>;
-    font-family: <?php echo $d->getValue("global", "input_font_family") ?>;
-    font-size: <?php echo $d->getValue("global", "input_font_size") ?>px;
+input, select, textarea {
+    <?php echo $this->getStyleLine('global', 'input_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'input_font_family', 'font-family') ?>
+    <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
+}
+
+button { 
+    <?php echo $this->getStyleLine('global', 'button_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'input_font_family', 'font-family') ?>
+    <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
 }
 
 input.input-text, select, textarea {
-    background-color: #<?php echo $d->getValue("global", "input_background_colour") ?>;
-    border-colour: #<?php echo $d->getValue("global", "input_border_colour") ?>;
+    <?php echo $this->getStyleLine('global', 'input_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'button_colour', 'border-color', '#%s') ?>
 }
 
 input.input-text, textarea {
-    padding: <?php echo $d->getValue("global", "input_text_padding"); ?>px;
+    <?php echo $this->getStyleLine('global', 'input_text_padding', 'padding', '%spx') ?>
 }
+
 .header .links a {
-    color: #<?php echo $d->getValue("global", "header_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'header_link_colour', 'color', '#%s') ?>
 }
 
 #nav {
-    background-color: #<?php echo $d->getValue("global", "nav_bar_background")?>;
+    <?php echo $this->getStyleLine('global', 'nav_bar_background', 'background-color', '#%s') ?>
 }
 
 #nav li {
-    background-color: #<?php echo $d->getValue("global", "nav_item_background")?>;
+    <?php echo $this->getStyleLine('global', 'nav_item_background', 'background-color', '#%s') ?>
 }
 
 #nav li a {
-    color: #<?php echo $d->getValue("global", "nav_item_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_item_link_colour', 'color', '#%s') ?>
 }
 
 #nav li.active a {
-    color: #<?php echo $d->getValue("global", "nav_item_active_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_item_active_link_colour', 'color', '#%s') ?>
 }
 
 #nav li a:hover {
-    color: #<?php echo $d->getValue("global", "nav_item_link_hover_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_item_link_hover_colour', 'color', '#%s') ?>
 }
 
 #nav ul li a {
-    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_colour")?>;
-    color: #<?php echo $d->getValue("global", "nav_sub_item_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_sub_item_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'nav_sub_item_link_colour', 'color', '#%s') ?>
 }
 
 #nav ul li a:hover {
-    background-color: #<?php echo $d->getValue("global", "nav_sub_item_background_hover_colour")?>;
-    color: #<?php echo $d->getValue("global", "nav_sub_item_link_hover_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_sub_item_background_hover_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'nav_sub_item_link_hover_colour', 'color', '#%s') ?>
 }
 
 #nav ul, #nav div {
     <?php if ($d->getValue("global", "nav_sub_list_border" ) != 1): ?>
         border: none;
     <?php endif; ?>
-    border-color: #<?php echo $d->getValue("global", "nav_sub_list_border_colour")?>;
+    <?php echo $this->getStyleLine('global', 'nav_sub_list_border_colour', 'border-color', '#%s') ?>
 }
 
 .breadcrumbs {
-    color: #<?php echo $d->getValue("global", "breadcrumb_text_colour")?>;
-    
+    <?php echo $this->getStyleLine('global', 'breadcrumb_text_colour', 'color', '#%s') ?>
 }
 
 .breadcrumbs a {
-    color: #<?php echo $d->getValue("global", "breadcrumb_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'breadcrumb_link_colour', 'color', '#%s') ?>
 }
 
 .breadcrumbs a:hover {
-    color: #<?php echo $d->getValue("global", "breadcrumb_link_hover_colour")?>;
+    <?php echo $this->getStyleLine('global', 'breadcrumb_link_hover_colour', 'color', '#%s') ?>
 }
 
 .breadcrumbs span {
-    color: #<?php echo $d->getValue("global", "breadcrumb_divider_colour")?>;
+    <?php echo $this->getStyleLine('global', 'breadcrumb_divider_colour', 'color', '#%s') ?>
 }
 
 .footer {
-    color: #<?php echo $d->getValue("global", "footer_text_colour")?>;
-    font-size: <?php echo $d->getValue("global", "footer_font_size")?>px;
+    <?php echo $this->getStyleLine('global', 'footer_text_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_font_size', 'font-size', '%spx') ?>
 }
 
 .footer a {
-    background-color: #<?php echo $d->getValue("global", "footer_link_background_colour")?>;
-    color: #<?php echo $d->getValue("global", "footer_link_colour")?>;
+    <?php echo $this->getStyleLine('global', 'footer_link_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_link_colour', 'color', '#%s') ?>
 }
 
 .footer a:hover {
-    color: #<?php echo $d->getValue("global", "footer_link_hover_colour")?>;
+    <?php echo $this->getStyleLine('global', 'footer_link_hover_colour', 'color', '#%s') ?>
 }
 
 .footer li {
@@ -117,5 +126,5 @@ input.input-text, textarea {
 <?php endif ?>
 
 .pager, .sorter {
-    background: #<?php echo $d->getValue("catalog_category_view", "pager_background") ?>;
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_background', 'background-color', '#%s') ?>
 }

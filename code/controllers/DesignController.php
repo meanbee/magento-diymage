@@ -22,17 +22,15 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         }
         
         if ($store_id = $this->getRequest()->getParam('store_id')) {
-             Mage::getSingleton('diy/session')->setActiveStoreId($store_id);
+            Mage::getSingleton('diy/session')->setActiveStoreId($store_id);
+        } else {
+            Mage::getSingleton('diy/session')->setActiveStoreId($this->__getDefaultStore());
         }
         
         return $this;
     }
     
     public function indexAction() {
-        $this->__render();
-    }
-    
-    public function homepageAction() {
         $this->__render();
     }
     
@@ -64,7 +62,7 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
-    public function norouteAction() {
+    public function customeraccountAction() {
         $this->__render();
     }
     
@@ -73,14 +71,49 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
             $return_url = $this->getRequest()->getPost("return_url");
             $publish = (bool) $this->getRequest()->getPost("publish");
             
+            // Handle saving settings
             foreach ($data as $id => $value) {
                 if (!is_integer($id)) {
-                    throw new Exception("I was expecting an integer there");
+                    
+                    // Check whether we're deleting an image
+                    if (preg_match("/_delete$/", $id) && $value) {
+                    
+                        // Find the real id without "_delete"
+                        $id = substr($id, 0, -7);
+                        $value = "";
+                    } else {
+                    
+                        // If we weren't then it's unrecognised input.
+                        throw new Exception("I was expecting an integer there");
+                    }
                 }
-                
+                                
                 $data = Mage::getModel('diy/data')->load($id);
                 $data->setValue($value);
                 $data->save();
+            }
+            
+            // Upload images
+            foreach ($_FILES as $id => $file) {
+                if (isset($file['name']) && file_exists($file['tmp_name'])) {
+                    try {
+                        $uploader = new Mage_Core_Model_File_Uploader($id);
+                        $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
+                        $uploader->setAllowRenameFiles(false);
+                        $uploader->setFilesDispersion(false);
+                        $uploader->setAllowCreateFolders(true);
+                        $path = Mage::getBaseDir('skin') .DS. "frontend" .DS. "base" 
+                            .DS. "default" .DS. "images" .DS. "diy" .DS;
+                        $result = $uploader->save($path);
+                        
+                        $id = substr($id, 4);
+                        $data = Mage::getModel('diy/data')->load($id);
+                        $data->setValue($result['file']);
+                        $data->save();
+                    } catch (Exception $e) {
+                        Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                    }
+                }
             }
             
             if ($publish) {
@@ -108,5 +141,22 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
     
     private function __render() {
         $this->loadLayout()->_setActiveMenu('diy')->renderLayout();
+    }
+    
+    private function __getDefaultStore() {
+        $storeModel = Mage::getSingleton('adminhtml/system_store');
+        $options = array();
+
+        foreach ($storeModel->getWebsiteCollection() as $website) {
+           foreach ($storeModel->getGroupCollection() as $store) {
+               if ($store->getWebsiteId() != $website->getId()) { continue; }
+               foreach ($storeModel->getStoreCollection() as $view) {
+                   if ($view->getGroupId() != $store->getId()) { continue; }
+                   return $view->getId();
+               }
+           }
+        }
+        
+        return false;
     }
 }

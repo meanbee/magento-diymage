@@ -48,21 +48,22 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $full_identifier
         );
         
-        $store_id = Mage::app()->getStore()->getStoreId();
+        $store = $this->_getStoreId();
         
         $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
+        $this->_otherDIYSettings($store, $identifiers, $layout);
         
-        if (!Mage::helper('diy')->getValue("global", "show_categories")) {
-            $this->_removeBlock($layout, "catalog.topnav");
-        }
-        
-        $this->_addStylesheet($layout, "diymage_" . $store_id . ".css?" . time());
+        $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
         
         // Apply our sort changes..
         //$update->load();
+    }
+    
+    protected function _getStoreId() {
+        return Mage::app()->getStore()->getStoreId();
     }
     
     /**
@@ -112,7 +113,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $remove = Zend_Json::decode($data['remove']);
+                    $remove = $data['remove'];
                     
                     if ($remove == null) {
                         $remove = array();
@@ -160,7 +161,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 
                 foreach ($update_xml as $group => $data) {
                     $this->_log->debug("Searching for group $group")->indent();
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     $block_found = array();
                     
                     foreach ($blocks as $key => $block_data) {
@@ -272,7 +273,74 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     }
     
     /**
-     * undocumented function
+     * Action other DIY settings that involve layout updates (non-builder)
+     * 
+     * @param string $identifiers
+     * @param string $layout
+     * @return void
+     * @author Tom Robertshaw
+     **/
+     protected function _otherDIYSettings($store, $identifiers, $layout) {
+         // Assign helper to variable to save time
+         $diy = Mage::helper('diy');
+         
+         // Should the top category navigation be shown
+         if (!$diy->getValue("global", "show_categories", $store )) {
+             $this->_removeBlock($layout, "catalog.topnav");
+         }
+         
+         
+         /*
+          * Product Page 
+          */
+         
+         // Hide product reviews
+         if (!$diy->getValue("catalog_product_view", "show_reviews", $store)) {
+             $this->_removeBlock($layout, "product.info.product_additional_data");
+         }
+         
+         // Hide cross-sell products
+         if (!$diy->getValue("catalog_product_view", "show_upsells", $store)) {
+             $this->_removeBlock($layout, "product.info.upsell");
+         }
+         
+         // Hide product tags
+         if (!$diy->getValue("catalog_product_view", "show_tags", $store )) {
+             $this->_removeBlock($layout, "product_tag_list");
+         }
+         
+         // Hide additional data
+         if (!$diy->getValue("catalog_product_view", "show_attributes", $store)) {
+             $this->_removeBlock($layout, "product.attributes");
+         }
+         
+         /*
+          * Cart
+          */
+          
+         if (!$diy->getValue("checkout_cart_index", "show_crosssell", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.crosssell");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_shipping", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.shipping");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_coupon", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.coupon");
+         }
+         
+         /* 
+          * Checkout
+          */
+          
+         if (!$diy->getValue("checkout_onepage_index", "show_progress", $store)) {
+             $this->_removeBlock($layout, "checkout.progress.wrapper");
+         }
+     }
+    
+    /**
+     * Add a static block and position it
      *
      * @param string $layout 
      * @param string $block_id The id of the static block in the database
@@ -322,7 +390,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     
                     foreach ($blocks as $block) {
                         if ($block['static']) {
@@ -382,14 +450,14 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         // An indication of wether all fields were complete, or not.
         $incomplete = false;
         
-        if ($cache->getLicenseStatus()) {
+        if ($cache->load($cache::KEY_LSTATUS)) {
             $this->_log->debug("License valid, cache hit");
             return true;
         }
         
         if (!$config->hasCompletedLicenseFields()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
-                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::getUrl('adminhtml/system_config/edit/section/diy') . '">configuration section</a>.')
             );
             
             $this->_log->warn("License fields are not complete");
@@ -400,9 +468,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             "date"            => date("c"),
             "locale"          => Mage::getStoreConfig('general/locale/code'),
             "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
-            "license_key"     => $config->getLicenseKey(),
-            "license_email"   => $config->getLicenseEmail(),
-            "magento_version" => Mage::getVersion()
+            "email"           => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion(),
+            "diymage_version" => $config->getVersion()
         );
         
         $client->setParameterPost('payload', $post_data);
@@ -417,7 +485,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
                     if ($result['valid']) {
                         $this->_log->debug("License is valid, confirmed by server");
-                        $cache->setLicenseStatus(true);
+                        $cache->save($cache::KEY_LSTATUS, true, 60*60*24*7);
                         return true;
                     } else {
                         // Only display the error to the customer if we know that all fields were complete
@@ -450,7 +518,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             
             $update_xml = $page->getData('diy_builder');
         } else {
-            $update_xml = Mage::helper('diy')->getValue($identifier, "builder");
+            $update_xml = Mage::helper('diy')->getValue($ident, "builder", $this->_getStoreId());
         }
         
         return Zend_Json::decode($update_xml);

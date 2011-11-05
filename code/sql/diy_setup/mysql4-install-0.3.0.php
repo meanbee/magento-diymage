@@ -10,11 +10,10 @@ $installer->startSetup();
  * Create the main DIY Mage table
  */
  
-$table = $installer->getTable('diy/data');
 $installer->run("
 
-DROP TABLE `{$table}`;
-CREATE TABLE `{$table}` (
+DROP TABLE IF EXISTS `{$this->getTable('diy/data')}`;
+CREATE TABLE `{$this->getTable('diy/data')}` (
     `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'DIY Mage Data ID',
     `name` text COMMENT 'Name',
     `label` text COMMENT 'Label',

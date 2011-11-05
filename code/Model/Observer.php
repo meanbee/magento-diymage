@@ -52,4 +52,14 @@ class Meanbee_Diy_Model_Observer {
         $handle = Mage::getModel('diy/observer_devtools_hints');
         $handle->observe($observer);
     }
+    
+    public function checkWritablePaths($observer) {
+        $handle = Mage::getModel('diy/observer_writable');
+        $handle->observe($observer);
+    }
+    
+    public function checkNotificationFeed($observer) {
+        $handle = Mage::getModel('diy/observer_feed');
+        $handle->observe($observer);
+    }
 }

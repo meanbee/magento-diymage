@@ -1,3 +1,10 @@
+/* Fix button widths */
+input.button,
+button.button,
+div.block-cart div.actions button {
+    padding: 5px 0;
+}
+
 /* Header h2 appearing in the middle of the page, rather than hidden behind the header image */
 
 body a#branding h2 {
@@ -11,18 +18,16 @@ body ul.site-navigation {
     min-width: 330px;
 }
 
+/* Messages aren't displayed full-width */
+.error-msg,
+.success-msg,
+.note-msg,
+.notice-msg { width: 920px; }
+
 /* Header cart checkout button was too wide, breaking the layout */
 
 body section.cart button {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-/* No breadcrumb separators */
-
-ul.breadcrumbs li a {
-    background: url(../images/icon-arrow-right.gif) center right no-repeat;
-    padding-right: 20px;
+    padding: 5px 0px;
 }
 
 /* Search form was too narrow and search button was too wide, breaking the layout */
@@ -33,8 +38,13 @@ body form#search-form {
 }
 
 body form#search-form button {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 5px;
+}
+
+/* Right sidebar gets pushed down */
+
+div.col3-layout div.sidebar {
+    width: 23%;
 }
 
 /* Photo navigation was appearing too far up in the wrong place */
@@ -55,6 +65,11 @@ body section.hproduct aside.product-options {
 
 body ul#reviews-list li h5.reviewer {
     margin-left: 0;
+}
+
+/* Poll answers didn't show numbers */
+div.block-poll ol#poll-answers {
+    margin-left: 30px;
 }
 
 /* Product list prices were all over the place */
@@ -83,6 +98,32 @@ body ul.list-products li div.actions {
     clear: both;
     float: none;
     margin-left: 230px;
+}
+
+/* Product list sorter doesn't need floating */
+ul.product-sorter li.sort-by a {
+    float: none;
+}
+
+ul.product-sorter li.sort-by a img {
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+/* Continue shopping button in cart in the wrong place */
+
+table#cart button.continue {
+    float: left;
+}
+
+/* Checkout progress */
+div.block-progress div.block-content ul li span {
+    float: left;
+}
+
+/* Customer account login  */
+body.customer-account-login div.col2-set div.col-2 {
+    padding-left: 20px;
 }
 
 /* Footer social icons were stacking instead of floating 

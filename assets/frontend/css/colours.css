@@ -114,6 +114,7 @@ textarea:focus {
     border-color: #eb6302; /* Orange */
 }
 
+label.required em,
 em.required,
 p.required {
     color: #b90101; /* Red */
@@ -327,8 +328,7 @@ div.block-cart p.block-subtitle {
 
 /* ----------------------------- VIEWED PRODUCTS */
 
-div.block-viewed ol li,
-div.block-viewed ol li:last-child {
+div.block-viewed ol li {
     border-color: #ccc;
 }
 
@@ -551,7 +551,7 @@ div.block-progress div.block-content ul li {
     border-color: #e8e8e8;
 }
 
-ol#checkoutSteps li section div.col-1:nth-child(-n+1) {
+ol#checkoutSteps li section div.col-2 {
     border-color: #ccc;
 }
 

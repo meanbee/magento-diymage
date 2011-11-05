@@ -430,8 +430,13 @@ ol#checkoutSteps span.please-wait {
 /* ----------------------------- ACCOUNT */
 
 #my-orders-table td.a-center { 
-    text-align:center;
+    text-align: center;
 }
+
+#order-info-tabs li.current { 
+    font-weight: bold; 
+}
+
 
 /* ----------------------------- FOOTER */
 
