@@ -1,4 +1,10 @@
 <?php
+$hex = array(
+    'green'  => '#CAFEB8',
+    'red'    => '#FF8A8A',
+    'orange' => '#FFB60B'
+);
+
 $cache_types = Mage::helper('core')->getCacheTypes();
 
 $cache_total_count = 0;
@@ -11,11 +17,11 @@ foreach ($cache_types as $type => $label) {
 }
 
 if ($cache_enabled_count == 0) {
-    $colour = 'green';
+    $colour = $hex['green'];
 } else if ($cache_enabled_count == $cache_total_count) {
-    $colour = 'red';
+    $colour = $hex['red'];
 } else {
-    $colour = 'orange';
+    $colour = $hex['orange'];
 }
 
 $template_hints_enabled = Mage::getStoreConfigFlag('dev/debug/template_hints');
@@ -25,9 +31,7 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 <div id="diymage_devtools_bar">
     <div class="handles">
         <ul>
-            <li><strong>DIY Mage Developer Bar</strong></li>
             <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
-            <li><a href="#" onclick="$('diymage_devtools_bar').hide(); return false">Hide Developer Bar</a></li>
         </ul>
     </div>
     <div class="system">
@@ -35,20 +39,20 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
             <li>
                 <strong>Cache:</strong> <span style="color: <?php echo $colour ?>; font-weight: bold;"><?php echo sprintf("%d/%d enabled", $cache_enabled_count, $cache_total_count)?></span> (<a href="<?php echo $this->getUrl('diy/devtools/cacheDisable') ?>">Disable All</a>, <a href="<?php echo $this->getUrl('diy/devtools/cacheRefresh') ?>">Force Refresh</a>)</li>
             <li>
-                <strong>Indexes:</strong> <span style="color: green; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
+                <strong>Indexes:</strong> <span style="color: <?php echo $hex['green'] ?>; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
             </li>
             <li>
-                <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
             </li>
         </ul>
     </div>
     <div class="system">
         <ul>
             <li>
-                <strong>Logging:</strong> <span style="color: <?php echo ($logging_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($logging_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/loggingToggle') ?>"><?php echo ($logging_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                <strong>Logging:</strong> <span style="color: <?php echo ($logging_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($logging_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/loggingToggle') ?>"><?php echo ($logging_enabled) ? 'Disable' : 'Enable'; ?></a>)
             </li>
             <li>
-                <strong>Template Symlinks:</strong> <span style="color: <?php echo ($symlinks_enabled) ? 'green' : 'red'; ?>; font-weight: bold;"><?php echo ($symlinks_enabled) ? 'Allowed' : 'Disallowed'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/symlinkToggle') ?>"><?php echo ($symlinks_enabled) ? 'Disallow' : 'Allow'; ?></a>)
+                <strong>Template Symlinks:</strong> <span style="color: <?php echo ($symlinks_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($symlinks_enabled) ? 'Allowed' : 'Disallowed'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/symlinkToggle') ?>"><?php echo ($symlinks_enabled) ? 'Disallow' : 'Allow'; ?></a>)
             </li>
         </ul>
     </div>
@@ -59,15 +63,16 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 #diymage_devtools_bar {
     padding: 10px;
 
-    background: #eee;
-    opacity: 0.8;
+    color: white;
+    background: #333;
+    opacity: 0.95;
 
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     
-    box-shadow: #999 0px -2px 5px 0px;
+    margin-right: 325px;
 }
 
 #diymage_devtools_bar .handles {
@@ -77,11 +82,11 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 }
 
 #diymage_devtools_bar .handles span {
-    background: white;
-    border: 1px solid #ccc;
+    background: #ccc;
+    border: 1px solid #bbb;
     padding: 1px;
     font-family: courier;
-    color: #666;
+    color: black;
 }
 
 #diymage_devtools_bar .system {
@@ -94,48 +99,8 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
     color: #1E7EC8;
 }
 
-.diy-hint {
-    outline: red dotted 1px;
-    position: relative;
-    cursor: pointer;
-    font-size: 11px;
-    min-height: 10px;
-}
-
-.diy-hint:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
-.diy-hint .inner {
-    display: none;
-    text-align: left;
-}
-
-.diy-hint:hover > .inner {
-    display: block;
-    position: absolute;
-    top: 0; left: 0;
-    background-color: red;
-    color: white;
-    height: 36px;
-    width: 100%;
-    padding: 3px;
-    z-index: 9000;
-}
-
-.diy-hint:hover > .inner {
-    width: auto;
-}
-
-.diy-hint:hover > .shade {
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: red;
-    opacity: 0.15;
+#diymage_devtools_bar li {
+    background-image: none;
 }
 -->
 </style>

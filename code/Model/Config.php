@@ -14,7 +14,7 @@ class Meanbee_Diy_Model_Config {
     }
     
     public function isDeveloperToolbarEnabled() {
-        return $this->isEnabled() && Mage::getStoreConfig('diy/general/developer_toolbar_enabled');
+        return Mage::getStoreConfig('diy/general/developer_toolbar_enabled');
     }
     
     public function getLicenseKey() {
