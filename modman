@@ -13,3 +13,6 @@ assets/admin/*              skin/adminhtml/default/default
 ## Misc
 locale/en_US/*              app/locale/en_US
 Module.xml                  app/etc/modules/Meanbee_Diy.xml
+
+## Package building
+package.xml                 var/connect/Meanbee_Diy.xml
