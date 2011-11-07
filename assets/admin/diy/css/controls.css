@@ -138,6 +138,7 @@ div.diy.control.colour input {
 div.diy.control.dropdown select {
     padding: 3px;
     font-size: 12px;
+    width: 110px;
 }
 
 /** UNIT SPECIFIC STYLES *******************************************/
