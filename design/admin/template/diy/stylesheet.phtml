@@ -113,21 +113,21 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'breadcrumb_divider_colour', 'color', '#%s') ?>
 }
 
-.footer {
+.footer, footer {
     <?php echo $this->getStyleLine('global', 'footer_text_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_font_size', 'font-size', '%spx') ?>
 }
 
-.footer a {
+.footer a, footer a {
     <?php echo $this->getStyleLine('global', 'footer_link_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_link_colour', 'color', '#%s') ?>
 }
 
-.footer a:hover {
+.footer a:hover, footer a:hover {
     <?php echo $this->getStyleLine('global', 'footer_link_hover_colour', 'color', '#%s') ?>
 }
 
-.footer li {
+.footer li, footer li {
 <?php if ($d->getValue("global", "footer_list_display") == 1): ?>
     display: inline;
 <?php else: ?>
