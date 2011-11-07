@@ -237,14 +237,40 @@
         <attributes>
             <!-- GLOBAL SETTINGS --> 
             <global>
-                <body_background>
+                <body_background_image>
                     <label>Body Background Image</label>
                     <help>Upload a image to be used as the background</help>
                     <value />
                     <input_control>diy/admin_control_image</input_control>
                     <sort_order>10</sort_order>
                     <group>body</group>
-                </body_background>
+                </body_background_image>
+                <body_background_position>
+                    <label>Body Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>body</group>
+                </body_background_position>
+                <body_background_repeat>
+                    <label>Body background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>body</group>
+                </body_background_repeat>
+                <body_background_colour>
+                    <label>Body Background Colour</label>
+                    <help>The colour used as the background for the entire page.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>body</group>
+                </body_background_colour>
                 
                 <font_family>
                     <label>Font Family</label>

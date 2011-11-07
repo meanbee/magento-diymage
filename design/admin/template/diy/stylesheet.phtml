@@ -8,7 +8,10 @@
 body {
     <?php echo $this->getStyleLine('global', 'font_size', 'font-size', '%spx') ?>
     <?php echo $this->getStyleLine('global', 'font_colour', 'color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'body_background', 'background', 'url(images/diy/%s) top left') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_colour', 'background-color', '#%s') ?>
 }
 
 a {
