@@ -13,7 +13,7 @@ class Meanbee_Diy_Block_Stylesheet extends Meanbee_Diy_Block_Abstract {
         $css_value = sprintf($css_value_pattern, $data_value);
 
         if (!empty($data_value)) {
-            return "$css_property: $css_value\n";
+            return "$css_property: $css_value;\n";
         } else {
             return "/* Ignored: $css_property: $css_value */ \n";
         }
