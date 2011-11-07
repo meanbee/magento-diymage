@@ -164,6 +164,10 @@ div.diy.control.unit span.unit {
     width: 100%;
 }
 
+#group_builder div.diy.control label {
+	margin-bottom: 0;
+}
+
 #group_builder div.diy.control.dropdown {
     width: 300px;
 }

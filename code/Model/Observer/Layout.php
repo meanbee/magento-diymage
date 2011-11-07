@@ -450,14 +450,14 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         // An indication of wether all fields were complete, or not.
         $incomplete = false;
         
-        if ($cache->getLicenseStatus()) {
+        if ($cache->load($cache::KEY_LSTATUS)) {
             $this->_log->debug("License valid, cache hit");
             return true;
         }
         
         if (!$config->hasCompletedLicenseFields()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
-                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::getUrl('adminhtml/system_config/edit/section/diy') . '">configuration section</a>.')
             );
             
             $this->_log->warn("License fields are not complete");
@@ -468,9 +468,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             "date"            => date("c"),
             "locale"          => Mage::getStoreConfig('general/locale/code'),
             "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
-            "license_key"     => $config->getLicenseKey(),
-            "license_email"   => $config->getLicenseEmail(),
-            "magento_version" => Mage::getVersion()
+            "email"           => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion(),
+            "diymage_version" => $config->getVersion()
         );
         
         $client->setParameterPost('payload', $post_data);
@@ -485,7 +485,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
                     if ($result['valid']) {
                         $this->_log->debug("License is valid, confirmed by server");
-                        $cache->setLicenseStatus(true);
+                        $cache->save($cache::KEY_LSTATUS, true, 60*60*24*7);
                         return true;
                     } else {
                         // Only display the error to the customer if we know that all fields were complete
