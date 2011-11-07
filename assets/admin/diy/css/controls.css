@@ -288,9 +288,14 @@ div.diy.control.image {
     height: 60px;
 }
 
+div.diy.control.image input.file {
+    width: 100%;
+}
+
 div.diy.control.image input.delete {
     clear: both;
     height: 27px;
+    margin-left: 50px;
 }
 
 div.diy.control.image label.delete {
@@ -298,7 +303,7 @@ div.diy.control.image label.delete {
     font-weight: normal;
     font-size: 12px;
     display: inline;
-    padding: 5px;
+    float: left;
 }
 
 /** STORE SWITCHER SPECIFIC STYLES *********************************/

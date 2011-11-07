@@ -13,9 +13,11 @@
 ?>
 <div class="diy control image">
     <label for="<?php echo $name ?>"><?php echo $this->getLabel() ?></label>
-    <input type="file" name="<?php echo $name ?>" id="<?php echo $this->getFieldId() ?>" />
+    <input type="file" class="file" name="<?php echo $name ?>" id="<?php echo $this->getFieldId() ?>" />
     <?php if ($this->getValue()): ?>
-        <input type="checkbox" class="delete" name="<?php echo $delete_name ?>" id="<?php echo $delete_name ?>" value ="1" />
+        <div class="input">
+            <input type="checkbox" class="delete" name="<?php echo $delete_name ?>" id="<?php echo $delete_name ?>" value ="1" />
+        </div>
         <label class="delete" for="<?php echo $delete_name ?>"> Delete <?php echo $this->getValue() ?></label>
     <?php endif; ?>
 </div>
