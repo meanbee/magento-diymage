@@ -583,12 +583,38 @@
                     <sort_order>10</sort_order>
                     <group>footer</group>
                 </footer_background>
+                <footer_background_position>
+                    <label>Footer Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>footer</group>
+                </footer_background_position>
+                <footer_background_repeat>
+                    <label>Footer background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction.</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>footer</group>
+                </footer_background_repeat>
+                <footer_background_colour>
+                    <label>Footer Background Colour</label>
+                    <help>The colour used as the background for the footer.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>footer</group>
+                </footer_background_colour>
                 <footer_font_size>
                     <label>Footer Font Size</label>
                     <help>This is the size of text in the footer.</help>
-                    <value>10</value>
+                    <value>13</value>
                     <input_control>diy/admin_control_unit_px</input_control>
-                    <sort_order>300</sort_order>
+                    <sort_order>50</sort_order>
                     <group>footer</group>
                 </footer_font_size>
                 <footer_text_colour>
@@ -596,7 +622,7 @@
                     <help>Set the colour of text in the footer.</help>
                     <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>310</sort_order>
+                    <sort_order>60</sort_order>
                     <group>footer</group>
                 </footer_text_colour>
                 <footer_link_colour>
@@ -604,7 +630,7 @@
                     <help>This is the colour of links in the footer.</help>
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>320</sort_order>
+                    <sort_order>70</sort_order>
                     <group>footer</group>
                 </footer_link_colour>
                 <footer_link_hover_colour>
@@ -612,23 +638,15 @@
                     <help>This is the colour of links in the footer when hovered over.</help>
                     <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>330</sort_order>
+                    <sort_order>80</sort_order>
                     <group>footer</group>
                 </footer_link_hover_colour>
-                <footer_link_background_colour>
-                    <label>Footer Link Background Colour</label>
-                    <help>This is the background colour of links in the footer.</help>
-                    <value>000000</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>340</sort_order>
-                    <group>footer</group>
-                </footer_link_background_colour>
                 <footer_list_display>
                     <label>Display Footer List Items Inline?</label>
                     <help>Display the footer list items inline?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>350</sort_order>
+                    <sort_order>90</sort_order>
                     <group>footer</group>
                 </footer_list_display>
             </global>

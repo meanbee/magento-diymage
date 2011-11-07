@@ -114,12 +114,15 @@ input.input-text, textarea {
 }
 
 .footer, footer {
+    <?php echo $this->getStyleLine('global', 'footer_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_text_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_font_size', 'font-size', '%spx') ?>
 }
 
 .footer a, footer a {
-    <?php echo $this->getStyleLine('global', 'footer_link_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_link_colour', 'color', '#%s') ?>
 }
 
