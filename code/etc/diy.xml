@@ -370,14 +370,56 @@
                     <group>inputs</group>
                 </button_colour>
                 
+                <header_background_image>
+                    <label>Header Background Image</label>
+                    <help>Upload a image to be used as the background</help>
+                    <value />
+                    <input_control>diy/admin_control_image</input_control>
+                    <sort_order>10</sort_order>
+                    <group>header</group>
+                </header_background_image>
+                <header_background_position>
+                    <label>Header Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>header</group>
+                </header_background_position>
+                <header_background_repeat>
+                    <label>Header background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction.</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>header</group>
+                </header_background_repeat>
+                <header_background_colour>
+                    <label>Header Background Colour</label>
+                    <help>The colour used as the background for the header.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>header</group>
+                </header_background_colour>
                 <header_link_colour>
                     <label>Header Link Colour</label>
                     <help>This is the colour of links in the header</help>
-                    <value>ffcc00</value>
+                    <value>FFCC00</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>10</sort_order>
+                    <sort_order>50</sort_order>
                     <group>header</group>
                 </header_link_colour>
+                <header_link_hover_colour>
+                    <label>Header Link Hover Colour</label>
+                    <help>This is the colour that header links go when you hover.</help>
+                    <value>FFCC00</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>60</sort_order>
+                    <group>header</group>
+                </header_link_hover_colour>
                 
                 <show_categories>
                     <label>Show Categories?</label>

@@ -43,8 +43,19 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'input_text_padding', 'padding', '%spx') ?>
 }
 
-.header .links a {
-    <?php echo $this->getStyleLine('global', 'header_link_colour', 'color', '#%s') ?>
+.header, header {
+    <?php echo $this->getStyleLine('global', 'header_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_colour', 'background-color', '#%s') ?>
+}
+
+.header .links a, header ul.site-navigation a {
+    <?php echo $this->getStyleLine('global', 'header_link_colour', 'color', '#%s') ?>    
+}
+
+.header .links a:hover, header ul.site-navigation a:hover {
+    <?php echo $this->getStyleLine('global', 'header_link_hover_colour', 'color', '#%s') ?>
 }
 
 #nav {
