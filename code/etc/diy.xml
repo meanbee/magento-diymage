@@ -404,12 +404,28 @@
                     <sort_order>40</sort_order>
                     <group>header</group>
                 </header_background_colour>
+                <header_font_size>
+                      <label>Header Font Size</label>
+                      <help>This is the size of text in the header.</help>
+                      <value>13</value>
+                      <input_control>diy/admin_control_unit_px</input_control>
+                      <sort_order>50</sort_order>
+                      <group>header</group>
+                </header_font_size>
+                <header_text_colour>
+                      <label>Header Text Colour</label>
+                      <help>Set the colour of text in the header.</help>
+                      <value>000000</value>
+                      <input_control>diy/admin_control_colour</input_control>
+                      <sort_order>60</sort_order>
+                      <group>header</group>
+                </header_text_colour>
                 <header_link_colour>
                     <label>Header Link Colour</label>
                     <help>This is the colour of links in the header</help>
                     <value>FFCC00</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>70</sort_order>
                     <group>header</group>
                 </header_link_colour>
                 <header_link_hover_colour>
@@ -417,7 +433,7 @@
                     <help>This is the colour that header links go when you hover.</help>
                     <value>FFCC00</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>60</sort_order>
+                    <sort_order>80</sort_order>
                     <group>header</group>
                 </header_link_hover_colour>
                 
