@@ -113,6 +113,38 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'breadcrumb_divider_colour', 'color', '#%s') ?>
 }
 
+div.sidebar div.block {
+<?php if ($d->getValue("global", "sidebar_block_rounded") == 0): ?>
+    border-radius: 0;
+    -moz-border-radius: 0;
+<?php endif; ?>
+<?php if ($d->getValue("global", "sidebar_block_text_shadow") == 0): ?>
+    text-shadow: none;
+<?php endif; ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_border_colour', 'border-color', '#%s') ?>
+}
+
+div.sidebar div.block div.block-title h2,
+div.sidebar div.block div.block-title strong span {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_heading_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_heading_size', 'font-size', '%spx') ?>
+}
+
+div.sidebar div.block button,
+div.sidebar div.block button span {
+    <?php echo $this->getStyleLine('global', 'sidebar_button_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_button_colour', 'color', '#%s') ?>
+}
+
+div.sidebar a {
+    <?php echo $this->getStyleLine('global', 'sidebar_link_colour', 'color', '#%s') ?>
+}
+
+div.sidebar a:hover, div.sidebar a:active {
+    <?php echo $this->getStyleLine('global', 'sidebar_link_hover_colour', 'color', '#%s') ?>
+}
+
 .footer, footer {
     <?php echo $this->getStyleLine('global', 'footer_background_image', 'background-image', 'url("images/diy/%s")') ?>
     <?php echo $this->getStyleLine('global', 'footer_background_position', 'background-position', '%s') ?>
