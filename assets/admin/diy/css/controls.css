@@ -58,7 +58,7 @@ div.subgroup div.content p.help {
 }
 
 div.subgroup div.content a.reset {
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     text-align: right;
     display: block;
@@ -68,7 +68,7 @@ div.subgroup div.content a.reset {
 
 div.subgroup div.content a.reset span {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /** GENERIC CONTROL STYLES ****************************************/
@@ -89,7 +89,7 @@ div.diy.control div.input {
 div.diy.control label {
     color: #666;
     display: inline;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 10px;
     float: left;
     width: 170px;
