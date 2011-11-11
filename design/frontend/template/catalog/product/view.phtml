@@ -21,7 +21,12 @@
             <strong class="fn" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></strong> 
         </h1> 
         <?php echo $this->getPriceHtml($_product) ?>
-        <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+        
+        <?php // Show review summary only if reviews are turned on in DIY Mage?>
+        <?php if (Mage::helper('diy')->getValue("catalog_product_view", "show_reviews") > 0): ?>
+            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+        <?php endif;?>
+        
         <div class="description quick"> 
             <?php echo $_product->getShortDescription() ?>
         </div> 
