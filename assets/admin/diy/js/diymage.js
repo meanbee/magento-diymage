@@ -5,7 +5,11 @@ function resetValue(id, value) {
 
 
 function resetColour(id, value) {
-    $j.fn.mColorPicker.setInputColor(id, "#" + value);
+    if (value != "") {
+        $j.fn.mColorPicker.setInputColor(id, "#" + value);
+    } else {
+        $j.fn.mColorPicker.setInputColor(id, "");
+    }
 }
 
 // Reset all values in group

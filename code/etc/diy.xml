@@ -147,10 +147,15 @@
                     <help>Customise breadcrumb styling.</help>
                     <sort_order>60</sort_order>
                 </breadcrumbs>
+                <sidebar>
+                    <label>Sidebar Settings</label>
+                    <help>Change format of blocks in the sidebar, e.g. background colours, borders etc.</help>
+                    <sort_order>70</sort_order>
+                </sidebar>
                 <footer>
                     <label>Footer Settings</label>
                     <help>In a similar fashion to header settings, configure the footer text and link styling.</help>
-                    <sort_order>70</sort_order>
+                    <sort_order>80</sort_order>
                 </footer>
             </global>
             <!-- END GLOBAL SETTINGS -->
@@ -237,14 +242,40 @@
         <attributes>
             <!-- GLOBAL SETTINGS --> 
             <global>
-                <body_background>
+                <body_background_image>
                     <label>Body Background Image</label>
                     <help>Upload a image to be used as the background</help>
                     <value />
                     <input_control>diy/admin_control_image</input_control>
                     <sort_order>10</sort_order>
                     <group>body</group>
-                </body_background>
+                </body_background_image>
+                <body_background_position>
+                    <label>Body Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>body</group>
+                </body_background_position>
+                <body_background_repeat>
+                    <label>Body background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>body</group>
+                </body_background_repeat>
+                <body_background_colour>
+                    <label>Body Background Colour</label>
+                    <help>The colour used as the background for the entire page.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>body</group>
+                </body_background_colour>
                 
                 <font_family>
                     <label>Font Family</label>
@@ -344,14 +375,72 @@
                     <group>inputs</group>
                 </button_colour>
                 
+                <header_background_image>
+                    <label>Header Background Image</label>
+                    <help>Upload a image to be used as the background</help>
+                    <value />
+                    <input_control>diy/admin_control_image</input_control>
+                    <sort_order>10</sort_order>
+                    <group>header</group>
+                </header_background_image>
+                <header_background_position>
+                    <label>Header Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>header</group>
+                </header_background_position>
+                <header_background_repeat>
+                    <label>Header background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction.</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>header</group>
+                </header_background_repeat>
+                <header_background_colour>
+                    <label>Header Background Colour</label>
+                    <help>The colour used as the background for the header.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>header</group>
+                </header_background_colour>
+                <header_font_size>
+                      <label>Header Font Size</label>
+                      <help>This is the size of text in the header.</help>
+                      <value>13</value>
+                      <input_control>diy/admin_control_unit_px</input_control>
+                      <sort_order>50</sort_order>
+                      <group>header</group>
+                </header_font_size>
+                <header_text_colour>
+                      <label>Header Text Colour</label>
+                      <help>Set the colour of text in the header.</help>
+                      <value>000000</value>
+                      <input_control>diy/admin_control_colour</input_control>
+                      <sort_order>60</sort_order>
+                      <group>header</group>
+                </header_text_colour>
                 <header_link_colour>
                     <label>Header Link Colour</label>
                     <help>This is the colour of links in the header</help>
-                    <value>ffcc00</value>
+                    <value>CF5100</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>10</sort_order>
+                    <sort_order>70</sort_order>
                     <group>header</group>
                 </header_link_colour>
+                <header_link_hover_colour>
+                    <label>Header Link Hover Colour</label>
+                    <help>This is the colour that header links go when you hover.</help>
+                    <value>CF5100</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>80</sort_order>
+                    <group>header</group>
+                </header_link_hover_colour>
                 
                 <show_categories>
                     <label>Show Categories?</label>
@@ -491,6 +580,87 @@
                     <group>breadcrumbs</group>
                 </breadcrumb_size>
                 
+                <sidebar_block_rounded>
+                    <label>Sidebar Block Rounded Corners</label>
+                    <help>Should the sidebar blocks have rounded corners?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>0</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_rounded>
+                <sidebar_block_text_shadow>
+                    <label>Sidebar Block Text Shadow</label>
+                    <help>Should text in the sidebar blocks use text-shadow?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>10</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_text_shadow>
+                <sidebar_block_background_colour>
+                    <label>Sidebar Block Background Colour</label>
+                    <help>Choose the background colour of sidebar blocks</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_background_colour>
+                <sidebar_block_border_colour>
+                    <label>Sidebar Block Border Colour</label>
+                    <help>Choose the border colour on sidebar blocks</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_border_colour>
+                <sidebar_block_heading_colour>
+                    <label>Sidebar Block Heading Colour</label>
+                    <help>Choose heading colour within sidebar blocks</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_heading_colour>
+                <sidebar_block_heading_size>
+                    <label>Sidebar Block Heading Size</label>
+                    <help>Choose the font size of sidebar block headings.</help>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>50</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_heading_size>
+                <sidebar_button_background_colour>
+                    <label>Sidebar Button Background Colour</label>
+                    <help>Choose the colour of buttons</help>
+                    <value>4A4A4A</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>60</sort_order>
+                    <group>sidebar</group>
+                </sidebar_button_background_colour>
+                <sidebar_button_colour>
+                    <label>Sidebar Button Colour</label>
+                    <help>Choose the text colour on buttons</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>70</sort_order>
+                    <group>sidebar</group>
+                </sidebar_button_colour>
+                <sidebar_link_colour>
+                    <label>Sidebar Link Colour</label>
+                    <help>Choose link colour user in the sidebar.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>80</sort_order>
+                    <group>sidebar</group>
+                </sidebar_link_colour>
+                <sidebar_link_hover_colour>
+                    <label>Sidebar Link Hover Colour</label>
+                    <help>Choose the link hover colour used in the sidebar.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>90</sort_order>
+                    <group>sidebar</group>
+                </sidebar_link_hover_colour>
+                
+                
                 <footer_background>
                     <label>Footer Background Image</label>
                     <help />
@@ -499,12 +669,38 @@
                     <sort_order>10</sort_order>
                     <group>footer</group>
                 </footer_background>
+                <footer_background_position>
+                    <label>Footer Background Image Position</label>
+                    <help>Specify the position of the background image</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_position</source_model>
+                    <sort_order>20</sort_order>
+                    <group>footer</group>
+                </footer_background_position>
+                <footer_background_repeat>
+                    <label>Footer background Image Repeat</label>
+                    <help>Choose whether to repeat the uploaded background image, and if so, in which direction.</help>
+                    <value />
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_repeat</source_model>
+                    <sort_order>30</sort_order>
+                    <group>footer</group>
+                </footer_background_repeat>
+                <footer_background_colour>
+                    <label>Footer Background Colour</label>
+                    <help>The colour used as the background for the footer.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>footer</group>
+                </footer_background_colour>
                 <footer_font_size>
                     <label>Footer Font Size</label>
                     <help>This is the size of text in the footer.</help>
-                    <value>10</value>
+                    <value>13</value>
                     <input_control>diy/admin_control_unit_px</input_control>
-                    <sort_order>300</sort_order>
+                    <sort_order>50</sort_order>
                     <group>footer</group>
                 </footer_font_size>
                 <footer_text_colour>
@@ -512,7 +708,7 @@
                     <help>Set the colour of text in the footer.</help>
                     <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>310</sort_order>
+                    <sort_order>60</sort_order>
                     <group>footer</group>
                 </footer_text_colour>
                 <footer_link_colour>
@@ -520,7 +716,7 @@
                     <help>This is the colour of links in the footer.</help>
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>320</sort_order>
+                    <sort_order>70</sort_order>
                     <group>footer</group>
                 </footer_link_colour>
                 <footer_link_hover_colour>
@@ -528,23 +724,15 @@
                     <help>This is the colour of links in the footer when hovered over.</help>
                     <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>330</sort_order>
+                    <sort_order>80</sort_order>
                     <group>footer</group>
                 </footer_link_hover_colour>
-                <footer_link_background_colour>
-                    <label>Footer Link Background Colour</label>
-                    <help>This is the background colour of links in the footer.</help>
-                    <value>000000</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>340</sort_order>
-                    <group>footer</group>
-                </footer_link_background_colour>
                 <footer_list_display>
                     <label>Display Footer List Items Inline?</label>
                     <help>Display the footer list items inline?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>350</sort_order>
+                    <sort_order>90</sort_order>
                     <group>footer</group>
                 </footer_list_display>
             </global>

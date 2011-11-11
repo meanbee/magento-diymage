@@ -8,7 +8,10 @@
 body {
     <?php echo $this->getStyleLine('global', 'font_size', 'font-size', '%spx') ?>
     <?php echo $this->getStyleLine('global', 'font_colour', 'color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'body_background', 'background', 'url(images/diy/%s) top left') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'body_background_colour', 'background-color', '#%s') ?>
 }
 
 a {
@@ -40,8 +43,21 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'input_text_padding', 'padding', '%spx') ?>
 }
 
-.header .links a {
-    <?php echo $this->getStyleLine('global', 'header_link_colour', 'color', '#%s') ?>
+.header, header {
+    <?php echo $this->getStyleLine('global', 'header_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_font_size', 'font-size', '%spx') ?>
+    <?php echo $this->getStyleLine('global', 'header_text_colour', 'color', '#%s') ?>
+}
+
+.header .links a, header ul.site-navigation a {
+    <?php echo $this->getStyleLine('global', 'header_link_colour', 'color', '#%s') ?>    
+}
+
+.header .links a:hover, header ul.site-navigation a:hover {
+    <?php echo $this->getStyleLine('global', 'header_link_hover_colour', 'color', '#%s') ?>
 }
 
 #nav {
@@ -97,21 +113,56 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'breadcrumb_divider_colour', 'color', '#%s') ?>
 }
 
-.footer {
+div.sidebar div.block {
+<?php if ($d->getValue("global", "sidebar_block_rounded") == 0): ?>
+    border-radius: 0;
+    -moz-border-radius: 0;
+<?php endif; ?>
+<?php if ($d->getValue("global", "sidebar_block_text_shadow") == 0): ?>
+    text-shadow: none;
+<?php endif; ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_border_colour', 'border-color', '#%s') ?>
+}
+
+div.sidebar div.block div.block-title h2,
+div.sidebar div.block div.block-title strong span {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_heading_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_block_heading_size', 'font-size', '%spx') ?>
+}
+
+div.sidebar div.block button,
+div.sidebar div.block button span {
+    <?php echo $this->getStyleLine('global', 'sidebar_button_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'sidebar_button_colour', 'color', '#%s') ?>
+}
+
+div.sidebar a {
+    <?php echo $this->getStyleLine('global', 'sidebar_link_colour', 'color', '#%s') ?>
+}
+
+div.sidebar a:hover, div.sidebar a:active {
+    <?php echo $this->getStyleLine('global', 'sidebar_link_hover_colour', 'color', '#%s') ?>
+}
+
+.footer, footer {
+    <?php echo $this->getStyleLine('global', 'footer_background_image', 'background-image', 'url("images/diy/%s")') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_position', 'background-position', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_repeat', 'background-repeat', '%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_text_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_font_size', 'font-size', '%spx') ?>
 }
 
-.footer a {
-    <?php echo $this->getStyleLine('global', 'footer_link_background_colour', 'background-color', '#%s') ?>
+.footer a, footer a {
     <?php echo $this->getStyleLine('global', 'footer_link_colour', 'color', '#%s') ?>
 }
 
-.footer a:hover {
+.footer a:hover, footer a:hover {
     <?php echo $this->getStyleLine('global', 'footer_link_hover_colour', 'color', '#%s') ?>
 }
 
-.footer li {
+.footer li, footer li {
 <?php if ($d->getValue("global", "footer_list_display") == 1): ?>
     display: inline;
 <?php else: ?>

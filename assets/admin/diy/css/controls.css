@@ -58,7 +58,7 @@ div.subgroup div.content p.help {
 }
 
 div.subgroup div.content a.reset {
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     text-align: right;
     display: block;
@@ -68,7 +68,7 @@ div.subgroup div.content a.reset {
 
 div.subgroup div.content a.reset span {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /** GENERIC CONTROL STYLES ****************************************/
@@ -89,7 +89,7 @@ div.diy.control div.input {
 div.diy.control label {
     color: #666;
     display: inline;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 10px;
     float: left;
     width: 170px;
@@ -138,6 +138,7 @@ div.diy.control.colour input {
 div.diy.control.dropdown select {
     padding: 3px;
     font-size: 12px;
+    width: 110px;
 }
 
 /** UNIT SPECIFIC STYLES *******************************************/
@@ -291,9 +292,14 @@ div.diy.control.image {
     height: 60px;
 }
 
+div.diy.control.image input.file {
+    width: 100%;
+}
+
 div.diy.control.image input.delete {
     clear: both;
     height: 27px;
+    margin-left: 50px;
 }
 
 div.diy.control.image label.delete {
@@ -301,7 +307,7 @@ div.diy.control.image label.delete {
     font-weight: normal;
     font-size: 12px;
     display: inline;
-    padding: 5px;
+    float: left;
 }
 
 /** STORE SWITCHER SPECIFIC STYLES *********************************/
