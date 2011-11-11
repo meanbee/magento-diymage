@@ -1,7 +1,7 @@
 <_>
    <form_key>aLLlSIscteRO6KHC</form_key>
    <name>Meanbee_Diy</name>
-   <channel>magento-community</channel>
+   <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
       <version_ids>1</version_ids>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files> </files>
+            <files>  </files>
          </files>
       </package>
       <extension>
