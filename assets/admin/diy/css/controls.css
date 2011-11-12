@@ -130,8 +130,8 @@ div.diy.control.colour input {
     text-align: center;
     width: 80px;
     border: 0;
-    cursor:pointer;
-    border:1px solid #eee;
+    cursor: pointer;
+    border: 1px solid #E8E8E8;
 }
 
 /** DROPDOWN SPECIFIC STYLES **************************************/
@@ -146,7 +146,8 @@ div.diy.control.unit input {
     padding: 3px;
     font-size: 12px;
     text-align: center;
-    width: 80px
+    width: 80px;
+    border: 1px solid #E8E8E8;
 }
 
 div.diy.control.unit span.unit {
