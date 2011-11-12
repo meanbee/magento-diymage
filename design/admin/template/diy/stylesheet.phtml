@@ -28,10 +28,28 @@ input, select, textarea {
     <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
 }
 
-button { 
+a.button,
+input.button,
+button {
+    <?php echo $this->getStyleLine('global', 'button_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'button_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'input_font_family', 'font-family') ?>
     <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
+}
+
+a.cart,
+input.cart,
+button.cart,
+div.sidebar div.block button.cart {
+    <?php echo $this->getStyleLine('global', 'button_cart_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'button_cart_background_colour', 'background-color', '#%s') ?>
+}
+
+a.simple-button,
+input.simple-button,
+button.simple-button {
+    <?php echo $this->getStyleLine('global', 'button_aside_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'button_aside_background_colour', 'background-color', '#%s') ?>
 }
 
 input.input-text, select, textarea {

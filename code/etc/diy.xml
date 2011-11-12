@@ -128,34 +128,39 @@
                     <sort_order>20</sort_order>
                 </fonts>
                 <inputs>
-                    <label>Input settings</label>
+                    <label>Input Settings</label>
                     <help>Tweak the feel of input and button elements.</help>
                     <sort_order>30</sort_order>
                 </inputs>
+                <buttons>
+                    <label>Button Settings</label>
+                    <help>Alter the colour of buttons used around the site.</help>
+                    <sort_order>40</sort_order>
+                </buttons>
                 <header>
                     <label>Header Settings</label>
                     <help>Customise header specific styles</help>
-                    <sort_order>40</sort_order>                    
+                    <sort_order>50</sort_order>                    
                 </header>
                 <navigation>
                     <label>Navigation Settings</label>
                     <help>Choose the colours used for each level of the category navigation, e.g. link and background colour.</help>
-                    <sort_order>50</sort_order>
+                    <sort_order>60</sort_order>
                 </navigation>
                 <breadcrumbs>
                     <label>Breadcrumb Settings</label>
                     <help>Customise breadcrumb styling.</help>
-                    <sort_order>60</sort_order>
+                    <sort_order>70</sort_order>
                 </breadcrumbs>
                 <sidebar>
                     <label>Sidebar Settings</label>
                     <help>Change format of blocks in the sidebar, e.g. background colours, borders etc.</help>
-                    <sort_order>70</sort_order>
+                    <sort_order>80</sort_order>
                 </sidebar>
                 <footer>
                     <label>Footer Settings</label>
                     <help>In a similar fashion to header settings, configure the footer text and link styling.</help>
-                    <sort_order>80</sort_order>
+                    <sort_order>90</sort_order>
                 </footer>
             </global>
             <!-- END GLOBAL SETTINGS -->
@@ -366,14 +371,55 @@
                     <sort_order>110</sort_order>
                     <group>inputs</group>
                 </input_text_padding>
+                
+                <button_background_colour>
+                    <label>Default Button Background Colour</label>
+                    <help />
+                    <value>E26500</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>buttons</group>
+                </button_background_colour>
                 <button_colour>
-                    <label>Button Font Colour</label>
+                    <label>Default Button Font Colour</label>
                     <help />
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>120</sort_order>
-                    <group>inputs</group>
+                    <sort_order>20</sort_order>
+                    <group>buttons</group>
                 </button_colour>
+                <button_cart_background_colour>
+                    <label>Cart and Checkout Button Background Colour</label>
+                    <help />
+                    <value>409A40</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>buttons</group>
+                </button_cart_background_colour>
+                <button_cart_colour>
+                    <label>Cart and Checkout Button Font Colour</label>
+                    <help />
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>buttons</group>
+                </button_cart_colour>
+                <button_aside_background_colour>
+                    <label>Secondary Button Background Colour</label>
+                    <help />
+                    <value>4A4A4A</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>buttons</group>                    
+                </button_aside_background_colour>
+                <button_aside_colour>
+                    <label>Secondary Button Font Colour</label>
+                    <help />
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>buttons</group>
+                </button_aside_colour>
                 
                 <header_background_image>
                     <label>Header Background Image</label>
