@@ -738,7 +738,7 @@
                 <footer_list_display>
                     <label>Display Footer List Items Inline?</label>
                     <help>Display the footer list items inline?</help>
-                    <value>1</value>
+                    <value>0</value>
                     <input_control>diy/admin_control_boolean</input_control>
                     <sort_order>90</sort_order>
                     <group>footer</group>
