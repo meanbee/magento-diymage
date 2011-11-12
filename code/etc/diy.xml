@@ -722,7 +722,7 @@
                 <footer_link_colour>
                     <label>Footer Link Colour</label>
                     <help>This is the colour of links in the footer.</help>
-                    <value>FFFFFF</value>
+                    <value></value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>70</sort_order>
                     <group>footer</group>
@@ -730,7 +730,7 @@
                 <footer_link_hover_colour>
                     <label>Footer Link Hover Colour</label>
                     <help>This is the colour of links in the footer when hovered over.</help>
-                    <value>000000</value>
+                    <value></value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>80</sort_order>
                     <group>footer</group>
