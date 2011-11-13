@@ -78,6 +78,10 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'header_link_hover_colour', 'color', '#%s') ?>
 }
 
+input[type="search"], input.search, input#search {
+    <?php echo $this->getStyleLine('global', 'header_search_border_colour', 'border-color', '#%s') ?>
+}
+
 #nav {
     <?php echo $this->getStyleLine('global', 'nav_bar_background', 'background-color', '#%s') ?>
 }

@@ -487,6 +487,14 @@
                     <sort_order>80</sort_order>
                     <group>header</group>
                 </header_link_hover_colour>
+                <header_search_border_colour>
+                    <label>Header Search Box Border Colour</label>
+                    <help>Colour used for the search box border</help>
+                    <value>FFB553</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>90</sort_order>
+                    <group>header</group>
+                </header_search_border_colour>
                 
                 <show_categories>
                     <label>Show Categories?</label>
