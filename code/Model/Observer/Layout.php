@@ -289,6 +289,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
              $this->_removeBlock($layout, "catalog.topnav");
          }
          
+         // Should the footer promo block be shown
+         if (!$diy->getValue('global', 'show_footer_promo', $store )) {
+             $this->_removeBlock($layout, "footer.promo");
+         }
+         
          
          /*
           * Product Page 

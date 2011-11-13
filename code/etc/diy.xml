@@ -738,7 +738,7 @@
                     <group>sidebar</group>
                 </sidebar_link_hover_colour>
                 
-                
+
                 <footer_background>
                     <label>Footer Background Image</label>
                     <help />
@@ -773,12 +773,36 @@
                     <sort_order>40</sort_order>
                     <group>footer</group>
                 </footer_background_colour>
+                <show_footer_promo>
+                    <label>Show Footer Promo Block?</label>
+                    <help>Should the block at the top of the footer be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>50</sort_order>
+                    <group>footer</group>
+                </show_footer_promo>
+                <footer_promo_background_colour>
+                    <label>Footer Promo Block Background Colour</label>
+                    <help>Choose the background colour for the footer promo block</help>
+                    <value>323232</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>60</sort_order>
+                    <group>footer</group>
+                </footer_promo_background_colour>
+                <footer_promo_colour>
+                    <label>Footer Promo Block Font Colour</label>
+                    <help>Font colour used within footer promo block</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>70</sort_order>
+                    <group>footer</group>
+                </footer_promo_colour>
                 <footer_font_size>
                     <label>Footer Font Size</label>
                     <help>This is the size of text in the footer.</help>
                     <value>13</value>
                     <input_control>diy/admin_control_unit_px</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>80</sort_order>
                     <group>footer</group>
                 </footer_font_size>
                 <footer_text_colour>
@@ -786,7 +810,7 @@
                     <help>Set the colour of text in the footer.</help>
                     <value>000000</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>60</sort_order>
+                    <sort_order>90</sort_order>
                     <group>footer</group>
                 </footer_text_colour>
                 <footer_link_colour>
@@ -794,7 +818,7 @@
                     <help>This is the colour of links in the footer.</help>
                     <value></value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>70</sort_order>
+                    <sort_order>100</sort_order>
                     <group>footer</group>
                 </footer_link_colour>
                 <footer_link_hover_colour>
@@ -802,7 +826,7 @@
                     <help>This is the colour of links in the footer when hovered over.</help>
                     <value></value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>80</sort_order>
+                    <sort_order>110</sort_order>
                     <group>footer</group>
                 </footer_link_hover_colour>
                 <footer_list_display>
@@ -810,7 +834,7 @@
                     <help>Display the footer list items inline?</help>
                     <value>0</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>90</sort_order>
+                    <sort_order>120</sort_order>
                     <group>footer</group>
                 </footer_list_display>
             </global>
