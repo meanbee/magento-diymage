@@ -612,7 +612,7 @@
                 <breadcrumb_text_colour>
                     <label>Breadcrumb Current Page Colour</label>
                     <help>This is the colour of the current page in the breadcrumbs.</help>
-                    <value>000000</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>250</sort_order>
                     <group>breadcrumbs</group>
@@ -620,7 +620,7 @@
                 <breadcrumb_link_colour>
                     <label>Breadcrumb Link Colour</label>
                     <help>This is the colour of breadcrumb links.</help>
-                    <value>000000</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>260</sort_order>
                     <group>breadcrumbs</group>
@@ -628,7 +628,7 @@
                 <breadcrumb_link_hover_colour>
                     <label>Breadcrumb Link Hover Colour</label>
                     <help>This is the colour of breadcrumb links when hovered over.</help>
-                    <value>000000</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>270</sort_order>
                     <group>breadcrumbs</group>
@@ -636,7 +636,7 @@
                 <breadcrumb_divider_colour>
                     <label>Breadcrumb Divider Colour</label>
                     <help>This is the colour of the divider between breadcrumbs.</help>
-                    <value>000000</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>280</sort_order>
                     <group>breadcrumbs</group>
