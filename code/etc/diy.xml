@@ -517,97 +517,89 @@
                     <help>This control decides whether to show the categories along the top of the page, or not.</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>130</sort_order>
+                    <sort_order>10</sort_order>
                     <group>navigation</group>
                 </show_categories>
                 <nav_bar_background>
                     <label>Navigation Bar Background Colour</label>
                     <help>This is the background colour of the navigation bar.</help>
-                    <value>000000</value>
+                    <value>313131</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>140</sort_order>
+                    <sort_order>20</sort_order>
                     <group>navigation</group>
                 </nav_bar_background>
                 <nav_item_background>
                     <label>Navigation Item Background Colour</label>
                     <help>This is the background colour of an item in the navigation bar.</help>
-                    <value>000000</value>
+                    <value>313131</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>150</sort_order>
+                    <sort_order>30</sort_order>
                     <group>navigation</group>
                 </nav_item_background>
+                <nav_item_background_hover_colour>
+                    <label>Navigation Item Hover Background Colour</label>
+                    <help>This is the colour used for the background of a hovered menu item.</help>
+                    <value>D45600</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>navigation</group>
+                </nav_item_background_hover_colour>
                 <nav_item_link_colour>
                     <label>Navigation Item Link Colour</label>
                     <help>This is the colour of a navigation link.</help>
-                    <value>A7C6DD</value>
+                    <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>160</sort_order>
+                    <sort_order>50</sort_order>
                     <group>navigation</group>
                 </nav_item_link_colour>
                 <nav_item_active_link_colour>
                     <label>Navigation Item Active Link Colour</label>
                     <help>This is the colour of an active navigation link.</help>
-                    <value>D96708</value>
+                    <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>170</sort_order>
+                    <sort_order>60</sort_order>
                     <group>navigation</group>
                 </nav_item_active_link_colour>
                 <nav_item_link_hover_colour>
                     <label>Navigation Item Hover Link Colour</label>
                     <help>This is the colour of a navigation link when hovered over.</help>
-                    <value>D96708</value>
+                    <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>180</sort_order>
+                    <sort_order>70</sort_order>
                     <group>navigation</group>
                 </nav_item_link_hover_colour>
                 <nav_sub_item_background_colour>
                     <label>Navigation Sub-menu Item Background Colour</label>
                     <help>This is the background colour of sub lists in the navigation bar.</help>
-                    <value>ECF3F6</value>
+                    <value>333333</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>190</sort_order>
+                    <sort_order>80</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_background_colour>
                 <nav_sub_item_link_colour>
                     <label>Navigation Sub-menu Item Link Colour</label>
                     <help>This is the colour of links in sub lists in the navigation bar.</help>
-                    <value>2F2F2F</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>200</sort_order>
+                    <sort_order>90</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_link_colour>
                 <nav_sub_item_background_hover_colour>
                     <label>Navigation Sub-menu Item Hover Background Colour</label>
                     <help>This is the background colour of a sub list item in the navigation bar when hovered over.</help>
-                    <value>D5E4EB</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>210</sort_order>
+                    <sort_order>100</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_background_hover_colour>
                 <nav_sub_item_link_hover_colour>
                     <label>Navigation Sub-menu Item Link Hover Colour</label>
                     <help>Set the colour of a sub-menu link when hovered over.</help>
-                    <value>2F2F2F</value>
+                    <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>220</sort_order>
+                    <sort_order>110</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_link_hover_colour>
-                <nav_sub_list_border>
-                    <label>Show Nav Sub-menu Border?</label>
-                    <help>Choose to show the border around the sub menus in the navigation bar.</help>
-                    <value>1</value>
-                    <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>230</sort_order>
-                    <group>navigation</group>
-                </nav_sub_list_border>
-                <nav_sub_list_border_colour>
-                    <label>Navigation Sub-Menu Border Colour</label>
-                    <help>If showing, set the border colour of the navigation bar sub lists.</help>
-                    <value>899BA5</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>240</sort_order>
-                    <group>navigation</group>
-                </nav_sub_list_border_colour>
                 
                 <breadcrumb_text_colour>
                     <label>Breadcrumb Current Page Colour</label>

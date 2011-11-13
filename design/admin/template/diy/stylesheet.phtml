@@ -86,41 +86,45 @@ header section.cart {
     <?php echo $this->getStyleLine('global', 'header_cart_border_colour', 'border-color', '#%s') ?>
 }
 
+nav,
 #nav {
     <?php echo $this->getStyleLine('global', 'nav_bar_background', 'background-color', '#%s') ?>
 }
 
+nav li,
 #nav li {
     <?php echo $this->getStyleLine('global', 'nav_item_background', 'background-color', '#%s') ?>
 }
 
+nav li a,
 #nav li a {
     <?php echo $this->getStyleLine('global', 'nav_item_link_colour', 'color', '#%s') ?>
 }
 
+nav li:hover > a {
+    <?php echo $this->getStyleLine('global', 'nav_item_background_hover_colour', 'background-color', '#%s') ?>
+}
+
+nav li.active a,
 #nav li.active a {
     <?php echo $this->getStyleLine('global', 'nav_item_active_link_colour', 'color', '#%s') ?>
 }
 
+nav li a:hover,
 #nav li a:hover {
     <?php echo $this->getStyleLine('global', 'nav_item_link_hover_colour', 'color', '#%s') ?>
 }
 
+nav ul ul li a,
 #nav ul li a {
     <?php echo $this->getStyleLine('global', 'nav_sub_item_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'nav_sub_item_link_colour', 'color', '#%s') ?>
 }
 
+nav ul ul li a:hover,
 #nav ul li a:hover {
     <?php echo $this->getStyleLine('global', 'nav_sub_item_background_hover_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'nav_sub_item_link_hover_colour', 'color', '#%s') ?>
-}
-
-#nav ul, #nav div {
-    <?php if ($d->getValue("global", "nav_sub_list_border" ) != 1): ?>
-        border: none;
-    <?php endif; ?>
-    <?php echo $this->getStyleLine('global', 'nav_sub_list_border_colour', 'border-color', '#%s') ?>
 }
 
 .breadcrumbs {
