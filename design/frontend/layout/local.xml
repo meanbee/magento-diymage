@@ -33,7 +33,9 @@
             <block type="page/html" name="customer.navigation" as="customer.navigation" template="page/html/customer.navigation.phtml" />
         </reference>
         <reference name="footer">
-            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
+            <block type="core/template" name="footer.promo" template="page/html/promo.phtml">
+                <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
+            </block>
         </reference>
     </default>
 
