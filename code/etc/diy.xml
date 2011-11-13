@@ -845,6 +845,30 @@
                     <sort_order>120</sort_order>
                     <group>footer</group>
                 </footer_list_display>
+                <footer_copyright_colour>
+                    <label>Copyright Notice Colour</label>
+                    <help />
+                    <value>666666</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>130</sort_order>
+                    <group>footer</group>
+                </footer_copyright_colour>
+                <show_footer_copyright_border>
+                    <label>Show Copyright Notice Border?</label>
+                    <help>Should the copyright notice border be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>140</sort_order>
+                    <group>footer</group>
+                </show_footer_copyright_border>
+                <footer_copyright_border_colour>
+                    <label>Copyright Border Colour</label>
+                    <help>Colour used for the border between footer and copyright notice</help>
+                    <value>CCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>150</sort_order>
+                    <group>footer</group>
+                </footer_copyright_border_colour>
             </global>
             <!-- END GLOBAL SETTINGS --> 
                         

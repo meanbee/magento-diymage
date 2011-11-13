@@ -216,6 +216,15 @@ footer section#promo {
 <?php endif; ?>
 }
 
+footer small {
+    <?php echo $this->getStyleLine('global', 'footer_copyright_colour', 'color', '#%s') ?>
+    <?php if (!$d->getValue('global', 'show_footer_copyright_border')):?>
+    border: 0;
+    <?php else: ?>
+    <?php echo $this->getStyleLine('global', 'footer_copyright_border_colour', 'border-color', '#%s') ?>
+    <?php endif; ?>
+}
+
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
     .pager, .sorter {
         border: none;
