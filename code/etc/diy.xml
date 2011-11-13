@@ -487,12 +487,28 @@
                     <sort_order>80</sort_order>
                     <group>header</group>
                 </header_link_hover_colour>
+                <header_cart_background_colour>
+                    <label>Header Cart Background Colour</label>
+                    <help>Colour used as the background for the mini-header cart</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>90</sort_order>
+                    <group>header</group>
+                </header_cart_background_colour>
+                <header_cart_border_colour>
+                    <label>Header Cart Border Colour</label>
+                    <help>Border colour used for the mini-header cart</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>100</sort_order>
+                    <group>header</group>
+                </header_cart_border_colour>
                 <header_search_border_colour>
                     <label>Header Search Box Border Colour</label>
                     <help>Colour used for the search box border</help>
                     <value>FFB553</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>90</sort_order>
+                    <sort_order>110</sort_order>
                     <group>header</group>
                 </header_search_border_colour>
                 
