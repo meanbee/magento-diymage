@@ -552,28 +552,44 @@
                     <sort_order>50</sort_order>
                     <group>navigation</group>
                 </nav_item_link_colour>
-                <nav_item_active_link_colour>
-                    <label>Active Link Colour</label>
-                    <help>This is the colour of an active navigation link.</help>
-                    <value>FFFFFF</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>60</sort_order>
-                    <group>navigation</group>
-                </nav_item_active_link_colour>
                 <nav_item_link_hover_colour>
                     <label>Hover Link Colour</label>
                     <help>This is the colour of a navigation link when hovered over.</help>
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>70</sort_order>
+                    <sort_order>60</sort_order>
                     <group>navigation</group>
                 </nav_item_link_hover_colour>
+                <nav_item_active_background_colour>
+                    <label>Active Item Background Colour</label>
+                    <help>This is the colour used for the background of active navigation items</help>
+                    <value>5D5D5D</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>70</sort_order>
+                    <group>navigation</group>
+                </nav_item_active_background_colour>
+                <nav_item_active_link_colour>
+                    <label>Active Link Colour</label>
+                    <help>This is the colour of an active navigation link.</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>80</sort_order>
+                    <group>navigation</group>
+                </nav_item_active_link_colour>
+                <nav_item_active_link_hover_colour>
+                    <label>Active Link Hover Colour</label>
+                    <help>The colour used for an active item when hovered over.</help>
+                    <value />
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>90</sort_order>
+                    <group>navigation</group>
+                </nav_item_active_link_hover_colour>
                 <nav_sub_item_background_colour>
                     <label>Sub-menu Item Background Colour</label>
                     <help>This is the background colour of sub lists in the navigation bar.</help>
                     <value>333333</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>80</sort_order>
+                    <sort_order>100</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_background_colour>
                 <nav_sub_item_background_hover_colour>
@@ -581,7 +597,7 @@
                     <help>This is the background colour of a sub list item in the navigation bar when hovered over.</help>
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>90</sort_order>
+                    <sort_order>110</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_background_hover_colour>
                 <nav_sub_item_link_colour>
@@ -589,7 +605,7 @@
                     <help>This is the colour of links in sub lists in the navigation bar.</help>
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>100</sort_order>
+                    <sort_order>120</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_link_colour>
                 <nav_sub_item_link_hover_colour>
@@ -597,7 +613,7 @@
                     <help>Set the colour of a sub-menu link when hovered over.</help>
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>110</sort_order>
+                    <sort_order>130</sort_order>
                     <group>navigation</group>
                 </nav_sub_item_link_hover_colour>
                 
