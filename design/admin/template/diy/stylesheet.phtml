@@ -175,7 +175,8 @@ div.sidebar div.block div.block-title strong span {
 div.block-layered-nav dl#narrow-by-list dt,
 div.block-cart div.summary h3, 
 div.block-cart p.block-subtitle,
-div.block-compare ol li, 
+div.block-compare ol li,
+div.block-compared ol li,
 div.block-compare div.actions, 
 div.block-cart ol li, 
 div.block-cart div.actions, 
@@ -198,6 +199,14 @@ div.sidebar a {
 
 div.sidebar a:hover, div.sidebar a:active {
     <?php echo $this->getStyleLine('global', 'sidebar_link_hover_colour', 'color', '#%s') ?>
+}
+
+div.block-viewed ol li img.photo,
+div.block-compare ol li img.photo, 
+div.block-cart ol li img.photo, 
+div.block-wishlist ol li img.photo,
+div.block-compared ol li img.photo {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_image_border_colour', 'border-color', '#%s') ?>
 }
 
 .footer, footer {

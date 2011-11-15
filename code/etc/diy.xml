@@ -801,6 +801,14 @@
                     <sort_order>110</sort_order>
                     <group>sidebar</group>
                 </sidebar_link_hover_colour>
+                <sidebar_block_image_border_colour>
+                    <label>Sidebar Image Border Colour</label>
+                    <help>Choose the border colour of images in the sidebar blocks</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>120</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_image_border_colour>
                 
 
                 <footer_background>
