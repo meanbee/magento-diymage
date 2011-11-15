@@ -284,6 +284,15 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
          // Assign helper to variable to save time
          $diy = Mage::helper('diy');
          
+         /*
+          * Global
+          */
+         
+         // Should the header mini cart be shown
+         if (!$diy->getValue('global', 'header_show_minicart', $store)) {
+             $this->_removeBlock($layout, 'minicart');
+         }
+         
          // Should the top category navigation be shown
          if (!$diy->getValue("global", "show_categories", $store )) {
              $this->_removeBlock($layout, "catalog.topnav");

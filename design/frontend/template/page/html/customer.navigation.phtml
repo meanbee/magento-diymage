@@ -1,22 +1,58 @@
+<?php
+    // DIY Mage Helper
+    $d = Mage::helper('diy');
+    $store = Mage::app()->getStore()->getStoreId();
+
+
+?>
+
 <!-- SITE NAVIGATION --> 
-<ul class="site-navigation"> 
+<ul class="site-navigation">
+    <?php if ($d->getValue('global', 'header_show_link_myaccount', $store)): ?>
     <li> 
         <a href="<?php echo $this->getUrl("customer/account") ?>" title="<?php echo $this->__('My Account') ?>"><?php echo $this->__('My Account') ?></a> 
-    </li> 
+    </li>
+    <?php endif; ?>
+    
+    <?php if ($d->getValue('global', 'header_show_link_wishlist', $store)): ?>
     <li> 
         <a href="<?php echo $this->getUrl("wishlist") ?>" title="<?php echo $this->__('My Wishlist') ?>" class="top-link-wishlist"><?php echo $this->__('My Wishlist') ?></a> 
-    </li> 
+    </li>
+    <?php endif;?>
+    
+    <?php if ($d->getValue('global', 'header_show_link_cart', $store)): ?>
+    <?php
+        $count = Mage::helper('checkout/cart')->getSummaryCount();
+        if ($count == 1) {
+            $cart = $this->__('My Cart (%s item)', $count);
+        } elseif ($count > 0) {
+            $cart = $this->__('My Cart (%s items)', $count);
+        } else {
+            $cart = $this->__('My Cart');
+        }
+    
+    ?>
+    <li> 
+        <a href="<?php echo $this->getUrl("checkout/cart") ?>" title="<?php echo $cart ?>" class="top-link-cart"><?php echo $cart ?></a> 
+    </li>    
+    <?php endif;?>
+
+    <?php if ($d->getValue('global', 'header_show_link_checkout', $store)): ?>
     <li> 
         <a href="<?php echo $this->getUrl("checkout") ?>" title="<?php echo $this->__('Checkout') ?>" class="top-link-checkout"><?php echo $this->__('Checkout') ?></a> 
     </li>
-    <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> 
-    <li> 
-        <a href="<?php echo $this->getUrl("customer/account/logout") ?>" title="<?php echo $this->__('Log Out') ?>"><?php echo $this->__('Log Out') ?></a> 
-    </li>
-    <?php else: ?>
-    <li>
-        <a href="<?php echo $this->getUrl("customer/account/login") ?>" title="<?php echo $this->__('Log In') ?>"><?php echo $this->__('Log In') ?></a>
-    </li>
+    <?php endif; ?>
+    
+    <?php if ($d->getValue('global', 'header_show_link_login', $store)): ?>
+        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> 
+        <li> 
+            <a href="<?php echo $this->getUrl("customer/account/logout") ?>" title="<?php echo $this->__('Log Out') ?>"><?php echo $this->__('Log Out') ?></a> 
+        </li>
+        <?php else: ?>
+        <li>
+            <a href="<?php echo $this->getUrl("customer/account/login") ?>" title="<?php echo $this->__('Log In') ?>"><?php echo $this->__('Log In') ?></a>
+        </li>
+        <?php endif; ?>
     <?php endif; ?>
 </ul> 
 <!-- END SITE NAVIGATION -->

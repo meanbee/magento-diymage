@@ -511,6 +511,54 @@
                     <sort_order>110</sort_order>
                     <group>header</group>
                 </header_search_border_colour>
+                <header_show_minicart>
+                    <label>Show Mini-cart?</label>
+                    <help>Should the Mini-cart at the top of the page be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>120</sort_order>
+                    <group>header</group>
+                </header_show_minicart>
+                <header_show_link_myaccount>
+                    <label>Show "My Account"?</label>
+                    <help>Should the "My Account" link in the top links be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>130</sort_order>
+                    <group>header</group>
+                </header_show_link_myaccount>
+                <header_show_link_wishlist>
+                    <label>Show "My Wishlist"?</label>
+                    <help>Should the "My Wishlist" link in the top links be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>140</sort_order>
+                    <group>header</group>
+                </header_show_link_wishlist>
+                <header_show_link_cart>
+                    <label>Show "My Cart"?</label>
+                    <help>Should the "My Cart" link in the top links be shown?</help>
+                    <value>0</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>150</sort_order>
+                    <group>header</group>
+                </header_show_link_cart>
+                <header_show_link_checkout>
+                    <label>Show "Checkout"?</label>
+                    <help>Should the "Checkout" link in the top links be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>160</sort_order>
+                    <group>header</group>
+                </header_show_link_checkout>
+                <header_show_link_login>
+                    <label>Show "Log in/out"</label>
+                    <help>Should the "Log in" or "Log out" links in the top links be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>170</sort_order>
+                    <group>header</group>                    
+                </header_show_link_login>
                 
                 <show_categories>
                     <label>Show Categories?</label>
