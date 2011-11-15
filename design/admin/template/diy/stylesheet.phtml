@@ -172,6 +172,20 @@ div.sidebar div.block div.block-title strong span {
     <?php echo $this->getStyleLine('global', 'sidebar_block_heading_size', 'font-size', '%spx') ?>
 }
 
+div.block-layered-nav dl#narrow-by-list dt,
+div.block-cart div.summary h3, 
+div.block-cart p.block-subtitle,
+div.block-compare ol li, 
+div.block-compare div.actions, 
+div.block-cart ol li, 
+div.block-cart div.actions, 
+div.block-wishlist ol li, 
+div.block-wishlist div.actions,
+div.block-layered-nav p.block-subtitle,
+div.block-viewed ol li {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_divider_colour', 'border-color', '#%s') ?>
+}
+
 div.sidebar div.block button,
 div.sidebar div.block button span {
     <?php echo $this->getStyleLine('global', 'sidebar_button_background_colour', 'background-color', '#%s') ?>

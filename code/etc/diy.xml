@@ -761,12 +761,20 @@
                     <sort_order>60</sort_order>
                     <group>sidebar</group>
                 </sidebar_block_heading_separator_colour>
+                <sidebar_block_divider_colour>
+                    <label>Sidebar Block Divider Colour</label>
+                    <help>Lines are used within a block to divide content, this enables you to choose the colour of this</help>
+                    <value>D6D6D6</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>70</sort_order>
+                    <group>sidebar</group>
+                </sidebar_block_divider_colour>
                 <sidebar_button_background_colour>
                     <label>Sidebar Button Background Colour</label>
                     <help>Choose the colour of buttons</help>
                     <value>4A4A4A</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>70</sort_order>
+                    <sort_order>80</sort_order>
                     <group>sidebar</group>
                 </sidebar_button_background_colour>
                 <sidebar_button_colour>
@@ -774,7 +782,7 @@
                     <help>Choose the text colour on buttons</help>
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>80</sort_order>
+                    <sort_order>90</sort_order>
                     <group>sidebar</group>
                 </sidebar_button_colour>
                 <sidebar_link_colour>
@@ -782,7 +790,7 @@
                     <help>Choose link colour user in the sidebar.</help>
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>90</sort_order>
+                    <sort_order>100</sort_order>
                     <group>sidebar</group>
                 </sidebar_link_colour>
                 <sidebar_link_hover_colour>
@@ -790,7 +798,7 @@
                     <help>Choose the link hover colour used in the sidebar.</help>
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>100</sort_order>
+                    <sort_order>110</sort_order>
                     <group>sidebar</group>
                 </sidebar_link_hover_colour>
                 
