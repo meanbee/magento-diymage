@@ -22,7 +22,7 @@ class Meanbee_Diy_Model_Config {
     }
     
     public function getVersion() {
-        return Mage::getConfig()->getNode('modules/Meanbee_Diy/version')->__toString();
+        return Mage::getConfig()->getNode('modules/Meanbee_Diy/version');
     }
     
     public function getPingUrl() {
