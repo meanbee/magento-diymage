@@ -75,10 +75,6 @@
                                 <title>Global Design Settings</title>
                                 <sort_order>10</sort_order>
                             </global>
-                            <homepage translate="title" module="diy">
-                                <title>Home Page Settings</title>
-                                <sort_order>20</sort_order>
-                            </homepage>
                             <catalog_category translate="title" module="diy">
                                 <title>Product Listing Design Settings</title>
                                 <sort_order>30</sort_order>
@@ -107,10 +103,6 @@
                                 <title>Contact Page Design Settings</title>
                                 <sort_order>90</sort_order>
                             </contacts>
-                            <noroute translate="title" module="diy">
-                                <title>404 Page Design Settings</title>
-                                <sort_order>100</sort_order>
-                            </noroute>
                         </children>
                     </diy>
                     <system>
