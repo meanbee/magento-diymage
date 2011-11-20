@@ -74,7 +74,11 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
-    public function accountaddressbookAction() {
+    public function addressbookAction() {
+        $this->__render();
+    }
+    
+    public function addresseditAction() {
         $this->__render();
     }
     

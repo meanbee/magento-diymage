@@ -118,12 +118,19 @@
         </reference>    
     </diy_design_accountinfo>
     
-    <diy_design_accountaddressbook>
+    <diy_design_addressbook>
         <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_accountaddressbook" name="diy.admin.design.content" template="diy/design/template.phtml" />
+            <block type="diy/admin_design_addressbook" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>      
-    </diy_design_accountaddressbook>
+    </diy_design_addressbook>
+    
+    <diy_design_addressedit>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_addressedit" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_addressedit>
     
     <!-- Already includes adminhtml_cms_page_new -->
     <adminhtml_cms_page_edit>
