@@ -132,6 +132,13 @@
         </reference>
     </diy_design_addressedit>
     
+    <diy_design_orders>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_orders" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_orders>
+    
     <!-- Already includes adminhtml_cms_page_new -->
     <adminhtml_cms_page_edit>
         <update handle="diy_js" />

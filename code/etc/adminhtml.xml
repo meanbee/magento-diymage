@@ -78,6 +78,11 @@
                             <action>diy/design/addressedit</action>
                             <sort_order>50</sort_order>
                         </customer_address_edit>
+                        <sales_order_history translate="title" module="diy">
+                            <title>Orders</title>
+                            <action>diy/design/orders</action>
+                            <sort_order>60</sort_order>
+                        </sales_order_history>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
