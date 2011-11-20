@@ -198,6 +198,15 @@
             </catalog_category_view>
             <!-- END CATEGORY LISTING SETTINGS -->
             
+            <!-- CATEGORY (LAYERED) SETTINGS -->
+            <catalog_category_layered>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </catalog_category_layered>
+            <!-- END CATEGORY (LAYERED) SETTINGS -->
+            
             <!-- PRODUCT PAGE SETTINGS -->
             <catalog_product_view>
                 <builder>
@@ -1146,6 +1155,28 @@
                 </pager_background>
             </catalog_category_view>
             <!-- END CATEGORY LISTING SETTINGS -->
+            
+            <!-- CATEGORY (LAYERED) SETTINGS -->
+            <catalog_category_layered>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/3columns.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </catalog_category_layered>
+            <!-- END CATEGORY (LAYERED) SETTINGS -->
             
             <!-- PRODUCT PAGE SETTINGS -->
             <catalog_product_view>

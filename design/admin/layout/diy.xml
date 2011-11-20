@@ -54,6 +54,13 @@
             <block type="diy/admin_design_listing" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_listing>
+    
+    <diy_design_layeredlisting>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_layeredlisting" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>      
+    </diy_design_layeredlisting>
 
     <diy_design_product>
         <update handle="diy_design" />

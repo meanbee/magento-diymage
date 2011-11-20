@@ -23,6 +23,11 @@
                             <action>diy/design/listing</action>
                             <sort_order>10</sort_order>
                         </catalog_category>
+                        <catalog_category_layered translate="title" module="diy">
+                            <title>Layered (Filterable)</title>
+                            <action>diy/design/layeredlisting</action>
+                            <sort_order>20</sort_order>
+                        </catalog_category_layered>
                     </children>
                 </category>
                 <catalog_product_view translate="title" module="diy">
@@ -184,17 +189,27 @@
                                 <title>Global Design Settings</title>
                                 <sort_order>10</sort_order>
                             </global>
-                            <catalog_category translate="title" module="diy">
-                                <title>Product Listing Design Settings</title>
-                                <sort_order>30</sort_order>
-                            </catalog_category>
+                            <category>
+                                <title>Category Design Settings</title>
+                                <sort_order>20</sort_order>
+                                <children>
+                                    <catalog_category translate="title" module="diy">
+                                        <title>Category Design Settings</title>
+                                        <sort_order>10</sort_order>
+                                    </catalog_category>
+                                    <catalog_category_layered translate="title" module="diy">
+                                        <title>Category (Layered Navigation)</title>
+                                        <sort_order>20</sort_order>
+                                    </catalog_category_layered>
+                                </children>
+                            </category>
                             <catalog_product_view translate="title" module="diy">
                                 <title>Product Design Settings</title>
-                                <sort_order>40</sort_order>
+                                <sort_order>30</sort_order>
                             </catalog_product_view>
                             <checkout translate="title" module="diy">
                                 <title>Checkout Design Settings</title>
-                                <sort_order>50</sort_order>
+                                <sort_order>40</sort_order>
                                 <children>
                                     <checkout_onepage translate="title" module="diy">
                                         <title>One Page Checkout Design Settings</title>
@@ -216,11 +231,11 @@
                             </checkout>
                             <checkout_cart translate="title" module="diy">
                                 <title>Cart Design Settings</title>
-                                <sort_order>60</sort_order>
+                                <sort_order>50</sort_order>
                             </checkout_cart>
                             <customer_account>
                                 <title>Customer Account Settings</title>
-                                <sort_order>70</sort_order>
+                                <sort_order>60</sort_order>
                                 <children>
                                     <customer_account_create translate="title" module="diy">
                                         <title>Customer Account Create Page Design Settings</title>
@@ -286,7 +301,7 @@
                             </customer_account>
                             <search>
                                 <title>Search Settings</title>
-                                <sort_order>80</sort_order>
+                                <sort_order>70</sort_order>
                                 <children>
                                     <catalogsearch translate="title" module="diy">
                                         <title>Quick Search Settings</title>
@@ -300,7 +315,7 @@
                             </search>
                             <contacts translate="title" module="diy">
                                 <title>Contact Page Design Settings</title>
-                                <sort_order>90</sort_order>
+                                <sort_order>80</sort_order>
                             </contacts>
                         </children>
                     </diy>
