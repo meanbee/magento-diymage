@@ -93,6 +93,16 @@
                             <action>diy/design/order</action>
                             <sort_order>70</sort_order>                     
                         </sales_order_view>
+                        <sales_billing_agreement_index translate="title" module="diy">
+                            <title>Billing Agreements</title>
+                            <action>diy/design/billingagreements</action>
+                            <sort_order>80</sort_order>
+                        </sales_billing_agreement_index>
+                        <sales_recurring_profile_index translate="title" module="diy">
+                            <title>Recurring Profiles</title>
+                            <action>diy/design/recurringprofiles</action>
+                            <sort_order>90</sort_order>
+                        </sales_recurring_profile_index>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -166,20 +176,28 @@
                                     </customer_account_edit>
                                     <customer_address_index translate="title" module="diy">
                                         <title>Customer Address Book Design Settings</title>
-                                        <sort_order>30</sort_order>
+                                        <sort_order>40</sort_order>
                                     </customer_address_index>
                                     <customer_address_edit translate="title" module="diy">
                                         <title>Customer Address Edit Design Settings</title>
-                                        <sort_order>30</sort_order>
+                                        <sort_order>50</sort_order>
                                     </customer_address_edit>
                                     <sales_order_history translate="title" module="diy">
                                         <title>Customer Orders Design Settings</title>
-                                        <sort_order>30</sort_order>
+                                        <sort_order>60</sort_order>
                                     </sales_order_history>
                                     <sales_order_view translate="title" module="diy">
                                         <title>Customer Order Design Settings</title>
-                                        <sort_order>30</sort_order>
+                                        <sort_order>70</sort_order>
                                     </sales_order_view>
+                                    <sales_billing_agreement_index translate="title" module="diy">
+                                        <title>Customer Billing Agreements Design Settings</title>
+                                        <sort_order>80</sort_order>
+                                    </sales_billing_agreement_index>
+                                    <sales_recurring_profile_index translate="title" module="diy">
+                                        <title>Customer Recurring Profiles Design Settings</title>
+                                        <sort_order>90</sort_order>
+                                    </sales_recurring_profile_index>
                                 </children>
                             </customer_account>
                         </children>
