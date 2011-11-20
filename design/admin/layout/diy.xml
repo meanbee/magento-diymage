@@ -69,6 +69,13 @@
         </reference>
     </diy_design_checkoutonepage>
     
+    <diy_design_checkoutonepagesuccess>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutonepagesuccess" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_checkoutonepagesuccess>
+    
     <diy_design_checkoutmulti>
         <update handle="diy_design" />
         <reference name="content">

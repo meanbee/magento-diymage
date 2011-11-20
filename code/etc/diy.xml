@@ -98,6 +98,10 @@
                 <id><![CDATA[checkout_state]]></id>
                 <name><![CDATA[Checkout State]]></name>
             </checkout_state>
+            <checkout_success>
+                <id><![CDATA[checkout.success]]></id>
+                <name><![CDATA[Checkout Success]]></name>
+            </checkout_success>
             <product_info>
                 <id><![CDATA[product.info]]></id>
                 <name><![CDATA[Product Info]]></name>
@@ -216,6 +220,15 @@
                 </builder>
             </checkout_onepage_index>
             <!-- END ONEPAGE CHECKOUT SETTINGS -->
+            
+            <!-- ONEPAGE ORDER CONFIRMATION SETTINGS -->
+            <checkout_onepage_success>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>               
+            </checkout_onepage_success>
+            <!-- ONEPAGE ORDER CONFIRMATION SETTINGS -->
             
             <!-- MULTISHIPPING CHECKOUT SETTINGS -->
             <checkout_multishipping>
@@ -1250,6 +1263,28 @@
                 </show_progress>
             </checkout_onepage_index>
             <!-- END ONEPAGE CHECKOUT SETTINGS -->
+            
+            <!-- ONEPAGE CHECKOUT ORDER CONFIRMATION SETTINGS -->
+            <checkout_onepage_success>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/2columns-right.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </checkout_onepage_success>
+            <!-- ONEPAGE CHECKOUT ORDER CONFIRMATION SETTINGS -->
             
             <!-- MULTI-SHIPPING CHECKOUT SETTINGS -->
             <checkout_multishipping>

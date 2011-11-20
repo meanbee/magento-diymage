@@ -38,10 +38,15 @@
                             <action>diy/design/checkoutonepage</action>
                             <sort_order>10</sort_order>
                         </checkout_onepage>
+                        <checkout_onepage_success translate="title" module="diy">
+                            <title>One Page Order Confirmation</title>
+                            <action>diy/design/checkoutonepagesuccess</action>
+                            <sort_order>20</sort_order>
+                        </checkout_onepage_success>
                         <checkout_multishipping translate="title" module="diy">
                             <title>Multi-shipping</title>
                             <action>diy/design/checkoutmulti</action>
-                            <sort_order>20</sort_order>
+                            <sort_order>30</sort_order>
                         </checkout_multishipping>
                     </children>
                 </checkout>
@@ -178,9 +183,13 @@
                                         <title>One Page Checkout Design Settings</title>
                                         <sort_order>10</sort_order>
                                     </checkout_onepage>
+                                    <checkout_onepage_success translate="title" module="diy">
+                                        <title>One Page Order Confirmation Design Settings</title>
+                                        <sort_order>20</sort_order>
+                                    </checkout_onepage_success>
                                     <checkout_multishipping translate="title" module="diy">
                                         <title>Multi-shipping Checkout Design Settings</title>
-                                        <sort_order>20</sort_order>
+                                        <sort_order>30</sort_order>
                                     </checkout_multishipping>
                                 </children>
                             </checkout>
