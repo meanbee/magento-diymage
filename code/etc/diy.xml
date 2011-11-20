@@ -102,6 +102,10 @@
                 <id><![CDATA[checkout.success]]></id>
                 <name><![CDATA[Checkout Success]]></name>
             </checkout_success>
+            <checkout_success2>
+                <id><![CDATA[checkout_success]]></id>
+                <name><![CDATA[Checkout Success]]></name>
+            </checkout_success2>
             <product_info>
                 <id><![CDATA[product.info]]></id>
                 <name><![CDATA[Product Info]]></name>
@@ -238,6 +242,15 @@
                 </builder>               
             </checkout_multishipping>
             <!-- END MULTISHIPPING CHECKOUT SETTINGS -->
+            
+            <!-- MULTISHIPPING CHECKOUT ORDER CONFIRMATION SETTINGS -->
+            <checkout_multishipping_success>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>      
+            </checkout_multishipping_success>
+            <!-- END MULTISHIPPING CHECKOUT ORDER CONFIRMATION SETTINGS -->
             
             <!-- SEARCH RESULTS SETTINGS -->
             <catalogsearch_result_index>
@@ -1307,6 +1320,28 @@
                 </layout>
             </checkout_multishipping>
             <!-- END MULTI-SHIPPING CHECKOUT SETTINGS -->
+            
+            <!-- MULTI-SHIPPING CHECKOUT ORDER CONFIRMATION SETTINGS -->
+            <checkout_multishipping_success>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/1column.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>           
+            </checkout_multishipping_success>
+            <!-- END MULTI-SHIPPING CHECKOUT ORDER CONFIRMATION SETTINGS -->
             
             <!-- SEARCH RESULTS SETTINGS -->
             <catalogsearch_result_index>

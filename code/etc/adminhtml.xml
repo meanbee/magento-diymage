@@ -48,6 +48,11 @@
                             <action>diy/design/checkoutmulti</action>
                             <sort_order>30</sort_order>
                         </checkout_multishipping>
+                        <checkout_multishipping_success translate="title" module="diy">
+                            <title>Multi-shipping Order Confirmation</title>
+                            <action>diy/design/checkoutmultisuccess</action>
+                            <sort_order>40</sort_order>
+                        </checkout_multishipping_success>
                     </children>
                 </checkout>
                 <catalogsearch translate="title" module="diy">
@@ -188,9 +193,13 @@
                                         <sort_order>20</sort_order>
                                     </checkout_onepage_success>
                                     <checkout_multishipping translate="title" module="diy">
-                                        <title>Multi-shipping Checkout Design Settings</title>
+                                        <title>Multi-shipping Design Settings</title>
                                         <sort_order>30</sort_order>
                                     </checkout_multishipping>
+                                    <checkout_multishipping_success translate="title" module="diy">
+                                        <title>Multi-shipping Order Confirmation Design Settings</title>
+                                        <sort_order>40</sort_order> 
+                                    </checkout_multishipping_success>
                                 </children>
                             </checkout>
                             <checkout_cart translate="title" module="diy">

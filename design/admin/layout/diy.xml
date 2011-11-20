@@ -82,6 +82,13 @@
             <block type="diy/admin_design_checkoutmulti" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>    
     </diy_design_checkoutmulti>
+    
+    <diy_design_checkoutmultisuccess>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutmultisuccess" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>      
+    </diy_design_checkoutmultisuccess>
 
     <diy_design_cart>
         <update handle="diy_design" />
