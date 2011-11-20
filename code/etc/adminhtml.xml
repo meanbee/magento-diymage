@@ -103,6 +103,11 @@
                             <action>diy/design/recurringprofiles</action>
                             <sort_order>90</sort_order>
                         </sales_recurring_profile_index>
+                        <review_customer_index translate="title" module="diy">
+                            <title>Reviews</title>
+                            <action>diy/design/reviews</action>
+                            <sort_order>100</sort_order>
+                        </review_customer_index>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -198,6 +203,10 @@
                                         <title>Customer Recurring Profiles Design Settings</title>
                                         <sort_order>90</sort_order>
                                     </sales_recurring_profile_index>
+                                    <review_customer_index translate="title" module="diy">
+                                        <title>Customer Reviews Design Settings</title>
+                                        <sort_order>100</sort_order>
+                                    </review_customer_index>
                                 </children>
                             </customer_account>
                         </children>

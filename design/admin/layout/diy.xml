@@ -167,6 +167,13 @@
         </reference>       
     </diy_design_recurringprofiles>
     
+    <diy_design_reviews>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_reviews" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_reviews>
+    
     <!-- Already includes adminhtml_cms_page_new -->
     <adminhtml_cms_page_edit>
         <update handle="diy_js" />
