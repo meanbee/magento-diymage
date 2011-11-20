@@ -123,6 +123,11 @@
                             <action>diy/design/wishlist</action>
                             <sort_order>130</sort_order>
                         </downloadable_customer_products>
+                        <newsletter_manage_index translate="title" module="diy">
+                            <title>Newsletter Subscriptions</title>
+                            <action>diy/design/newsletter</action>
+                            <sort_order>140</sort_order>
+                        </newsletter_manage_index>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -234,6 +239,10 @@
                                         <title>Customer Downloadable Products Design Settings</title>
                                         <sort_order>130</sort_order>
                                     </downloadable_customer_products>
+                                    <newsletter_manage_index translate="title" module="diy">
+                                        <title>Customer Newsletter Subscriptions Design Settings</title>
+                                        <sort_order>140</sort_order>
+                                    </newsletter_manage_index>
                                 </children>
                             </customer_account>
                         </children>

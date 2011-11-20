@@ -365,6 +365,15 @@
                 </builder>            
             </downloadable_customer_products>
             <!-- END CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
+            
+            <!-- CUSTOMER NEWSLETTER SUBSCRIPTIONS SETTINGS -->
+            <newsletter_manage_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </newsletter_manage_index>
+            <!-- END CUSTOMER NEWSLETTER SUBSCRIPTIONS SETTINGS -->
         </groups>
         <!-- END GROUPS -->
         
@@ -1602,6 +1611,28 @@
                 </layout>
             </downloadable_customer_products>
             <!-- END CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
+            
+            <!-- CUSTOMER NEWSLETTER SUBSCRIPTIONS SETTINGS -->
+            <newsletter_manage_index>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/2columns-left.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </newsletter_manage_index>
+            <!-- END CUSTOMER NEWSLETTER SUBSCRIPTIONS SETTINGS -->
         </attributes>
         <!-- END ATTRIBUTES -->
     </diy>
