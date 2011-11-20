@@ -97,6 +97,13 @@
         </reference>
     </diy_design_contacts>
     
+    <diy_design_accountcreate>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_accountcreate" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_accountcreate>
+    
     <diy_design_accountlogin>
         <update handle="diy_design" />
         <reference name="content">

@@ -53,6 +53,11 @@
                     <title>Customer Account</title>
                     <sort_order>110</sort_order>
                     <children>
+                        <customer_account_create translate="title" module="diy">
+                            <title>Create</title>
+                            <action>diy/design/accountcreate</action>
+                            <sort_order>0</sort_order>                          
+                        </customer_account_create>
                         <customer_account_login translate="title" module="diy">
                             <title>Login</title>
                             <action>diy/design/accountlogin</action>
@@ -143,6 +148,10 @@
                                 <title>Customer Account Settings</title>
                                 <sort_order>100</sort_order>
                                 <children>
+                                    <customer_account_create translate="title" module="diy">
+                                        <title>Customer Account Create Page Design Settings</title>
+                                        <sort_order>0</sort_order>
+                                    </customer_account_create>
                                     <customer_account_login translate="title" module="diy">
                                         <title>Customer Account Login Page Design Settings</title>
                                         <sort_order>10</sort_order>
