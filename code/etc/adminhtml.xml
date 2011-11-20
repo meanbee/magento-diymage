@@ -83,6 +83,11 @@
                             <action>diy/design/orders</action>
                             <sort_order>60</sort_order>
                         </sales_order_history>
+                        <sales_order_view translate="title" module="diy">
+                            <title>Order</title>
+                            <action>diy/design/order</action>
+                            <sort_order>70</sort_order>                     
+                        </sales_order_view>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -158,6 +163,14 @@
                                         <title>Customer Address Edit Design Settings</title>
                                         <sort_order>30</sort_order>
                                     </customer_address_edit>
+                                    <sales_order_history translate="title" module="diy">
+                                        <title>Customer Orders Design Settings</title>
+                                        <sort_order>30</sort_order>
+                                    </sales_order_history>
+                                    <sales_order_view translate="title" module="diy">
+                                        <title>Customer Order Design Settings</title>
+                                        <sort_order>30</sort_order>
+                                    </sales_order_view>
                                 </children>
                             </customer_account>
                         </children>
