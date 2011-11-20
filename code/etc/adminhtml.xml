@@ -63,6 +63,11 @@
                             <action>diy/design/accountdashboard</action>
                             <sort_order>20</sort_order>
                         </customer_account_index>
+                        <customer_account_edit translate="title" module="diy">
+                            <title>Account Information</title>
+                            <action>diy/design/accountinfo</action>
+                            <sort_order>30</sort_order>
+                        </customer_account_edit>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -126,6 +131,10 @@
                                         <title>Customer Account Dashboard Design Settings</title>
                                         <sort_order>20</sort_order>
                                     </customer_account_index>
+                                    <customer_account_edit translate="title" module="diy">
+                                        <title>Customer Account Information Design Settings</title>
+                                        <sort_order>30</sort_order>
+                                    </customer_account_edit>
                                 </children>
                             </customer_account>
                         </children>
