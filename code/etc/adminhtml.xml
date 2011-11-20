@@ -68,6 +68,11 @@
                             <action>diy/design/accountinfo</action>
                             <sort_order>30</sort_order>
                         </customer_account_edit>
+                        <customer_address_index translate="title" module="diy">
+                            <title>Address Book</title>
+                            <action>diy/design/accountaddressbook</action>
+                            <sort_order>40</sort_order>
+                        </customer_address_index>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
