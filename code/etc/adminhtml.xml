@@ -113,6 +113,16 @@
                             <action>diy/design/tags</action>
                             <sort_order>110</sort_order>
                         </tag_customer_index>
+                        <wishlist_index_index translate="title" module="diy">
+                            <title>Wishlist</title>
+                            <action>diy/design/wishlist</action>
+                            <sort_order>120</sort_order>
+                        </wishlist_index_index>
+                        <downloadable_customer_products translate="title" module="diy">
+                            <title>Downloadable Products</title>
+                            <action>diy/design/wishlist</action>
+                            <sort_order>130</sort_order>
+                        </downloadable_customer_products>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -216,6 +226,14 @@
                                         <title>Customer Tags Design Settings</title>
                                         <sort_order>110</sort_order>
                                     </tag_customer_index>
+                                    <wishlist_index_index translate="title" module="diy">
+                                        <title>Customer Wishlist Design Settings</title>
+                                        <sort_order>120</sort_order>
+                                    </wishlist_index_index>
+                                    <downloadable_customer_products translate="title" module="diy">
+                                        <title>Customer Downloadable Products Design Settings</title>
+                                        <sort_order>130</sort_order>
+                                    </downloadable_customer_products>
                                 </children>
                             </customer_account>
                         </children>

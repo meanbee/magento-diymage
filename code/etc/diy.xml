@@ -347,6 +347,24 @@
                 </builder> 
             </tag_customer_index>
             <!-- END CUSTOMER TAGS SETTINGS -->
+            
+            <!-- CUSTOMER WISHLIST SETTINGS -->
+            <wishlist_index_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </wishlist_index_index>
+            <!-- END CUSTOMER WISHLIST SETTINGS -->
+            
+            <!--  CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
+            <downloadable_customer_products>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>            
+            </downloadable_customer_products>
+            <!-- END CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
         </groups>
         <!-- END GROUPS -->
         
@@ -1540,6 +1558,50 @@
                 </layout>
             </tag_customer_index>
             <!-- END CUSTOMER TAGS SETTINGS -->
+            
+            <!-- CUSTOMER WISHLIST SETTINGS -->
+            <wishlist_index_index>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/2columns-left.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </wishlist_index_index>
+            <!-- END CUSTOMER WISHLIST SETTINGS -->
+            
+            <!-- CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
+            <downloadable_customer_products>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/2columns-left.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </downloadable_customer_products>
+            <!-- END CUSTOMER DOWNLOADABLE PRODUCTS SETTINGS -->
         </attributes>
         <!-- END ATTRIBUTES -->
     </diy>
