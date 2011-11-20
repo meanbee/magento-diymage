@@ -15,7 +15,7 @@
                     <sort_order>10</sort_order>
                 </global>
                 <catalog_category translate="title" module="diy">
-                    <title>Product Listing</title>
+                    <title>Category</title>
                     <action>diy/design/listing</action>
                     <sort_order>30</sort_order>
                 </catalog_category>
