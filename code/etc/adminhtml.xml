@@ -108,6 +108,11 @@
                             <action>diy/design/reviews</action>
                             <sort_order>100</sort_order>
                         </review_customer_index>
+                        <tag_customer_index translate="title" module="diy">
+                            <title>Tags</title>
+                            <action>diy/design/tags</action>
+                            <sort_order>110</sort_order>
+                        </tag_customer_index>
                     </children>
                 </customer_account>
                 <settings translate="title" module="diy">
@@ -207,6 +212,10 @@
                                         <title>Customer Reviews Design Settings</title>
                                         <sort_order>100</sort_order>
                                     </review_customer_index>
+                                    <tag_customer_index translate="title" module="diy">
+                                        <title>Customer Tags Design Settings</title>
+                                        <sort_order>110</sort_order>
+                                    </tag_customer_index>
                                 </children>
                             </customer_account>
                         </children>

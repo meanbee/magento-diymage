@@ -106,6 +106,10 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
+    public function tagsAction() {
+        $this->__render();
+    }
+    
     public function saveAction() {
         if ($data = $this->getRequest()->getPost("diy")) {
             $return_url = $this->getRequest()->getPost("return_url");
