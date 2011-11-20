@@ -62,12 +62,19 @@
         </reference>
     </diy_design_product>
 
-    <diy_design_checkout>
+    <diy_design_checkoutonepage>
         <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_checkout" name="diy.admin.design.content" template="diy/design/template.phtml" />
+            <block type="diy/admin_design_checkoutonepage" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
-    </diy_design_checkout>
+    </diy_design_checkoutonepage>
+    
+    <diy_design_checkoutmulti>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutmulti" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_checkoutmulti>
 
     <diy_design_cart>
         <update handle="diy_design" />
