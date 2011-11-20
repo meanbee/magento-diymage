@@ -232,14 +232,23 @@
             </contacts_index_index>
             <!-- END CONTACT PAGE SETTINGS -->
             
-            <!-- CUSTOMER ACCOUNT SETTINGS -->
-            <customer_account>
+            <!-- CUSTOMER ACCOUNT LOGIN SETTINGS -->
+            <customer_account_login>
                 <builder>
                     <label>Layout Settings</label>
                     <sort_order>10</sort_order>
                 </builder>
-            </customer_account>
-            <!-- END CUSTOMER ACCOUNT SETTINGS -->
+            </customer_account_login>
+            <!-- END CUSTOMER ACCOUNT LOGIN SETTINGS -->
+            
+            <!-- CUSTOMER ACCOUNT DASHBOARD SETTINGS -->
+            <customer_account_index>
+                <builder>
+                    <label>Layout Settings</label>
+                    <sort_order>10</sort_order>
+                </builder>
+            </customer_account_index>
+            <!-- END CUSTOMER ACCOUNT DASHBOARD SETTINGS -->
         </groups>
         <!-- END GROUPS -->
         
@@ -1170,27 +1179,49 @@
             </contacts_index_index>
             <!-- END CONTACT PAGE SETTINGS -->
             
-            <!-- CUSTOMER ACCOUNT SETTINGS -->
-            <customer_account>
+            <!-- CUSTOMER ACCOUNT LOGIN SETTINGS -->
+            <customer_account_login>
                 <builder>
-                       <label>Builder</label>
-                       <help></help>
-                       <value></value>
-                       <input_control>diy/admin_control_builder</input_control>
-                       <sort_order>20</sort_order>
-                       <group>builder</group>
-                   </builder>
-                   <layout>
-                       <label>Page Layout</label>
-                       <help>This is the main structural layout of the page.</help>
-                       <value>page/2columns-left.phtml</value>
-                       <input_control>diy/admin_control_dropdown</input_control>
-                       <source_model>diy/source_layout</source_model>
-                       <sort_order>10</sort_order>
-                       <group>builder</group>
-                   </layout>
-            </customer_account>
-            <!-- END CUSTOMER ACCOUNT SETTINGS -->
+                   <label>Builder</label>
+                   <help></help>
+                   <value></value>
+                   <input_control>diy/admin_control_builder</input_control>
+                   <sort_order>20</sort_order>
+                   <group>builder</group>
+                 </builder>
+                 <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/1column.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                 </layout>
+            </customer_account_login>
+            <!-- END CUSTOMER ACCOUNT LOGIN SETTINGS -->
+            
+            <!-- CUSTOMER ACCOUNT DASHBOARD SETTINGS -->
+            <customer_account_index>
+                <builder>
+                    <label>Builder</label>
+                    <help></help>
+                    <value></value>
+                    <input_control>diy/admin_control_builder</input_control>
+                    <sort_order>20</sort_order>
+                    <group>builder</group>
+                </builder>
+                <layout>
+                    <label>Page Layout</label>
+                    <help>This is the main structural layout of the page.</help>
+                    <value>page/2columns-left.phtml</value>
+                    <input_control>diy/admin_control_dropdown</input_control>
+                    <source_model>diy/source_layout</source_model>
+                    <sort_order>10</sort_order>
+                    <group>builder</group>
+                </layout>
+            </customer_account_index>
+            <!-- END CUSTOMER ACCOUNT DASHBOARD SETTINGS -->
         </attributes>
         <!-- END ATTRIBUTES -->
     </diy>

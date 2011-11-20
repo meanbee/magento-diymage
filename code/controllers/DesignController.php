@@ -62,7 +62,11 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
-    public function customeraccountAction() {
+    public function accountloginAction() {
+        $this->__render();
+    }
+    
+    public function accountdashboardAction() {
         $this->__render();
     }
     

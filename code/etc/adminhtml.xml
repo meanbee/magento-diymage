@@ -51,8 +51,19 @@
                 </contacts>
                 <customer_account translate="title" module="diy">
                     <title>Customer Account</title>
-                    <action>diy/design/customeraccount</action>
-                    <sort_order>110</sort_order>                    
+                    <sort_order>110</sort_order>
+                    <children>
+                        <customer_account_login translate="title" module="diy">
+                            <title>Login</title>
+                            <action>diy/design/accountlogin</action>
+                            <sort_order>10</sort_order>
+                        </customer_account_login>
+                        <customer_account_index translate="title" module="diy">
+                            <title>Dashboard</title>
+                            <action>diy/design/accountdashboard</action>
+                            <sort_order>20</sort_order>
+                        </customer_account_index>
+                    </children>
                 </customer_account>
                 <settings translate="title" module="diy">
                     <title>Settings</title>
@@ -103,6 +114,20 @@
                                 <title>Contact Page Design Settings</title>
                                 <sort_order>90</sort_order>
                             </contacts>
+                            <customer_account>
+                                <title>Customer Account Settings</title>
+                                <sort_order>100</sort_order>
+                                <children>
+                                    <customer_account_login translate="title" module="diy">
+                                        <title>Customer Account Login Page Design Settings</title>
+                                        <sort_order>10</sort_order>
+                                    </customer_account_login>
+                                    <customer_account_index translate="title" module="diy">
+                                        <title>Customer Account Dashboard Design Settings</title>
+                                        <sort_order>20</sort_order>
+                                    </customer_account_index>
+                                </children>
+                            </customer_account>
                         </children>
                     </diy>
                     <system>
