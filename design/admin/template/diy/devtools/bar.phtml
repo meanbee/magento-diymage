@@ -31,6 +31,9 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 <div id="diymage_devtools_bar">
     <div class="handles">
         <ul>
+            <?php if ($_product = Mage::registry('current_product')): ?>
+                <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>">Edit Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
+            <?php endif ?>
             <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
         </ul>
     </div>
@@ -65,14 +68,14 @@ $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 
     color: white;
     background: #333;
-    opacity: 0.95;
+    opacity: 0.98;
 
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     
-    margin-right: 325px;
+    font-family: arial !important;
 }
 
 #diymage_devtools_bar .handles {
