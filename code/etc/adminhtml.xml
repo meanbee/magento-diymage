@@ -14,21 +14,10 @@
                     <action>diy/design</action>
                     <sort_order>10</sort_order>
                 </global>
-                <category>
+                <category translate="title" module="diy">
                     <title>Category</title>
+                    <action>diy/design/listing</action>
                     <sort_order>20</sort_order>
-                    <children>
-                        <catalog_category translate="title" module="diy">
-                            <title>Default</title>
-                            <action>diy/design/listing</action>
-                            <sort_order>10</sort_order>
-                        </catalog_category>
-                        <catalog_category_layered translate="title" module="diy">
-                            <title>Layered (Filterable)</title>
-                            <action>diy/design/layeredlisting</action>
-                            <sort_order>20</sort_order>
-                        </catalog_category_layered>
-                    </children>
                 </category>
                 <catalog_product_view translate="title" module="diy">
                     <title>Product Page</title>
@@ -189,19 +178,9 @@
                                 <title>Global Design Settings</title>
                                 <sort_order>10</sort_order>
                             </global>
-                            <category>
+                            <category translate="title" module="diy">
                                 <title>Category Design Settings</title>
                                 <sort_order>20</sort_order>
-                                <children>
-                                    <catalog_category translate="title" module="diy">
-                                        <title>Category Design Settings</title>
-                                        <sort_order>10</sort_order>
-                                    </catalog_category>
-                                    <catalog_category_layered translate="title" module="diy">
-                                        <title>Category (Layered Navigation)</title>
-                                        <sort_order>20</sort_order>
-                                    </catalog_category_layered>
-                                </children>
                             </category>
                             <catalog_product_view translate="title" module="diy">
                                 <title>Product Design Settings</title>
