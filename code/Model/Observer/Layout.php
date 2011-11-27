@@ -361,14 +361,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
          if (!$diy->getValue("checkout_cart_index", "show_coupon", $store)) {
              $this->_removeBlock($layout, "checkout.cart.coupon");
          }
-         
-         /* 
-          * Checkout
-          */
-          
-         if (!$diy->getValue("checkout_onepage_index", "show_progress", $store)) {
-             $this->_removeBlock($layout, "checkout.progress.wrapper");
-         }
+
      }
     
     /**
