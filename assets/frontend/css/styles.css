@@ -326,6 +326,11 @@ label {
     display: block;
 }
 
+label.required em,
+em.required {
+    padding-right: 3px;
+}
+
 form ul li {
     list-style-type: none;
 }

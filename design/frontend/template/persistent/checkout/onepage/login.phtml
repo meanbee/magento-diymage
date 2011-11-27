@@ -76,11 +76,11 @@
                 <p><?php echo $this->__('Please log in below:') ?></p>
                 <ul class="form-list">
                     <li>
-                        <label for="login-email" class="required"><em>*</em> <?php echo $this->__('Email Address') ?></label>
+                        <label for="login-email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
                         <input type="text" class="text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" />
                     </li>
                     <li>
-                        <label for="login-password" class="required"><em>*</em> <?php echo $this->__('Password') ?></label>
+                        <label for="login-password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
                         <input type="password" class="text required-entry" id="login-password" name="login[password]" />
                     </li>
                     <?php echo $this->getChildHtml('persistent.remember.me'); ?>

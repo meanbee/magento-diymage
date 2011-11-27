@@ -52,7 +52,7 @@
                 <input type="text" name="company" id="company" title="<?php echo $this->__('Company') ?>" value="<?php echo $this->htmlEscape($this->getAddress()->getCompany()) ?>" class="input-text" />
             </li>
             <li>
-                <label for="telephone" class="required"><em class="required">*</em> <?php echo $this->__('Telephone') ?></label>
+                <label for="telephone" class="required"><em class="required">*</em><?php echo $this->__('Telephone') ?></label>
                 <input type="text" name="telephone" value="<?php echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text required-entry" id="telephone" />
             </li>
             <li>
@@ -65,7 +65,7 @@
         <h2><?php echo $this->__('Address') ?></h2>
         <ul>
             <li class="wide">
-                <label for="street_1" class="required"><em class="required">*</em> <?php echo $this->__('Street Address') ?></label>
+                <label for="street_1" class="required"><em class="required">*</em><?php echo $this->__('Street Address') ?></label>
                 <input type="text" name="street[]" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="input-text required-entry" />
             </li>
             <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
@@ -74,11 +74,11 @@
             </li>
             <?php endfor ?>
             <li>
-                <label for="city" class="required"><em class="required">*</em> <?php echo $this->__('City') ?></label>
+                <label for="city" class="required"><em class="required">*</em><?php echo $this->__('City') ?></label>
                 <input type="text" name="city" value="<?php echo $this->htmlEscape($this->getAddress()->getCity()) ?>"  title="<?php echo $this->__('City') ?>" class="input-text required-entry" id="city" />
             </li>
             <li>
-                <label for="region_id" class="required"><em class="required">*</em> <?php echo $this->__('State/Province') ?></label>
+                <label for="region_id" class="required"><em class="required">*</em><?php echo $this->__('State/Province') ?></label>
                 <select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
                     <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
                 </select>
@@ -90,11 +90,11 @@
                 <input type="text" id="region" name="region" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" />
             </li>
             <li>
-                <label for="zip" class="required"><em class="required">*</em> <?php echo $this->__('Zip/Postal Code') ?></label>
+                <label for="zip" class="required"><em class="required">*</em><?php echo $this->__('Zip/Postal Code') ?></label>
                 <input type="text" name="postcode" value="<?php echo $this->htmlEscape($this->getAddress()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="zip" class="input-text validate-zip-international required-entry" />
             </li>
             <li>
-                <label for="country" class="required"><em class="required">*</em> <?php echo $this->__('Country') ?></label>
+                <label for="country" class="required"><em class="required">*</em><?php echo $this->__('Country') ?></label>
                 <?php echo $this->getCountryHtmlSelect() ?>
             </li>
             <li<?php if($this->canSetAsDefaultBilling()) echo ' class="control"' ?>>

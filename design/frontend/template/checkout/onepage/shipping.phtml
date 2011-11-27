@@ -45,7 +45,7 @@
         <fieldset>
             <ul>
                 <li>
-                    <label for="shipping:street1" class="required"><em class="required">*</em> <?php echo $this->__('Address') ?></label>
+                    <label for="shipping:street1" class="required"><em class="required">*</em><?php echo $this->__('Address') ?></label>
                     <input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" class="text required-entry" onchange="shipping.setSameAsBilling(false);" />
                 </li>
                 <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
@@ -54,11 +54,11 @@
                     </li>
                 <?php endfor ?>
                 <li>
-                    <label for="shipping:city" class="required"><em class="required">*</em> <?php echo $this->__('City') ?></label>
+                    <label for="shipping:city" class="required"><em class="required">*</em><?php echo $this->__('City') ?></label>
                     <input type="text" title="<?php echo $this->__('City') ?>" name="shipping[city]" value="<?php echo $this->htmlEscape($this->getAddress()->getCity()) ?>" class="text required-entry" id="shipping:city" onchange="shipping.setSameAsBilling(false);" />
                 </li>
                 <li>
-                    <label for="shipping:region" class="required"><em class="required">*</em> <?php echo $this->__('State/Province') ?></label>
+                    <label for="shipping:region" class="required"><em class="required">*</em><?php echo $this->__('State/Province') ?></label>
                     <select id="shipping:region_id" name="shipping[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
                         <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
                     </select>
@@ -70,11 +70,11 @@
                     <input type="text" id="shipping:region" name="shipping[region]" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>" title="<?php echo $this->__('State/Province') ?>" class="text" style="display:none;" />
                 </li>
                 <li>
-                    <label for="shipping:postcode" class="required"><em class="required">*</em> <?php echo $this->__('Zip/Postal Code') ?></label>
+                    <label for="shipping:postcode" class="required"><em class="required">*</em><?php echo $this->__('Zip/Postal Code') ?></label>
                     <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="shipping[postcode]" id="shipping:postcode" value="<?php echo $this->htmlEscape($this->getAddress()->getPostcode()) ?>" class="text validate-zip-international required-entry" onchange="shipping.setSameAsBilling(false);" />
                 </li>
                 <li>
-                    <label for="shipping:country_id" class="required"><em class="required">*</em> <?php echo $this->__('Country') ?></label>
+                    <label for="shipping:country_id" class="required"><em class="required">*</em><?php echo $this->__('Country') ?></label>
                     <?php echo $this->getCountryHtmlSelect('shipping') ?>
                 </li>
             </ul>
@@ -82,7 +82,7 @@
         <fieldset>
             <ul>
                 <li>
-                    <label for="shipping:telephone" class="required"><em class="required">*</em> <?php echo $this->__('Telephone') ?></label>
+                    <label for="shipping:telephone" class="required"><em class="required">*</em><?php echo $this->__('Telephone') ?></label>
                     <input type="text" name="shipping[telephone]" value="<?php echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="text required-entry" id="shipping:telephone" onchange="shipping.setSameAsBilling(false);" />
                 </li>
                 <li>

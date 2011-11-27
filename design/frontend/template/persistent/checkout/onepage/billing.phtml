@@ -43,7 +43,7 @@
                 </li>
                 <?php if(!$this->isCustomerLoggedIn()): ?>
                 <li>
-                    <label for="billing:email" class="required"><em>*</em> <?php echo $this->__('Email Address') ?></label>
+                    <label for="billing:email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
                     <input type="text" name="billing[email]" id="billing:email" value="<?php echo $this->htmlEscape($this->getAddress()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="text validate-email required-entry" />
                 </li>
                 <?php endif ?>
@@ -52,7 +52,7 @@
         <fieldset>
             <ul>
                 <li>
-                    <label for="billing:street1" class="required"><em>*</em> <?php echo $this->__('Address') ?></label>
+                    <label for="billing:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>
                     <input type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" value="<?php echo $this->htmlEscape($this->getAddress()->getStreet(1)) ?>" class="text required-entry" />
                 </li>
                 <?php for ($_i=2, $_n=$this->helper('customer/address')->getStreetLines(); $_i<=$_n; $_i++): ?>
@@ -61,11 +61,11 @@
                 </li>
                 <?php endfor ?>
                 <li>
-                    <label for="billing:city" class="required"><em>*</em> <?php echo $this->__('City') ?></label>
+                    <label for="billing:city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
                     <input type="text" title="<?php echo $this->__('City') ?>" name="billing[city]" value="<?php echo $this->htmlEscape($this->getAddress()->getCity()) ?>" class="text required-entry" id="billing:city" />
                 </li>
                 <li>
-                    <label for="billing:region_id" class="required"><em>*</em> <?php echo $this->__('State/Province') ?></label>
+                    <label for="billing:region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label>
                     <select id="billing:region_id" name="billing[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
                         <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
                     </select>
@@ -77,11 +77,11 @@
                     <input type="text" id="billing:region" name="billing[region]" value="<?php echo $this->htmlEscape($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="text" style="display:none;" />
                 </li>
                 <li>
-                    <label for="billing:postcode" class="required"><em>*</em> <?php echo $this->__('Zip/Postal Code') ?></label>
+                    <label for="billing:postcode" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
                     <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="billing[postcode]" id="billing:postcode" value="<?php echo $this->htmlEscape($this->getAddress()->getPostcode()) ?>" class="text validate-zip-international required-entry" />
                 </li>
                 <li>
-                    <label for="billing:country_id" class="required"><em>*</em> <?php echo $this->__('Country') ?></label>
+                    <label for="billing:country_id" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
                     <?php echo $this->getCountryHtmlSelect('billing') ?>
                 </li>
             </ul>
@@ -89,7 +89,7 @@
         <fieldset>
             <ul>
                 <li>
-                    <label for="billing:telephone" class="required"><em>*</em> <?php echo $this->__('Telephone') ?></label>
+                    <label for="billing:telephone" class="required"><em>*</em><?php echo $this->__('Telephone') ?></label>
                     <input type="text" name="billing[telephone]" value="<?php echo $this->htmlEscape($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="text required-entry" id="billing:telephone" />
                 </li>
                 <li>
@@ -124,11 +124,11 @@
             <fieldset id="register-customer-password">
                 <ul>
                     <li>
-                        <label for="billing:customer_password" class="required"><em>*</em> <?php echo $this->__('Password') ?></label>
+                        <label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
                         <input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="text required-entry validate-password" />
                     </li>
                     <li>
-                        <label for="billing:confirm_password" class="required"><em>*</em> <?php echo $this->__('Confirm Password') ?></label>
+                        <label for="billing:confirm_password" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
                         <input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="text required-entry validate-cpassword" />
                     </li>
                     <?php echo $this->getChildHtml('persistent.remember.me'); ?>
