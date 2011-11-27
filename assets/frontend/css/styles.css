@@ -2293,6 +2293,7 @@ div.my-account form fieldset,
     margin-bottom: 10px;
 }
 
+form#contactForm input,
 div.my-account form fieldset input.text,
 div.my-account form fieldset input[type="text"],
 div.my-account form fieldset textarea,
@@ -2500,6 +2501,24 @@ body.catalog-product-compare-index table tr.product-shop-row .ratings + .price-b
 body.catalog-product-compare-index div.buttons-set {
     float:right;
     padding-bottom:20px;
+}
+
+/* ----------------------------- CONTACT US */
+form#contactForm,
+div.my-account form {
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+}
+
+form#contactForm input,
+form#contactForm textarea {
+    width: 97%;
+}
+
+form#contactForm .buttons-set,
+form#contactForm .buttons-set button {
+    float: right;
 }
 
 /* ----------------------------- PROMO BAR */
