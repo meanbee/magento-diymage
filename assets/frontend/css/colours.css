@@ -108,7 +108,7 @@ textarea {
 input[type=text]:focus,
 input[type=search]:focus,
 input.text:focus,
-input.search:focus,
+input#search:focus,
 select.multiselect:focus
 textarea:focus {
     border-color: #eb6302; /* Orange */
@@ -586,6 +586,10 @@ section#promo {
     color: #fff;
     text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* Black */
                 0px 1px 1px rgba(255, 255, 255, 0.1); /* White */
+}
+
+section#promo input#newsletter-email-address {
+    color: #FFB553;
 }
 
 /* ----------------------------- FOOTER */

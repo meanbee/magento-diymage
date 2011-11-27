@@ -300,11 +300,10 @@ ul.site-navigation li {
 input[type=text],
 input[type=email],
 input.text,
-input.search,
 input.email,
 select.multiselect,
 textarea {
-    border: 2px solid;
+    border: 1px solid;
     padding: 5px; 
 }
 
@@ -2513,6 +2512,7 @@ section#promo {
 
 section#promo input#newsletter-email-address {
     width:auto;
+    border: 2px solid;
 }
 
 section#promo div.block {

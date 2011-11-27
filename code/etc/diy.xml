@@ -531,7 +531,7 @@
                 <input_border_colour>
                     <label>Input Border Colour</label>
                     <help>This is the default input border colour.</help>
-                    <value>B6B6B6</value>
+                    <value>FFB553</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>100</sort_order>
                     <group>inputs</group>
@@ -539,7 +539,7 @@
                 <input_text_padding>
                     <label>Text Input Box Padding</label>
                     <help>This is the padding around each text input box.</help>
-                    <value>2</value>
+                    <value>5</value>
                     <input_control>diy/admin_control_unit_px</input_control>
                     <sort_order>110</sort_order>
                     <group>inputs</group>
