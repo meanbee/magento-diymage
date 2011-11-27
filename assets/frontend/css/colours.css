@@ -589,7 +589,7 @@ section#promo {
 }
 
 section#promo input#newsletter-email-address {
-    color: #FFB553;
+    border-color: #FFB553;
 }
 
 /* ----------------------------- FOOTER */
