@@ -90,7 +90,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
              if ($update !== null) {
                  $layout_file = $update;
              }
-         }        
+         }
 
          if ($layout_file) {
              $this->_setTemplate($layout, $layout_file);
@@ -185,7 +185,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @param Mage_Core_Model_Layout $layout 
      * @param string $template 
      * @return void
-     * @author Nicholas Jones
+     * @author Nicholas Jones, Tom Robertshaw
      */
     protected function _setTemplate($layout, $template) {
         $this->_log->debug("Setting template to $template");
@@ -194,6 +194,24 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 <action method="setTemplate"><template>' . $template . '</template></action>
             </reference>'
         );
+        
+        // Also need to update page_ related handles as well as template.
+        
+        // Remove all page_ related handles
+        foreach (Mage::getSingleton('page/config')->getPageLayoutHandles() as $h) {
+            $layout->getUpdate()->removeHandle($h);
+        }
+        
+        // Identify correct page_ handle:
+        $layouts = Mage::getSingleton('page/config')->getPageLayouts();
+        foreach ($layouts as $l) {
+            if ($l->getTemplate() == $template) {
+                $handle = $l->getLayoutHandle();
+            }
+        }
+        
+        // Add correct one
+        $layout->getUpdate()->addHandle($handle);
     }
     
     /**
