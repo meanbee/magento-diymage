@@ -207,6 +207,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         foreach ($layouts as $l) {
             if ($l->getTemplate() == $template) {
                 $handle = $l->getLayoutHandle();
+                break;
             }
         }
         
