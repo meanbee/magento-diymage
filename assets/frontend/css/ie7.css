@@ -101,11 +101,11 @@ body ul.list-products li div.actions {
 }
 
 /* Product list sorter doesn't need floating */
-ul.product-sorter li.sort-by a {
+div.toolbar li.sort-by a {
     float: none;
 }
 
-ul.product-sorter li.sort-by a img {
+div.toolbar li.sort-by a img {
     margin-top: 5px;
     margin-left: 2px;
 }
