@@ -245,12 +245,17 @@ footer small {
     <?php endif; ?>
 }
 
-<?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
-    .pager, .sorter {
-        border: none;
-    }
-<?php endif ?>
-
-.pager, .sorter {
+div.toolbar {
+    <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
+    border: 0;
+    <?php endif ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_border_colour', 'border-color', '#%s') ?>
     <?php echo $this->getStyleLine('catalog_category_view', 'pager_background', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_text_colour', 'color', '#%s') ?>
+}
+
+div.toolbar a,
+div.toolbar li.view-mode a,
+div.toolbar li.sort-by a {
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_text_colour', 'color', '#%s') ?>
 }
