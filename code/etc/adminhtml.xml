@@ -148,8 +148,13 @@
                         <catalogsearch_advanced translate="title" module="diy">
                             <title>Advanced Search</title>
                             <action>diy/design/advancedsearch</action>
-                            <sort_order>20</sort_order>                    
+                            <sort_order>20</sort_order>
                         </catalogsearch_advanced>
+                        <tag_product_listing translate="title" module="diy">
+                            <title>Tag Product Listing</title>
+                            <action>diy/design/taglisting</action>
+                            <sort_order>30</sort_order>
+                        </tag_product_listing>
                     </children>
                 </search>
                 <contacts translate="title" module="diy">
@@ -290,6 +295,10 @@
                                         <title>Advanced Search Settings</title>
                                         <sort_order>20</sort_order>
                                     </catalogsearch_advanced>
+                                    <tag_product_listing>
+                                        <title>Tag Product Listing</title>
+                                        <sort_order>30</sort_order>
+                                    </tag_product_listing>
                                 </children>
                             </search>
                             <contacts translate="title" module="diy">

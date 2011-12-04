@@ -70,6 +70,10 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
+    public function taglistingAction() {
+        $this->__render();
+    }
+    
     public function contactsAction() {
         $this->__render();
     }

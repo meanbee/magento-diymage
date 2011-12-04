@@ -117,6 +117,13 @@
             <block type="diy/admin_design_advancedsearch" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_advancedsearch>
+    
+    <diy_design_taglisting>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_taglisting" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_taglisting>
 
     <diy_design_contacts>
         <update handle="diy_design" />
