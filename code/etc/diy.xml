@@ -538,16 +538,16 @@
                     <group>inputs</group>
                 </input_font_size>
                 <input_background_colour>
-                    <label>Input Background Colour</label>
-                    <help>This is the background colour all default inputs.</help>
+                    <label>Text Input Background Colour</label>
+                    <help>This is the background colour text inputs.</help>
                     <value>FFFFFF</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>90</sort_order>
                     <group>inputs</group>
                 </input_background_colour>
                 <input_border_colour>
-                    <label>Input Border Colour</label>
-                    <help>This is the default input border colour.</help>
+                    <label>Text Input Border Colour</label>
+                    <help>This is the default text input border colour.</help>
                     <value>FFB553</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>100</sort_order>
