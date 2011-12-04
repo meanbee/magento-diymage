@@ -578,12 +578,20 @@
                     <sort_order>20</sort_order>
                     <group>buttons</group>
                 </button_colour>
+                <button_font_size>
+                    <label>Default Button Font Size</label>
+                    <help>Size of text on buttons</help>
+                    <value>13</value>
+                    <input_control>diy/admin_control_unit_px</input_control>
+                    <sort_order>30</sort_order>
+                    <group>buttons</group>
+                </button_font_size>
                 <button_cart_background_colour>
                     <label>Cart and Checkout Button Background Colour</label>
                     <help />
                     <value>409A40</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>30</sort_order>
+                    <sort_order>40</sort_order>
                     <group>buttons</group>
                 </button_cart_background_colour>
                 <button_cart_colour>
@@ -591,7 +599,7 @@
                     <help />
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>40</sort_order>
+                    <sort_order>50</sort_order>
                     <group>buttons</group>
                 </button_cart_colour>
                 <button_aside_background_colour>
@@ -599,7 +607,7 @@
                     <help />
                     <value>4A4A4A</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>60</sort_order>
                     <group>buttons</group>                    
                 </button_aside_background_colour>
                 <button_aside_colour>
@@ -607,7 +615,7 @@
                     <help />
                     <value />
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>70</sort_order>
                     <group>buttons</group>
                 </button_aside_colour>
                 
