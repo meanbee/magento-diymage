@@ -9,12 +9,19 @@
     		$("ul#reviews-list li:not(:nth-child(-n+3))").toggleClass("active").slideToggle("slow");
     		$("ul#reviews-list li.view-all").toggleClass("active").slideToggle("slow");
     	});
+
     	$("ul#reviews-list li#view-all-reviews a").click(function(){
     		$("ul#reviews-list li:not(:nth-child(-n+3))").toggleClass("active").slideToggle("slow");
     		$("ul#reviews-list li#view-all-reviews").toggleClass("active").slideToggle("slow");
     	});
+
     	$("a.link-review").click(function(){
     		$("form#write-review").toggleClass("active").slideToggle("slow");
     	});
+
+		// If we've come to a review link from off page, then we should show the write review form
+		if (document.location.hash == "#write-review") {
+    		$("form#write-review").toggleClass("active").slideToggle("slow");
+		}
     });
 })(jQuery);

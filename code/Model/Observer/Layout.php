@@ -476,7 +476,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         // An indication of wether all fields were complete, or not.
         $incomplete = false;
         
-        if ($cache->load($cache::KEY_LSTATUS)) {
+        if ($cache->load(Meanbee_Diy_Model_Cache::KEY_LSTATUS)) {
             $this->_log->debug("License valid, cache hit");
             return true;
         }
@@ -511,7 +511,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
                     if ($result['valid']) {
                         $this->_log->debug("License is valid, confirmed by server");
-                        $cache->save($cache::KEY_LSTATUS, true, 60*60*24*7);
+                        $cache->save(Meanbee_Diy_Model_Cache::KEY_LSTATUS, true, 60*60*24*7);
                         return true;
                     } else {
                         // Only display the error to the customer if we know that all fields were complete

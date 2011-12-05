@@ -2,35 +2,13 @@
 <footer> 
     <?php echo $this->getChildHtml('footer.promo') ?>
     <section> 
-        <h2>Information</h2> 
-        <ul class="links"> 
-            <li><a href="#">About Us</a></li> 
-            <li><a href="#">Contact Us</a></li> 
-            <li><a href="#">Terms &amp; Conditions</a></li> 
-            <li><a href="#">Shipping &amp; Returns</a></li> 
-            <li><a href="#">Customer Services</a></li> 
-            <li><a href="#">Stores and Locations</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_1')->toHtml(); ?>
     </section> 
     <section> 
-        <h2>Popular Categories</h2> 
-        <ul class="links"> 
-            <li><a href="#">Category Two</a></li> 
-            <li><a href="#">Catergory Type A</a></li> 
-            <li><a href="#">Cat One</a></li> 
-            <li><a href="#">Category Type D</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_2')->toHtml(); ?>
     </section> 
     <section> 
-        <h2>Another List</h2> 
-        <ul class="links"> 
-            <li><a href="#">List item one</a></li> 
-            <li><a href="#">List item two</a></li> 
-            <li><a href="#">List item three</a></li> 
-            <li><a href="#">List item four</a></li> 
-            <li><a href="#">List item five</a></li> 
-            <li><a href="#">List item six</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_3')->toHtml(); ?>
     </section> 
     <section class="vcard"> 
         <h2>Stay Updated</h2> 
