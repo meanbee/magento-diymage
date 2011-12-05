@@ -723,7 +723,7 @@ div.col2-right-layout div.col-main ul.products-grid li:nth-child(n+7) {
 }
 
 ul.products-grid li h2.product-name {
-    height: 75px;
+    min-height: 75px;
     margin-top: 20px;
 }
 
