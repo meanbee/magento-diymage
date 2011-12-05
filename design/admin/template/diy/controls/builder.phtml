@@ -126,13 +126,16 @@
             var html = "";
             var container_id = "<?php echo $this->getFieldId() ?>_" + i;
             var refs = [];
+            var reference = references[configuration[i].key];
                     
             html += "<div class='container' id='" + container_id + "'>";
                 html += "<b>" + configuration[i].label + "</b>";
                 html += "<ul class='container_canvas' id='container_" + configuration[i].key + "'>";
                 
-                    for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
-                        var is_static_block = !(references[configuration[i].key][j].static == undefined);
+                    for ( var j = 0; j < reference.length; j++ ) {
+                        if (reference[j] == undefined) continue;
+                        
+                        var is_static_block = !(reference[j].static == undefined);
                         
                         if (is_static_block) {
                             html += drawStaticBlock(references[configuration[i].key][j].static, references[configuration[i].key][j].id, configuration[i].key);
