@@ -1209,6 +1209,30 @@
                     <sort_order>20</sort_order>
                     <group>products</group>
                 </product_border_colour>
+                <product_show_reviews>
+                    <label>Show Review Summary?</label>
+                    <help>Should the review summary be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>products</group>                   
+                </product_show_reviews>
+                <product_show_wishlist>
+                    <label>Show "Add to Wishlist"?</label>
+                    <help>Should the "Add to Wishlist" link be displayed?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>products</group>
+                </product_show_wishlist>
+                <product_show_compare>
+                    <label>Show "Add to Compare"?</label>
+                    <help>Should the "Add to Compare" link be displayed?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>50</sort_order>
+                    <group>products</group>
+                </product_show_compare>
             </catalog_category_view>
             <!-- END CATEGORY LISTING SETTINGS -->
             

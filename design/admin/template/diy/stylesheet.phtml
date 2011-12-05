@@ -270,3 +270,28 @@ div.col2-left-layout div.col-main ul.list-products li.hproduct:nth-child(n+7),
 div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
     <?php echo $this->getStyleLine('catalog_category_view', 'product_border_style', 'border-bottom', '1px %s') ?>
 }
+
+<?php if ($d->getValue('catalog_category_view', 'product_show_reviews') != 1): ?>
+ul.products-grid li p.price-from,
+ul.products-grid li p.price-to,
+ul.products-grid li p.minimal-price,
+ul.products-grid li a.minimal-price-link,
+ul.products-grid li h2.current-price,
+ul.products-grid li h3.original-price {
+    clear: none;
+    float: none;
+    width: auto;
+    text-align: center;
+}
+
+ul.products-grid.list-products li p.price-from,
+ul.products-grid.list-products li p.price-to,
+ul.products-grid.list-products li p.minimal-price,
+ul.products-grid.list-products li a.minimal-price-link,
+ul.products-grid.list-products li h2.current-price,
+ul.products-grid.list-products li h3.original-price {
+    clear: both;
+    float: right;
+    width: auto;
+    text-align: right;
+<?php endif; ?>
