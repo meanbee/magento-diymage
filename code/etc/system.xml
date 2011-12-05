@@ -87,8 +87,27 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>The Twitter account to be used as the "via" when sharing products</comment>
+                            <comment><![CDATA[The Twitter account to be used as the "via" when sharing products, and the in the link towards the bottom right of the theme.]]></comment>
+                            <sort_order>10</sort_order>
                         </twitter>
+                        <facebook translate="label">
+                            <label>Facebook Page</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Used in the footer towards the bottom right of the theme.  If we want to link to <tt>http://www.facebook.com/pages/Meanbee/80929859355</tt>, then we enter <tt>pages/Meanbee/80929859355</tt> in the above text box.]]></comment>
+                            <sort_order>20</sort_order>
+                        </facebook>
+                        <youtube translate="label">
+                            <label>Youtube Link</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Used in the footer towards the bottom right of them theme.  If we want to link to <tt>http://www.youtube.com/watch?v=OQSNhk5ICTI</tt>, then we enter <tt>watch?v=OQSNhk5ICTI</tt>.]]></comment>
+                            <sort_order>30</sort_order>
+                        </youtube>
                     </fields>
                 </theme>
             </groups>
