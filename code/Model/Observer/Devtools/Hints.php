@@ -40,7 +40,7 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
                 echo "\n-->";
                 echo "</script>";
                 echo "<div class='diy-hint' rel='$guid'>";
-                echo "<div class='shade'></div>";
+                // echo "<div class='shade'></div>";
                 break;
             case self::EVENT_AFTER:
                 echo "</div>";

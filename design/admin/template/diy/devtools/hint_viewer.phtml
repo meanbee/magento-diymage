@@ -1,7 +1,9 @@
-<!-- <div id="diymage_hint_viewer">
-    HINT VIEWER.
-</div> -->
-
+<div id="diymage_hint_viewer" style="display: none">
+    <h2>Block Hint Viewer</h2>
+    <div class="diymage_hint_viewer_content">
+        Please click a block&hellip;
+    </div>
+</div>
 
 <style type="text/css" media="screen">
 <!--
@@ -9,34 +11,52 @@
     position: fixed;
     right: 0;
     top: 0;
-    bottom: 0;
     
-    width: 325px;
+    width: 250px;
     
-    color: white;
-    background: #333;
+    color: #333;
+    background: #fff;
     opacity: 0.95;
+    
+    padding: 10px;
+}
+
+#diymage_hint_viewer dl dd, #diymage_hint_viewer dl dt {
+    font-family: courier;
+    margin: 0;
+}
+
+#diymage_hint_viewer dl dt {
+    font-weight: bold;
+}
+
+#diymage_hint_viewer dl dt:after {
+    content: ":";
+}
+
+#diymage_hint_viewer dl dl {
+    margin-left: 20px;
 }
 
 /** Actual Hints **/
 
-/*.diy-hint {
+.diy-hint {
     outline: red dotted 1px;
-    position: relative;
-    cursor: pointer;
-    font-size: 11px;
-    min-height: 10px;
+/*    position: relative;*/
+/*    cursor: pointer;
+    font-size: 11px;*/
+/*    min-height: 10px;*/
 }
 
-.diy-hint:after {
+/*.diy-hint:after {
     content: ".";
     display: block;
     height: 0;
     clear: both;
     visibility: hidden;
-}
+}*/
 
-.diy-hint .inner {
+/*.diy-hint .inner {
     display: none;
     text-align: left;
 }
@@ -67,7 +87,39 @@
 </style>
 
 <script type="text/javascript" charset="utf-8">
-jQuery('diy-hint').each(function () {
+jQuery(function () {
+    var $ = jQuery;
+    $('.diy-hint').click(function (e) {
+        var id = $(this).attr('rel');
+        var data = diyhint[id];
+        
+        if ($('#diymage_hint_viewer').css('display') == 'none') {
+            $('#diymage_hint_viewer .diymage_hint_viewer_content').html(pp(data));
+            $('#diymage_hint_viewer').fadeIn();
+        } else {
+            updateData(data);
+        }
+
+
+        function updateData(data) {
+            $('#diymage_hint_viewer .diymage_hint_viewer_content').fadeOut('fast', function () {
+                $(this).html(pp(data)).fadeIn('fast');
+            });
+        }
+    });
     
+    function pp(json) {
+        var html = '<dl>';
+        $.each(json, function (k, v) {
+            if (typeof(v) == 'object') {
+                v = pp(v);
+            }
+            
+            html += '<dt>' + k + '</dt>';
+            html += '<dd>' + v + '</dd>';
+        });
+        
+        return html + '</dl>';
+    }
 });
 </script>
