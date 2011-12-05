@@ -125,10 +125,16 @@ class Meanbee_Diy_Model_Xml {
                     $values["sub_group"]        = ($attribute['group']) ? $attribute['group'] : 'default';
                     $values["store_id"]         = $store_id;
                     $values["label"]            = $attribute['label'];
-                    $values["help"]             = $attribute['help'];
                     $values["input_control"]    = $attribute['input_control'];
-                    $values["source_model"]     = $attribute['source_model'];
                     $values["sort_order"]       = ($attribute['sort_order']) ? $attribute['sort_order'] : 0;
+                    
+                    if (isset($attribute['help'])) {
+                        $values["help"]         = $attribute['help'];
+                    }
+                    
+                    if (isset($attribute['source_model'])) {
+                        $values["source_model"] = $attribute['source_model'];
+                    }
 
                     $data->setData($values);
                     $data->save();

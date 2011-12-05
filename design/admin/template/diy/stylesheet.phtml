@@ -28,15 +28,32 @@ input, select, textarea {
     <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
 }
 
-button { 
+a.button,
+input.button,
+button {
+    <?php echo $this->getStyleLine('global', 'button_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'button_colour', 'color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'input_font_family', 'font-family') ?>
     <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
+}
+
+a.cart,
+input.cart,
+button.cart,
+div.sidebar div.block button.cart {
+    <?php echo $this->getStyleLine('global', 'button_cart_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'button_cart_background_colour', 'background-color', '#%s') ?>
+}
+
+a.simple-button,
+input.simple-button,
+button.simple-button {
+    <?php echo $this->getStyleLine('global', 'button_aside_colour', 'color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'button_aside_background_colour', 'background-color', '#%s') ?>
 }
 
 input.input-text, select, textarea {
     <?php echo $this->getStyleLine('global', 'input_background_colour', 'background-color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'button_colour', 'border-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'input_border_colour', 'border-color', '#%s') ?>
 }
 
 input.input-text, textarea {
@@ -60,41 +77,61 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'header_link_hover_colour', 'color', '#%s') ?>
 }
 
+input[type="search"], input.search, input#search {
+    <?php echo $this->getStyleLine('global', 'header_search_border_colour', 'border-color', '#%s') ?>
+}
+
+header section.cart {
+    <?php echo $this->getStyleLine('global', 'header_cart_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'header_cart_border_colour', 'border-color', '#%s') ?>
+}
+
+nav,
 #nav {
     <?php echo $this->getStyleLine('global', 'nav_bar_background', 'background-color', '#%s') ?>
 }
 
+nav ul li,
 #nav li {
     <?php echo $this->getStyleLine('global', 'nav_item_background', 'background-color', '#%s') ?>
 }
 
+nav ul li a,
 #nav li a {
     <?php echo $this->getStyleLine('global', 'nav_item_link_colour', 'color', '#%s') ?>
 }
 
-#nav li.active a {
+nav ul li:hover > a,
+#nav li:hover > a {
+    <?php echo $this->getStyleLine('global', 'nav_item_background_hover_colour', 'background-color', '#%s') ?>
+}
+
+nav ul li.active > a,
+#nav li.active > a {
+    <?php echo $this->getStyleLine('global', 'nav_item_active_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'nav_item_active_link_colour', 'color', '#%s') ?>
 }
 
+nav ul li a:hover,
 #nav li a:hover {
     <?php echo $this->getStyleLine('global', 'nav_item_link_hover_colour', 'color', '#%s') ?>
 }
 
+nav ul li.active a:hover,
+#nav li.active a:hover {
+    <?php echo $this->getStyleLine('global', 'nav_item_active_link_hover_colour', 'color', '#%s') ?>
+}
+
+nav ul ul li a,
 #nav ul li a {
     <?php echo $this->getStyleLine('global', 'nav_sub_item_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'nav_sub_item_link_colour', 'color', '#%s') ?>
 }
 
+nav ul ul li a:hover,
 #nav ul li a:hover {
     <?php echo $this->getStyleLine('global', 'nav_sub_item_background_hover_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'nav_sub_item_link_hover_colour', 'color', '#%s') ?>
-}
-
-#nav ul, #nav div {
-    <?php if ($d->getValue("global", "nav_sub_list_border" ) != 1): ?>
-        border: none;
-    <?php endif; ?>
-    <?php echo $this->getStyleLine('global', 'nav_sub_list_border_colour', 'border-color', '#%s') ?>
 }
 
 .breadcrumbs {
@@ -105,7 +142,7 @@ input.input-text, textarea {
     <?php echo $this->getStyleLine('global', 'breadcrumb_link_colour', 'color', '#%s') ?>
 }
 
-.breadcrumbs a:hover {
+.breadcrumbs a:hover, .breadcrumbs a:active {
     <?php echo $this->getStyleLine('global', 'breadcrumb_link_hover_colour', 'color', '#%s') ?>
 }
 
@@ -125,10 +162,29 @@ div.sidebar div.block {
     <?php echo $this->getStyleLine('global', 'sidebar_block_border_colour', 'border-color', '#%s') ?>
 }
 
+div.sidebar div.block div.block-title {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_heading_separator_colour', 'border-color', '#%s') ?>
+}
+
 div.sidebar div.block div.block-title h2,
 div.sidebar div.block div.block-title strong span {
     <?php echo $this->getStyleLine('global', 'sidebar_block_heading_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'sidebar_block_heading_size', 'font-size', '%spx') ?>
+}
+
+div.block-layered-nav dl#narrow-by-list dt,
+div.block-cart div.summary h3, 
+div.block-cart p.block-subtitle,
+div.block-compare ol li,
+div.block-compared ol li,
+div.block-compare div.actions, 
+div.block-cart ol li, 
+div.block-cart div.actions, 
+div.block-wishlist ol li, 
+div.block-wishlist div.actions,
+div.block-layered-nav p.block-subtitle,
+div.block-viewed ol li {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_divider_colour', 'border-color', '#%s') ?>
 }
 
 div.sidebar div.block button,
@@ -145,6 +201,14 @@ div.sidebar a:hover, div.sidebar a:active {
     <?php echo $this->getStyleLine('global', 'sidebar_link_hover_colour', 'color', '#%s') ?>
 }
 
+div.block-viewed ol li img.photo,
+div.block-compare ol li img.photo, 
+div.block-cart ol li img.photo, 
+div.block-wishlist ol li img.photo,
+div.block-compared ol li img.photo {
+    <?php echo $this->getStyleLine('global', 'sidebar_block_image_border_colour', 'border-color', '#%s') ?>
+}
+
 .footer, footer {
     <?php echo $this->getStyleLine('global', 'footer_background_image', 'background-image', 'url("images/diy/%s")') ?>
     <?php echo $this->getStyleLine('global', 'footer_background_position', 'background-position', '%s') ?>
@@ -152,6 +216,11 @@ div.sidebar a:hover, div.sidebar a:active {
     <?php echo $this->getStyleLine('global', 'footer_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_text_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'footer_font_size', 'font-size', '%spx') ?>
+}
+
+footer section#promo {
+    <?php echo $this->getStyleLine('global', 'footer_promo_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'footer_promo_colour', 'color', '#%s') ?>
 }
 
 .footer a, footer a {
@@ -168,6 +237,15 @@ div.sidebar a:hover, div.sidebar a:active {
 <?php else: ?>
     display: block;
 <?php endif; ?>
+}
+
+footer small {
+    <?php echo $this->getStyleLine('global', 'footer_copyright_colour', 'color', '#%s') ?>
+    <?php if (!$d->getValue('global', 'show_footer_copyright_border')):?>
+    border: 0;
+    <?php else: ?>
+    <?php echo $this->getStyleLine('global', 'footer_copyright_border_colour', 'border-color', '#%s') ?>
+    <?php endif; ?>
 }
 
 <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>

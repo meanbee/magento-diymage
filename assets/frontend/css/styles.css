@@ -108,7 +108,6 @@ div.col3-layout div.sidebar {
 
 div.col3-layout div.col-main {
     float: left;
-    margin-top: 10px;
     width: 53%;
 }
 
@@ -300,11 +299,10 @@ ul.site-navigation li {
 input[type=text],
 input[type=email],
 input.text,
-input.search,
 input.email,
 select.multiselect,
 textarea {
-    border: 2px solid;
+    border: 1px solid;
     padding: 5px; 
 }
 
@@ -324,6 +322,11 @@ input[type=search] {
 
 label {
     display: block;
+}
+
+label.required em,
+em.required {
+    padding-right: 3px;
 }
 
 form ul li {
@@ -2175,7 +2178,7 @@ div.col2-set div.col-wide {
 /* ----------------------------- CHECKOUT SIDEBAR YOUR CHECKOUT PROGRESS */
 
 div.block-progress {
-    margin-top: 45px;
+    margin-top: 35px;
 }
 
 div.sidebar div.block.block-progress div.block-title {
@@ -2289,6 +2292,7 @@ div.my-account form fieldset,
     margin-bottom: 10px;
 }
 
+form#contactForm input,
 div.my-account form fieldset input.text,
 div.my-account form fieldset input[type="text"],
 div.my-account form fieldset textarea,
@@ -2498,6 +2502,24 @@ body.catalog-product-compare-index div.buttons-set {
     padding-bottom:20px;
 }
 
+/* ----------------------------- CONTACT US */
+form#contactForm,
+div.my-account form {
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+}
+
+form#contactForm input,
+form#contactForm textarea {
+    width: 97%;
+}
+
+form#contactForm .buttons-set,
+form#contactForm .buttons-set button {
+    float: right;
+}
+
 /* ----------------------------- PROMO BAR */
 
 section#promo {
@@ -2508,6 +2530,7 @@ section#promo {
 
 section#promo input#newsletter-email-address {
     width:auto;
+    border: 2px solid;
 }
 
 section#promo div.block {

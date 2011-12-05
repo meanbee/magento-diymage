@@ -42,7 +42,19 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
-    public function checkoutAction() {
+    public function checkoutonepageAction() {
+        $this->__render();
+    }
+    
+    public function checkoutmultiAction() {
+        $this->__render();
+    }
+    
+    public function checkoutonepagesuccessAction() {
+        $this->__render();
+    }
+    
+    public function checkoutmultisuccessAction() {
         $this->__render();
     }
     
@@ -58,11 +70,71 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
+    public function taglistingAction() {
+        $this->__render();
+    }
+    
     public function contactsAction() {
         $this->__render();
     }
     
-    public function customeraccountAction() {
+    public function accountloginAction() {
+        $this->__render();
+    }
+    
+    public function accountcreateAction() {
+        $this->__render();
+    }
+    
+    public function accountdashboardAction() {
+        $this->__render();
+    }
+    
+    public function accountinfoAction() {
+        $this->__render();
+    }
+    
+    public function addressbookAction() {
+        $this->__render();
+    }
+    
+    public function addresseditAction() {
+        $this->__render();
+    }
+    
+    public function ordersAction() {
+        $this->__render();
+    }
+    
+    public function orderAction() {
+        $this->__render();
+    }
+    
+    public function billingagreementsAction() {
+        $this->__render();
+    }
+    
+    public function recurringprofilesAction() {
+        $this->__render();
+    }
+    
+    public function reviewsAction() {
+        $this->__render();
+    }
+    
+    public function tagsAction() {
+        $this->__render();
+    }
+    
+    public function wishlistAction() {
+        $this->__render();
+    }
+    
+    public function downloadableAction() {
+        $this->__render();
+    }
+    
+    public function newsletterAction() {
         $this->__render();
     }
     

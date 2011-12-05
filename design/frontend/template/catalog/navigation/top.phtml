@@ -1,7 +1,7 @@
 <?php
 function renderCategoryChildren($category, $block, $top = false) {
     ?>
-    <li>
+    <li<?php if($block->isCategoryActive($category)) { echo ' class="active"'; } ?>>
         <a href="<?php echo $block->getCategoryUrl($category) ?>"<?php if ($top) { echo ' class="level-top"'; } ?>><?php echo $category->getName() ?></a>
         <?php if ($category->getChildren()->count() > 0): ?>
             <ul>
