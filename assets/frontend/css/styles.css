@@ -785,7 +785,7 @@ div.col2-right-layout div.col-main ul.list-products li {
     width: 680px;
 }
 
-ul.list-products li.hproduct {
+ul.products-grid.list-products li.hproduct {
     border-right: none;
     float: none;
     list-style-type: none;
