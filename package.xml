@@ -1,5 +1,5 @@
 <_>
-   <form_key>aLLlSIscteRO6KHC</form_key>
+   <form_key>1QQe7wnlfloczBI1</form_key>
    <name>Meanbee_Diy</name>
    <channel>community</channel>
    <version_ids>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files>  </files>
+            <files>   </files>
          </files>
       </package>
       <extension>
@@ -62,7 +62,7 @@
    <contents>
       <target>
          <target>magelocal</target>
-         <target>magelocal</target>
+         <target>magecommunity</target>
          <target>magedesign</target>
          <target>magedesign</target>
          <target>magedesign</target>
