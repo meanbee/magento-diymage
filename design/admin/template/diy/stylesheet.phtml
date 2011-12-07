@@ -28,12 +28,18 @@ input, select, textarea {
     <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
 }
 
+input.input-text, textarea {
+    <?php echo $this->getStyleLine('global', 'input_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'input_border_colour', 'border-color', '#%s') ?>
+    <?php echo $this->getStyleLine('global', 'input_text_padding', 'padding', '%spx') ?>
+}
+
 a.button,
 input.button,
 button {
     <?php echo $this->getStyleLine('global', 'button_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'button_colour', 'color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'input_font_size', 'font-size', '%spx') ?>
+    <?php echo $this->getStyleLine('global', 'button_font_size', 'font-size', '%spx') ?>
 }
 
 a.cart,
@@ -49,15 +55,6 @@ input.simple-button,
 button.simple-button {
     <?php echo $this->getStyleLine('global', 'button_aside_colour', 'color', '#%s') ?>
     <?php echo $this->getStyleLine('global', 'button_aside_background_colour', 'background-color', '#%s') ?>
-}
-
-input.input-text, select, textarea {
-    <?php echo $this->getStyleLine('global', 'input_background_colour', 'background-color', '#%s') ?>
-    <?php echo $this->getStyleLine('global', 'input_border_colour', 'border-color', '#%s') ?>
-}
-
-input.input-text, textarea {
-    <?php echo $this->getStyleLine('global', 'input_text_padding', 'padding', '%spx') ?>
 }
 
 .header, header {
@@ -248,12 +245,53 @@ footer small {
     <?php endif; ?>
 }
 
-<?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
-    .pager, .sorter, .product-sorter {
-        border: 0px none !important;
-    }
-<?php endif ?>
-
-.pager, .sorter {
+div.toolbar {
+    <?php if ($d->getValue("catalog_category_view", "pager_border") != 1): ?>
+    border: 0;
+    <?php endif ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_border_colour', 'border-color', '#%s') ?>
     <?php echo $this->getStyleLine('catalog_category_view', 'pager_background', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_text_colour', 'color', '#%s') ?>
 }
+
+div.toolbar a,
+div.toolbar li.view-mode a,
+div.toolbar li.sort-by a {
+    <?php echo $this->getStyleLine('catalog_category_view', 'pager_text_colour', 'color', '#%s') ?>
+}
+
+ul.products-grid li.hproduct {
+    <?php echo $this->getStyleLine('catalog_category_view', 'product_border_style', 'border-right', '1px %s') ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'product_border_style', 'border-bottom', '1px %s') ?>
+    <?php echo $this->getStyleLine('catalog_category_view', 'product_border_colour', 'border-color', '#%s') ?>
+}
+
+div.col2-left-layout div.col-main ul.list-products li.hproduct:nth-child(n+7),
+div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
+    <?php echo $this->getStyleLine('catalog_category_view', 'product_border_style', 'border-bottom', '1px %s') ?>
+}
+
+<?php if ($d->getValue('catalog_category_view', 'product_show_reviews') != 1): ?>
+ul.products-grid li p.price-from,
+ul.products-grid li p.price-to,
+ul.products-grid li p.minimal-price,
+ul.products-grid li a.minimal-price-link,
+ul.products-grid li h2.current-price,
+ul.products-grid li h3.original-price {
+    clear: none;
+    float: none;
+    width: auto;
+    text-align: center;
+}
+
+ul.products-grid.list-products li p.price-from,
+ul.products-grid.list-products li p.price-to,
+ul.products-grid.list-products li p.minimal-price,
+ul.products-grid.list-products li a.minimal-price-link,
+ul.products-grid.list-products li h2.current-price,
+ul.products-grid.list-products li h3.original-price {
+    clear: both;
+    float: right;
+    width: auto;
+    text-align: right;
+<?php endif; ?>

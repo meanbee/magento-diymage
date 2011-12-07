@@ -201,14 +201,18 @@ div.block-layered-nav dl#narrow-by-list dt {
 
 /* ----------------------------- PRODUCT SORTER*/
 
-ul.product-sorter {
-    background: #e1e1e1 url(../images/sort-background-border.gif) 10px 30px no-repeat;
+div.toolbar {
+    background: #e1e1e1;
     border-color: #ccc;
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5),
                 0px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
-ul.product-sorter li.view-mode a {
+div.toolbar ul.sorter {
+    border-color: #ccc;
+}
+
+div.toolbar li.view-mode a {
     color: #333;
 }
 

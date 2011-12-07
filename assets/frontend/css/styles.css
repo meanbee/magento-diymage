@@ -562,57 +562,66 @@ ul.breadcrumbs li {
 
 /* ----------------------------- PRODUCT SORTER*/
 
-ul.product-sorter {
+div.toolbar {
     border: 1px solid;
     -moz-border-radius: 5px;
     border-radius: 5px;
     clear: both;
     margin: 10px 0;
     overflow: hidden;
-    padding: 0 20px;
+    padding: 0 10px;
+}
+
+div.toolbar ul {
+    padding: 0 10px;
+}
+
+div.toolbar ul.sorter {
+    border-top: 1px solid;
+    clear: both;
 }
 
 div.my-account ol {
     list-style-type: none;
 }
 
-ul.product-sorter li {
+div.toolbar ul li {
     list-style-type: none;
     padding: 3px 0 1px 0;
 }
 
-ul.product-sorter select {
+div.toolbar select {
     margin-top: 4px;
 }
 
-ul.product-sorter li.amount {
+div.toolbar ul li.amount {
     float: left;
     width: 50%;
 }
 
-ul.product-sorter li.limiter {
+div.toolbar li.limiter {
     float: right;
 }
 
-ul.product-sorter li.limiter label,
-ul.product-sorter li.limiter select,
-ul.product-sorter li.limiter em {
+div.toolbar li.limiter label,
+div.toolbar li.limiter select,
+div.toolbar li.limiter em {
     float: left;
     margin-left: 5px;
 }
 
-ul.product-sorter li.view-mode,
-ul.product-sorter li.pagination {
+div.toolbar li.view-mode,
+div.toolbar li.pagination {
     float: left;
     width: 33.33%;
 }
 
 div.my-account li.pagination strong,
-ul.product-sorter li.pagination strong {
+div.toolbar li.pagination strong {
     float: left;
 }
 
-ul.product-sorter li label {
+div.toolbar ul li label {
     display: inline;
 }
 
@@ -621,38 +630,38 @@ div.my-account li.pagination {
 }
 
 div.my-account li.pagination ol li,
-ul.product-sorter li.pagination ol li {
+div.toolbar li.pagination ol li {
     float: left;
     list-style-type: none;
     padding: 0;
 }
 
 div.my-account li.pagination ol li a,
-ul.product-sorter li.pagination ol li a {
+div.toolbar li.pagination ol li a {
     display: block;
     float: left;
     padding: 0 5px;
 }
 
 div.my-account li.pagination ol li.current,
-ul.product-sorter li.pagination ol li.current {
+div.toolbar li.pagination ol li.current {
     display: block;
     padding: 0 5px;
 }
 
 div.my-account ol.pager,
-ul.product-sorter li.sort-by {
+div.toolbar li.sort-by {
     float: right;
 }
 
-ul.product-sorter li.sort-by label,
-ul.product-sorter li.sort-by select,
-ul.product-sorter li.sort-by a {
+div.toolbar li.sort-by label,
+div.toolbar li.sort-by select,
+div.toolbar li.sort-by a {
     float: left;
     margin-left: 5px;
 }
 
-ul.product-sorter li.sort-by a {
+div.toolbar li.sort-by a {
     margin-top: 4px;
 }
 
@@ -688,7 +697,7 @@ ul.list-products li.hproduct {
 }
 
 ul.products-grid.list-products li.hproduct h2.product-name {
-    height:auto;
+    min-height:0;
     margin-top:0;
 }
 
@@ -714,7 +723,7 @@ div.col2-right-layout div.col-main ul.products-grid li:nth-child(n+7) {
 }
 
 ul.products-grid li h2.product-name {
-    height: 75px;
+    min-height: 75px;
     margin-top: 20px;
 }
 
@@ -776,7 +785,7 @@ div.col2-right-layout div.col-main ul.list-products li {
     width: 680px;
 }
 
-ul.list-products li.hproduct {
+ul.products-grid.list-products li.hproduct {
     border-right: none;
     float: none;
     list-style-type: none;
