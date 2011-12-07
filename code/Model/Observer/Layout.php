@@ -483,7 +483,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         if (!$config->hasCompletedLicenseFields()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
-                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::getUrl('adminhtml/system_config/edit/section/diy') . '">configuration section</a>.')
+                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/', array('section' => 'diy')) . '">configuration section</a>.')
             );
             
             $this->_log->warn("License fields are not complete");
