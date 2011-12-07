@@ -34,8 +34,23 @@
 <script type="text/javascript" charset="utf-8">
 <!--
 $j(function () {
+    // Slider toggles
     $j(".subgroup:first div.content").slideToggle('slow');
     $j(".subgroup:first h3").toggleClass('open');
+
+
+    // Update the font controls with the currently selected font
+    var update_font_family = function (el) {
+        $j(el).css('font-family', $j(el).val());
+    }
+
+    $j('.control.font select').each(function (i) {
+        update_font_family($j(this));
+
+        $j(this).change(function () {
+            update_font_family($j(this));
+        });
+    });
 })
 -->
 </script>
