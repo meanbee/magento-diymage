@@ -1,6 +1,9 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Xml {
+    /**
+     * @var Meanbee_Diy_Model_Log
+     */
     protected $_log;
     
     public function __construct() {
@@ -29,7 +32,11 @@ class Meanbee_Diy_Model_Xml {
             throw new Exception("The number of attributes xml tags was not one.. I wasn't expecting that!");
         }
     }
-    
+
+    /**
+     * @return mixed
+     * @throws Exception
+     */
     public function getGroups() {
         $cache = Mage::getSingleton('diy/cache');
         $cache_key = $cache::KEY_GROUPS;
@@ -54,7 +61,7 @@ class Meanbee_Diy_Model_Xml {
     }
     
     /**
-     * Find all of the entries in xpath diy/block_namemap.
+     * Find all of the entries in xpath diy/block_namemap, and save in cache if it's enabled.
      * 
      * @return array
      */

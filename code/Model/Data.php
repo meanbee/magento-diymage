@@ -1,16 +1,6 @@
 <?php
 // {{license}}
 /**
- * A fat EAV model to store all of our custom theme attribute data.
- *
- * Defined attributes:
- *     - name
- *     - group
- *     - help
- *     - value
- *
- * @category Meanbee
- * @package Meanbee_Diy
  * @author Nicholas Jones
  */
 class Meanbee_Diy_Model_Data extends Mage_Core_Model_Abstract {
