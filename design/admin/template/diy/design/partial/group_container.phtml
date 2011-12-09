@@ -1,0 +1,18 @@
+<?php
+// {{license}}
+?>
+<div class="subgroup" id="group_<?php echo $this->getId() ?>">
+    <h3><?php echo $this->getName() ?></h3>
+    <div class="content">
+        <p class="help"><?php echo $this->getHelp() ?></p>
+        <?php echo $this->getChildHtml() ?>
+        <a class="reset" href="javascript:void(0);" onclick="resetValues('group_<?php echo $this->getId() ?>');"><span>&#8634;</span> <?php echo $this->__('Reset group'); ?></a>
+    </div>
+    <script type="text/javascript">
+        // Toggle controls when header is clicked
+        $j("#group_<?php echo $this->getId() ?> h3").click( function() {
+            $j("#group_<?php echo $this->getId() ?> div.content").slideToggle('slow');
+            $j("#group_<?php echo $this->getId() ?> h3").toggleClass('open');
+        });
+    </script>
+</div>

@@ -11,11 +11,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     /**
      * @TODO: Add event listeners for adding custom stylesheets
      *
-     * @param string $observer 
+     * @param Varien_Event_Observer $observer 
      * @return void
      * @author Nicholas Jones
      */
-    public function observe($observer) {
+    public function observe(Varien_Event_Observer $observer) {
         
         if (!Mage::getSingleton('diy/config')->isEnabled()) {
             return;
@@ -48,21 +48,22 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $full_identifier
         );
         
-        $store_id = Mage::app()->getStore()->getStoreId();
+        $store = $this->_getStoreId();
         
+        $this->_addStaticBlocks($identifiers, $layout);
         $this->_sortBlocks($identifiers, $layout);
         $this->_removeBlocks($identifiers, $layout);
-        $this->_addStaticBlocks($identifiers, $layout);
         $this->_modifyPageLayout($identifiers, $layout);
+        $this->_otherDIYSettings($store, $identifiers, $layout);
         
-        if (!Mage::helper('diy')->getValue("global", "show_categories")) {
-            $this->_removeBlock($layout, "catalog.topnav");
-        }
-        
-        $this->_addStylesheet($layout, "diymage.css?" . time());
+        $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
         
         // Apply our sort changes..
         //$update->load();
+    }
+    
+    protected function _getStoreId() {
+        return Mage::app()->getStore()->getStoreId();
     }
     
     /**
@@ -74,6 +75,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @author Nicholas Jones
      */
     protected function _modifyPageLayout($identifiers, $layout) {
+        if ($this->_isCMSPage($identifiers)) {
+            $this->_log->debug("Layout not switched because we're on a CMS page");
+            return;
+        }
+        
         // This will become true if we match something in the next set of conditionals
          $layout_file = false;
 
@@ -84,7 +90,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
              if ($update !== null) {
                  $layout_file = $update;
              }
-         }        
+         }
 
          if ($layout_file) {
              $this->_setTemplate($layout, $layout_file);
@@ -103,11 +109,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $to_remove = array();
         
         foreach ($identifiers as $identifier) {
-            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            $update = $this->_getUpdateXML($identifier);
             
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $remove = Zend_Json::decode($data['remove']);
+                    $remove = $data['remove'];
                     
                     if ($remove == null) {
                         $remove = array();
@@ -145,7 +151,8 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         
         foreach ($identifiers as $identifier) {
             $this->_log->debug("Searching for identifier $identifier")->indent();
-            $update_xml = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            
+            $update_xml = $this->_getUpdateXML($identifier);
             
             if (count($update_xml) > 0) {
                 // An array of xml snippets
@@ -154,7 +161,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 
                 foreach ($update_xml as $group => $data) {
                     $this->_log->debug("Searching for group $group")->indent();
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     $block_found = array();
                     
                     foreach ($blocks as $key => $block_data) {
@@ -178,7 +185,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
      * @param Mage_Core_Model_Layout $layout 
      * @param string $template 
      * @return void
-     * @author Nicholas Jones
+     * @author Nicholas Jones, Tom Robertshaw
      */
     protected function _setTemplate($layout, $template) {
         $this->_log->debug("Setting template to $template");
@@ -187,6 +194,25 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                 <action method="setTemplate"><template>' . $template . '</template></action>
             </reference>'
         );
+        
+        // Also need to update page_ related handles as well as template.
+        
+        // Remove all page_ related handles
+        foreach (Mage::getSingleton('page/config')->getPageLayoutHandles() as $h) {
+            $layout->getUpdate()->removeHandle($h);
+        }
+        
+        // Identify correct page_ handle:
+        $layouts = Mage::getSingleton('page/config')->getPageLayouts();
+        foreach ($layouts as $l) {
+            if ($l->getTemplate() == $template) {
+                $handle = $l->getLayoutHandle();
+                break;
+            }
+        }
+        
+        // Add correct one
+        $layout->getUpdate()->addHandle($handle);
     }
     
     /**
@@ -266,7 +292,81 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     }
     
     /**
-     * undocumented function
+     * Action other DIY settings that involve layout updates (non-builder)
+     * 
+     * @param string $identifiers
+     * @param string $layout
+     * @return void
+     * @author Tom Robertshaw
+     **/
+     protected function _otherDIYSettings($store, $identifiers, $layout) {
+         // Assign helper to variable to save time
+         $diy = Mage::helper('diy');
+         
+         /*
+          * Global
+          */
+         
+         // Should the header mini cart be shown
+         if (!$diy->getValue('global', 'header_show_minicart', $store)) {
+             $this->_removeBlock($layout, 'minicart');
+         }
+         
+         // Should the top category navigation be shown
+         if (!$diy->getValue("global", "show_categories", $store )) {
+             $this->_removeBlock($layout, "catalog.topnav");
+         }
+         
+         // Should the footer promo block be shown
+         if (!$diy->getValue('global', 'show_footer_promo', $store )) {
+             $this->_removeBlock($layout, "footer.promo");
+         }
+         
+         
+         /*
+          * Product Page 
+          */
+         
+         // Hide product reviews
+         if (!$diy->getValue("catalog_product_view", "show_reviews", $store)) {
+             $this->_removeBlock($layout, "product.info.product_additional_data");
+         }
+         
+         // Hide cross-sell products
+         if (!$diy->getValue("catalog_product_view", "show_upsells", $store)) {
+             $this->_removeBlock($layout, "product.info.upsell");
+         }
+         
+         // Hide product tags
+         if (!$diy->getValue("catalog_product_view", "show_tags", $store )) {
+             $this->_removeBlock($layout, "product_tag_list");
+         }
+         
+         // Hide additional data
+         if (!$diy->getValue("catalog_product_view", "show_attributes", $store)) {
+             $this->_removeBlock($layout, "product.attributes");
+         }
+         
+         /*
+          * Cart
+          */
+          
+         if (!$diy->getValue("checkout_cart_index", "show_crosssell", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.crosssell");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_shipping", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.shipping");
+         }
+         
+         if (!$diy->getValue("checkout_cart_index", "show_coupon", $store)) {
+             $this->_removeBlock($layout, "checkout.cart.coupon");
+         }
+
+     }
+    
+    /**
+     * Add a static block and position it
      *
      * @param string $layout 
      * @param string $block_id The id of the static block in the database
@@ -312,11 +412,11 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     
     public function _addStaticBlocks($identifiers, $layout) {
         foreach ($identifiers as $identifier) {
-            $update = Zend_Json::decode(Mage::helper('diy')->getValue($identifier, "builder"));
+            $update = $this->_getUpdateXML($identifier);
 
             if (count($update) > 0) {
                 foreach ($update as $group => $data) {
-                    $blocks = Zend_Json::decode($data['sort_order']);
+                    $blocks = $data['sort_order'];
                     
                     foreach ($blocks as $block) {
                         if ($block['static']) {
@@ -376,14 +476,14 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         // An indication of wether all fields were complete, or not.
         $incomplete = false;
         
-        if ($cache->getLicenseStatus()) {
+        if ($cache->load(Meanbee_Diy_Model_Cache::KEY_LSTATUS)) {
             $this->_log->debug("License valid, cache hit");
             return true;
         }
         
         if (!$config->hasCompletedLicenseFields()) {
             Mage::getSingleton('adminhtml/session')->addNotice(
-                Mage::helper('diy')->__('You have not entered your license details for DIY Mage.')
+                Mage::helper('diy')->__('You need to enter the email address you used to purchase DIY Mage in the <a href="' . Mage::helper("adminhtml")->getUrl('adminhtml/system_config/edit/', array('section' => 'diy')) . '">configuration section</a>.')
             );
             
             $this->_log->warn("License fields are not complete");
@@ -394,9 +494,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             "date"            => date("c"),
             "locale"          => Mage::getStoreConfig('general/locale/code'),
             "base_url"        => Mage::getStoreConfig('web/unsecure/base_url'),
-            "license_key"     => $config->getLicenseKey(),
-            "license_email"   => $config->getLicenseEmail(),
-            "magento_version" => Mage::getVersion()
+            "email"           => $config->getLicenseEmail(),
+            "magento_version" => Mage::getVersion(),
+            "diymage_version" => $config->getVersion()
         );
         
         $client->setParameterPost('payload', $post_data);
@@ -411,7 +511,7 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
                     if ($result['valid']) {
                         $this->_log->debug("License is valid, confirmed by server");
-                        $cache->setLicenseStatus(true);
+                        $cache->save(Meanbee_Diy_Model_Cache::KEY_LSTATUS, true, 60*60*24*7);
                         return true;
                     } else {
                         // Only display the error to the customer if we know that all fields were complete
@@ -434,5 +534,34 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         }
         
         return false;
+    }
+    
+    protected function _getUpdateXML($ident) {
+        if ($this->_isCMSPage($ident)) {
+            $page_id = Mage::app()->getRequest()->getParam('page_id');
+
+            if (!$page_id) {
+                $page_key = Mage::getStoreConfig('web/default/cms_home_page');
+                $page = Mage::getModel("cms/page")->getCollection()->addFieldToFilter('identifier', $page_key)->getFirstItem();
+            } else {
+                $page = Mage::getModel('cms/page')->load($page_id);
+            }
+
+            $this->_log->debug("Observing a CMS page (#" . $page->getId() . ")");
+            
+            $update_xml = $page->getData('diy_builder');
+        } else {
+            $update_xml = Mage::helper('diy')->getValue($ident, "builder", $this->_getStoreId());
+        }
+        
+        return Zend_Json::decode($update_xml);
+    }
+    
+    protected function _isCMSPage($ident) {
+        if (!is_array($ident)) {
+            $ident = array($ident);
+        }
+        
+        return in_array("cms", $ident);
     }
 }

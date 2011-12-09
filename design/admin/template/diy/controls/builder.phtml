@@ -1,9 +1,13 @@
-<p class="diy control builder">
+<?php
+// {{license}}
+?>
+<div class="diy control builder">
     <input type="hidden" name="<?php echo $this->getFieldName() ?>" id="<?php echo $this->getFieldId() ?>" value='<?php echo $this->getValue() ?>' />
-    <label>Builder</label>
-    <span class="help">Complete control over the layout of your page.  Add static blocks, widgets and manually remove preinserted blocks.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</span>
+    <?php if (!$this->isCMSPage()): ?>
+        <label>Builder</label>
+    <?php endif ?>
     <span id="builder_canvas"></span>
-</p>
+</div>
 
 <script type="text/javascript" charset="utf-8">
 <!--
@@ -20,25 +24,38 @@
     var static_blocks = <?php echo $this->getStaticBlocks() ?>;
     var name_map = <?php echo $this->getBlocksNiceNameMap() ?>;
 
-    document.observe("dom:loaded", function () {        
+    Event.observe(window, 'load', function () {        
         // When the document loads, build our builder on the right hand side of the page
         updateLayoutBuilder();
 
         // Every time we change the layout of the page, update the builder layout
-        $('layout').observe('change', function (e) {
+        getLayoutElement().observe('change', function (e) {
             updateLayoutBuilder();
         });
     });
+    
+    // Return the dropdown list containing the currently selected page layout
+    function getLayoutElement() {
+        if ($('layout')) {
+            // DIY Mage page
+            return $('layout');
+        } else {
+            // CMS Page new/edit
+            return $('page_root_template');
+        }
+    }
     
     // Update layout builder extracts the data we need to pass to drawLayoutBuilder()
     // which actually performs the rendering of the builder control.  The argument we'll
     // pass will be an array of objects, the objects have two properties, "key" and "label".
     // The key is the unique name identifying the section, and label is the descriptive name.
     function updateLayoutBuilder() {
-        var layout = $('layout').getValue();
         var configuration = [];
         
-        if (layout.match(/2/) && layout.match(/left/)) {
+        var layout = getLayoutElement().value;
+        var desc = "";
+        
+        if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/left/)) {
             configuration.push(
                 {
                     key: "left",
@@ -49,18 +66,20 @@
                     label: "Main"
                 }
             );
-        } else if (layout.match(/2/) && layout.match(/right/)) {
-                configuration.push(
-                    {
-                        key: "content",
-                        label: "Main"
-                    },
-                    {
-                        key: "right",
-                        label: "Right Column"
-                    }
-                );
-        } else if (layout.match(/3/)) {
+            desc = "col2-left";
+        } else if ((layout.match(/2/) || layout.match(/two/)) && layout.match(/right/)) {
+            configuration.push(
+                {
+                    key: "content",
+                    label: "Main"
+                },
+                {
+                    key: "right",
+                    label: "Right Column"
+                }
+            );
+            desc = "col2-right";
+        } else if (layout.match(/3/) || layout.match(/three/)) {
             configuration.push(
                 {
                     key: "left",
@@ -75,38 +94,47 @@
                     label: "Right Column"
                 }
             );
-        } else if (layout.match(/1/)) {
+            desc = "col3";
+        } else if (layout.match(/1/) || layout.match(/one/)) {
             configuration.push(
                 {
                     key: "content",
                     label: "Main"
                 }
             );
+            desc = "col1";
         }
         
-        drawLayoutBuilder(configuration);
+        drawLayoutBuilder(configuration, desc);
     }
     
     // This function actually builds the HTML elements that make up the control, using the
     // configuration passed from updateLayoutBuilder(), and renders the control on the page.
-    function drawLayoutBuilder(configuration) {
+    function drawLayoutBuilder(configuration, desc) {
         var container = $j('#builder_canvas');
         var html = "";
         
         // Reset the content so we can append later
         container.html('');
+
+        // Add the class name
+        container.removeClass();
+        container.addClass(desc);
         
         for ( var i = 0; i < configuration.length; i++ ) {
             var html = "";
             var container_id = "<?php echo $this->getFieldId() ?>_" + i;
             var refs = [];
+            var reference = references[configuration[i].key];
                     
             html += "<div class='container' id='" + container_id + "'>";
                 html += "<b>" + configuration[i].label + "</b>";
                 html += "<ul class='container_canvas' id='container_" + configuration[i].key + "'>";
                 
-                    for ( var j = 0; j < references[configuration[i].key].length; j++ ) {
-                        var is_static_block = !(references[configuration[i].key][j].static == undefined);
+                    for ( var j = 0; j < reference.length; j++ ) {
+                        if (reference[j] == undefined) continue;
+                        
+                        var is_static_block = !(reference[j].static == undefined);
                         
                         if (is_static_block) {
                             html += drawStaticBlock(references[configuration[i].key][j].static, references[configuration[i].key][j].id, configuration[i].key);
@@ -151,7 +179,7 @@
         var css_class = "";
         var key = name;
         
-        if (updates[reference] && $j.inArray(name, updates[reference].remove) != -1) {
+        if (updates[reference] && updates[reference].remove != null && $j.inArray(name, updates[reference].remove) != -1) {
             css_class = "deleted";
         }
         
@@ -207,7 +235,7 @@
         
         var new_object = $j.parseJSON($j("#<?php echo $this->getFieldId() ?>").val());
         
-        if (new_object == null) {
+        if (!new_object || new_object == null) {
             new_object = {};
         }
         
@@ -225,6 +253,16 @@
         if (!object) {
             object = {};
         }
+        
+        // Ensure that our arrays are converted into actual arrays, not kept as strings
+        for (var area in object) {
+            for (var key in object[area]) {
+                var value = object[area][key];
+                if (typeof(value) == "string" && value.substr(0, 1) == "[") {
+                    object[area][key] = $j.parseJSON(value);
+                }
+            }
+        }
 
         return object;
     }
@@ -240,7 +278,7 @@
         
         html += "</select>";
         
-        html += "<button onclick='addStaticBlock(\"" + select_id + "\", \"" + section + "\"); return false'>Add Static Block</button>";
+        html += "<button onclick='addStaticBlock(\"" + select_id + "\", \"" + section + "\"); return false'>Add</button>";
         
         html += "</div>";
         
@@ -263,7 +301,7 @@
         var html = "";
         var css_class = "";
         
-        if (updates[section] && $j.inArray(name, updates[section].remove) != -1) {
+        if (updates[section] && updates[section].remove != null && $j.inArray(name, updates[section].remove) != -1) {
             css_class = "deleted";
         }
         

@@ -3,47 +3,56 @@
 // {{license}}
 -->
 <layout>
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>diy/css/styles.css</name><params /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.6.4.min.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
+        </reference>
+    </default>
+    
     <adminhtml_system_config_edit>
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>diy/js/settings_screen.js</name><if /></action>
         </reference>
     </adminhtml_system_config_edit>
     
-    <diy_design>
+    <diy_js>
         <reference name="head">
-            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.4.3.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-ui-1.8.6.custom.min.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery.json-2.2.min.js</name><if /></action>            <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery.json-2.2.min.js</name><if /></action>
+            <action method="addItem"><type>skin_js</type><name>diy/js/json2.js</name><if /></action>
 
             <action method="addItem"><type>skin_js</type><name>diy/js/yahoo.color.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/colorpicker.js</name><if /></action>
-            <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>
 
             <action method="addItem"><type>skin_css</type><name>diy/css/colorpicker.css</name><params /></action>
             <action method="addItem"><type>skin_css</type><name>diy/css/controls.css</name><params /></action>
         </reference>
+    </diy_js>
+
+    <diy_helplink>
         <reference name="content">
             <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_helplink>
+
+    <diy_design>
+        <update handle="diy_js" />
+        <update handle="diy_helplink" />
+        <reference name="content">
             <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
         </reference>
     </diy_design>
-    
+
     <diy_design_index>
         <update handle="diy_design" />
         <reference name="content">
             <block type="diy/admin_design_global" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml" />
         </reference>
     </diy_design_index>
-    
-    <diy_design_homepage>
-        <reference name="content">
-            <block type="diy/admin_design_homepage" name="diy.admin.design.content" as="diy" template="diy/design/template.phtml"></block>
-        </reference>
-        <update handle="diy_design" />
-    </diy_design_homepage>
-    
+
     <diy_design_listing>
         <update handle="diy_design" />
         <reference name="content">
@@ -51,34 +60,62 @@
         </reference>
     </diy_design_listing>
     
+    <diy_design_layeredlisting>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_layeredlisting" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>      
+    </diy_design_layeredlisting>
+
     <diy_design_product>
         <update handle="diy_design" />
         <reference name="content">
             <block type="diy/admin_design_product" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_product>
-    
-    <diy_design_checkout>
+
+    <diy_design_checkoutonepage>
         <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_checkout" name="diy.admin.design.content" template="diy/design/template.phtml" />
+            <block type="diy/admin_design_checkoutonepage" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
-    </diy_design_checkout>
+    </diy_design_checkoutonepage>
     
+    <diy_design_checkoutonepagesuccess>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutonepagesuccess" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_checkoutonepagesuccess>
+    
+    <diy_design_checkoutmulti>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutmulti" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_checkoutmulti>
+    
+    <diy_design_checkoutmultisuccess>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_checkoutmultisuccess" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>      
+    </diy_design_checkoutmultisuccess>
+
     <diy_design_cart>
         <update handle="diy_design" />
         <reference name="content">
             <block type="diy/admin_design_cart" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_cart>
-    
+
     <diy_design_catalogsearch>
         <update handle="diy_design" />
         <reference name="content">
             <block type="diy/admin_design_catalogsearch" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
     </diy_design_catalogsearch>
-    
+
     <diy_design_advancedsearch>
         <update handle="diy_design" />
         <reference name="content">
@@ -86,6 +123,13 @@
         </reference>
     </diy_design_advancedsearch>
     
+    <diy_design_taglisting>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_taglisting" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_taglisting>
+
     <diy_design_contacts>
         <update handle="diy_design" />
         <reference name="content">
@@ -93,10 +137,113 @@
         </reference>
     </diy_design_contacts>
     
-    <diy_design_noroute>
+    <diy_design_accountcreate>
         <update handle="diy_design" />
         <reference name="content">
-            <block type="diy/admin_design_noroute" name="diy.admin.design.content" template="diy/design/template.phtml" />
+            <block type="diy/admin_design_accountcreate" name="diy.admin.design.content" template="diy/design/template.phtml" />
         </reference>
-    </diy_design_noroute>
+    </diy_design_accountcreate>
+    
+    <diy_design_accountlogin>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_accountlogin" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_accountlogin>
+    
+    <diy_design_accountdashboard>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_accountdashboard" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_accountdashboard>
+    
+    <diy_design_accountinfo>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_accountinfo" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_accountinfo>
+    
+    <diy_design_addressbook>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_addressbook" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>      
+    </diy_design_addressbook>
+    
+    <diy_design_addressedit>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_addressedit" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_addressedit>
+    
+    <diy_design_orders>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_orders" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_orders>
+    
+    <diy_design_order>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_order" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>    
+    </diy_design_order>
+    
+    <diy_design_billingagreements>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_billingagreements" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>       
+    </diy_design_billingagreements>
+    
+    <diy_design_recurringprofiles>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_recurringprofiles" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>       
+    </diy_design_recurringprofiles>
+    
+    <diy_design_reviews>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_reviews" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>
+    </diy_design_reviews>
+    
+    <diy_design_tags>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_tags" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>       
+    </diy_design_tags>
+    
+    <diy_design_wishlist>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_wishlist" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference> 
+    </diy_design_wishlist>
+    
+    <diy_design_downloadable>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_downloadable" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference>     
+    </diy_design_downloadable>
+    
+    <diy_design_newsletter>
+        <update handle="diy_design" />
+        <reference name="content">
+            <block type="diy/admin_design_newsletter" name="diy.admin.design.content" template="diy/design/template.phtml" />
+        </reference> 
+    </diy_design_newsletter>
+    
+    <!-- Already includes adminhtml_cms_page_new -->
+    <adminhtml_cms_page_edit>
+        <update handle="diy_js" />
+    </adminhtml_cms_page_edit>    
 </layout>

@@ -6,7 +6,11 @@
     <modules>
         <Meanbee_Diy>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Core />
+                <Mage_Cms />
+            </depends>
         </Meanbee_Diy>
     </modules>
 </config>

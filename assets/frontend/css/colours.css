@@ -18,11 +18,29 @@ p.note {
     color: #767676;
 }
 
+/* ----------------------------- GLOBAL MESSAGES */
+.notice-msg { 
+    background-color:#ECEDED;
+    color:#111;
+}
+.error-msg { 
+    background-color:#FFF3EE;
+    color:#b90101;
+}
+.success-msg { 
+    background-color:#E0FCF2;
+    color:#409A40;
+}
+
 /* ----------------------------- CART */
 
 section.cart {
     background: #f4f4f4; /* Off white */
     border-color: #e8e8e8; /* Light grey */
+}
+
+section.cart a {
+    color:#333;
 }
 
 /* ----------------------------- NAVIGATION */
@@ -41,6 +59,13 @@ nav ul ul {
     box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
     -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
     -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2); /* black */
+}
+
+nav ul ul ul {
+    /* half the transparency otherwise it goes to dark */
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.1); /* black */
 }
 
 nav ul ul a {
@@ -73,6 +98,7 @@ input[type=text],
 input[type=search],
 input.text,
 input.search,
+select.multiselect,
 textarea {
     background: #fff;
     border-color: #ffb553;
@@ -82,11 +108,13 @@ textarea {
 input[type=text]:focus,
 input[type=search]:focus,
 input.text:focus,
-input.search:focus,
+input#search:focus,
+select.multiselect:focus
 textarea:focus {
     border-color: #eb6302; /* Orange */
 }
 
+label.required em,
 em.required,
 p.required {
     color: #b90101; /* Red */
@@ -113,7 +141,8 @@ button:hover {
 
 a.cart,
 input.cart,
-button.cart {
+button.cart,
+div.sidebar div.block button.cart {
     background-color: #409a40;
     border: 1px solid #409a40; /* Green for browsers that don't support rgba */
     border: 1px solid rgba(0, 0, 0, 0.2); /* Black */
@@ -172,24 +201,28 @@ div.block-layered-nav dl#narrow-by-list dt {
 
 /* ----------------------------- PRODUCT SORTER*/
 
-ul.product-sorter {
-    background: #e1e1e1 url(../images/sort-background-border.gif) 10px 30px no-repeat;
+div.toolbar {
+    background: #e1e1e1;
     border-color: #ccc;
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5),
                 0px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
-ul.product-sorter li.view-mode a {
+div.toolbar ul.sorter {
+    border-color: #ccc;
+}
+
+div.toolbar li.view-mode a {
     color: #333;
 }
 
 /* ----------------------------- PRODUCTS GRID */
 
-ul.products-grid li {
+ul.products-grid li.hproduct {
     border-color: #ccc;
 }
 
-ul.products-grid li h4.original-price + h3.current-price {
+ul.products-grid li.hproduct h4.original-price + h3.current-price {
     color: #c80202;
 }
 
@@ -207,24 +240,29 @@ section.hproduct div.out-of-stock fieldset label {
     color: #8e8e8e; /* Light grey */
 }
 
-section.hproduct div.out-of-stock p.out-of-stock {
+section.hproduct p.out-of-stock {
     color: #b90101; /* Red */
 }
 
 /* ----------------------------- PRODUCTS LIST */
 /* (does inherit from products grid) */
 
-div.col2-left-layout div.col-main ul.list-products li:nth-child(n+7),
-div.col2-right-layout div.col-main ul.list-products li:nth-child(n+7) {
+div.col2-left-layout div.col-main ul.list-products li.hproduct:nth-child(n+7),
+div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
     border-color: #ccc;
 }
 
 /* Product options */
 
+table.grouped-items-table,
 aside.product-options {
     background: #f4f4f4; /* Off white */
     border-color: #e8e8e8; /* Light grey */
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+aside.product-options dl dd {
+    border-color:#D6D6D6;
 }
 
 /* ----------------------------- TIERED PRICING */
@@ -269,12 +307,15 @@ ul#reviews-list li {
 div.block-compare ol li,
 div.block-compare div.actions,
 div.block-cart ol li,
-div.block-cart div.actions {
+div.block-cart div.actions,
+div.block-wishlist ol li,
+div.block-wishlist div.actions {
     border-color: #ccc;
 }
 
 div.block-compare ol li img.photo,
-div.block-cart ol li img.photo {
+div.block-cart ol li img.photo,
+div.block-wishlist ol li img.photo {
     border-color: #e8e8e8;
 }
 
@@ -291,12 +332,28 @@ div.block-cart p.block-subtitle {
 
 /* ----------------------------- VIEWED PRODUCTS */
 
-div.block-viewed ol li,
-div.block-viewed ol li:last-child {
+div.block-viewed ol li {
     border-color: #ccc;
 }
 
 div.block-viewed ol li img.photo {
+    border-color: #e8e8e8;
+}
+
+/* ----------------------------- RECENTLY ORDERED PRODUCTS */
+
+div.block-reorder ol li {
+    border-color:#ccc;
+}
+
+/* ----------------------------- RECENTLY COMPARED PRODUCTS */
+
+div.block-compared ol li,
+div.block-compared ol li:last-child {
+    border-color: #ccc;
+}
+
+div.block-compared ol li img.photo {
     border-color: #e8e8e8;
 }
 
@@ -325,6 +382,7 @@ aside#product-tags {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);
 }
 
+div.box-tags .tags li a,
 aside#product-tags ul li a {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat;
     border-color: #e8e8e8; /* Light grey */
@@ -337,6 +395,8 @@ aside#product-tags ul li a {
     color: #333;
 }
 
+div.box-tags .tags li a:hover,
+div.box-tags .tags li a:active,
 aside#product-tags ul li a:hover,
 aside#product-tags ul li a:active {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat; /* White */
@@ -349,47 +409,52 @@ aside#product-tags ul li a:active {
     color: #cf5100; /* orange */
 }
 
+div.box-tags .tags li a span,
 aside#product-tags ul li a span {
     color: #767676;
+}
+
+div.box-tags .hproduct img.photo {
+    border-color: #e8e8e8;    
 }
 
 /* ----------------------------- CART PAGE */
 
 /* Cart contents table */
 
-table#cart {
+table.data-table {
     background: #fff;
     border-color: #ccc;
 }
 
-table#cart thead {
+table.data-table thead {
     background: #e8e8e8; /* Light grey */
 }
 
-table#cart thead tr th,
-table#cart tfoot tr td,
-ol#checkout-steps li table#cart tfoot tr td {
+table.data-table thead tr th,
+table.data-table tfoot tr td,
+ol#checkoutSteps li table#checkout-review-table tfoot tr td {
     border-color: #e8e8e8;
 }
 
-table#cart tr,
-table#cart tbody tr td {
+table.data-table tr,
+table.data-table tbody tr td {
     border-color: #e8e8e8; /* Light grey */
 }
 
-table#cart tbody tr:nth-child(2n) td {
+table.data-table tbody tr:nth-child(2n) td {
     border-color: #e8e8e8;
 }
 
-table#cart tr:nth-child(2n) {
+table.data-table tr:nth-child(2n) {
     background: #f4f4f4; /* Off white */
 }
 
-table#cart tfoot tr:nth-child(2n) {
+table.data-table tfoot tr:nth-child(2n) {
     background: none;
 }
 
-table#cart tbody tr td.product-image img {
+table.data-table tbody tr td.product-image img {
     border-color: #e8e8e8;
 }
 
@@ -428,33 +493,35 @@ aside.totals ul {
 
 /* ----------------------------- CHECKOUT */
 
-ol#checkout-steps {
+ol#checkoutSteps {
     background: #f4f4f4;
     border-color: #ccc;
 }
 
-ol#checkout-steps li {
+ol#checkoutSteps li {
     border-color: #ccc;
 }
 
-ol#checkout-steps li h2 {
+ol#checkoutSteps li h2 {
     background: #e8e8e8;
 }
 
-ol#checkout-steps li h2 em.step-number {
+ol#checkoutSteps li h2 em.step-number {
     background: #313131;
     color: #fff;
 }
 
-ol#checkout-steps li section form fieldset,
-ol#checkout-steps li section form div#checkout-shipping-method-load {
+ol#checkoutSteps li section form fieldset,
+ol#checkoutSteps li section form div#checkout-shipping-method-load {
     border-color: #e8e8e8;
 }
 
-ol#checkout-steps li section form input[type="text"], 
-ol#checkout-steps li section form input.text,
-div.account div.col-main form input[type="text"],
-div.account div.col-main form input.text {
+ol#checkoutSteps li section form input[type="text"], 
+ol#checkoutSteps li section form input.text,
+div.my-account form input[type="text"],
+div.my-account form input.text,
+#create-account input[type="text"],
+#create-account input.text {
     border-color: #ffb553;
 }
 
@@ -462,22 +529,23 @@ div.account div.col-main form input.text {
 
 form input.validation-failed,
 form select.validation-failed,
-ol#checkout-steps li section form input[type="text"].validation-failed, 
-ol#checkout-steps li section form input.validation-failed,
-div.account div.col-main form input[type="text"].validation-failed,
-div.account div.col-main form input.validation-failed,
-ol#checkout-steps li section form select.validation-failed {
-    border-color: #d31e0b;
+ol#checkoutSteps li section form input[type="text"].validation-failed, 
+ol#checkoutSteps li section form input.validation-failed,
+div.my-account form input[type="text"].validation-failed,
+div.my-account form input.validation-failed,
+ol#checkoutSteps li section form select.validation-failed {
+    border-color: #d31e0b !important;
 }
 
-ol#checkout-steps li section form p.validation-advice {
-    color: #bb1b09;
+ol#checkoutSteps li section form p.validation-advice,
+form .validation-advice {
+    color: #bb1b09 !important;
 }
 
-ol#checkout-steps li section form input[type="text"]:focus, 
-ol#checkout-steps li section form input.text:focus,
-div.account div.col-main form input[type="text"]:focus,
-div.account div.col-main form input.text:focus {
+ol#checkoutSteps li section form input[type="text"]:focus, 
+ol#checkoutSteps li section form input.text:focus,
+div.my-account form input[type="text"]:focus,
+div.my-account form input.text:focus {
     border-color: #eb6302; /* Orange */
 }
 
@@ -487,29 +555,30 @@ div.block-progress div.block-content ul li {
     border-color: #e8e8e8;
 }
 
-ol#checkout-steps li section div.col-1:nth-child(-n+1) {
+ol#checkoutSteps li section div.col-2 {
     border-color: #ccc;
 }
 
 /* ----------------------------- MY ACCOUNT */
 
-div.dashboard h1,
-div.dashboard div.box-account div.box-head h2 {
+div.my-account h1,
+div.my-account div.box-account div.box-head h2 {
     border-color: #ccc;
 }
 
-div.dashboard div.box-account {
+div.my-account div.box-account {
     border-color: #e8e8e8;
 }
 
-div.dashboard div.box-account div.box-title {
+div.my-account div.box-account div.box-title {
     border-color: #d6d6d6;
 }
 
 /* ----------------------------- MY ACCOUNT NAVIGATION SIDEBAR */
 
 div.block-account div.block-content ul li,
-div.account div.col-main form fieldset {
+div.my-account form fieldset,
+#create-account fieldset {
     border-color: #e8e8e8;
 }
 
@@ -521,6 +590,10 @@ section#promo {
     color: #fff;
     text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.9), /* Black */
                 0px 1px 1px rgba(255, 255, 255, 0.1); /* White */
+}
+
+section#promo input#newsletter-email-address {
+    border-color: #FFB553;
 }
 
 /* ----------------------------- FOOTER */

@@ -1,0 +1,56 @@
+<?php
+// {{license}}
+?>
+<?php
+/**
+ * @see Meanbee_Diy_Block_Admin_Design_Abstract
+ * @author Nicholas Jones
+ */
+?>
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="diy_form" enctype="multipart/form-data">
+    
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey() ?>" />
+    <input type="hidden" name="return_url" value="<?php echo $this->getUrl("*/*/*") ?>" />
+    
+    <input type="hidden" id="diy_publish" name="publish" value="0" />
+    
+    <div class="content-header skip-header" id="content_header">
+        <table cellspacing="0">
+            <tr>
+                <td><h3 id="content_header_text"><?php echo $this->__($this->getTitle()) ?></h3></td>
+                <td class="form-buttons">
+                    <button style="" onclick="" class="scalable back" type="button" id="diy_back"><span>Back</span></button>
+                    <button style="" onclick="$('diy_form').submit()" class="scalable save" type="button" id="diy_save"><span>Save</span></button>
+                    <button style="" onclick="$('diy_publish').value = 1; $('diy_form').submit()" class="scalable save" type="button" id="diy_save"><span>Save &amp; Publish</span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <?php echo $this->getChildHtml() ?>
+    
+</form>
+
+<script type="text/javascript" charset="utf-8">
+<!--
+$j(function () {
+    // Slider toggles
+    $j(".subgroup:first div.content").slideToggle('slow');
+    $j(".subgroup:first h3").toggleClass('open');
+
+
+    // Update the font controls with the currently selected font
+    var update_font_family = function (el) {
+        $j(el).css('font-family', $j(el).val());
+    }
+
+    $j('.control.font select').each(function (i) {
+        update_font_family($j(this));
+
+        $j(this).change(function () {
+            update_font_family($j(this));
+        });
+    });
+})
+-->
+</script>

@@ -7,15 +7,34 @@
         <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="340" height="340" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" /> 
     </a> 
 </div>
-
-<?php if (count($this->getGalleryImages()) > 0): ?>
-    <ul id="photo-list" class="no-javascript"> 
-    <?php foreach ($this->getGalleryImages() as $_image): ?>
-        <li> 
-            <a href="#" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"> 
-                <img class="photo" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(80); ?>" width="80" height="80" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /> 
-            </a> 
-        </li>
-    <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+<ul id="photo-list" class="no-javascript"> 
+    <li>
+        <a href="#" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"> 
+            <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="80" height="80" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" /> 
+        </a>
+    </li>
+    <?php if (count($this->getGalleryImages()) > 0): ?>
+        <?php foreach ($this->getGalleryImages() as $_image): ?>
+            <li> 
+                <a href="#" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"> 
+                    <img class="photo" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()) ?>" width="80" height="80" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /> 
+                </a> 
+            </li>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</ul>
+<script type="text/javascript"> 
+	$j(function() {
+        // Creating hoverscroll with fixed arrows
+		$j('#photo-list').hoverscroll({
+            fixedArrows: true
+        });
+        
+        // Starting the movement automatically at loading
+        // @param direction: right/bottom = 1, left/top = -1
+        // @param speed: Speed of the animation (scrollPosition += direction * speed)
+        var direction = 1,
+            speed = 3;
+        $j("#photo-list")[0].startMoving(direction, speed);
+	});
+</script>

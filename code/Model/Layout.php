@@ -37,9 +37,6 @@ class Meanbee_Diy_Model_Layout {
     }
     
     /**
-     * @TODO: Make sure we're getting everything from the layout file
-     * @TODO: Need to factor in the removes
-     *
      * @param string $name 
      * @return void
      * @author Nicholas Jones

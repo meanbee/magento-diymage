@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
+<!--
+// {{license}}
+-->
 <layout version="0.1.0">
     <default>
         <remove name="right.permanent.callout" />
         <remove name="left.permanent.callout" />
+        <remove name="left.newsletter" />
         <reference name="head">
             <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
             <action method="addItem"><type>skin_css</type><name>css/ie7.css</name><params/><if>IE 7</if></action>
@@ -11,7 +15,7 @@
             <action method="addCss"><stylesheet>css/fonts.css</stylesheet></action>
             <action method="addItem"><type>skin_css</type><name>css/ie7-fonts.css</name><params/><if>IE 7</if></action>
             
-            <action method="addItem"><type>skin_js</type><name>js/jquery-1.4.4.min.js</name><params/><if/></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery-1.6.4.min.js</name><params/><if/></action>
             
             <action method="addItem"><type>skin_js</type><name>js/selectivizr.js</name><params/><if><![CDATA[(gte IE 6)&(lte IE 8)]]></if></action>
             <action method="addItem"><type>skin_js</type><name>js/html5shiv.js</name><params/><if>lt IE 9</if></action>
@@ -19,25 +23,128 @@
             <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
         </reference>
         <reference name="root">
-            <block type="catalog/navigation" name="catalog.navigation" as="catalog.navigation" template="catalog/navigation/top.phtml" />
+            <block type="catalog/navigation" name="catalog.topnav" as="catalog.navigation" template="catalog/navigation/top.phtml" />
             <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
         </reference>
+        
         <reference name="header">
             <block type="page/html" name="minisearch" as="minisearch" template="catalogsearch/minisearch.phtml" />
-            <block type="page/html" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
+            <block type="checkout/cart_sidebar" name="minicart" as="minicart" template="checkout/cart/minicart.phtml" />
             <block type="page/html" name="customer.navigation" as="customer.navigation" template="page/html/customer.navigation.phtml" />
         </reference>
         <reference name="footer">
-            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
+            <block type="core/template" name="footer.promo" template="page/html/promo.phtml">
+                <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
+            </block>
         </reference>
     </default>
+
     <catalog_category_default>
-        <reference name="root">
-            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
-        </reference>
+        <update handle="page_three_columns" />
         <reference name="product_list">
-            <block type="catalog/product_list" name="product_list.grid" template="catalog/product/list/grid.phtml" />
-            <block type="catalog/product_list" name="product_list.list" template="catalog/product/list/list.phtml" />
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
         </reference>
     </catalog_category_default>
+
+    <catalog_category_layered>
+        <update handle="page_three_columns" />
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
+        </reference>
+        <reference name="product_list">
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+        </reference>
+    </catalog_category_layered>
+
+    <catalog_product_view>
+        <remove name="product.info.downloadable" />
+        
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
+            <action method="addItem"><type>skin_js</type><name>js/photo-scroll.js</name><params/><if /></action>
+            <action method="addItem"><type>skin_css</type><name>js/hoverscroll/jquery.hoverscroll.css</name><params/><if /></action>
+            <action method="addItem"><type>skin_js</type><name>js/hoverscroll/jquery.hoverscroll.js</name><params/><if /></action>
+            <action method="addItem"><type>skin_js</type><name>js/review-toggles.js</name><params/><if /></action>
+            <block type="core/template" name="facebook.meta" template="page/html/facebook.phtml" />
+        </reference>
+
+        <reference name="product.info">
+            <block type="catalog/product_view" name="product.social" as="social.links" template="catalog/product/view/social_links.phtml" />
+            <block type="core/template" name="product.info.other" as="other" template="review/product/view/other.phtml"/>
+            <block type="page/html_pager" name="product_review_list.toolbar" />
+            <block type="core/template" name="product_review_list.count" template="review/product/view/count.phtml" />
+            <block type="review/product_view_list" name="product.info.product_additional_data" as="product_additional_data" template="review/product/view/list.phtml">
+                <block type="review/form" name="product.review.form" as="review_form">
+                    <block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before" translate="label">
+                        <label>Review Form Fields Before</label>
+                        <action method="setMayBeInvisible"><value>1</value></action>
+                    </block>
+                </block>
+            </block>
+            <block type="tag/product_list" name="product_tag_list" as="product.tags" template="tag/list.phtml">
+                <block type="page/html_wrapper" name="product.tag.list.list.before" as="list_before" translate="label">
+                    <label>Tags List Before</label>
+                    <action method="setMayBeInvisible"><value>1</value></action>
+                </block>
+            </block>
+        </reference>
+
+        <reference name="product.info.additional">
+            <action method="unsetChild"><name>product_tag_list</name></action>
+        </reference>
+
+        <reference name="product.info.options.wrapper.bottom">
+            <action method="unsetChild"><name>product.clone_prices</name></action>
+        </reference>
+
+    </catalog_product_view>
+    
+    <catalogsearch_result_index>
+        <update handle="page_three_columns" />
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
+        </reference>
+    </catalogsearch_result_index>
+
+    <checkout_cart_index>
+        <remove name="minicart" />
+    </checkout_cart_index>
+    
+    <checkout_cart_configure>
+        <remove name="minicart" />
+    </checkout_cart_configure>
+
+    <checkout_onepage_index>
+        <remove name="minicart" />
+    </checkout_onepage_index>
+    
+    <checkout_multishipping>
+        <remove name="minicart" />
+    </checkout_multishipping>
+    
+    <checkout_onepage_success>
+        <remove name="cart_sidebar" />
+        <remove name="catalog.compare.sidebar" />
+        <remove name="minicart" />
+    </checkout_onepage_success>
+
+    <tag_product_list>
+        <update handle="page_three_columns" />
+        <reference name="search_result_list">
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+        </reference>
+    </tag_product_list>
+    
 </layout>

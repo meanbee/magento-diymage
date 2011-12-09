@@ -1,35 +1,41 @@
 <?php
-function generate_label($text, $field_name, $required, $block) {
-    return sprintf(
-        '<label%s for="%s">%s%s</label>',
-        ($required) ? ' class="required"' : '',
-        $block->getFieldName($field_name),
-        ($required) ? '<em class="required">*</em> ' : '',
-        $text
-    );
+if(!function_exists('generate_label')) {
+    function generate_label($text, $field_name, $required, $block) {
+        return sprintf(
+            '<label%s for="%s">%s%s</label>',
+            ($required) ? ' class="required"' : '',
+            $block->getFieldName($field_name),
+            ($required) ? '<em class="required">*</em>' : '',
+            $text
+        );
+    }   
 }
 
-function generate_input_text($title, $field_name, $required, $block) {
-    return sprintf(
-        '<input type="text" class="text%s" title="%s" value="%s" name="%s" id="%s" %s />',
-        ($required) ? ' required-entry' : '',
-        $title,
-        $block->htmlEscape($block->getObject()->getData($field_name)),
-        $block->getFieldName($field_name),
-        $block->getFieldId($field_name),
-        $block->getFieldParams()
-    );
+if(!function_exists('generate_input_text')) {
+    function generate_input_text($title, $field_name, $required, $block) {
+        return sprintf(
+            '<input type="text" class="text%s" title="%s" value="%s" name="%s" id="%s" %s />',
+            ($required) ? ' required-entry' : '',
+            $title,
+            $block->htmlEscape($block->getObject()->getData($field_name)),
+            $block->getFieldName($field_name),
+            $block->getFieldId($field_name),
+            $block->getFieldParams()
+        );
+    }
 }
 
-function generate_input_dropdown_start($title, $field_name, $required, $block) {
-    return sprintf(
-        '<select id="%s" name="%s" title="%s"%s%s>',
-        $block->getFieldId($field_name),
-        $block->getFieldName($field_name),
-        $title,
-        ($required) ? ' class="required-entry"' : '',
-        $block->getFieldParams()
-    );
+if(!function_exists('generate_input_dropdown_start')) {
+    function generate_input_dropdown_start($title, $field_name, $required, $block) {
+        return sprintf(
+            '<select id="%s" name="%s" title="%s"%s%s>',
+            $block->getFieldId($field_name),
+            $block->getFieldName($field_name),
+            $title,
+            ($required) ? ' class="required-entry"' : '',
+            $block->getFieldParams()
+        );
+    }
 }
 ?>
 

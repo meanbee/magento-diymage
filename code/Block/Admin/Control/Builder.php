@@ -1,9 +1,19 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Control_Abstract {
+    protected $_isCMSPage = false;
+    
     public function __construct() {
         parent::__construct();
         $this->setTemplate('diy/controls/builder.phtml');
+    }
+    
+    public function setIsCMSPage($value) {
+        $this->_isCMSPage = $value;
+    }
+    
+    public function isCMSPage() {
+        return $this->_isCMSPage;
     }
     
     /**
@@ -15,16 +25,19 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
      * @author Nicholas Jones
      */
     public function getLayoutReferenceJson($name) {
-        $template = Mage::registry('diy_current_template');
+        $template = $this->getCurrentHandle();
         $layout = Mage::getModel('diy/layout')->addHandle($template);
         
         // @TODO: Split the template on _, and add all of the handle varients.
         $template_parts = explode("_", $template);
         
-        if ($template_parts > 1) {
+        if (count($template_parts) > 0) {
             $layout->addHandle($template_parts[0]);
-            $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
-            $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
+            
+            if (count($template_parts) > 1) {
+                $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
+                $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
+            }
         }
         
         $reference = $layout->getReference($name);
@@ -77,58 +90,31 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     }
     
     /**
-     * Create the JSON properly for outputting
-     *
-     * @return string (json)
-     * @author Nicholas Jones
-     */
-    public function getValue() {
-        return Zend_Json::encode($this->_getValueAsArray());
-    }
-    
-    /**
      * @return array
      * @author Nicholas Jones
      */
     protected function _getValueAsArray() {
-        $keys = array('remove', 'sort_order');
-        
-        $value_json = parent::getValue();
-        $value = Zend_Json::decode($value_json);
-        
-        foreach ($value as $group => $data) {
-            foreach ($keys as $key) {
-                if ($value[$group][$key] == "[]") {
-                    $value[$group][$key] = array();
-                } else {
-                    $value[$group][$key] = Zend_Json::decode($value[$group][$key]);
-                }
-            }
-        }
+        $value = Zend_Json::decode($this->getValue());
         
         return $value;
+    }
+
+    public function getValue() {
+        if ($this->isCMSPage()) {
+            return Mage::registry('cms_page')->getData('diy_builder');
+        } else {
+            return parent::getValue();
+        }
     }
     
     /**
      * Get a map of block names to nice names, in json form
      *
-     * @TODO: Move this out to XML file
-     *
      * @return string (json)
      * @author Nicholas Jones
      */
     public function getBlocksNiceNameMap() {
-        return Zend_Json::encode(array(
-            "right.poll"                => "Poll",
-            "left.newsletter"           => "Newsletter Signup",
-            "currency"                  => "Currency Select",
-            "tags_popular"              => "Popular Tags",
-            "catalog.leftnav"           => "Category Navigation",
-            "cart_sidebar"              => "Mini Cart",
-            "catalog.compare.sidebar"   => "Compare Products",
-            "paypal.partner.right.logo" => "Paypal Logo",
-            "wishlist_sidebar"          => "Wishlist"
-        ));
+        return Zend_Json::encode(Mage::getModel('diy/xml')->getBlockNamemap());
     }
     
     /**
@@ -148,5 +134,23 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         }
         
         return Zend_Json::encode($blocks);
+    }
+    
+    public function getFieldName() {
+        if ($this->isCMSPage()) {
+            return "diy_builder";
+        } else {
+            return parent::getFieldName();
+        }
+    }
+    
+    protected function getCurrentHandle() {
+        if ($this->isCMSPage()) {
+            $template = "cms_page_view";
+        } else {
+            $template = Mage::registry('diy_current_template');
+        }
+        
+        return $template;
     }
 }

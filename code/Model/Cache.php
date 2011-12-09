@@ -1,18 +1,56 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Cache {
-    
-    private $__tags = array("meanbee/diy");
-    private $__key_license = "license";
-    
-    protected function _getCache() {
-        return Mage::getSingleton('core/cache');
+    const TAG = 'diymage';
+
+    /**
+     * License status key.
+     */
+    const KEY_LSTATUS  = 'lstatus';
+
+    /**
+     * Notifications feed.
+     */
+    const KEY_NOTIFY   = 'notifications';
+
+    /**
+     * Block name map, loaded from XML.
+     */
+    const KEY_BLOCKMAP = 'block_name_map';
+
+    /**
+     * Field groups, loaded from XML.
+     */
+    const KEY_GROUPS   = 'xml_groups';
+
+    /**
+     * @return bool
+     */
+    public function isActive() {
+        return Mage::app()->useCache(self::TAG);
     }
-    
-    public function getLicenseStatus() {
-        return $this->_getCache()->load($this->__key_license);
+
+    /**
+     * Save a value in the cache, and tag it as being related to DIY Mage.
+     *
+     * @param $key
+     * @param $value
+     * @param bool $lifetime
+     * @return Meanbee_Diy_Model_Cache
+     */
+    public function save($key, $value, $lifetime = false) {
+        Mage::app()->saveCache($value, $key, array(self::TAG), $lifetime);
+        return $this;
     }
-    
-    public function setLicenseStatus($status, $expiry = 604800 /* 60*60*24*7 */) {
-        $this->_getCache()->save($status, $this->__key_license, $this->__tags, $expiry);
+
+    /**
+     * Load a value from cache.
+     *
+     * @param $key
+     * @return mixed
+     */
+    public function load($key) {
+        $result = Mage::app()->loadCache($key);
+        return $result;
     }
 }

@@ -53,7 +53,7 @@ p.note {
 /* Default Magento block styles */
 
 div.block div.block-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -61,9 +61,18 @@ div.block div.block-title h2 {
     font-size: 14px;
 }
 
+div.block div.block-title strong span {
+    font-weight:bold;
+}
+
 div.block div.block-content p.block-subtitle {
     font-size: 14px;
     font-weight: bold;
+}
+
+div.block div.block-content h2.current-price,
+div.block div.block-content h2.original-price {
+    font-size:13px;
 }
 
 /* ----------------------------- HEADERS */
@@ -92,11 +101,26 @@ section.cart h2 {
     font-size: 14px;
 }
 
+section.cart a {
+    text-decoration:none;
+}
+
+section.cart h2 a {
+    font-weight:bold;
+}
+
 /* ----------------------------- NAVIGATION */
 
 nav ul a {
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+/* ----------------------------- MESSAGES */
+
+ul.messages span {
+    font-size:12px;
+    font-weight:bold;
 }
 
 /* ----------------------------- FORMS */
@@ -147,23 +171,53 @@ ul.products-grid li h2 a {
     font-weight: bold;
 }
 
-ul.products-grid li h3.current-price {
+p.price-from span.price,
+p.price-to span.price,
+p.minimal-price span.price,
+h2.current-price {
     font-size: 18px;
 }
 
-h2.current-price {
-    font-size: 20px;
+p.price-from span.price,
+p.price-to span.price,
+p.minimal-price span.price,
+h2.current-price span {
+    font-weight:bold; 
+}
+
+ul.products-grid li p.price-from,
+ul.products-grid li p.price-to,
+ul.products-grid li p.minimal-price,
+ul.products-grid li a.minimal-price-link,
+ul.products-grid li h2.current-price, 
+ul.products-grid li h3.original-price,
+ul.products-grid li h3.original-price + h2.current-price {
+    text-align: right;
 }
 
 /* Product options */
 
+table.grouped-items-table {
+    text-align:left;
+}
+
+section.hproduct table.grouped-items-table p.out-of-stock {
+    font-size:12px;
+    font-weight:normal;
+}
+
+table.grouped-items-table span.price {
+    font-size:14px;
+}
+
+table.grouped-items-table tbody td,
 aside.product-options dl dt label {
     font-weight: bold;
 }
 
 /* Out of stock */
 
-section.hproduct div.out-of-stock p.out-of-stock {
+section.hproduct p.out-of-stock {
     font-weight: bold;
 }
 
@@ -177,14 +231,6 @@ ul.list-products li h2 {
 
 ul.list-products li ul.add-to-links li {
     text-align: left;
-}
-
-ul.list-products li h3.current-price, 
-ul.list-products li h4.original-price,
-ul.list-products li h3.current-price, 
-ul.list-products li h4.original-price,
-ul.products-grid li h4.original-price + h3.current-price {
-    text-align: right;
 }
 
 /* ----------------------------- ADDITIONAL INFORMATION */
@@ -207,10 +253,12 @@ aside#product-tags h3 {
     font-weight: normal;
 }
 
+div.box-tags .tags li,
 aside#product-tags ul li {
     line-height: 17px;
 }
 
+div.box-tags .tags li a,
 aside#product-tags ul li a {
     text-decoration: none;
 }
@@ -223,35 +271,42 @@ aside#product-tags p.note {
     text-align: right;
 }
 
+table#my-tags-table button,
+table#my-tags-table ul.add-to-links {
+    text-align: center;
+}
+
 /* ----------------------------- CART PAGE */
 
 /* Cart contents table */
 
-table#cart tr td {
+table.data-table tr td {
     vertical-align: top;
 }
 
-table#cart thead {
+table.data-table thead {
     text-align: left;
 }
 
-table#cart tbody tr td.product-name h3 {
+table.data-table td.product-name h3,
+table.data-table td h3.product-name {
     font-size: 13px;
+    font-weight: normal;
 }
 
-ol#checkout-steps li table#cart tfoot tr.subtotal td,
-ol#checkout-steps li table#cart tfoot tr.grand-total td,
-ol#checkout-steps li table#cart tfoot tr.shipping td {
+table#cart tbody tr .cart-price span { 
+    font-weight:bold;
+}
+
+table.data-table tfoot tr td {
     text-align: right;
 }
 
-ol#checkout-steps li table#cart tfoot tr.subtotal td.price,
-ol#checkout-steps li table#cart tfoot tr.grand-total td.price,
-ol#checkout-steps li table#cart tfoot tr.shipping td.price {
+table.data-table tfoot tr td + td {
     text-align: left;
 }
 
-ol#checkout-steps li table#cart tfoot tr.grand-total td.price {
+table.data-table tfoot tr.last td + td span.price{
     font-weight: bold;
 }
 
@@ -259,6 +314,12 @@ ol#checkout-steps li table#cart tfoot tr.grand-total td.price {
 
 div.block-related ol li.hproduct div.actions ul li {
     text-align: center;
+}
+
+aside#related-products h2.current-price,
+aside#related-products h3.original-price {
+    font-weight: normal;
+    font-size: 13px;
 }
 
 /* Shipping form */
@@ -269,13 +330,31 @@ aside.shipping form label {
 
 /* Totals */
 
-aside.totals h3 {
+aside.totals td {
     font-size: 14px;
+    font-weight: bold;
 }
 
-aside.totals h2,
-aside.totals h3,
-aside.totals h4,
+aside.totals th + td,
+aside.totals td + td {
+    text-align: right;
+    white-space: nowrap;
+}
+
+aside.totals th {
+    text-align: left;
+    font-weight: bold;
+}
+
+aside.totals tbody span.price {
+    font-size: 18px;
+}
+
+aside.totals tfoot span.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 aside.totals ul li {
     text-align: right;
 }
@@ -286,39 +365,78 @@ div.block-cart div.summary h3 {
     font-weight: normal;
 }
 
+div.block-cart strong span.price {
+    font-weight: bold;
+}
+
 div.notes dl dt {
     font-weight: bold;
 }
 
 /* ----------------------------- CHECKOUT */
 
-ol#checkout-steps li h2 em.step-number {
+ol#checkoutSteps li h2 em.step-number {
     font-style: normal;
     font-weight: bold;
     text-align: center;
 }
 
-ol#checkout-steps li h3 {
+ol#checkoutSteps li h3 {
     font-size: 14px;
 }
 
-ol#checkout-steps li h4 {
+ol#checkoutSteps li h4 {
     font-weight: bold;
 }
 
-ol#checkout-steps li div.buttons-set p.required,
-div.account div.col-main form div.buttons-set p.required {
-    text-align: right;
-}
-
-ol#checkout-steps li#checkout-method div.buttons-set p.required {
+ol#checkoutSteps li div.buttons-set p.required {
     text-align: left;
 }
 
-form#shipping-method-form div dl dt {
+div.my-account form div.buttons-set p.required,
+#create-account div.buttons-set p.required {
+    text-align: right;
+}
+
+ol#checkoutSteps li#checkout-method div.buttons-set p.required {
+    text-align: left;
+}
+
+form#co-shipping-method-form div dl dt {
     font-size: 14px;
     font-weight: bold;
 }
+
+ol#checkoutSteps span.please-wait {
+    float: right;
+}
+
+/* ----------------------------- MULTI-SHIPPING CHECKOUT */
+
+.checkout-progress li.active span {
+    font-weight: bold;
+}
+
+.multiple-checkout .grand-total {
+    font-weight: bold;
+    text-align: right;
+}
+
+.multiple-checkout .grand-total span.price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ----------------------------- ACCOUNT */
+
+#my-orders-table td.a-center { 
+    text-align: center;
+}
+
+#order-info-tabs li.current { 
+    font-weight: bold; 
+}
+
 
 /* ----------------------------- FOOTER */
 

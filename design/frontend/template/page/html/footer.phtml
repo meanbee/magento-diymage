@@ -1,64 +1,39 @@
 <!-- FOOTER --> 
 <footer> 
-    <!-- PROMO BAR --> 
-    <section id="promo"> 
-        <!-- PROMO TEXT --> 
-        <div class="block block-promo-text"> 
-            <div class="block-title"> 
-                This is some promo text!12341
-            </div> 
-        </div> 
-        <!-- END PROMO TEXT --> 
-        <?php echo $this->getChildHtml("newsletter") ?>
-    </section> 
-    <!-- END PROMO BAR --> 
+    <?php echo $this->getChildHtml('footer.promo') ?>
     <section> 
-        <h2>Information</h2> 
-        <ul class="links"> 
-            <li><a href="#">About Us</a></li> 
-            <li><a href="#">Contact Us</a></li> 
-            <li><a href="#">Terms &amp; Conditions</a></li> 
-            <li><a href="#">Shipping &amp; Returns</a></li> 
-            <li><a href="#">Customer Services</a></li> 
-            <li><a href="#">Stores and Locations</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_1')->toHtml(); ?>
     </section> 
     <section> 
-        <h2>Popular Categories</h2> 
-        <ul class="links"> 
-            <li><a href="#">Category Two</a></li> 
-            <li><a href="#">Catergory Type A</a></li> 
-            <li><a href="#">Cat One</a></li> 
-            <li><a href="#">Category Type D</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_2')->toHtml(); ?>
     </section> 
     <section> 
-        <h2>Another List</h2> 
-        <ul class="links"> 
-            <li><a href="#">List item one</a></li> 
-            <li><a href="#">List item two</a></li> 
-            <li><a href="#">List item three</a></li> 
-            <li><a href="#">List item four</a></li> 
-            <li><a href="#">List item five</a></li> 
-            <li><a href="#">List item six</a></li> 
-        </ul> 
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_3')->toHtml(); ?>
     </section> 
     <section class="vcard"> 
         <h2>Stay Updated</h2> 
         <ul> 
-            <li><a href="#" class="url facebook">Facebook</a></li> 
-            <li><a href="#" class="url twitter">Twitter</a></li> 
-            <li><a href="#" class="url youtube">Youtube</a></li> 
-            <li><a href="#" class="url rss">RSS</a></li> 
+            <?php if ($facebook = Mage::getStoreConfig('diy/theme/facebook')): ?>
+                <li><a href="http://www.facebook.com/<?php echo $this->escapeHtml($facebook) ?>" class="url facebook">Facebook</a></li>
+            <?php endif ?>
+            <?php if ($twitter = Mage::getStoreConfig('diy/theme/twitter')): ?>
+                <li><a href="http://www.twitter.com/<?php echo $this->escapeHtml($twitter) ?>" class="url twitter">Twitter</a></li>
+            <?php endif ?>
+            <?php if ($youtube = Mage::getStoreConfig('diy/theme/youtube')): ?>
+                <li><a href="http://www.youtube.com/<?php echo $this->escapeHtml($youtube) ?>" class="url youtube">Youtube</a></li>
+            <?php endif ?>
+            <?php if (Mage::getStoreConfig('rss/config/active')): ?>
+                <li><a href="<?php echo $this->getUrl('rss') ?>" class="url rss">RSS</a></li> 
+            <?php endif ?>
         </ul> 
         <address> 
             <ul> 
-                <li class="fn n">Company Name</li> 
-                <li class="street-address">1 Address Road</li> 
-                <li class="locality">City</li> 
-                <li class="postal-code">PO5 7CO</li> 
-                <li class="country-name">Country</li> 
-                <li class="tel">01234 567890</li> 
+                <li class="fn n"><?php echo Mage::getStoreConfig('general/store_information/name') ?></li> 
+                <?php $address = explode("\n", Mage::getStoreConfig('general/store_information/address')) ?>
+                <?php foreach ($address as $line): ?>
+                    <li class="adr"><?php echo $line ?></li>
+                <?php endforeach ?>
+                <li class="tel"><?php echo Mage::getStoreConfig('general/store_information/phone') ?></li> 
             </ul> 
         </address> 
     </section> 

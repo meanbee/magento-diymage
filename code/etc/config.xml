@@ -5,21 +5,29 @@
 <config>
     <modules>
         <Meanbee_Diy>
-            <version>0.1.0</version>
+            <version>0.5.0</version>
         </Meanbee_Diy>
     </modules>
     <global>
         <models>
             <diy>
                 <class>Meanbee_Diy_Model</class>
-                <resourceModel>diy_eav</resourceModel>
+                <!-- @TODO Work out how to make use of the db-agnostic resource -->
+                <resourceModel>diy_mysql4</resourceModel>
             </diy>
-            <diy_eav>
-                <class>Meanbee_Diy_Model_Eav</class>               
-                <entities>  
-                    <data><table>diy_eav</table></data>  
+            <diy_resource>
+                <class>Meanbee_Diy_Model_Resource</class>
+                <deprecatedNode>diy_mysql4</deprecatedNode>
+                <entities>
+                    <data><table>diy_data</table></data>
                 </entities>
-            </diy_eav>
+            </diy_resource>
+            <diy_mysql4>
+                <class>Meanbee_Diy_Model_Mysql4</class>
+                <entities>
+                    <data><table>diy_data</table></data>
+                </entities>
+            </diy_mysql4>
         </models>
         <blocks>
             <diy>
@@ -41,7 +49,7 @@
                 <connection>
                     <use>core_read</use>
                 </connection>
-            </diy_read>   
+            </diy_read>
             <diy_setup>
                 <setup>
                     <module>Meanbee_Diy</module>
@@ -62,9 +70,75 @@
                     </diy_layouts>
                 </observers>
             </controller_action_layout_generate_xml_before>
+            <adminhtml_cms_page_edit_tab_design_prepare_form>
+                <observers>
+                    <diy_add_builder_to_page_design>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>adminCmsPageEdit</method>
+                    </diy_add_builder_to_page_design>
+                </observers>
+            </adminhtml_cms_page_edit_tab_design_prepare_form>
+            <controller_action_layout_render_before>
+                <observers>
+                    <diy_add_devtools>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>addDevTools</method>
+                    </diy_add_devtools>
+                </observers>
+            </controller_action_layout_render_before>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <diy_add_devtools_block_before>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>addHint</method>
+                    </diy_add_devtools_block_before>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <diy_add_devtools_block_after>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>addHint</method>
+                    </diy_add_devtools_block_after>
+                </observers>
+            </core_block_abstract_to_html_after>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <diy_check_writable_paths>
+                        <type>singleton</type>
+                        <class>diy/observer</class>
+                        <method>checkWritablePaths</method>
+                    </diy_check_writable_paths>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
         </events>
+        <cache>
+            <types>
+                 <diy_config module="diy" translate="label description">
+                    <label>DIY Mage</label>
+                    <description>Anything that DIY Mage thinks might be worth caching.</description>
+                    <tags>diymage</tags>
+                 </diy_config>
+            </types>
+        </cache>
     </global>
-    
+
+    <frontend>
+        <translate>
+            <modules>
+                <diy>
+                    <files>
+                        <default>Meanbee_Diy.csv</default>
+                    </files>
+                </diy>
+            </modules>
+        </translate>
+    </frontend>
+
     <admin>
         <routers>
             <diy>
@@ -76,7 +150,7 @@
             </diy>
         </routers>
     </admin>
-    
+
     <adminhtml>
         <layout>
             <updates>
@@ -85,5 +159,24 @@
                 </diy>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <diy>
+                    <files>
+                        <default>Meanbee_Diy.csv</default>
+                    </files>
+                </diy>
+            </modules>
+        </translate>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <diy_check_notification_feed>
+                        <class>diy/observer</class>
+                        <method>checkNotificationFeed</method>
+                    </diy_check_notification_feed>
+                </observers>
+            </controller_action_predispatch>
+        </events>
     </adminhtml>
 </config>

@@ -1,3 +1,5 @@
-if ($j('#diy_license').length > 0) {
-    $j('html').addClass("diy_settings");
-}
+document.observe('dom:loaded', function () {
+	if ($$('#diy_license').length > 0) {
+	    $$('html')[0].addClassName("diy_settings");
+	}
+});

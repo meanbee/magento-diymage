@@ -33,15 +33,13 @@
 ?>
 <?php $_product = $this->getProduct() ?>
 <?php $_associatedProducts = $this->getAssociatedProducts() ?>
-<?php if($_product->isSaleable() && count($_associatedProducts)): ?>
-	<p class="availability in-stock"><?php echo $this->__('Availability:') ?> <span class="value-title" title="In stock"><?php echo $this->__('In stock') ?></span></p>
-<?php else: ?>
-    <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?> <span class="value-title" title="Out of stock"><?php echo $this->__('Out of stock') ?></span></p>
+<?php if(!$_product->isSaleable() || !count($_associatedProducts)): ?>
+    <p class="out-of-stock"><?php echo $this->__('Sorry, this product is currently out of stock.') ?></p>
 <?php endif; ?>
 <table class="data-table grouped-items-table" id="super-product-table">
     <col />
     <col />
-    <col width="1" />
+    <col />
     <thead>
         <tr>
             <th><?php echo $this->__('Product Name') ?></th>
@@ -64,9 +62,9 @@
             <?php if ($_product->isSaleable()): ?>
             <td class="a-center">
             <?php if ($_item->isSaleable()) : ?>
-                <input type="text" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+                <input type="text" name="super_group[<?php echo $_item->getId() ?>]" maxlength="12" value="<?php echo $_item->getQty()*1 ?>" title="<?php echo $this->__('Qty') ?>" class="text qty" />
             <?php else: ?>
-                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                <p class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></p>
             <?php endif; ?>
             </td>
             <?php endif; ?>
