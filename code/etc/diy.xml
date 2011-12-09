@@ -147,27 +147,27 @@
             <global>
                 <body>
                     <label>Body Settings</label>
-                    <help>Set width and background styling of the page body.</help>
+                    <help>Choose the background styling of the body of the page.  Upload an image, or simply choose a colour.</help>
                     <sort_order>10</sort_order>
                 </body>
                 <fonts>
                     <label>Font Settings</label>
-                    <help>Choose the font, colour and size settings used around the site.</help>
+                    <help>Choose the default font, colour and size settings to be used around the site.  Also defines link colours.</help>
                     <sort_order>20</sort_order>
                 </fonts>
                 <inputs>
-                    <label>Input Settings</label>
-                    <help>Tweak the feel of input and button elements.</help>
+                    <label>Text Input Settings</label>
+                    <help>Tweak the feel of text input boxes.</help>
                     <sort_order>30</sort_order>
                 </inputs>
                 <buttons>
                     <label>Button Settings</label>
-                    <help>Alter the colour of buttons used around the site.</help>
+                    <help>Alter the colour and size of buttons used around the site.</help>
                     <sort_order>40</sort_order>
                 </buttons>
                 <header>
                     <label>Header Settings</label>
-                    <help>Customise header specific styles</help>
+                    <help>Customise header specific styles.  This includes styling of header specific elements such as the mini-cart, and also enabling and displaying links.</help>
                     <sort_order>50</sort_order>                    
                 </header>
                 <navigation>
@@ -182,7 +182,7 @@
                 </breadcrumbs>
                 <sidebar>
                     <label>Sidebar Settings</label>
-                    <help>Change format of blocks in the sidebar, e.g. background colours, borders etc.</help>
+                    <help>Change format of blocks in the sidebar, e.g. background colours, links, borders etc.</help>
                     <sort_order>80</sort_order>
                 </sidebar>
                 <footer>
