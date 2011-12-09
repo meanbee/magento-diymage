@@ -166,6 +166,7 @@ select#layout {
 
 #builder_canvas {
     width: 100%;
+    min-width: 900px;
     float: left;
 }
 
@@ -208,7 +209,7 @@ div.diy.control.builder .col3 #builder_0 {
 }
 
 div.diy.control.builder .col3 #builder_1 {
-    width: 50%;
+    width: 40%;
 }
 
 div.diy.control.builder .col3 #builder_2 {
