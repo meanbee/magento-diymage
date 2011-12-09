@@ -94,15 +94,17 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
      * @author Nicholas Jones
      */
     protected function _getValueAsArray() {
-        if ($this->isCMSPage()) {
-            $value_json = Mage::registry('cms_page')->getData('diy_builder');
-        } else {
-            $value_json = parent::getValue();
-        }
-        
-        $value = Zend_Json::decode($value_json);
+        $value = Zend_Json::decode($this->getValue());
         
         return $value;
+    }
+
+    public function getValue() {
+        if ($this->isCMSPage()) {
+            return Mage::registry('cms_page')->getData('diy_builder');
+        } else {
+            return parent::getValue();
+        }
     }
     
     /**
@@ -136,7 +138,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     
     public function getFieldName() {
         if ($this->isCMSPage()) {
-            return "builder";
+            return "diy_builder";
         } else {
             return parent::getFieldName();
         }

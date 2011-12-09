@@ -539,8 +539,15 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     protected function _getUpdateXML($ident) {
         if ($this->_isCMSPage($ident)) {
             $page_id = Mage::app()->getRequest()->getParam('page_id');
-            $page = Mage::getModel('cms/page')->load($page_id);
-            $this->_log->debug("Observing a CMS page (#{$page_id})");
+
+            if (!$page_id) {
+                $page_key = Mage::getStoreConfig('web/default/cms_home_page');
+                $page = Mage::getModel("cms/page")->getCollection()->addFieldToFilter('identifier', $page_key)->getFirstItem();
+            } else {
+                $page = Mage::getModel('cms/page')->load($page_id);
+            }
+
+            $this->_log->debug("Observing a CMS page (#" . $page->getId() . ")");
             
             $update_xml = $page->getData('diy_builder');
         } else {
@@ -555,6 +562,6 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $ident = array($ident);
         }
         
-        return in_array("cms_page_view", $ident);
+        return in_array("cms", $ident);
     }
 }
