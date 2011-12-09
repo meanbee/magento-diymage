@@ -1,5 +1,5 @@
 <_>
-   <form_key>1QQe7wnlfloczBI1</form_key>
+   <form_key>M3hU7qYIhRRYzPOR</form_key>
    <name>Meanbee_Diy</name>
    <channel>community</channel>
    <version_ids>
@@ -10,7 +10,7 @@
    <description>Magento Theme Framework.</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>0.4.0</version>
+   <version>0.5.0</version>
    <stability>beta</stability>
    <notes>DIY Mage Beta.</notes>
    <authors>
@@ -44,7 +44,7 @@
             <max/>
          </max>
          <files>
-            <files>   </files>
+            <files>    </files>
          </files>
       </package>
       <extension>
