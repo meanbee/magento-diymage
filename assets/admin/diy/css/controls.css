@@ -224,13 +224,13 @@ div.diy.control.builder .col2-left #builder_0 {
 }
 
 div.diy.control.builder .col2-left #builder_1 {
-    width: 72%;
+    width: 61%;
     margin-right: 0;
 }
 
 /* 2 column right builder */
 div.diy.control.builder .col2-right #builder_0 {
-    width: 72%;
+    width: 61%;
     margin-left: 0;
 }
 
@@ -241,7 +241,7 @@ div.diy.control.builder .col2-right #builder_1 {
 
 /* 1 column builder */
 div.diy.control.builder .col1 #builder_0 {
-    width: 98%;
+    width: 87%;
     margin: 10px 0;
 }
 
