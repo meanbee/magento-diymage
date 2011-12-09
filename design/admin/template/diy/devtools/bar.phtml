@@ -45,17 +45,18 @@ $j(function () {
         e.preventDefault();
         
         var content = $j(CONTENT_SELECTOR);
-        
-        $j(CONTENT_SELECTOR).toggle('fast');
-        $j(CLOSE_SELECTOR).html(getLabel(content.css('display')));
-    
-        var cookie = content.css('display');
-        Mage.Cookies.set('diymage_devbar', cookie);
+
+        $j(CONTENT_SELECTOR).toggle('fast', function () {
+            $j(CLOSE_SELECTOR).html(getLabel(content.css('display')));
+
+            // Save the state
+            var cookie = content.css('display');
+            Mage.Cookies.set('diymage_devbar', cookie);
+        });
     });
     
     function getLabel(style_value) {
         if (style_value == 'block') {
-            // Currently being shown
             return 'Hide Developer Bar';
         } else {
             return 'Show Developer Bar';
