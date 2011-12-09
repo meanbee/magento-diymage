@@ -156,12 +156,17 @@ div.diy.control.unit span.unit {
 }
 
 /** BUILDER SPECIFIC STYLES ****************************************/
+select#layout {
+    width: 170px;
+}
+
 #group_builder {
     width: 95%;
 }
 
 #builder_canvas {
     width: 100%;
+    float: left;
 }
 
 #group_builder div.diy.control label {
