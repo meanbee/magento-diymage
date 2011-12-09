@@ -47,7 +47,7 @@ class Meanbee_Diy_Model_Config {
      * @return string
      */
     public function getVersion() {
-        return Mage::getConfig()->getNode('modules/Meanbee_Diy/version');
+        return Mage::getConfig()->getNode('modules/Meanbee_Diy/version')->__toString();
     }
 
     /**
