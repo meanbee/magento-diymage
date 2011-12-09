@@ -5,6 +5,7 @@
 <layout>
     <default>
         <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>diy/css/styles.css</name><params /></action>        </reference>
             <action method="addItem"><type>skin_css</type><name>diy/css/styles.css</name><params /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/jquery/jquery-1.6.4.min.js</name><if /></action>
             <action method="addItem"><type>skin_js</type><name>diy/js/diymage.js</name><if /></action>

@@ -1,0 +1,173 @@
+<?php
+$hex = array(
+    'green'  => '#CAFEB8',
+    'red'    => '#FF8A8A',
+    'orange' => '#FFB60B'
+);
+
+$cache_types = Mage::helper('core')->getCacheTypes();
+
+$cache_total_count = 0;
+$cache_enabled_count = 0;
+foreach ($cache_types as $type => $label) {
+    $cache_total_count++;
+    if (Mage::app()->useCache($type)) {
+        $cache_enabled_count++;
+    }
+}
+
+if ($cache_enabled_count == 0) {
+    $colour = $hex['green'];
+} else if ($cache_enabled_count == $cache_total_count) {
+    $colour = $hex['red'];
+} else {
+    $colour = $hex['orange'];
+}
+
+$template_hints_enabled = Mage::getStoreConfigFlag('dev/debug/template_hints');
+$logging_enabled = Mage::getStoreConfigFlag('dev/log/active');
+$symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
+?>
+<script type="text/javascript" charset="utf-8">
+$j(function () {
+    var CONTENT_SELECTOR = '#diymage_devtools_bar .diymage_devtools_content';
+    var CLOSE_SELECTOR = '#diymage_devtools_bar .close';
+    
+    var cookie = Mage.Cookies.get('diymage_devbar');
+    
+    if (cookie) {
+        $j(CONTENT_SELECTOR).css('display', cookie);
+    }
+    
+    $j(CLOSE_SELECTOR).html(getLabel(cookie));
+    
+    $j(CLOSE_SELECTOR).click(function (e) {
+        e.preventDefault();
+        
+        var content = $j(CONTENT_SELECTOR);
+        
+        $j(CONTENT_SELECTOR).toggle('fast');
+        $j(CLOSE_SELECTOR).html(getLabel(content.css('display')));
+    
+        var cookie = content.css('display');
+        Mage.Cookies.set('diymage_devbar', cookie);
+    });
+    
+    function getLabel(style_value) {
+        if (style_value == 'block') {
+            // Currently being shown
+            return 'Hide Developer Bar';
+        } else {
+            return 'Show Developer Bar';
+        }
+    }
+});
+</script>
+<div id="diymage_devtools_bar">
+    <a href="" class="close">Loading&hellip;</a>
+    <div class="diymage_devtools_content">
+        <div class="handles">
+            <ul>
+                <?php if ($_product = Mage::registry('current_product')): ?>
+                    <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>">Edit Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
+                <?php endif ?>
+                <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
+            </ul>
+        </div>
+        <div class="system">
+            <ul>
+                <li>
+                    <strong>Cache:</strong> <span style="color: <?php echo $colour ?>; font-weight: bold;"><?php echo sprintf("%d/%d enabled", $cache_enabled_count, $cache_total_count)?></span> (<a href="<?php echo $this->getUrl('diy/devtools/cacheDisable') ?>">Disable All</a>, <a href="<?php echo $this->getUrl('diy/devtools/cacheRefresh') ?>">Force Refresh</a>)</li>
+                <li>
+                    <strong>Indexes:</strong> <span style="color: <?php echo $hex['green'] ?>; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
+                </li>
+                <li>
+                    <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                </li>
+            </ul>
+        </div>
+        <div class="system">
+            <ul>
+                <li>
+                    <strong>Logging:</strong> <span style="color: <?php echo ($logging_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($logging_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/loggingToggle') ?>"><?php echo ($logging_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                </li>
+                <li>
+                    <strong>Template Symlinks:</strong> <span style="color: <?php echo ($symlinks_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($symlinks_enabled) ? 'Allowed' : 'Disallowed'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/symlinkToggle') ?>"><?php echo ($symlinks_enabled) ? 'Disallow' : 'Allow'; ?></a>)
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style type="text/css" media="screen">
+<!--
+#diymage_devtools_bar {
+    color: white;
+    background: #333;
+    opacity: 0.98;
+    
+    border-top:1px solid #999;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    font-family: arial !important;
+    
+    z-index: 99990;
+}
+
+#diymage_devtools_bar .diymage_devtools_content {
+    padding: 10px;
+}
+
+#diymage_devtools_bar .handles {
+    float: left;
+    text-align: left;
+    width: 60%;
+}
+
+#diymage_devtools_bar .handles span {
+    background: #ccc;
+    border: 1px solid #bbb;
+    padding: 1px;
+    font-family: courier;
+    color: black;
+}
+
+#diymage_devtools_bar .system {
+    float: right;
+    text-align: left;
+    width: 20%;
+}
+
+#diymage_devtools_bar a {
+    color: #1E7EC8;
+}
+
+#diymage_devtools_bar li {
+    background-image: none;
+}
+
+#diymage_devtools_bar .close {
+    position: absolute;
+    top: -35px;
+    right: 21px;
+    padding: 5px 15px;
+    display: block;
+    color: white;
+    background: #333;
+    
+    text-decoration: none;
+    
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+-->
+</style>

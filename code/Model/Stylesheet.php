@@ -1,6 +1,11 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Model_Stylesheet {
+    /**
+     * Write our the stylesheet.
+     *
+     * @param $store_id
+     */
     public function publish($store_id) {
         $block = Mage::getBlockSingleton('diy/stylesheet');
         $this->_writeToFile($block->toHtml(), $store_id);
