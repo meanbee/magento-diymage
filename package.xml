@@ -1,18 +1,17 @@
 <_>
-   <form_key>M3hU7qYIhRRYzPOR</form_key>
+   <form_key>tONE8sDxJCViCw2B</form_key>
    <name>Meanbee_Diy</name>
    <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
-      <version_ids>1</version_ids>
    </version_ids>
-   <summary>Magento Theme Framework.</summary>
-   <description>Magento Theme Framework.</description>
+   <summary>DIY Mage: Magento Theme Framework.</summary>
+   <description>DIY Mage: Magento Theme Framework.</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
    <version>0.5.0</version>
    <stability>beta</stability>
-   <notes>DIY Mage Beta.</notes>
+   <notes>DIY Mage: Magento Theme Framework.</notes>
    <authors>
       <name>
          <name>Nick Jones</name>
@@ -44,7 +43,7 @@
             <max/>
          </max>
          <files>
-            <files>    </files>
+            <files>     </files>
          </files>
       </package>
       <extension>
