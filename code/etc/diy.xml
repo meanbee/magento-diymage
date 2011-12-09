@@ -138,6 +138,14 @@
                 <id><![CDATA[customer_form_login]]></id>
                 <name><![CDATA[Customer Login Form]]></name>
             </customer_form_login>
+            <cms_heading>
+                <id><![CDATA[page_content_heading]]></id>
+                <name><![CDATA[Page Heading]]></name>
+            </cms_heading>
+            <cms_wrapper>
+                <id><![CDATA[cms.wrapper]]></id>
+                <name><![CDATA[Content Wrapper]]></name>
+            </cms_wrapper>
         </block_namemap>
         <!-- END TRANSLATIONS --> 
         
