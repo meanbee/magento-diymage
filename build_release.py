@@ -2,7 +2,7 @@
 
 import os
 
-def addLicense(inputFilePath):
+def addLicense(inputFilePath, outputFilePath):
     headerFile = open("HEADER_LICENSE.txt")
     inputFile = open(inputFilePath)
     outputFile = open("tmp","a") 
@@ -17,12 +17,15 @@ def addLicense(inputFilePath):
             outputFile.write(line) 
     outputFile.close()
 
-    os.rename("tmp", inputFilePath)
+    os.rename("tmp", outputFilePath)
     print
 
 
 # iterate over all the files and add licenses to them
 for root, dirs, files in os.walk(os.getcwd()):
-    for f in files:
-        if f != "build_release.py":
-            addLicense(os.path.join(root, f))
+    dirPath = root.replace(os.getcwd() + '', 'release') 
+    os.makedirs(dirPath)
+    if ".git" not in dirPath:
+        for f in files:
+            if f != "build_release.py":
+                addLicense(os.path.join(root, f), '/'.join([dirPath, f]))
