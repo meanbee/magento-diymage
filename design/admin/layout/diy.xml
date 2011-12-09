@@ -32,10 +32,16 @@
         </reference>
     </diy_js>
 
-    <diy_design>
-        <update handle="diy_js" />
+    <diy_helplink>
         <reference name="content">
             <block type="diy/admin_helplink" name="diy.admin.helplink" as="helplink" template="diy/helplink.phtml" />
+        </reference>
+    </diy_helplink>
+
+    <diy_design>
+        <update handle="diy_js" />
+        <update handle="diy_helplink" />
+        <reference name="content">
             <block type="diy/admin_switcher" after="-" name="diy.admin.design.partial.store_switcher" as="switcher" template="diy/design/partial/store_switcher.phtml" />
         </reference>
     </diy_design>
