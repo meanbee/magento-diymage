@@ -210,7 +210,10 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
             );
         }
     }
-    
+
+    /**
+     * Load the layout, then render.
+     */
     private function __render() {
         $this->loadLayout()->_setActiveMenu('diy')->renderLayout();
     }
