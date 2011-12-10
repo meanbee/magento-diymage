@@ -39,7 +39,7 @@ class Meanbee_Diy_Model_Xml {
      */
     public function getGroups() {
         $cache = Mage::getSingleton('diy/cache');
-        $cache_key = $cache::KEY_GROUPS;
+        $cache_key = Meanbee_Diy_Model_Cache::KEY_GROUPS;
         
         if ($result = $cache->load($cache_key)) {
             return $result;
@@ -67,7 +67,7 @@ class Meanbee_Diy_Model_Xml {
      */
     public function getBlockNamemap() {
         $cache = Mage::getSingleton('diy/cache');
-        $cache_key = $cache::KEY_BLOCKMAP;
+        $cache_key = Meanbee_Diy_Model_Cache::KEY_BLOCKMAP;
         
         if ($result = $cache->load($cache_key)) {
             return $result;
