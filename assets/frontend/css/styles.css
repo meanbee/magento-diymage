@@ -2599,6 +2599,11 @@ footer div.block-subscribe form button {
 }
 
 /* ----------------------------- FOOTER */
+.block-currency select {
+    width: 100%;
+}
+
+/* ----------------------------- FOOTER */
 
 footer {
     clear: both;
