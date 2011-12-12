@@ -72,7 +72,7 @@ $j(function () {
         <div class="handles">
             <ul>
                 <?php if ($_product = Mage::registry('current_product')): ?>
-                    <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>">Edit Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
+                    <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>" target="_blank">Edit Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
                 <?php endif ?>
                 <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
             </ul>
