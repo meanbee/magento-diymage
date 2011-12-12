@@ -45,6 +45,28 @@ div.block div.block-content h2.original-price {
     padding-bottom:0;
 }
 
+/* ----------------------------- GLOBAL NOTICES */
+.demo-notice {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    background: #D75F07;
+    padding: 5px 10px 6px 10px;
+    color: white;
+    line-height: 1em;
+    text-align: center;
+}
+
+.noscript {
+    clear: both;
+    padding-top: 15px;
+}
+
+.noscript-inner {
+    padding: 5px;
+    background-color:#ECEDED; color:#111;
+}
+
 /* ----------------------------- MAGENTO STANDARD COLUMN LAYOUT */
 
 /* Standard column styles */

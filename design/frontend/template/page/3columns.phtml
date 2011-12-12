@@ -12,6 +12,7 @@ $diy = Mage::helper('diy/theme');
     <?php echo $this->getChildHtml('catalog.navigation') ?>
     <!-- LAYOUT (3 COLUMN) -->
     <div class="main-container col3-layout">
+        <?php echo $this->getChildHtml('global_notices') ?>
         <div class="main">
             <?php echo $this->getChildHtml('breadcrumbs') ?>
             <div class="col-left sidebar">
