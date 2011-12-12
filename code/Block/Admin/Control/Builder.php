@@ -27,8 +27,7 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
     public function getLayoutReferenceJson($name) {
         $template = $this->getCurrentHandle();
         $layout = Mage::getModel('diy/layout')->addHandle($template);
-        
-        // @TODO: Split the template on _, and add all of the handle varients.
+
         $template_parts = explode("_", $template);
         
         if (count($template_parts) > 0) {
@@ -38,6 +37,11 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
                 $layout->addHandle($template_parts[0] . "_" . $template_parts[1]);
                 $layout->addHandle($template_parts[0] . "_" . $template_parts[1] . "_default");
             }
+        }
+
+        // Force the homepage layout handle too.
+        if ($this->isCMSPage()) {
+            $layout->addHandle('cms_index_index');
         }
         
         $reference = $layout->getReference($name);
