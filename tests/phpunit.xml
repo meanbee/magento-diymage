@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    tests
+ * @package     selenium
+ * @subpackage  runner
+ * @author      Magento Core Team <core@magentocommerce.com>
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<phpunit bootstrap="bootstrap.php"
+    colors="false"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnFailure="false"
+    syntaxCheck="false"
+    verbose="true"
+    strict="false">
+    <testsuites>
+        <testsuite name="All Tests">
+            <directory suffix="Test.php">functional</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="coverage-html" target="./tmp/report" charset="UTF-8"
+         yui="true" highlight="false"
+         lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-xml" target="./tmp/coverage.xml"/>
+        <log type="graphviz" target="./tmp/logfile.dot"/>
+        <log type="json" target="./tmp/logfile.json"/>
+        <log type="metrics-xml" target="./tmp/metrics.xml"/>
+        <log type="plain" target="./tmp/logfile.txt"/>
+        <log type="pmd-xml" target="./tmp/pmd.xml" cpdMinLines="5" cpdMinMatches="70"/>
+        <log type="tap" target="./tmp/logfile.tap"/>
+        <log type="junit" target="./tmp/logfile.xml" logIncompleteSkipped="false"/>
+        <log type="test-xml" target="./tmp/logfile.xml" logIncompleteSkipped="false"/>
+        <log type="testdox-html" target="./tmp/testdox.html"/>
+        <log type="testdox-text" target="./tmp/testdox.txt"/>
+    </logging>
+</phpunit>
