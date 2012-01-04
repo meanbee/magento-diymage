@@ -10,6 +10,10 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
     public function __construct() {
         $this->_log = Mage::getModel('diy/log');
     }
+
+    protected function _showHints() {
+        return Mage::getSingleton("diy/config")->isBlockHintsEnabled();
+    }
     
     /**
      * @param Varien_Event_Observer $observer 
@@ -22,7 +26,7 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
         $event_handle = $event->getName();
         $block = $event->getBlock();
 
-        if (!($block instanceof Mage_Core_Block_Template)) {
+        if (!($block instanceof Mage_Core_Block_Template) || !$this->_showHints()) {
             return;
         }
 
