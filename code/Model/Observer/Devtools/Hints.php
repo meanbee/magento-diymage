@@ -21,10 +21,14 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
         
         $event_handle = $event->getName();
         $block = $event->getBlock();
-        
+
+        if (!($block instanceof Mage_Core_Block_Template)) {
+            return;
+        }
+
         $type = $block->getType();
-        $template = $block->getTemplate();
-        
+        $template = $block->getTemplateFile();
+
         switch ($event_handle) {
             case self::EVENT_BEFORE:
                 $guid = $this->_generateGuid();
@@ -33,14 +37,28 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
                 if ($parent = $block->getParentBlock()) {
                     $json_data['parent'] = $parent->getData();
                 }
-                
-                echo "<script type='text/javascript'>";
-                echo "<!--\n";
-                echo "if (typeof(diyhint) == 'undefined') { diyhint = {}; }; diyhint['$guid'] = " . json_encode($json_data) . ";";
-                echo "\n-->";
-                echo "</script>";
-                echo "<div class='diy-hint' rel='$guid'>";
-                // echo "<div class='shade'></div>";
+
+                $node = $block->getNode();
+
+                $fileName = $template;
+
+                $attr_name = $node['name'];
+                $attr_as = $node['as'];
+
+                $info_string = sprintf(
+                    "%s%s%s",
+                    $fileName,
+                    ($attr_name) ? ' / name: ' . $attr_name : '',
+                    ($attr_as) ? ' / as: ' . $attr_as : ''
+                );
+
+                echo <<<HTML
+<div style="position:relative; border:1px dotted red; margin:6px 2px; padding:18px 2px 2px 2px; zoom:1;">
+<div style="position:absolute; left:0; top:0; padding:2px 5px; background:red; color:white; font:normal 11px Arial;
+text-align:left !important; z-index:998;" onmouseover="this.style.zIndex='999'"
+onmouseout="this.style.zIndex='998'" title="{$fileName}">{$info_string}</div>
+HTML;
+
                 break;
             case self::EVENT_AFTER:
                 echo "</div>";

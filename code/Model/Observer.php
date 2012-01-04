@@ -48,8 +48,8 @@ class Meanbee_Diy_Model_Observer {
      * @author Nicholas Jones
      */
     public function addHint(Varien_Event_Observer $observer) {
-//        $handle = Mage::getModel('diy/observer_devtools_hints');
-//        $handle->observe($observer);
+        $handle = Mage::getModel('diy/observer_devtools_hints');
+        $handle->observe($observer);
     }
 
     /**
