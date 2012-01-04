@@ -1,19 +1,21 @@
 <?php
 class Meanbee_Diy_Model_Core_Layout extends Mage_Core_Model_Layout {
-    protected function _generateBlock($node, $parent)
-    {
+    protected function _generateBlock($node, $parent) {
         if (!empty($node['class'])) {
             $className = (string)$node['class'];
         } else {
             $className = (string)$node['type'];
         }
 
-        $blockName = (string)$node['name'];
-        $_profilerKey = 'BLOCK: '.$blockName;
+        $blockName    = (string)$node['name'];
+        $_profilerKey = 'BLOCK: ' . $blockName;
         Varien_Profiler::start($_profilerKey);
 
         $block = $this->addBlock($className, $blockName);
 
+        /**
+         * This is all we need to do, is pass the XML element information to the block that we're creating.
+         */
         $block->setNode($node);
 
         if (!$block) {
@@ -32,13 +34,13 @@ class Meanbee_Diy_Model_Core_Layout extends Mage_Core_Model_Layout {
             $alias = isset($node['as']) ? (string)$node['as'] : '';
             if (isset($node['before'])) {
                 $sibling = (string)$node['before'];
-                if ('-'===$sibling) {
+                if ('-' === $sibling) {
                     $sibling = '';
                 }
                 $parentBlock->insert($block, $sibling, false, $alias);
             } elseif (isset($node['after'])) {
                 $sibling = (string)$node['after'];
-                if ('-'===$sibling) {
+                if ('-' === $sibling) {
                     $sibling = '';
                 }
                 $parentBlock->insert($block, $sibling, true, $alias);
