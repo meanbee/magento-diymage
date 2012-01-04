@@ -24,7 +24,7 @@ if ($cache_enabled_count == 0) {
     $colour = $hex['orange'];
 }
 
-$template_hints_enabled = Mage::getStoreConfigFlag('dev/debug/template_hints');
+$template_hints_enabled = Mage::getStoreConfigFlag('diy/general/developer_hints');
 $logging_enabled = Mage::getStoreConfigFlag('dev/log/active');
 $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 ?>
@@ -85,7 +85,7 @@ $j(function () {
                     <strong>Indexes:</strong> <span style="color: <?php echo $hex['green'] ?>; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
                 </li>
                 <li>
-                    <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                    <strong>&Uuml;ber Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
                 </li>
             </ul>
         </div>

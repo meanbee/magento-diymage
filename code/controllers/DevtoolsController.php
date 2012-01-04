@@ -48,9 +48,11 @@ class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
         );
         
         foreach ($config_paths as $path) {
-            $this->_toggleConfig($path);
+            $this->_setConfig($path, false);
         }
-        
+
+        $this->_toggleConfig('diy/general/developer_hints');
+
         $this->_redirectReferer();
     }
 
@@ -80,5 +82,9 @@ class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
         $new_value = !$old_value;
         
         Mage::getSingleton('core/config')->saveConfig($path, $new_value);
+    }
+
+    protected function _setConfig($path, $value) {
+        Mage::getSingleton('core/config')->saveConfig($path, $value);
     }
 }
