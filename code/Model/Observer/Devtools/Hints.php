@@ -10,6 +10,10 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
     public function __construct() {
         $this->_log = Mage::getModel('diy/log');
     }
+
+    protected function _showHints() {
+        return Mage::getSingleton("diy/config")->isBlockHintsEnabled();
+    }
     
     /**
      * @param Varien_Event_Observer $observer 
@@ -21,44 +25,46 @@ class Meanbee_Diy_Model_Observer_Devtools_Hints implements Meanbee_Diy_Model_Obs
         
         $event_handle = $event->getName();
         $block = $event->getBlock();
-        
-        $type = $block->getType();
-        $template = $block->getTemplate();
-        
+
+        if (!($block instanceof Mage_Core_Block_Template) || !$this->_showHints()) {
+            return;
+        }
+
+        $class_xml_type = $block->getType();
+        $class_php_name = get_class($block);
+
+        $template = $block->getTemplateFile();
+
         switch ($event_handle) {
             case self::EVENT_BEFORE:
-                $guid = $this->_generateGuid();
-                $json_data = $block->getData();
-                
-                if ($parent = $block->getParentBlock()) {
-                    $json_data['parent'] = $parent->getData();
-                }
-                
-                echo "<script type='text/javascript'>";
-                echo "<!--\n";
-                echo "if (typeof(diyhint) == 'undefined') { diyhint = {}; }; diyhint['$guid'] = " . json_encode($json_data) . ";";
-                echo "\n-->";
-                echo "</script>";
-                echo "<div class='diy-hint' rel='$guid'>";
-                // echo "<div class='shade'></div>";
+                $node = $block->getNode();
+
+                $fileName = $template;
+
+                $attr_name = $node['name'];
+                $attr_as = $node['as'];
+
+                $info_string = sprintf(
+                    "%s%s%s",
+                    $fileName,
+                    ($attr_name) ? ' / name: ' . $attr_name : '',
+                    ($attr_as) ? ' / as: ' . $attr_as : ''
+                );
+
+                echo <<<HTML
+<div class="diymage-hint">
+    <div class="diymage-hint-template" onmouseover="this.style.zIndex='999'"onmouseout="this.style.zIndex='998'" title="{$template}">
+        {$info_string}
+    </div>
+    <div class="diymage-hint-class" onmouseover="this.style.zIndex='999'" onmouseout="this.style.zIndex='998'"title="{$class_php_name}">
+        {$class_php_name} ({$class_xml_type})
+    </div>
+HTML;
                 break;
             case self::EVENT_AFTER:
+                //
                 echo "</div>";
                 break;
         }
-    }
-
-    /**
-     * @see http://phpgoogle.blogspot.com/2007/08/four-ways-to-generate-unique-id-by-php.html
-     */
-    protected function _generateGuid() {
-        $s = strtoupper(md5(uniqid(rand(),true))); 
-        $guidText = 
-            substr($s,0,8) . '_' . 
-            substr($s,8,4) . '_' . 
-            substr($s,12,4). '_' . 
-            substr($s,16,4). '_' . 
-            substr($s,20); 
-        return $guidText;
     }
 }
