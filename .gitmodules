@@ -1,3 +1,0 @@
-[submodule "vendor/mtaf"]
-	path = vendor/mtaf
-	url = git@github.com:punkstar/mtaf.git
