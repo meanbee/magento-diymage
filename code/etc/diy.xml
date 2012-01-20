@@ -1193,28 +1193,12 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
-                <pager_border>
-                    <label>Show Sorter/Pager Border?</label>
-                    <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
-                    <value>1</value>
-                    <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>10</sort_order>
-                    <group>pager</group>
-                </pager_border>
-                <pager_border_colour>
-                    <label>Pager Border Colour</label>
-                    <help>Border colour of pager</help>
-                    <value>CCCCCC</value>
-                    <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>20</sort_order>
-                    <group>pager</group>
-                </pager_border_colour>
                 <pager_background>
                     <label>Pager Background Colour</label>
                     <help>This control decides what the background colour of the pager toolbar containing the page numbers, etc, should be.</help>
                     <value>EEEEEE</value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>30</sort_order>
+                    <sort_order>10</sort_order>
                     <group>pager</group>
                 </pager_background>
                 <pager_text_colour>
@@ -1222,9 +1206,33 @@
                     <help>Choose the colour of text in the toolbar</help>
                     <value></value>
                     <input_control>diy/admin_control_colour</input_control>
-                    <sort_order>40</sort_order>
+                    <sort_order>20</sort_order>
                     <group>pager</group>
                 </pager_text_colour>
+                <pager_border>
+                    <label>Show Sorter/Pager Border?</label>
+                    <help>This control decides whether to draw, or not to draw, the border around the pager toolbar containing the page numbers, etc.</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>pager</group>
+                </pager_border>
+                <pager_border_colour>
+                    <label>Pager Border Colour</label>
+                    <help>Border colour of pager</help>
+                    <value>CCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>pager</group>
+                </pager_border_colour>
+                <pager_divider_colour>
+                    <label>Pager Divider Colour</label>
+                    <help>Colour of divider between rows of pager</help>
+                    <value>CCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>pager</group>
+                </pager_divider_colour>
                 
                 <product_border_style>
                     <label>Products Border Style</label>
