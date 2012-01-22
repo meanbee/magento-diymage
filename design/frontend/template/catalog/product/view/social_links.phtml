@@ -1,28 +1,38 @@
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
-<!-- SOCIAL LINKS --> 
-<ul class="social-buttons">
-    <!-- Facebook -->
-    <li class="facebook">
-        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like>
-    </li>
+<?php $d = Mage::helper('diy') ?>
+<?php $store = Mage::app()->getStore()->getStoreId(); ?>
+<?php $show_facebook = $d->getValue("catalog_product_view", "show_facebook", $store) ?>
+<?php $show_twitter = $d->getValue("catalog_product_view", "show_twitter", $store) ?>
+<?php $show_google = $d->getValue("catalog_product_view", "show_google", $store) ?>
+<?php $show_email = $d->getValue("catalog_product_view", "show_email", $store) ?>
 
-    <!-- Twitter -->
-    <li class="twitter">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<?php echo Mage::getStoreConfig('diy/theme/twitter') ?>"><?php echo $this->__('Tweet') ?></a>
-        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </li>
+<?php if ($show_facebook || $show_twitter || $show_google || $show_email): ?>
+    <ul class="social-buttons">
+        <?php if ($show_facebook): ?>
+            <li class="facebook">
+                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                <fb:like href="#" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like>
+            </li>
+        <?php endif; ?>
+        
+        <?php if ($show_twitter): ?>
+            <li class="twitter">
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<?php echo Mage::getStoreConfig('diy/theme/twitter') ?>"><?php echo $this->__('Tweet') ?></a>
+                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            </li>
+        <?php endif; ?>
 
-    <!-- Google Plus -->
-    <li class="google">
-        <div class="g-plusone" data-size="tall" data-annotation="none" data-href="<?php echo $_product->getProductUrl() ?>"></div>
-    </li>
+        <?php if ($show_google): ?>
+            <li class="google">
+                <div class="g-plusone" data-size="tall" data-annotation="none" data-href="<?php echo $_product->getProductUrl() ?>"></div>
+            </li>
+        <?php endif; ?>
 
-    <?php if ($this->canEmailToFriend()): ?>
-    <li class="email">
-        <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
-    </li>
-    <?php endif; ?>
-</ul>
-<!-- END SOCIAL LINKS -->
+        <?php if ($this->canEmailToFriend() && $show_email): ?>
+        <li class="email">
+            <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
+        </li>
+        <?php endif; ?>
+    </ul>
+<?php endif; ?>

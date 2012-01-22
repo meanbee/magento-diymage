@@ -233,6 +233,11 @@
                     <help>General settings for changing the information that is available on the product page in addition to a few style settings</help>
                     <sort_order>20</sort_order>
                 </product_info>
+                <share>
+                    <label>Share Settings</label>
+                    <help>Choose which share options to provide</help>
+                    <sort_order>30</sort_order>
+                </share>
             </catalog_product_view>
             <!-- END PRODUCT PAGE SETTINGS -->
             
@@ -1351,6 +1356,41 @@
                     <sort_order>40</sort_order>
                     <group>product_info</group>
                 </product_addto_compare>
+                
+                <show_facebook>
+                    <label>Share to Facebook?</label>
+                    <help>Enable sharing to Facebook</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>10</sort_order>
+                    <group>share</group>
+                </show_facebook>
+                <show_twitter>
+                    <label>Share to Twitter?</label>
+                    <help>Enable sharing to Twitter</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>20</sort_order>
+                    <group>share</group>
+                </show_twitter>
+                <show_google>
+                    <label>Share to Google+?</label>
+                    <help>Enable sharing to Google+</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>share</group>
+                </show_google>
+                <show_email>
+                    <label>Share via Email?</label>
+                    <help>Enable sharing via email?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>share</group>
+                </show_email>
+                
+                
                 <show_reviews>
                     <label>Show Reviews?</label>
                     <help>Should the review summary and details be shown?</help>
