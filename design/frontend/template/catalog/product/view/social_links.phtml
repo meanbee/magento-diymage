@@ -15,7 +15,9 @@
     </li>
 
     <!-- Google Plus -->
-    <div class="g-plusone" data-size="tall" data-annotation="none" data-href="<?php echo $_product->getProductUrl() ?>"></div>
+    <li class="google">
+        <div class="g-plusone" data-size="tall" data-annotation="none" data-href="<?php echo $_product->getProductUrl() ?>"></div>
+    </li>
 
     <?php if ($this->canEmailToFriend()): ?>
     <li class="email">
