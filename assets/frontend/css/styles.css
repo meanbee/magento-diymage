@@ -782,6 +782,10 @@ ul.products-grid li div.price-box + div.actions {
     margin-top:100px;
 }
 
+.no-reviews ul.products-grid li div.price-box + div.actions {
+    margin-top:40px;
+}
+
 ul.products-grid li div.actions button {
     margin: 0 auto;
     width: 60%;

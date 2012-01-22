@@ -43,7 +43,7 @@
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-<div class="category-products">
+<div class="category-products<?php if(!$show_reviews) { echo " no-reviews"; } ?>">
     <?php echo $this->getToolbarHtml() ?>
     <?php if($this->getMode() != 'grid'): ?>
         <!-- PRODUCTS LIST -->
