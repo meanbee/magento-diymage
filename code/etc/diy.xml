@@ -228,6 +228,11 @@
                     <help>Complete control over the layout of your page.  Add static blocks and manually remove pre-inserted blocks.  Re-arrange the order of blocks through the simple drag and drop interface.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</help>
                     <sort_order>10</sort_order>
                 </builder>
+                <product_info>
+                    <label>Product Info Settings</label>
+                    <help>General settings for changing the information that is available on the product page in addition to a few style settings</help>
+                    <sort_order>20</sort_order>
+                </product_info>
             </catalog_product_view>
             <!-- END PRODUCT PAGE SETTINGS -->
             
@@ -1313,12 +1318,29 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                
+                <product_options_background_colour>
+                    <label>Product Options Background Colour</label>
+                    <help>Background Colour of Product Options block</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>product_info</group>
+                </product_options_background_colour>
+                <product_options_border_colour>
+                    <label>Product Options Border Colour</label>
+                    <help>Border Colour of Product Options block</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>product_info</group>                  
+                </product_options_border_colour>
                 <show_reviews>
                     <label>Show Reviews?</label>
                     <help>Should the review summary and details be shown?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>20</sort_order>
+                    <sort_order>30</sort_order>
                     <group></group>
                 </show_reviews>
                 <show_upsells>

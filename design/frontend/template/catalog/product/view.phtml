@@ -22,7 +22,7 @@
         </h1> 
         <?php echo $this->getPriceHtml($_product) ?>
         
-        <?php // Show review summary only if reviews are turned on in DIY Mage?>
+        <?php // Show review summary only if reviews are turned on in DIY Mage ?>
         <?php if (Mage::helper('diy')->getValue("catalog_product_view", "show_reviews") > 0): ?>
             <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
         <?php endif;?>
