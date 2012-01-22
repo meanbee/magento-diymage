@@ -929,6 +929,10 @@ ul.list-products li h3.original-price {
 
 /* ----------------------------- SINGLE PRODUCT DISPLAY */
 
+div.col1-layout form#product_addtocart_form {
+    width: 100%;
+}
+
 /* Product image display */
 
 section.hproduct div#photos {
