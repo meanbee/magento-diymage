@@ -35,6 +35,8 @@
     $d = Mage::helper('diy');
     $store = Mage::app()->getStore()->getStoreId();
     $show_reviews = $d->getValue("catalog_category_view", "product_show_reviews", $store);
+    $show_price = $d->getValue("catalog_category_view", "product_show_price", $store);
+    $show_button = $d->getValue("catalog_category_view", "product_show_addtocart", $store);
     $show_wishlist = $d->getValue("catalog_category_view", "product_show_wishlist", $store);
     $show_compare = $d->getValue("catalog_category_view", "product_show_compare", $store);
 
@@ -43,7 +45,7 @@
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-<div class="category-products<?php if(!$show_reviews) { echo " no-reviews"; } ?>">
+<div class="category-products<?php if(!$show_reviews) { echo " no-reviews"; } ?><?php if(!$show_price) { echo " no-price"; } ?>">
     <?php echo $this->getToolbarHtml() ?>
     <?php if($this->getMode() != 'grid'): ?>
         <!-- PRODUCTS LIST -->
@@ -62,22 +64,27 @@
                     <div class="description quick"> 
                         <p><?php echo nl2br($_product->getShortDescription()) ?></p> 
                     </div> 
-                    <?php echo $this->getPriceHtml($_product, true) ?>
-                    <div class="actions<?php if(!$_product->isSaleable()) { echo " out-of-stock"; } ?>"> 
-                        <?php if($_product->isSaleable()): ?>
-                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
-                        <?php else: ?>
-                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                        <?php endif; ?>
-                         <ul class="add-to-links">
-                             <?php if ($this->helper('wishlist')->isAllow() && $show_wishlist): ?>
-                                 <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li> 
-                             <?php endif ?>
-                             <?php if ($_compareUrl = $this->getAddToCompareUrl($_product) && $show_compare): ?>
-                                 <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare')?></a></li>
-                             <?php endif ?>
-                        </ul>
-                    </div> 
+                    <?php if ($show_price): ?>
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php endif; ?>
+                    
+                    <?php if ($show_button): ?>
+                        <div class="actions<?php if(!$_product->isSaleable()) { echo " out-of-stock"; } ?>"> 
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                             <ul class="add-to-links">
+                                 <?php if ($this->helper('wishlist')->isAllow() && $show_wishlist): ?>
+                                     <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li> 
+                                 <?php endif ?>
+                                 <?php if ($_compareUrl = $this->getAddToCompareUrl($_product) && $show_compare): ?>
+                                     <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare')?></a></li>
+                                 <?php endif ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
                 </li>
             <?php endforeach ?>
         </ul>
@@ -98,16 +105,24 @@
                     <h2 class="product-name item"> 
                         <a href="<?php echo $_product->getProductUrl() ?>" class="fn" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a> 
                     </h2> 
+                    
+                    <?php if ($show_price): ?>
                     <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php endif; ?>
+                    
                     <?php if($_product->getRatingSummary() && $show_reviews): ?>
                     <?php echo $this->getReviewsSummaryHtml($_product) ?>
                     <?php endif; ?>
-                    <div class="actions<?php if(!$_product->isSaleable()) { echo " out-of-stock"; } ?>"> 
-                        <?php if($_product->isSaleable()): ?>
-                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
-                        <?php else: ?>
-                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                        
+                    <div class="actions<?php if(!$_product->isSaleable()) { echo " out-of-stock"; } ?>">
+                        <?php if ($show_button): ?>
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
                         <?php endif; ?>
+                        
                         <ul class="add-to-links">
                             <?php if ($this->helper('wishlist')->isAllow() && $show_wishlist): ?>
                                 <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li> 

@@ -1259,12 +1259,28 @@
                     <sort_order>30</sort_order>
                     <group>products</group>                   
                 </product_show_reviews>
+                <product_show_price>
+                    <label>Show Price?</label>
+                    <help>Should the price be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>products</group>
+                </product_show_price>
+                <product_show_addtocart>
+                    <label>Show "Add to Cart" button?</label>
+                    <help>Should the "Add to Cart" button be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>50</sort_order>
+                    <group>products</group>
+                </product_show_addtocart>
                 <product_show_wishlist>
                     <label>Show "Add to Wishlist"?</label>
                     <help>Should the "Add to Wishlist" link be displayed?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>40</sort_order>
+                    <sort_order>60</sort_order>
                     <group>products</group>
                 </product_show_wishlist>
                 <product_show_compare>
@@ -1272,7 +1288,7 @@
                     <help>Should the "Add to Compare" link be displayed?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>50</sort_order>
+                    <sort_order>70</sort_order>
                     <group>products</group>
                 </product_show_compare>
             </catalog_category_view>
