@@ -27,16 +27,20 @@
 
 <?php $_product = $this->getProduct(); ?>
 <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
+<?php $d = Mage::helper('diy'); ?>
+<?php $store = Mage::app()->getStore()->getStoreId(); ?>
+<?php $show_wishlist = $d->getValue("catalog_product_view", "product_addto_wishlist", $store) ?>
+<?php $show_compare = $d->getValue("catalog_product_view", "product_addto_compare", $store) ?>
 
 <div class="actions">
     <ul class="add-to-links">
-    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <?php if ($this->helper('wishlist')->isAllow() && $show_wishlist) : ?>
         <li><a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, '<?php echo $_wishlistSubmitUrl ?>'); return false;" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
     <?php endif; ?>
     <?php
         $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
     ?>
-    <?php if($_compareUrl) : ?>
+    <?php if($_compareUrl && $show_compare) : ?>
         <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
     <?php endif; ?>
     </ul>

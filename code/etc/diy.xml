@@ -1333,8 +1333,24 @@
                     <value>E8E8E8</value>
                     <input_control>diy/admin_control_colour</input_control>
                     <sort_order>20</sort_order>
-                    <group>product_info</group>                  
+                    <group>product_info</group>
                 </product_options_border_colour>
+                <product_addto_wishlist>
+                    <label>Show "Add to Wishlist"?</label>
+                    <help>Should the "Add to Wishlist" link be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>30</sort_order>
+                    <group>product_info</group>
+                </product_addto_wishlist>
+                <product_addto_compare>
+                    <label>Show "Add to Compare"?</label>
+                    <help>Should the "Add to Compare" link be shown?</help>
+                    <value>1</value>
+                    <input_control>diy/admin_control_boolean</input_control>
+                    <sort_order>40</sort_order>
+                    <group>product_info</group>
+                </product_addto_compare>
                 <show_reviews>
                     <label>Show Reviews?</label>
                     <help>Should the review summary and details be shown?</help>
