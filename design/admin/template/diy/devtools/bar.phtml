@@ -29,27 +29,27 @@ $logging_enabled = Mage::getStoreConfigFlag('dev/log/active');
 $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 ?>
 <script type="text/javascript" charset="utf-8">
-$j(function () {
+$(document).observe('dom:loaded', function () {
     var CONTENT_SELECTOR = '#diymage_devtools_bar .diymage_devtools_content';
     var CLOSE_SELECTOR = '#diymage_devtools_bar .close';
     
     var cookie = Mage.Cookies.get('diymage_devbar');
     
     if (cookie) {
-        $j(CONTENT_SELECTOR).css('display', cookie);
+        $(CONTENT_SELECTOR).setStyle('display', cookie);
     } else {
         cookie = 'block';
     }
     
-    $j(CLOSE_SELECTOR).html(getLabel(cookie));
+    $$(CLOSE_SELECTOR)[0].update(getLabel(cookie));
     
-    $j(CLOSE_SELECTOR).click(function (e) {
+    $$(CLOSE_SELECTOR)[0].observe('click', function (e) {
         e.preventDefault();
         
-        var content = $j(CONTENT_SELECTOR);
+        var content = $(CONTENT_SELECTOR);
 
-        $j(CONTENT_SELECTOR).toggle('fast', function () {
-            $j(CLOSE_SELECTOR).html(getLabel(content.css('display')));
+        $$(CONTENT_SELECTOR)[0].toggle('fast', function () {
+            $$(CLOSE_SELECTOR)[0].update(getLabel(content.css('display')));
 
             // Save the state
             var cookie = content.css('display');
@@ -161,7 +161,7 @@ $j(function () {
 
 #diymage_devtools_bar .close {
     position: absolute;
-    top: -35px;
+    top: -28px;
     right: 21px;
     padding: 5px 15px;
     display: block;
