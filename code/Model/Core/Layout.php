@@ -1,4 +1,5 @@
 <?php
+// {{license}}
 class Meanbee_Diy_Model_Core_Layout extends Mage_Core_Model_Layout {
     protected function _showHints() {
         return Mage::getSingleton("diy/config")->isBlockHintsEnabled();
