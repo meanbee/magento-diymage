@@ -242,7 +242,7 @@
         
         new_object[section] = new_update;
 
-        $j("#<?php echo $this->getFieldId() ?>").val(JSON.stringify(new_object));
+        $j("#<?php echo $this->getFieldId() ?>").val(Object.toJSON(new_object));
     }
     
     // This function gets around the problem that we appear to have where the
