@@ -1412,7 +1412,14 @@
                     <group>additional</group>
                 </additional_border_colour>
                 
-
+                <like_border_colour>
+                    <label>You Might Like Border Colour</label>
+                    <help>Colour used for the border of the products you might like section</help>
+                    <value>CCCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>additional</group>
+                </like_border_colour>
                 
                 <show_reviews>
                     <label>Show Reviews?</label>
