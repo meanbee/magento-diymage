@@ -28,6 +28,11 @@
                     <data><table>diy_data</table></data>
                 </entities>
             </diy_mysql4>
+            <core>
+                <rewrite>
+                    <layout>Meanbee_Diy_Model_Core_Layout</layout>
+                </rewrite>
+            </core>
         </models>
         <blocks>
             <diy>

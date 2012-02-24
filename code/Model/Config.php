@@ -30,6 +30,13 @@ class Meanbee_Diy_Model_Config {
     }
 
     /**
+     * @return mixed
+     */
+    public function isBlockHintsEnabled() {
+        return Mage::getStoreConfigFlag('diy/general/developer_hints');
+    }
+
+    /**
      * @return string
      */
     public function getLicenseEmail() {

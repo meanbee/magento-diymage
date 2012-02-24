@@ -24,32 +24,32 @@ if ($cache_enabled_count == 0) {
     $colour = $hex['orange'];
 }
 
-$template_hints_enabled = Mage::getStoreConfigFlag('dev/debug/template_hints');
+$template_hints_enabled = Mage::getStoreConfigFlag('diy/general/developer_hints');
 $logging_enabled = Mage::getStoreConfigFlag('dev/log/active');
 $symlinks_enabled = Mage::getStoreConfigFlag('dev/template/allow_symlink');
 ?>
 <script type="text/javascript" charset="utf-8">
-$j(function () {
+$(document).observe('dom:loaded', function () {
     var CONTENT_SELECTOR = '#diymage_devtools_bar .diymage_devtools_content';
     var CLOSE_SELECTOR = '#diymage_devtools_bar .close';
     
     var cookie = Mage.Cookies.get('diymage_devbar');
     
     if (cookie) {
-        $j(CONTENT_SELECTOR).css('display', cookie);
+        $(CONTENT_SELECTOR).setStyle('display', cookie);
     } else {
         cookie = 'block';
     }
     
-    $j(CLOSE_SELECTOR).html(getLabel(cookie));
+    $$(CLOSE_SELECTOR)[0].update(getLabel(cookie));
     
-    $j(CLOSE_SELECTOR).click(function (e) {
+    $$(CLOSE_SELECTOR)[0].observe('click', function (e) {
         e.preventDefault();
         
-        var content = $j(CONTENT_SELECTOR);
+        var content = $(CONTENT_SELECTOR);
 
-        $j(CONTENT_SELECTOR).toggle('fast', function () {
-            $j(CLOSE_SELECTOR).html(getLabel(content.css('display')));
+        $$(CONTENT_SELECTOR)[0].toggle('fast', function () {
+            $$(CLOSE_SELECTOR)[0].update(getLabel(content.css('display')));
 
             // Save the state
             var cookie = content.css('display');
@@ -72,7 +72,7 @@ $j(function () {
         <div class="handles">
             <ul>
                 <?php if ($_product = Mage::registry('current_product')): ?>
-                    <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>" target="_blank">Edit Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
+                    <li><strong>Quick Links:</strong> <a href="<?php echo $this->getUrl('adminhtml/catalog_product/edit/id/' . $_product->getId()) ?>" target="_blank">Edit Current Product</a> (SKU: <?php echo $_product->getSku() ?>)</li>
                 <?php endif ?>
                 <li><strong>Layout Handles:</strong> <span><?php echo join("</span>, <span>", Mage::app()->getLayout()->getUpdate()->getHandles()) ?></span>.</li>
             </ul>
@@ -85,7 +85,7 @@ $j(function () {
                     <strong>Indexes:</strong> <span style="color: <?php echo $hex['green'] ?>; font-weight: bold;">Refreshed</span> (<a href="<?php echo $this->getUrl('diy/devtools/indexRefresh') ?>">Force Refresh</a>)
                 </li>
                 <li>
-                    <strong>Template Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
+                    <strong>&Uuml;ber Hints:</strong> <span style="color: <?php echo ($template_hints_enabled) ? $hex['green'] : $hex['red']; ?>; font-weight: bold;"><?php echo ($template_hints_enabled) ? 'Enabled' : 'Disabled'; ?></span> (<a href="<?php echo $this->getUrl('diy/devtools/templateToggle') ?>"><?php echo ($template_hints_enabled) ? 'Disable' : 'Enable'; ?></a>)
                 </li>
             </ul>
         </div>
@@ -117,7 +117,9 @@ $j(function () {
     right: 0;
     
     font-family: arial !important;
-    
+
+    padding-bottom: 10px;
+
     z-index: 99990;
 }
 
@@ -159,7 +161,7 @@ $j(function () {
 
 #diymage_devtools_bar .close {
     position: absolute;
-    top: -35px;
+    top: -28px;
     right: 21px;
     padding: 5px 15px;
     display: block;
@@ -176,5 +178,18 @@ $j(function () {
     border-radius: 10px 10px 0px 0px;
 }
 
+.diymage-hint {
+    position:relative; border:1px dotted red; margin:6px 2px; padding:18px 2px 2px 2px; zoom:1;
+}
+
+.diymage-hint-template {
+    position:absolute; left:0; top:0; padding:2px 5px; background:red; color:white; font:normal 11px Arial;
+    text-align:left !important; z-index:998;
+}
+
+.diymage-hint-class {
+    position:absolute; right:0; top:0; padding:2px 5px; background:red; color:white; font:normal 11px Arial;
+    text-align:left !important; z-index:998;
+}
 -->
 </style>

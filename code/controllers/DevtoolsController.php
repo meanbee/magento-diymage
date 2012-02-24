@@ -1,6 +1,23 @@
 <?php
 // {{license}}
 class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
+
+    public function preDispatch() {
+        // Ensure we're in the admin session namespace for checking the admin user..
+        Mage::getSingleton('core/session', array('name' => 'adminhtml'))->start();
+
+        $admin_logged_in = Mage::getSingleton('admin/session', array('name' => 'adminhtml'))->isLoggedIn();
+
+        // ..get back to the original.
+        Mage::getSingleton('core/session', array('name' => $this->_sessionNamespace))->start();
+
+        if (!$admin_logged_in && $this->getRequest()->getActionName() != 'error') {
+            $this->_forward('error');
+        }
+
+        return $this;
+    }
+
     /**
      * Clear all the cache, then redirect to the referrer.
      */
@@ -48,9 +65,11 @@ class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
         );
         
         foreach ($config_paths as $path) {
-            $this->_toggleConfig($path);
+            $this->_setConfig($path, false);
         }
-        
+
+        $this->_toggleConfig('diy/general/developer_hints');
+
         $this->_redirectReferer();
     }
 
@@ -71,6 +90,13 @@ class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
     }
 
     /**
+     * @TODO Send the correct header information
+     */
+    public function errorAction() {
+        echo $this->__("Only admins can perform developer tool modifications."); exit;
+    }
+
+    /**
      * Toggle true/flag Magento configuration options, based on a path.
      *
      * @param $path Configuration XML path
@@ -80,5 +106,9 @@ class Meanbee_Diy_DevtoolsController extends Mage_Core_Controller_Front_Action {
         $new_value = !$old_value;
         
         Mage::getSingleton('core/config')->saveConfig($path, $new_value);
+    }
+
+    protected function _setConfig($path, $value) {
+        Mage::getSingleton('core/config')->saveConfig($path, $value);
     }
 }
