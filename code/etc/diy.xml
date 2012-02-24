@@ -238,6 +238,11 @@
                     <help>Choose which share options to provide</help>
                     <sort_order>30</sort_order>
                 </share>
+                <additional>
+                    <label>Additional Info Settings</label>
+                    <help>Settings for how additional product information is displayed</help>
+                    <sort_order>40</sort_order>
+                </additional>
             </catalog_product_view>
             <!-- END PRODUCT PAGE SETTINGS -->
             
@@ -1390,6 +1395,24 @@
                     <group>share</group>
                 </show_email>
                 
+                <additional_background_colour>
+                    <label>Additional Info Background Colour</label>
+                    <help>Colour used for the background of the additional information block</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>additional</group>
+                </additional_background_colour>
+                <additional_border_colour>
+                    <label>Additional Info Border Colour</label>
+                    <help>Colour used for the border of the additional information block</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>additional</group>
+                </additional_border_colour>
+                
+
                 
                 <show_reviews>
                     <label>Show Reviews?</label>
