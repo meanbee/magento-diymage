@@ -327,3 +327,10 @@ aside#product-tags {
     <?php echo $this->getStyleLine('catalog_product_view', 'tags_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('catalog_product_view', 'tags_border_colour', 'border-color', '#%s') ?>
 }
+
+body.checkout-cart div.col2-set div.block.block-related,
+form#discount-form,
+aside.shipping {
+    <?php echo $this->getStyleLine('checkout_cart_index', 'aside_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('checkout_cart_index', 'aside_border_colour', 'border-color', '#%s') ?>
+}

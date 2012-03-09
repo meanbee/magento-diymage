@@ -253,6 +253,11 @@
                     <help>Complete control over the layout of your page.  Add static blocks and manually remove pre-inserted blocks.  Re-arrange the order of blocks through the simple drag and drop interface.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</help>
                     <sort_order>10</sort_order>
                 </builder>
+                <asides>
+                    <label>Aside Options</label>
+                    <help>Control display of related product, coupon code form or shipping estimator</help>
+                    <sort_order>20</sort_order>
+                </asides>
             </checkout_cart_index>
             <!-- END CART SETTINGS -->
             
@@ -1490,30 +1495,47 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                
                 <show_crosssell>
                     <label>Show Cross-sell Products?</label>
                     <help>Should the cross-sell products be shown?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>20</sort_order>
-                    <group></group>
+                    <sort_order>10</sort_order>
+                    <group>asides</group>
                 </show_crosssell>
                 <show_shipping>
                     <label>Show Shipping Estimate?</label>
                     <help>Should the estimate shipping block be shown?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>30</sort_order>
-                    <group></group>
+                    <sort_order>20</sort_order>
+                    <group>asides</group>
                 </show_shipping>
                 <show_coupon>
                     <label>Show Coupons?</label>
                     <help>Should the discount code box be shown?</help>
                     <value>1</value>
                     <input_control>diy/admin_control_boolean</input_control>
-                    <sort_order>40</sort_order>
-                    <group></group>
+                    <sort_order>30</sort_order>
+                    <group>asides</group>
                 </show_coupon>
+                <aside_background_colour>
+                    <label>Aside Blocks Background Colour</label>
+                    <help>Colour used for the background of the asides used in the cart</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>asides</group>
+                </aside_background_colour>
+                <aside_border_colour>
+                    <label>Aside Blocks Border Colour</label>
+                    <help>Colour used for the border of the asides used in cart</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>asides</group>
+                </aside_border_colour>
             </checkout_cart_index>
             <!-- END CART SETTINGS -->
             
