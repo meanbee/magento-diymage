@@ -1411,7 +1411,6 @@
                     <sort_order>20</sort_order>
                     <group>additional</group>
                 </additional_border_colour>
-                
                 <like_border_colour>
                     <label>You Might Like Border Colour</label>
                     <help>Colour used for the border of the products you might like section</help>
@@ -1420,6 +1419,22 @@
                     <sort_order>30</sort_order>
                     <group>additional</group>
                 </like_border_colour>
+                <tags_background_colour>
+                    <label>Product Tags Background Colour</label>
+                    <help>Colour used for the background of the product tags block</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>additional</group>
+                </tags_background_colour>
+                <tags_border_colour>
+                    <label>Product Tags Border Colour</label>
+                    <help>Colour used for the border of the product tags block</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>additional</group>
+                </tags_border_colour>
                 
                 <show_reviews>
                     <label>Show Reviews?</label>
