@@ -193,10 +193,15 @@
                     <help>Change format of blocks in the sidebar, e.g. background colours, links, borders etc.</help>
                     <sort_order>80</sort_order>
                 </sidebar>
+                <table>
+                    <label>Table Settings</label>
+                    <help>Style formatting options for tables around the site</help>
+                    <sort_order>90</sort_order>
+                </table>
                 <footer>
                     <label>Footer Settings</label>
                     <help>In a similar fashion to header settings, configure the footer text and link styling.</help>
-                    <sort_order>90</sort_order>
+                    <sort_order>100</sort_order>
                 </footer>
             </global>
             <!-- END GLOBAL SETTINGS -->
@@ -253,10 +258,15 @@
                     <help>Complete control over the layout of your page.  Add static blocks and manually remove pre-inserted blocks.  Re-arrange the order of blocks through the simple drag and drop interface.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</help>
                     <sort_order>10</sort_order>
                 </builder>
-                <asides>
-                    <label>Aside Options</label>
-                    <help>Control display of related product, coupon code form or shipping estimator</help>
+                <totals>
+                    <label>Totals Settings</label>
+                    <help>Style settings for totals block on cart page</help>
                     <sort_order>20</sort_order>
+                </totals>
+                <asides>
+                    <label>Aside Settings</label>
+                    <help>Control display of related product, coupon code form or shipping estimator</help>
+                    <sort_order>30</sort_order>
                 </asides>
             </checkout_cart_index>
             <!-- END CART SETTINGS -->
@@ -1068,6 +1078,30 @@
                     <group>sidebar</group>
                 </sidebar_block_image_border_colour>
                 
+                <table_background_colour>
+                    <label>Table Background Colour</label>
+                    <help>Set the background colour of data tables.</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>table</group>
+                </table_background_colour>
+                <table_border_colour>
+                    <label>Table Colour</label>
+                    <help>Choose the border colour of images in the sidebar blocks</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>table</group>
+                </table_border_colour>
+                <table_head_background_colour>
+                    <label>Table Header Background Colour</label>
+                     <help>Choose the background colour of the top row of tables</help>
+                     <value>E8E8E8</value>
+                     <input_control>diy/admin_control_colour</input_control>
+                     <sort_order>30</sort_order>
+                     <group>table</group>
+                </table_head_background_colour>
 
                 <footer_background>
                     <label>Footer Background Image</label>
@@ -1496,6 +1530,31 @@
                     <group>builder</group>
                 </layout>
                 
+                <cart_totals_background_colour>
+                    <label>Totals Background Colour</label>
+                    <help>Background colour of cart totals block</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>totals</group>
+                </cart_totals_background_colour>
+                <cart_totals_border_colour>
+                    <label>Totals Border Colour</label>
+                    <help>Border colour for the cart totals block</help>
+                    <value>CCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>totals</group>
+                </cart_totals_border_colour>
+                <cart_totals_divider_colour>
+                    <label>Totals Divider Colour</label>
+                    <help>Colour of divider between totals and checkout methods</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>totals</group>
+                </cart_totals_divider_colour>
+                
                 <show_crosssell>
                     <label>Show Cross-sell Products?</label>
                     <help>Should the cross-sell products be shown?</help>
@@ -1536,6 +1595,7 @@
                     <sort_order>50</sort_order>
                     <group>asides</group>
                 </aside_border_colour>
+                
             </checkout_cart_index>
             <!-- END CART SETTINGS -->
             

@@ -206,6 +206,22 @@ div.block-compared ol li img.photo {
     <?php echo $this->getStyleLine('global', 'sidebar_block_image_border_colour', 'border-color', '#%s') ?>
 }
 
+table.data-table {
+    <?php echo $this->getStyleLine('global', 'table_background_colour', 'background-color', '#%s') ?>
+}
+
+table.data-table,
+table.data-table tr, 
+table.data-table tbody tr td,
+table.data-table thead tr th, 
+table.data-table tfoot tr td {
+    <?php echo $this->getStyleLine('global', 'table_border_colour', 'border-color', '#%s') ?>
+}
+
+table.data-table thead {
+    <?php echo $this->getStyleLine('global', 'table_head_background_colour', 'background-color', '#%s') ?>
+}
+
 .footer, footer {
     <?php echo $this->getStyleLine('global', 'footer_background_image', 'background-image', 'url("images/diy/%s")') ?>
     <?php echo $this->getStyleLine('global', 'footer_background_position', 'background-position', '%s') ?>
@@ -333,4 +349,13 @@ form#discount-form,
 aside.shipping {
     <?php echo $this->getStyleLine('checkout_cart_index', 'aside_background_colour', 'background-color', '#%s') ?>
     <?php echo $this->getStyleLine('checkout_cart_index', 'aside_border_colour', 'border-color', '#%s') ?>
+}
+
+aside.totals {
+    <?php echo $this->getStyleLine('checkout_cart_index', 'cart_totals_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('checkout_cart_index', 'cart_totals_border_colour', 'border-color', '#%s') ?>
+}
+
+aside.totals ul {
+    <?php echo $this->getStyleLine('checkout_cart_index', 'cart_totals_divider_colour', 'border-color', '#%s') ?>
 }
