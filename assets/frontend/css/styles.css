@@ -1562,6 +1562,7 @@ aside#product-tags form {
     margin-top: 20px;
     padding-bottom: 10px;
     overflow: hidden;
+    width: auto;
 }
 
 aside#product-tags form label,
@@ -1571,6 +1572,7 @@ aside#product-tags form input {
 
 aside#product-tags form input {
     margin-left: 10px;
+    width: auto;
 }
 
 aside#product-tags form input.text {
