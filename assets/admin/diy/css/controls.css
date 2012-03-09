@@ -11,8 +11,16 @@ div.subgroup {
     float: left;
 }
 
-div.subgroup:nth-child(3n-1) {
-    clear:both;
+body.diy-design-index div.subgroup:nth-child(3n) {
+    clear: none;
+}
+
+body.diy-design-index div.subgroup:nth-child(3n-1) {
+    clear: both;
+}
+
+div.subgroup:nth-child(3n) {
+    clear: both;
 }
 
 div.subgroup .content {
