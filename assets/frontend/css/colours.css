@@ -458,7 +458,7 @@ table.data-table tbody tr td.product-image img {
     border-color: #e8e8e8;
 }
 
-div.block-related,
+body.checkout-cart div.col2-set div.block.block-related,
 form#discount-form,
 aside.shipping {
     background: #f4f4f4; /* Off white */
