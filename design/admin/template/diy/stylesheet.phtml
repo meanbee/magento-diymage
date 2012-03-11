@@ -359,3 +359,17 @@ aside.totals {
 aside.totals ul {
     <?php echo $this->getStyleLine('checkout_cart_index', 'cart_totals_divider_colour', 'border-color', '#%s') ?>
 }
+
+ol#checkoutSteps {
+    <?php echo $this->getStyleLine('checkout_onepage_index', 'step_border_colour', 'border-color', '#%s') ?>
+    <?php echo $this->getStyleLine('checkout_onepage_index', 'step_background_colour', 'background-color', '#%s') ?>
+}
+
+ol#checkoutSteps li h2 {
+    <?php echo $this->getStyleLine('checkout_onepage_index', 'step_title_background_colour', 'background-color', '#%s') ?>
+}
+
+ol#checkoutSteps li h2 em.step-number {
+    <?php echo $this->getStyleLine('checkout_onepage_index', 'step_number_background_colour', 'background-color', '#%s') ?>
+    <?php echo $this->getStyleLine('checkout_onepage_index', 'step_number_colour', 'color', '#%s') ?>
+}

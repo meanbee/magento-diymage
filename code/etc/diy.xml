@@ -278,6 +278,11 @@
                     <help>Complete control over the layout of your page.  Add static blocks and manually remove pre-inserted blocks.  Re-arrange the order of blocks through the simple drag and drop interface.  How freakin' cool is that?  Double click a block to toggle whether it should display or not.</help>
                     <sort_order>10</sort_order>
                 </builder>
+                <steps>
+                    <label>Steps Settings</label>
+                    <help>Style settings for the checkout steps</help>
+                    <sort_order>20</sort_order>
+                </steps>
             </checkout_onepage_index>
             <!-- END ONEPAGE CHECKOUT SETTINGS -->
             
@@ -1618,6 +1623,48 @@
                     <sort_order>10</sort_order>
                     <group>builder</group>
                 </layout>
+                
+                <step_border_colour>
+                    <label>Checkout Steps Border Colour</label>
+                    <help></help>
+                    <value>CCCCCC</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>10</sort_order>
+                    <group>steps</group>
+                </step_border_colour>
+                <step_title_background_colour>
+                    <label>Checkout Step Title Background Colour</label>
+                    <help>Colour used for the background of checkout step titles</help>
+                    <value>E8E8E8</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>20</sort_order>
+                    <group>steps</group>
+                </step_title_background_colour>
+                <step_background_colour>
+                    <label>Checkout Step Background Colour</label>
+                    <help>Colour used for the background of steps in te</help>
+                    <value>F4F4F4</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>30</sort_order>
+                    <group>steps</group>
+                </step_background_colour>
+                <step_number_background_colour>
+                    <label>Checkout Step Number Circle Colour</label>
+                    <help>Colour used for the step number circle</help>
+                    <value>313131</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>40</sort_order>
+                    <group>steps</group>               
+                </step_number_background_colour>
+                <step_number_colour>
+                    <label>Checkout Step Number Colour</label>
+                    <help>Colour used for the step number</help>
+                    <value>FFFFFF</value>
+                    <input_control>diy/admin_control_colour</input_control>
+                    <sort_order>50</sort_order>
+                    <group>steps</group>   
+                </step_number_colour>
+                
             </checkout_onepage_index>
             <!-- END ONEPAGE CHECKOUT SETTINGS -->
             
