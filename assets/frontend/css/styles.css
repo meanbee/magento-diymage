@@ -92,6 +92,7 @@ div.col-main div.sidebar {
 
 div.col1 div.col-main {
     float: left;
+    width: 100%;
 }
 
 /* 2 column layout with sidebar on left */
@@ -2138,7 +2139,9 @@ form#co-shipping-method-form div dl dd ul li label {
     margin-top: -3px;
 }
 
-
+body.checkout-onepage #review-buttons-container {
+    width: 100%;
+}
 
 /* Checkout errors */
 
@@ -2209,7 +2212,6 @@ div.col2-set div.col-wide {
 
 #review-buttons-container {
     float: right;
-    width: 100%;
 }
 
 #review-buttons-container p.f-left {
