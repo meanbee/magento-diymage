@@ -169,19 +169,11 @@ header {
     padding-top: 10px;
 }
 
-/* ----------------------------- SHOP LOGO AND IMAGE */
-
-a#branding h2 { 
+a#branding {
     float: left;
-    height: 180px;
-    position: absolute;
-    width: 480px;
 }
 
-a#branding img {
-    float: left;
-    position: relative;
-}
+a#branding strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 
 /* ----------------------------- CART */
 
