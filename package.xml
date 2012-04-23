@@ -1,20 +1,17 @@
 <_>
-   <form_key>wzyQY1FdMIRxNhnZ</form_key>
+   <form_key>D8rx1P1D48d3nL2U</form_key>
    <name>Meanbee_Diy</name>
    <channel>community</channel>
    <version_ids>
       <version_ids>2</version_ids>
    </version_ids>
-   <summary>DIY Mage: Magento Theme Framework.</summary>
-   <description>DIY Mage: Magento Theme Framework.</description>
+   <summary>DIY Mage: Magento Theme Management</summary>
+   <description>DIY Mage: Magento Theme Management</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>0.6.0</version>
-   <stability>beta</stability>
-   <notes>* Features
-    - Developer Tools
-* Bug fixes
-    - Support PHP &lt; 5.3.0 for class constants</notes>
+   <version>1.0.0</version>
+   <stability>stable</stability>
+   <notes>Initial public release.</notes>
    <authors>
       <name>
          <name>Meanbee</name>
@@ -43,7 +40,7 @@
             <max/>
          </max>
          <files>
-            <files>      </files>
+            <files>        </files>
          </files>
       </package>
       <extension>
