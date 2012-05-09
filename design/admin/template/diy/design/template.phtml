@@ -10,7 +10,7 @@
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="diy_form" enctype="multipart/form-data">
     
     <input type="hidden" name="form_key" value="<?php echo $this->getFormKey() ?>" />
-    <input type="hidden" name="return_url" value="<?php echo $this->getUrl("*/*/*") ?>" />
+    <input type="hidden" name="return_url" value="<?php echo $this->getUrl("*/*/*", array('store_id' => $this->getStoreId())) ?>" />
     
     <input type="hidden" id="diy_publish" name="publish" value="0" />
     
