@@ -1,6 +1,8 @@
 <?php
 // {{license}}
 abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
+    const DIY_PACKAGE_NAME = 'diy';
+
     protected $_title = "No title set";
 
     abstract protected function getDataGroup();
@@ -175,5 +177,38 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
 
     public function getTitle() {
         return $this->_title;
+    }
+
+    /**
+     * Confirm that the DIY Mage stock theme is running on this store.
+     *
+     * @return bool
+     * @author Nicholas Jones
+     */    
+    public function isDiyThemeEnabledForStore() {
+        return $this->getCurrentThemePackage()->getPackage() == self::DIY_PACKAGE_NAME;
+    }
+    
+    /**
+     * Extract the package and theme from the configuration, based on the current store.
+     *
+     * @return Varien_Object
+     * @author Nicholas Jones
+     */
+    public function getCurrentThemePackage() {
+        $package = Mage::getModel('core/design_package');
+        $store = Mage::getModel('core/store')->load($this->getStoreId());
+        
+        $package->setStore($store);
+        
+
+        $package_name = $package->getPackageName();
+        $theme_name = $package->getTheme();
+        
+        return new Varien_Object(array(
+            "package" => $package_name,
+            "theme" => $theme_name,
+            "package_theme" => join('/', array($package_name, $theme_name))
+        ));
     }
 }

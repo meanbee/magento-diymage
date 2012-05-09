@@ -27,6 +27,10 @@
         </table>
     </div>
 
+    <?php if (!$this->isDiyThemeEnabledForStore()): ?>
+        <ul class="messages"><li class="notice-msg"><ul><li><span>Only the 'Layout Settings' controls are compatible with stores that are not running the DIY Mage theme.  The current store is running the <tt style="font-weight: normal;"><?php echo $this->getCurrentThemePackage()->getPackageTheme() ?></tt> theme.  The DIY Mage generated CSS file will not be included on pages associated with this store.</span></li></ul></li></ul>
+    <?php endif ?>
+    
     <?php echo $this->getChildHtml() ?>
     
 </form>
