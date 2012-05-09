@@ -5,7 +5,7 @@
 <config>
     <modules>
         <Meanbee_Diy>
-            <version>0.5.0</version>
+            <version>1.0.1</version>
         </Meanbee_Diy>
     </modules>
     <global>
