@@ -56,7 +56,9 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
         $this->_modifyPageLayout($identifiers, $layout);
         $this->_otherDIYSettings($store, $identifiers, $layout);
         
-        $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
+        if (Mage::getDesign()->getPackageName() == Meanbee_Diy_Block_Admin_Design_Abstract::DIY_PACKAGE_NAME) {
+            $this->_addStylesheet($layout, "diymage_" . $store . ".css?" . time());
+        }
         
         // Apply our sort changes..
         //$update->load();
