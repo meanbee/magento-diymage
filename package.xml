@@ -1,5 +1,5 @@
 <_>
-   <form_key>D8rx1P1D48d3nL2U</form_key>
+   <form_key>OklXvUMSWxxpjvTm</form_key>
    <name>Meanbee_Diy</name>
    <channel>community</channel>
    <version_ids>
@@ -9,9 +9,11 @@
    <description>DIY Mage: Magento Theme Management</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
    <stability>stable</stability>
-   <notes>Initial public release.</notes>
+   <notes>* Disable the diymage css file for stores not running the DIY Mage theme
+* Warn the user if they are not using the DIY Mage theme
+* Support adding stores after installation</notes>
    <authors>
       <name>
          <name>Meanbee</name>
@@ -40,7 +42,7 @@
             <max/>
          </max>
          <files>
-            <files>        </files>
+            <files>         </files>
          </files>
       </package>
       <extension>
