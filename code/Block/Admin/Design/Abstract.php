@@ -1,8 +1,6 @@
 <?php
 // {{license}}
 abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block_Admin_Abstract {
-    const DIY_PACKAGE_NAME = 'diy';
-
     protected $_title = "No title set";
 
     abstract protected function getDataGroup();
@@ -186,7 +184,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
      * @author Nicholas Jones
      */    
     public function isDiyThemeEnabledForStore() {
-        return $this->getCurrentThemePackage()->getPackage() == self::DIY_PACKAGE_NAME;
+        return $this->getCurrentThemePackage()->getPackage() == Meanbee_Diy_Helper_Data::DESIGN_PACKAGE_NAME;
     }
     
     /**

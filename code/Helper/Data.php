@@ -1,6 +1,8 @@
 <?php
 // {{license}}
 class Meanbee_Diy_Helper_Data extends Mage_Core_Helper_Abstract {
+    const DESIGN_PACKAGE_NAME = 'diy';
+    
     /**
      * @param string $group 
      * @param string $name 
