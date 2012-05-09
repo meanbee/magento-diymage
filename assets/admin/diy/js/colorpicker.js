@@ -26,7 +26,7 @@
 // $.fn.mColorPicker.init.showLogo - Turn on/off the meta100 logo (You don't really want to turn it off, do you?).
 
 
-(function($){
+;(function($){
 
   $.fn.mColorPicker = function(options) {
 
