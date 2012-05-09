@@ -31,8 +31,12 @@
         <ul class="messages"><li class="notice-msg"><ul><li><span>Only the 'Layout Settings' controls are compatible with stores that are not running the DIY Mage theme.  The current store is running the <tt style="font-weight: normal;"><?php echo $this->getCurrentThemePackage()->getPackageTheme() ?></tt> theme.  The DIY Mage generated CSS file will not be included on pages associated with this store.</span></li></ul></li></ul>
     <?php endif ?>
     
-    <?php echo $this->getChildHtml() ?>
-    
+    <?php if (count($this->getChild()) > 0): ?>
+        <?php echo $this->getChildHtml() ?>
+    <?php else: ?>
+        <p>You don't seem to have any controls loaded for still store.</p>
+        <a href="<?php echo $this->getUrl('diy/design/rebuild', array('store_id' => $this->getStoreId())) ?>">Build/Rebuild Controls &rarr;</a>
+    <?php endif ?>
 </form>
 
 <script type="text/javascript" charset="utf-8">

@@ -102,12 +102,22 @@ class Meanbee_Diy_Model_Xml {
      * Insert all of the attributes into the database.  If we find that the attribute already exists then we
      * delete and create a new attribute with the previous data.
      *
+     * If no store id is provided, then all stores will be repopulated.
+     *
+     * @param int $store_id
      * @return void
      * @author Nicholas Jones
      */
-    public function repopulateData() {
+    public function repopulateData($store_id = null) {
         $groups = $this->getAttributes();
-        $stores = Mage::getModel('core/store')->getCollection();
+
+        if (!is_null($store_id)) {
+            $stores = array(
+                Mage::getModel('core/store')->load($store_id)
+            );
+        } else {
+            $stores = Mage::getModel('core/store')->getCollection();
+        }
 
         foreach ($stores as $store) {
             $store_id = $store['store_id'];

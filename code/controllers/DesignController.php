@@ -138,6 +138,18 @@ class Meanbee_Diy_DesignController extends Mage_Adminhtml_Controller_Action {
         $this->__render();
     }
     
+    public function rebuildAction() {
+        $store_id = $this->getRequest()->getParam('store_id');
+        
+        if ($store_id) {
+            $diy = Mage::getModel('diy/xml')->repopulateData($store_id);
+        }
+        
+        $this->getResponse()->setRedirect(
+            $this->getUrl('*/*', array('store_id' => $store_id))
+        );
+    }
+    
     public function saveAction() {
         if ($data = $this->getRequest()->getPost("diy")) {
             $return_url = $this->getRequest()->getPost("return_url");
