@@ -1,3 +1,4 @@
+;
 /* Copyright (c) 2006 Yahoo! Inc. All rights reserved. */
 
 var YAHOO = function() { return {util: {}} } ();
@@ -136,5 +137,4 @@ YAHOO.util.Color = new function() {
 
     return true;
   };
-}
-
+};
