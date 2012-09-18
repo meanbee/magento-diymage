@@ -49,13 +49,6 @@
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
 <?php echo $this->getIncludes() ?>
-<script type="text/javascript">
-//<![CDATA[
-    <?php // We've probably got prototype on the page too. ?>
-    var $j = jQuery.noConflict();
-//]]>
-</script>
-
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
     {lang: '<?php echo Mage::app()->getLocale()->getLocaleCode() ?>'}
 </script>
