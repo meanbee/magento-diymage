@@ -45,7 +45,7 @@
                     <?php foreach ($_votes as $_vote): ?>
                         <div class="rating-box">
                             <h5 class="rating-name"><?php echo $this->escapeHtml($_vote->getRatingCode()) ?></h5>
-                            <abbr class="rating" style="width: <?php echo 17 * number_format($_vote->getPercent() / 20, 1) ?>px;" title="<?php echo $this->__('%d out of 5 stars',  number_format($_vote->getPercent() / 20, 1)) ?>"><span><?php echo number_format($_vote->getPercent() / 20, 1) ?></span></abbr>
+                            <abbr class="rating" title="<?php echo number_format($_vote->getPercent() / 20,1); ?> out of 5 stars"><span style="width: <?php echo 17 * number_format($_vote->getPercent() / 20,1) ?>px"><?php echo number_format($_vote->getPercent() / 20,1); ?></span></abbr>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
