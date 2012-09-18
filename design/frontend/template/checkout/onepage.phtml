@@ -34,7 +34,9 @@
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
 <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
     <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <h2><em class="step-number"><?php echo $i ?></em><?php echo $_stepInfo['label'] ?></h2>
+        <div class="step-title">
+            <h2><em class="step-number"><?php echo $i ?></em><?php echo $_stepInfo['label'] ?></h2>
+        </div>
         <section id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
             <?php echo $this->getChildHtml($_stepId) ?>
         </section>
