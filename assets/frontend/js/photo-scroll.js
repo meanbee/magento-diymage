@@ -9,7 +9,6 @@
     	// Choose the default selected photo
         $('section.hproduct div#photos ul li:first').addClass('active-photo').clone().prependTo('section.hproduct div#photos');
     	$('section.hproduct div#photos > li.active-photo').removeClass('active-photo').addClass('current-photo');
-    	$('section.hproduct div#photos > li.current-photo a img').attr('height', '340');
     	$('section.hproduct div#photos > li.current-photo a img').attr('width', '340');
     	$('section.hproduct div#photos > li.current-photo').wrap('<div class="current-photo" />');
     	$('section.hproduct div#photos div.current-photo li.current-photo img').clone().appendTo('section.hproduct div#photos div.current-photo');
@@ -23,7 +22,6 @@
     		$(this).toggleClass("active-photo");
     		$('section.hproduct div#photos ul li.active-photo').clone().prependTo('section.hproduct div#photos');
     		$('section.hproduct div#photos > li.active-photo').removeClass('active-photo').addClass('current-photo');
-    		$('section.hproduct div#photos > li.current-photo a img').attr('height', '340');
     		$('section.hproduct div#photos > li.current-photo a img').attr('width', '340');
     		$('section.hproduct div#photos > li.current-photo').wrap('<div class="current-photo" />');
     		$('section.hproduct div#photos div.current-photo li.current-photo img').clone().appendTo('section.hproduct div#photos div.current-photo');

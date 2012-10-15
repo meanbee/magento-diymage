@@ -959,7 +959,7 @@ section.hproduct div#photos ul li a img {
 }
 
 section.hproduct div#photos div.current-photo {
-    position: absolute;
+    float: left;
 }
 
 section.hproduct h1.product-name {
