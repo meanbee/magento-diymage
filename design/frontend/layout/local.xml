@@ -35,7 +35,19 @@
         </reference>
         <reference name="footer">
             <block type="core/template" name="footer.promo" template="page/html/promo.phtml">
+                <block type="cms/block" name="footer.promo.text">
+                    <action method="setBlockId"><block_id>diymage_footer_promo_text</block_id></action>
+                </block>
                 <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/footer/subscribe.phtml" />
+            </block>
+            <block type="cms/block" name="footer.column.1">
+                <action method="setBlockId"><block_id>diymage_footer_column_1</block_id></action>
+            </block>
+            <block type="cms/block" name="footer.column.2">
+                <action method="setBlockId"><block_id>diymage_footer_column_2</block_id></action>
+            </block>
+            <block type="cms/block" name="footer.column.3">
+                <action method="setBlockId"><block_id>diymage_footer_column_3</block_id></action>
             </block>
         </reference>
     </default>

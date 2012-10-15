@@ -2,13 +2,13 @@
 <footer> 
     <?php echo $this->getChildHtml('footer.promo') ?>
     <section> 
-        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_1')->toHtml(); ?>
+        <?php echo $this->getChildHtml('footer.column.1') ?>
+    </section>
+    <section>
+        <?php echo $this->getChildHtml('footer.column.1') ?>
     </section> 
-    <section> 
-        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_2')->toHtml(); ?>
-    </section> 
-    <section> 
-        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('diymage_footer_column_3')->toHtml(); ?>
+    <section>
+        <?php echo $this->getChildHtml('footer.column.1') ?>
     </section> 
     <section class="vcard"> 
         <h2>Stay Updated</h2> 
