@@ -1785,7 +1785,7 @@ body.checkout-cart div.col1-layout div.col2-set {
     width:640px;
 }
 
-body.checkout-cart div.block-related,
+body.checkout-cart-index div.block-related,
 form#discount-form,
 aside.shipping {
     border: 1px solid;
