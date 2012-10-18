@@ -330,7 +330,7 @@ select.multiselect {
 
 input[type=search] {
     border: 2px solid;
-    padding: 5px; 
+    padding: 5px 0 5px 5px;
     /* getting rid of the webkit default rounded corners */
     -webkit-appearance: textfield;
 }
