@@ -1613,6 +1613,14 @@ body.checkout-cart-configure h1 {
     padding:0;
 }
 
+#cart .product-name:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
 .cart-empty {
     clear:both;
     padding-left:20px;
