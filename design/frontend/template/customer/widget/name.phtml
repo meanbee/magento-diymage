@@ -4,7 +4,7 @@ if(!function_exists('generate_label')) {
         return sprintf(
             '<label%s for="%s">%s%s</label>',
             ($required) ? ' class="required"' : '',
-            $block->getFieldName($field_name),
+            $block->getFieldId($field_name),
             ($required) ? '<em class="required">*</em>' : '',
             $text
         );
