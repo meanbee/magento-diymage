@@ -11,6 +11,10 @@ a, button, input[type="submit"], label {
     cursor: pointer;
 }
 
+textarea {
+    resize: vertical;
+}
+
 a {
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
