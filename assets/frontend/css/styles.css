@@ -7,6 +7,10 @@ body {
     width: 960px;
 }
 
+a, button, input[type="submit"], label {
+    cursor: pointer;
+}
+
 a {
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
