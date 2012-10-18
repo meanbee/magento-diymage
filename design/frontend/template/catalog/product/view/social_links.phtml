@@ -7,32 +7,26 @@
 <?php $show_google = $d->getValue("catalog_product_view", "show_google", $store) ?>
 <?php $show_email = $d->getValue("catalog_product_view", "show_email", $store) ?>
 
+<?php if ($this->canEmailToFriend() && $show_email): ?>
+<a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
+<?php endif; ?>
 <?php if ($show_facebook || $show_twitter || $show_google || $show_email): ?>
-    <ul class="social-buttons">
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
         <?php if ($show_facebook): ?>
-            <li class="facebook">
-                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-                <fb:like href="<?php echo $_product->getProductUrl() ?>" layout="box_count" show_faces="false" width="40" font="trebuchet ms"></fb:like>
-            </li>
+            <a class="addthis_button_facebook"></a>
         <?php endif; ?>
         
         <?php if ($show_twitter): ?>
-            <li class="twitter">
-                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="<?php echo Mage::getStoreConfig('diy/theme/twitter') ?>"><?php echo $this->__('Tweet') ?></a>
-                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-            </li>
+            <a class="addthis_button_twitter"></a>
         <?php endif; ?>
 
         <?php if ($show_google): ?>
-            <li class="google">
-                <div class="g-plusone" data-size="tall" data-annotation="bubble" data-href="<?php echo $_product->getProductUrl() ?>"></div>
-            </li>
+            <a class="addthis_button_google_plusone_share"></a>
         <?php endif; ?>
 
-        <?php if ($this->canEmailToFriend() && $show_email): ?>
-        <li class="email">
-            <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
-        </li>
-        <?php endif; ?>
-    </ul>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508024ac5f540d67"></script>
+    <!-- AddThis Button END -->
 <?php endif; ?>
