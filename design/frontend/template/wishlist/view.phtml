@@ -57,6 +57,7 @@
                     <?php
                         $product = $item->getProduct();
                         $isVisibleProduct = $product->isVisibleInSiteVisibility();
+                        if (!$item->getDescription()) { $item->setDescription('Please, enter your comments...'); }
                     ?>
                     <tr>
                         <td>
@@ -66,7 +67,7 @@
                             <?php echo $this->getDetailsHtml($item) ?>
                         </td>
                         <td classs="product-comment">
-                            <textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo $this->__('Comment') ?>"><?php echo $this->getCommentValue($item); ?></textarea>
+                            <textarea name="description[<?php echo $item->getWishlistItemId() ?>]" rows="3" cols="5" onfocus="focusComment(this)" onblur="focusComment(this)" title="<?php echo $this->__('Comment') ?>"><?php echo ($this->escapeHtml($item->getDescription())) ?></textarea>
                         </td>
                         <td class="product-added">
                             <?php echo $this->getFormatedDate($item->getAddedAt()) ?>
