@@ -16,7 +16,7 @@
             <?php endif; ?>
             </a>
         <?php else: ?>
-            <i><?php echo $this->__('Your cart is empty') ?></i>
+            <?php echo $this->__('Your cart is empty') ?>
         <?php endif ?>
     </p>
     <button type="button" onclick="setLocation('<?php echo $this->getUrl('checkout/onepage') ?>')" class="button cart"><?php echo $this->__('Checkout Now') ?></button>
