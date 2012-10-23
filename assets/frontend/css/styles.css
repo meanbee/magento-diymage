@@ -822,6 +822,7 @@ div.col2-right-layout div.col-main ul.list-products li {
 
 ul.products-grid.list-products li.hproduct {
     border-right: none;
+    border-left: none;
     float: none;
     list-style-type: none;
     overflow: hidden;
