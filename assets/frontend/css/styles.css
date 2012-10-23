@@ -2548,6 +2548,10 @@ div.block-account div.block-content ul li:first-child {
 
 /* ----------------------------- WISHLIST */
 
+#wishlist-table textarea {
+    min-height: 150px;
+}
+
 #wishlist-view-form {
     width: 95%;
 }
