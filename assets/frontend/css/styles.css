@@ -699,12 +699,16 @@ ul.products-grid li {
 }
 
 ul.products-grid li.hproduct {
-    border-right: 1px dotted;
+    border-left: 1px dotted;
     border-bottom: 1px dotted;
     float: left;
     list-style-type: none;
     padding: 20px 19px 19px 20px; /* 19px makes up for 1px border */
     width:200px;
+}
+
+ul.products-grid li.hproduct:first-child {
+    border-left: 0;
 }
 
 ul.products-grid li.hproduct.last {
