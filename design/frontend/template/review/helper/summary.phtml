@@ -28,7 +28,7 @@
     <div class="ratings">
         <?php if ($this->getRatingSummary()):?>
             <div class="rating-box">
-				<abbr class="rating" title="<?php echo number_format($this->getRatingSummary() / 20,1); ?> out of 5 stars"><span style="width: <?php echo 17 * number_format($this->getRatingSummary() / 20,1) ?>px"><?php echo number_format($this->getRatingSummary() / 20,1); ?></span></abbr>
+				<div style="width: <?php echo 17 * number_format($this->getRatingSummary() / 20,1) ?>px" class="rating" title="<?php echo number_format($this->getRatingSummary() / 20,1); ?> out of 5 stars"><span><?php echo number_format($this->getRatingSummary() / 20,1); ?></span></div>
             </div>
         <?php endif;?>
         <p class="rating-links">
