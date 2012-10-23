@@ -1790,6 +1790,17 @@ table.data-table td.remove a.remove:hover {
 
 /* Register / Login */
 
+.customer-account-login .col2-set .col-1 {
+    margin-right: 10%;
+    width: 45%;
+}
+.customer-account-login .col2-set .col-1 button {
+    margin: 10px 0 0 0;
+}
+.customer-account-login .col2-set .col-2 {
+    width: 45%;
+}
+
 #login-form div.buttons-set a,
 #login-form div.buttons-set button {
     float:left;
@@ -1990,7 +2001,7 @@ div.block-related ol li.hproduct div.actions ul {
 /* ----------------------------- CHECKOUT */
 
 .checkout-onepage-index #payment_form_ccsave {
-    margin-top: 20px;
+    margin-top: 20px
 }
 
 body.checkout-onepage-index h1,
