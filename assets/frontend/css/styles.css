@@ -1975,6 +1975,13 @@ div.block-related ol li a.product-image img {
 div.block-related ol li.hproduct div.actions {
     clear: both;
 }
+.checkout-cart div.block-related ol li.hproduct div.actions {
+    clear: none;
+}
+
+.checkout-cart div.block-related ol li.hproduct div.actions button {
+    margin: 10px 0 0 0;
+}
 
 div.block-related ol li.hproduct div.actions ul {
     margin: 0 auto;
