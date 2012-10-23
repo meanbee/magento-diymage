@@ -4,9 +4,6 @@
 -->
 <layout version="0.1.0">
     <default>
-        <remove name="right.permanent.callout" />
-        <remove name="left.permanent.callout" />
-        <remove name="left.newsletter" />
         <reference name="head">
             <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
             <action method="addItem"><type>skin_css</type><name>css/ie7.css</name><params/><if>IE 7</if></action>
@@ -50,6 +47,15 @@
                 <action method="setBlockId"><block_id>diymage_footer_column_3</block_id></action>
             </block>
         </reference>
+        
+        <reference name="right">
+            <action method="unsetChild"><name>right.permanent.callout</name></action>
+        </reference>
+        
+        <reference name="left">
+            <action method="unsetChild"><name>left.permanent.callout</name></action>
+            <action method="unsetChild"><name>left.newsletter</name></action>
+        </reference>
     </default>
 
     <catalog_category_default>
@@ -78,8 +84,6 @@
     </catalog_category_layered>
 
     <catalog_product_view>
-        <remove name="product.info.downloadable" />
-        
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
             <action method="addItem"><type>skin_js</type><name>js/photo-scroll.js</name><params/><if /></action>
@@ -128,25 +132,37 @@
     </catalogsearch_result_index>
 
     <checkout_cart_index>
-        <remove name="minicart" />
+        <reference name="header">
+            <action method="unsetChild"><name>minicart</name></action>
+        </reference>
     </checkout_cart_index>
     
     <checkout_cart_configure>
-        <remove name="minicart" />
+        <reference name="header">
+            <action method="unsetChild"><name>minicart</name></action>
+        </reference>
     </checkout_cart_configure>
 
     <checkout_onepage_index>
-        <remove name="minicart" />
+        <reference name="header">
+            <action method="unsetChild"><name>minicart</name></action>
+        </reference>
     </checkout_onepage_index>
     
     <checkout_multishipping>
-        <remove name="minicart" />
+        <reference name="header">
+            <action method="unsetChild"><name>minicart</name></action>
+        </reference>
     </checkout_multishipping>
     
     <checkout_onepage_success>
-        <remove name="cart_sidebar" />
-        <remove name="catalog.compare.sidebar" />
-        <remove name="minicart" />
+        <reference name="header">
+            <action method="unsetChild"><name>minicart</name></action>
+        </reference>
+        <reference name="right">
+            <action method="unsetChild"><name>cart_sidebar</name></action>
+            <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+        </reference>
     </checkout_onepage_success>
 
     <tag_product_list>
@@ -159,5 +175,11 @@
             <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
         </reference>
     </tag_product_list>
+    
+    <PRODUCT_TYPE_downloadable>
+        <reference name="product.info">
+            <action method="unsetChild"><name>product_type_data</name></action>
+        </reference>
+    </PRODUCT_TYPE_downloadable>
     
 </layout>
