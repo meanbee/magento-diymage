@@ -1816,6 +1816,10 @@ table.data-table td.remove a.remove:hover {
 
 /* Single column form e.g. Create an Account */
 
+#create-account fieldset:last-of-type {
+    border-bottom: 0;
+}
+
 div.col1-layout form { 
     margin: 0 auto;
     width:50%
