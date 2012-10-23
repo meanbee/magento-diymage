@@ -1193,6 +1193,11 @@ aside#reviews {
     margin-bottom: 20px;
 }
 
+aside#reviews form>h2 {
+    margin-top: 1.5em;
+    padding-bottom: 0;
+}
+
 /* Star ratings */
 
 abbr.rating {
