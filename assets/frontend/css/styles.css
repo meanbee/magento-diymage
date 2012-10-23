@@ -2353,6 +2353,14 @@ div.my-account {
     padding-top: 10px;
 }
 
+div.my-account .ratings-table tr {
+    text-align: left;
+}
+
+div.my-account .ratings-table tr th {
+    padding-right: 10px;
+}
+
 div.my-account h1 {
     border-bottom: 1px solid;
     margin-bottom: 15px;
