@@ -1465,6 +1465,11 @@ div.block-compared ol li {
     padding: 10px 0;
 }
 
+div.block-compared ol li.last,
+div.block-viewed ol li.last {
+    border-bottom: 0;
+}
+
 div.block-viewed ol li img.photo,
 div.block-compared ol li img.photo {
     border: 1px solid;
