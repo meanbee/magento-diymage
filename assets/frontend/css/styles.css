@@ -1657,6 +1657,10 @@ body.checkout-cart-configure h1 {
     visibility: hidden;
 }
 
+#cart .update {
+    float: right;
+}
+
 .cart-empty {
     clear:both;
     padding-left:20px;
