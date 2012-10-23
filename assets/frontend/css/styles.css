@@ -2345,6 +2345,10 @@ div.block-progress div.block-content ul li.error {
 
 /* ----------------------------- MY ACCOUNT */
 
+.dashboard .welcome-msg {
+    padding: 10px;
+}
+
 div.my-account {
     padding-top: 10px;
 }
