@@ -1242,11 +1242,26 @@ ul.products-grid li a.link-review {
 
 ul#reviews-list div.rating-box { 
     float:left;
-    width:100px;
+    margin: 0 15px 0 0;
 }
 
-.rating-box { width:69px; height:13px; font-size:0; line-height:0; background:url(../images/bkg_rating.gif) 0 0 repeat-x; text-indent:-999em; overflow:hidden; }
-.rating-box .rating { float:left; height:13px; background:url(../images/bkg_rating.gif) 0 100% repeat-x; }
+.rating-box { 
+    background: url(../images/star-ratings.gif) top left no-repeat;
+    display: block;
+    font-size: 0;
+    height: 17px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999999px;
+    width: 85px; 
+}
+.rating-box .rating { 
+    background: url(../images/star-ratings.gif) bottom left no-repeat;
+    display: block;
+    height: 17px;
+    text-indent: -999999px;
+    width: 85px;
+}
 
 aside#reviews div.description {
     clear:both;
@@ -1506,7 +1521,7 @@ aside#related-products ul.products-grid h3.product-name {
     min-height:75px;
 }
 
-aside#related-products ul.products-grid li abbr.rating {
+aside#related-products ul.products-grid li div.rating-box {
     margin: 3px 0 5px 27px;
 }
 
