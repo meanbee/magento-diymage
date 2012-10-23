@@ -1989,6 +1989,10 @@ div.block-related ol li.hproduct div.actions ul {
 
 /* ----------------------------- CHECKOUT */
 
+.checkout-onepage-index #payment_form_ccsave {
+    margin-top: 20px;
+}
+
 body.checkout-onepage-index h1,
 ol#checkoutSteps {
     margin-left: 20px;
