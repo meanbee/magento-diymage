@@ -1195,7 +1195,7 @@ aside#reviews {
 
 aside#reviews form>h2 {
     margin-top: 1.5em;
-    padding-bottom: 0;
+    padding-bottom: 0;  
 }
 
 /* Star ratings */
@@ -1326,6 +1326,17 @@ ul#reviews-list li div.description {
 
 .box-reviews div.rating-box {
     float:left;
+}
+
+/* Send to a friend */
+.sendfriend-product-send textarea, input[type="text"] {
+    width: 400px;
+}
+.sendfriend-product-send textarea {
+    height: 200px;
+}
+.sendfriend-product-send .buttons-set button {
+    float: left;
 }
 
 /* ----------------------------- COMPARE PRODUCTS AND CART SIDEBAR */
