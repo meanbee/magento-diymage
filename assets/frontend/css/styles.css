@@ -1047,6 +1047,11 @@ aside.product-options-bottom {
     float:right;
 }
 
+aside.product-options-bottom .price-box {
+    text-align: right;
+    margin-right: 25px;
+}
+
 section.hproduct div.actions {
     float: right;
     margin-bottom: 20px;
