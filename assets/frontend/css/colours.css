@@ -32,6 +32,10 @@ p.note {
     color:#409A40;
 }
 
+#checkout-step-login .error-msg {
+    background: #fff;
+}
+
 /* ----------------------------- CART */
 
 section.cart {
