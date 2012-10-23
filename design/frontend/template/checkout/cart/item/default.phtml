@@ -241,5 +241,5 @@ $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
         <?php endif; ?>
     </td>
     <?php endif; ?>
-    <td class="remove"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="button remove"><?php echo $this->__('Remove item')?></a></td>
+    <td class="remove"><a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="button remove" onclick="return confirm('Are you sure you want to remove the selected item?')"><?php echo $this->__('Remove item')?></a></td>
 </tr>
