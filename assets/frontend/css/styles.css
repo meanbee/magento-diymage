@@ -829,6 +829,10 @@ ul.products-grid.list-products li.hproduct {
     padding: 20px 20px 19px 20px;
 }
 
+ul.products-grid.list-products li.last {
+    border-bottom: none;
+}
+
 div.col2-left-layout div.col-main ul.list-products li.hproduct:nth-child(n+7),
 div.col2-right-layout div.col-main ul.list-products li.hproduct:nth-child(n+7) {
     border-bottom: 1px dotted;
