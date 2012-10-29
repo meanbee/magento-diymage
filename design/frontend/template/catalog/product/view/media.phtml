@@ -2,21 +2,21 @@
     $_product = $this->getProduct();
     $_helper = $this->helper('catalog/output');
 ?>
-<div class="current-photo"> 
-    <a href="#" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"> 
+<div class="current-photo">
+    <a data-fancybox-group="gallery" href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="fancybox" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"> 
         <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="340" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" />
     </a> 
 </div>
-<ul id="photo-list" class="no-javascript"> 
+<ul id="photo-list"> 
     <li>
-        <a href="#" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"> 
+        <a data-fancybox-group="gallery" href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" class="fancybox"> 
             <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="80" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" />
         </a>
     </li>
     <?php if (count($this->getGalleryImages()) > 0): ?>
         <?php foreach ($this->getGalleryImages() as $_image): ?>
             <li> 
-                <a href="#" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"> 
+                <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()) ?>" class="fancybox" data-fancybox-group="gallery" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"> 
                     <img class="photo" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()) ?>" width="80" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
                 </a> 
             </li>

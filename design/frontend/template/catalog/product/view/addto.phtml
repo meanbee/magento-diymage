@@ -41,6 +41,7 @@
         $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
     ?>
     <?php if($_compareUrl && $show_compare) : ?>
+    <?php echo $show_compare; ?>
         <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
     <?php endif; ?>
     </ul>

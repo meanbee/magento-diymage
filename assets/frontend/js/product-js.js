@@ -1,0 +1,1 @@
+$j(".fancybox").fancybox();
