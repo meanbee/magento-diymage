@@ -9,9 +9,11 @@
 <!-- SITE NAVIGATION --> 
 <ul class="site-navigation">
     <?php if ($d->getValue('global', 'header_show_link_myaccount', $store)): ?>
-    <li> 
-        <a href="<?php echo $this->getUrl("customer/account") ?>" title="<?php echo $this->__('My Account') ?>"><?php echo $this->__('My Account') ?></a> 
-    </li>
+        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?> 
+        <li> 
+            <a href="<?php echo $this->getUrl("customer/account") ?>" title="<?php echo $this->__('My Account') ?>"><?php echo $this->__('My Account') ?></a> 
+        </li>
+        <?php endif; ?>
     <?php endif; ?>
     
     <?php if ($d->getValue('global', 'header_show_link_wishlist', $store)): ?>
