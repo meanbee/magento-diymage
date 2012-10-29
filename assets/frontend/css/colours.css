@@ -389,7 +389,7 @@ aside#product-tags {
 div.box-tags .tags li a,
 aside#product-tags ul li a {
     background: #fff url(../images/tag-hole.gif) 5px 8px no-repeat;
-    border-color: #e8e8e8; /* Light grey */
+    border-color: #dedede; /* Light grey */
     -webkit-box-shadow: inset 0px -5px 5px rgba(244, 244, 244, 1),
         0px 1px 1px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: inset 0px -5px 5px rgba(244, 244, 244, 1),
