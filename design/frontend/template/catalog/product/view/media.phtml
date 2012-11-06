@@ -7,12 +7,7 @@
         <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="340" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" />
     </a> 
 </div>
-<ul id="photo-list"> 
-    <li>
-        <a data-fancybox-group="gallery" href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" class="fancybox"> 
-            <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="80" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" />
-        </a>
-    </li>
+<ul id="photo-list">
     <?php if (count($this->getGalleryImages()) > 0): ?>
         <?php foreach ($this->getGalleryImages() as $_image): ?>
             <li> 
