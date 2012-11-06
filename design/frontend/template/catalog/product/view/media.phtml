@@ -7,16 +7,15 @@
         <img class="photo" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" width="340" alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>" />
     </a> 
 </div>
+<?php if (count($this->getGalleryImages()) > 1): ?>
 <ul id="photo-list">
-    <?php if (count($this->getGalleryImages()) > 0): ?>
-        <?php foreach ($this->getGalleryImages() as $_image): ?>
-            <li> 
-                <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()) ?>" class="fancybox" data-fancybox-group="gallery" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"> 
-                    <img class="photo" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()) ?>" width="80" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
-                </a> 
-            </li>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <?php foreach ($this->getGalleryImages() as $_image): ?>
+        <li>
+            <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()) ?>" class="fancybox" data-fancybox-group="gallery" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>">
+                <img class="photo" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()) ?>" width="80" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+            </a>
+        </li>
+    <?php endforeach; ?>
 </ul>
 <script type="text/javascript"> 
 	$j(function() {
@@ -33,3 +32,4 @@
         $j("#photo-list")[0].startMoving(direction, speed);
 	});
 </script>
+<?php endif; ?>
