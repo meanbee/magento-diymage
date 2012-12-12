@@ -421,8 +421,13 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
                     $blocks = $data['sort_order'];
                     
                     foreach ($blocks as $block) {
-                        if ($block['static']) {
-                            $this->_addStaticBlock($layout, $group, $block['static'], $block['name'], $block['after'], $block['before']);
+                        if (isset($block['static']) && $block['static']) {
+                            $static = (isset($block['static'])) ? $block['static'] : false;
+                            $name   = (isset($block['name']))   ? $block['name']   : false;
+                            $after  = (isset($block['after']))  ? $block['after']  : false;
+                            $before = (isset($block['before'])) ? $block['before'] : false;
+
+                            $this->_addStaticBlock($layout, $group, $static, $name, $after, $before);
                         }
                     }
                 }

@@ -45,51 +45,56 @@ class Meanbee_Diy_Block_Admin_Control_Builder extends Meanbee_Diy_Block_Admin_Co
         }
         
         $reference = $layout->getReference($name);
-        $data = $this->_getValueAsArray(); 
-        $sort_order = $data[$name]['sort_order'];
-        
+        $data = $this->_getValueAsArray();
         $return = array();
-        $reference_index_map = array();
-        
-        // Provide a quick way for referencing the references..
-        if (count($reference) > 0) {
-            foreach ($reference as $idx => $ref_data) {
-                $reference_index_map[$ref_data['name']] = $idx;
-            }
-        }
-        
-        // Arrange the references by the sort order in an array to return
-        if (count($sort_order) > 0) {
-            foreach ($sort_order as $idx => $sort_data) {
-                $name = $sort_data['name'];
-                
-                // Add in any static blocks we find
-                if ($sort_data['static']) {
-                    $return[] = $sort_data;
-                    continue;
-                }
-                
-                if ($reference_index_map[$name] !== null) {
-                    $return[] = $reference[$reference_index_map[$name]];
 
-                    // Remove the reference, so we can check if we've got any left at the
-                    // end.
-                    unset($reference[$reference_index_map[$name]]);
+        if (isset($data[$name])) {
+            $sort_order = $data[$name]['sort_order'];
+
+            $reference_index_map = array();
+
+            // Provide a quick way for referencing the references..
+            if (count($reference) > 0) {
+                foreach ($reference as $idx => $ref_data) {
+                    $reference_index_map[$ref_data['name']] = $idx;
                 }
             }
-        }
-        
-        // If we didn't build anything above, then just return the default structure 
-        if (count($return) == 0) {
-            $return = $reference;
-        } else if (count($reference) > 0) {
-            // If we didn't use everything that we pulled from the layout.xml, then just tack them on
-            // the end.  Deleted blocks will appear here too, as they won't appear in the sort_order.
-            foreach ($reference as $idx => $ref_data) {
-                $return[] = $ref_data;
+
+            // Arrange the references by the sort order in an array to return
+            if (count($sort_order) > 0) {
+                foreach ($sort_order as $idx => $sort_data) {
+                    $name = $sort_data['name'];
+
+                    // Add in any static blocks we find
+                    if (isset($sort_data['static']) && $sort_data['static']) {
+                        $return[] = $sort_data;
+                        continue;
+                    }
+
+                    if ($reference_index_map[$name] !== null) {
+                        $return[] = $reference[$reference_index_map[$name]];
+
+                        // Remove the reference, so we can check if we've got any left at the
+                        // end.
+                        unset($reference[$reference_index_map[$name]]);
+                    }
+                }
             }
+
+            // If we didn't build anything above, then just return the default structure
+            if (count($return) == 0) {
+                $return = $reference;
+            } else if (count($reference) > 0) {
+                // If we didn't use everything that we pulled from the layout.xml, then just tack them on
+                // the end.  Deleted blocks will appear here too, as they won't appear in the sort_order.
+                foreach ($reference as $idx => $ref_data) {
+                    $return[] = $ref_data;
+                }
+            }
+        } else {
+            $return = $reference;
         }
-        
+
         return Zend_Json::encode($return);
     }
     

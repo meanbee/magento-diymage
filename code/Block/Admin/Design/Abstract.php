@@ -201,7 +201,7 @@ abstract class Meanbee_Diy_Block_Admin_Design_Abstract extends Meanbee_Diy_Block
         
 
         $package_name = $package->getPackageName();
-        $theme_name = $package->getTheme();
+        $theme_name = $package->getTheme('default');
         
         return new Varien_Object(array(
             "package" => $package_name,
