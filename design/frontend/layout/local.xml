@@ -130,6 +130,13 @@
         <reference name="head">
             <action method="addItem"><type>skin_js</type><name>js/block-layered-nav.js</name><params/><if /></action>
         </reference>
+        <reference name="search_result_list">
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>2</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>3</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>3</count></action>
+        </reference>
     </catalogsearch_result_index>
 
     <checkout_cart_index>
