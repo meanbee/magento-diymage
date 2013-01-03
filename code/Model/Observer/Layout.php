@@ -141,7 +141,6 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
     /**
      * Sort the blocks in the references.
      *
-     * @see http://stackoverflow.com/questions/4410206/change-order-of-blocks-via-local-xml-file-in-magento
      * @param string $identifiers 
      * @param string $layout 
      * @return void
@@ -157,25 +156,32 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
             $update_xml = $this->_getUpdateXML($identifier);
             
             if (count($update_xml) > 0) {
-                // An array of xml snippets
-                $modified_updates = array();
-                $updates = $layout->getUpdate()->asArray();
-                
                 foreach ($update_xml as $group => $data) {
                     $this->_log->debug("Searching for group $group")->indent();
                     $blocks = $data['sort_order'];
-                    $block_found = array();
-                    
+
+                    $sorted_blocks = array();
+
                     foreach ($blocks as $key => $block_data) {
-                        $xml = "
-                            <reference name='$group'>
-                                <action method='unsetChild'><alias>{$block_data['name']}</alias></action>
-                                <action method='insert'><blockName>{$block_data['name']}</blockName><siblingName>{$block_data['after']}</siblingName><after>1</after></action>
-                            </reference>
-                        ";
-                        
-                        $layout->getUpdate()->addUpdate($xml);
+                        $block_name = $block_data['name'];
+                        $previous_block_name = $block_data['after'];
+
+                        $previous_idx = array_search($previous_block_name, $sorted_blocks);
+                        if (false === $previous_idx) {
+                            $sorted_blocks[] = $block_name;
+                        } else {
+                            array_splice($sorted_blocks, $previous_idx + 1, 0, $block_name);
+                        }
                     }
+
+                    $sorted_blocks_str = join(',', $sorted_blocks);
+                    $xml = "
+                        <reference name='$group'>
+                            <action method='setBlockOrder'><order>$sorted_blocks_str</order></action>
+                        </reference>
+                    ";
+
+                    $layout->getUpdate()->addUpdate($xml);
                 }
             }
         }

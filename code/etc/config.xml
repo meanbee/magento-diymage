@@ -38,6 +38,11 @@
             <diy>
                 <class>Meanbee_Diy_Block</class>
             </diy>
+            <core>
+                <rewrite>
+                    <text_list>Meanbee_Diy_Block_Core_Text_List</text_list>
+                </rewrite>
+            </core>
         </blocks>
         <helpers>
             <diy>
