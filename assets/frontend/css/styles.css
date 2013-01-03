@@ -2805,6 +2805,12 @@ footer small {
 
 /* ----------------------------- FANCYBOX */
 
+/*
+ * Fancybox applies a margin to the body tag when clicked, which messes up the alignment of things, so we prevent any inline margin-right
+ * style from having any effect.
+ */
+body[style] { margin-right: auto !important }
+
 /*! fancyBox v2.1.3 fancyapps.com | fancyapps.com/fancybox/#license */
 .fancybox-wrap,
 .fancybox-skin,
