@@ -1566,6 +1566,10 @@ aside#related-products ul.products-grid li:nth-child(4n) {
     padding-right: 20px;
 }
 
+aside#related-products ul.products-grid li.last {
+    border-left: 0px;
+}
+
 aside#related-products  ul.products-grid li a.review-amount {
     display: block;
 }
