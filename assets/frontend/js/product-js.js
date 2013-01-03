@@ -1,1 +1,3 @@
-$j(".fancybox").fancybox();
+$j(function () {
+    $j(".fancybox").fancybox();
+});

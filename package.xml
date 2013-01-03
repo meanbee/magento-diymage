@@ -9,11 +9,11 @@
    <description>DIY Mage: Magento Theme Management</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>1.0.4</version>
+   <version>1.0.5</version>
    <stability>stable</stability>
-   <notes>* Disable the diymage css file for stores not running the DIY Mage theme
-* Warn the user if they are not using the DIY Mage theme
-* Support adding stores after installation</notes>
+   <notes>* Use a more reliable method to order the blocks in columns
+* Fix the styling of the upsell products
+* Work around a fancybox bug that causes the body to move around</notes>
    <authors>
       <name>
          <name>Meanbee</name>
