@@ -555,7 +555,19 @@ class Meanbee_Diy_Model_Observer_Layout implements Meanbee_Diy_Model_Observer_In
 
             if (!$page_id) {
                 $page_key = Mage::getStoreConfig('web/default/cms_home_page');
-                $page = Mage::getModel("cms/page")->getCollection()->addFieldToFilter('identifier', $page_key)->getFirstItem();
+
+                /**
+                 * The $page_key could have the format: %s|%d, when %s is the name of the page identifier, and the %d is
+                 * the actual page id.
+                 */
+                $page_key_delimiter_position = strrpos($page_key, '|');
+
+                if ($page_key_delimiter_position) {
+                    $page_id = substr($page_key, $page_key_delimiter_position + 1);
+                    $page = Mage::getModel('cms/page')->load($page_id);
+                } else {
+                    $page = Mage::getModel('cms/page')->setStoreId(Mage::app()->getStore()->getId())->load($page_key);
+                }
             } else {
                 $page = Mage::getModel('cms/page')->load($page_id);
             }
