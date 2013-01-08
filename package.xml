@@ -9,11 +9,9 @@
    <description>DIY Mage: Magento Theme Management</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>1.0.5</version>
+   <version>1.0.6</version>
    <stability>stable</stability>
-   <notes>* Use a more reliable method to order the blocks in columns
-* Fix the styling of the upsell products
-* Work around a fancybox bug that causes the body to move around</notes>
+   <notes>* Fix the homepage detection when using multiple stores.</notes>
    <authors>
       <name>
          <name>Meanbee</name>
