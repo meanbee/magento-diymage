@@ -1,3 +1,3 @@
 # DIY Mage
 
-[Promotional Site](diymage.com)
+[Promotional Site](http://diymage.com)
